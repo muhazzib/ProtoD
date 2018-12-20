@@ -1,0 +1,11 @@
+.footer {
+  border-top: 8px solid #d8dee6;
+  margin-top: 43px;
+  padding-top: 52px;
+  font-size: 14px;
+}
+
+.footer span {
+  font-size: 12px;
+  line-height: 24px;
+}
