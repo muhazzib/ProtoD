@@ -1,9 +1,14 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './global-styles.css'
+import './Content/content.css'
 import Container from './container'
+import Wrapper from './wrapper'
 import Navigation from './navigation'
 import Header from './Header/header'
+import Breadcrumb from '../components/Breadcrumb/breadcrumb'
+
 import SiteHeader from './Site-header/site-header'
 import Footer from './Footer/footer'
 
@@ -21,8 +26,10 @@ class Template extends React.Component {
       <Container>
         <Header />
         <SiteHeader />
-        {children}
-        {/* <Footer /> */}
+        <Wrapper>
+          <Breadcrumb />
+          {children}
+        </Wrapper>
       </Container>
     )
   }

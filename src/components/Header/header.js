@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { Button } from 'reactstrap'
-import styles from './header.css'
+import headerStyles from './header.module.css'
 
 import {
   Collapse,
@@ -18,11 +18,11 @@ import {
 } from 'reactstrap'
 
 const Header = ({ siteTitle }) => (
-  <div className="wrapper">
-    <div className="container">
+  <div className={headerStyles.wrapper}>
+    <div className={headerStyles.container}>
       <div className="row">
         <div className="col left-grid">
-          <ul className="site-tabs">
+          <ul className={headerStyles.siteTabs}>
             <li>
               <a href="http://www.crea.ca/">CREA.ca</a>
             </li>
@@ -41,8 +41,8 @@ const Header = ({ siteTitle }) => (
         </div>
 
         <div className="col right-grid">
-          <div className="menu-utility">
-            <ul className="utility-nav">
+          <div className={'menu-utility'}>
+            <ul className={headerStyles.utilityNav}>
               <li>
                 <a href="http://www.crea.ca/">Home</a>
               </li>

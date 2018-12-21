@@ -22,7 +22,7 @@ class Content extends React.Component {
     // })
     return (
       <div className="content-wrapper">
-        <div className="row split">
+        {/* <div className="row split">
           <div className="col-md">
             <div className="entry-header">
               <h1 className="entry-title">{data.title} </h1>
@@ -44,7 +44,7 @@ class Content extends React.Component {
             <div className="chart">Chart</div>
             Sidebar
           </div>
-        </div>
+        </div> */}
       </div>
     )
   }

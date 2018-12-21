@@ -1,4 +1,4 @@
-.main-menu {
+.mainMenu {
   height: 182px;
   z-index: 1000;
   position: relative;
@@ -9,11 +9,11 @@
   /* box-shadow: 0px 5px #f5f5f5; */
 }
 
-.menu-container {
+.menuContainer {
   padding-top: 26px;
 }
 
-.main-menu img {
+.mainMenu img {
   margin-top: 26px;
 }
 

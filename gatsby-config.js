@@ -2,6 +2,8 @@
 require('dotenv').config()
 let contentfulConfig
 
+//rich text
+const { BLOCKS, MARKS, INLINES } = require('@contentful/rich-text-types')
 try {
   // Load the Contentful config from the .contentful.json
   contentfulConfig = require('./.contentful')
@@ -32,7 +34,6 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
-    `@contentful/gatsby-transformer-contentful-richtext`,
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
@@ -54,6 +55,36 @@ module.exports = {
     },
     {
       resolve: `gatsby-transformer-csv`,
+    },
+    {
+      resolve: '@contentful/gatsby-transformer-contentful-richtext',
+      options: {
+        renderOptions: {
+          /*
+           * Defines custom html string for each node type like heading, embedded entries etc..
+           */
+          renderNode: {
+            // Example
+            [INLINES.ASSET_HYPERLINK]: node => {
+              return `<img class='custom-asset' src="${
+                node.data.target.fields.file['en-US'].url
+              }"/>`
+            },
+            [INLINES.EMBEDDED_ENTRY]: node => {
+              return `<div class='custom-entry' />${
+                node.data.target.fields.name['en-US']
+              }</div>`
+            },
+          },
+          /*
+           * Defines custom html string for each mark type like bold, italic etc..
+           */
+          renderMark: {
+            // Example
+            [MARKS.BOLD]: text => `<custom-bold>${text}<custom-bold>`,
+          },
+        },
+      },
     },
   ],
 }
