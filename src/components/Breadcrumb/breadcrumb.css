@@ -1,0 +1,28 @@
+.breadcrumbs {
+  font-size: 14px;
+  font-family: 'AvenirLTStd-Light', Verdana, sans-serif;
+  padding-top: 55px;
+}
+.BC_list {
+  margin: 0 0 1.6em 0;
+}
+.BC_list span {
+  padding: 2px;
+}
+.BC_list li {
+  list-style: none;
+  display: inline;
+  text-decoration: none;
+}
+
+.BC_list li a {
+  color: #345fa8;
+  text-decoration: none;
+}
+.BC_list li a:hover {
+  color: #65ade0;
+}
+
+.BC_list li:last-child a {
+  color: #505050;
+}
