@@ -54,6 +54,7 @@ class RootIndex extends React.Component {
             <div className="col-sm- side-content">
               <div className="chart">
                 <Sidebar />
+                hhh
               </div>
             </div>
           </div>
