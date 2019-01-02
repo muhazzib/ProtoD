@@ -5,23 +5,15 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   return new Promise((resolve, reject) => {
-    const blogPost = path.resolve('./src/templates/blog-post.js')
+    // const blogPost = path.resolve('./src/templates/blog-post.js')
     const natlPost = path.resolve('./src/templates/home.js')
     const boardPost = path.resolve('./src/templates/boards.js')
-    const sweetsPost = path.resolve('./src/templates/sweets.js')
+    // const sweetsPost = path.resolve('./src/templates/sweets.js')
 
     resolve(
       graphql(
         `
           {
-            allContentfulBlogPost {
-              edges {
-                node {
-                  title
-                  slug
-                }
-              }
-            }
             allContentfulNational {
               edges {
                 node {
@@ -77,20 +69,7 @@ exports.createPages = ({ graphql, actions }) => {
                 }
               }
             }
-            allContentfulSweets {
-              edges {
-                node {
-                  title
-                  slug
-                  id
-                  content {
-                    childMarkdownRemark {
-                      html
-                    }
-                  }
-                }
-              }
-            }
+
             allContentfulBoardMenu {
               edges {
                 node {
@@ -121,17 +100,6 @@ exports.createPages = ({ graphql, actions }) => {
           })
         })
 
-        const posts = result.data.allContentfulBlogPost.edges
-        posts.forEach((post, index) => {
-          createPage({
-            path: `/blog/${post.node.slug}/`,
-            component: blogPost,
-            context: {
-              slug: post.node.slug,
-            },
-          })
-        })
-
         const boards = result.data.allContentfulBoards.edges
         boards.forEach((board, index) => {
           createPage({
@@ -140,18 +108,6 @@ exports.createPages = ({ graphql, actions }) => {
             context: {
               id: board.node.id,
               slug: board.node.slug,
-            },
-          })
-        })
-
-        const sweets = result.data.allContentfulSweets.edges
-        sweets.forEach((sweet, index) => {
-          createPage({
-            path: `/sweet/${sweet.node.slug}/`,
-            component: sweetsPost,
-            context: {
-              id: sweet.node.id,
-              slug: sweet.node.slug,
             },
           })
         })

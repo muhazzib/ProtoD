@@ -113,19 +113,6 @@ export const pageQuery = graphql`
         title
         slug
       }
-      samtoo {
-        title
-      }
-      sweets {
-        title
-        id
-        slug
-        content {
-          childMarkdownRemark {
-            html
-          }
-        }
-      }
       childBoards {
         title
         slug
