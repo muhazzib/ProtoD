@@ -75,14 +75,15 @@ module.exports = {
                 node.data.target.fields.name['en-US']
               }</div>`
             },
+            [BLOCKS.EMBEDDED_ASSET]: node => {
+              return `<img src="${
+                node.data.target.fields.file['en-US'].url
+              }" />`
+            },
           },
           /*
            * Defines custom html string for each mark type like bold, italic etc..
            */
-          renderMark: {
-            // Example
-            [MARKS.BOLD]: text => `<custom-bold>${text}<custom-bold>`,
-          },
         },
       },
     },

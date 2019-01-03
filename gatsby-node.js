@@ -42,18 +42,7 @@ exports.createPages = ({ graphql, actions }) => {
                     title
                     slug
                   }
-                  samtoo {
-                    title
-                  }
-                  sweets {
-                    title
-                    slug
-                    content {
-                      childMarkdownRemark {
-                        html
-                      }
-                    }
-                  }
+
                   childBoards {
                     title
                     id
