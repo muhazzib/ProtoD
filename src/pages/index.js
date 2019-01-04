@@ -39,7 +39,8 @@ class RootIndex extends React.Component {
                   /> */}
                   {natl.mainContent !== null && (
                     <div>
-                      <p
+                      <div
+                        className="content"
                         dangerouslySetInnerHTML={{
                           __html: natl.mainContent.childMarkdownRemark.html,
                         }}
