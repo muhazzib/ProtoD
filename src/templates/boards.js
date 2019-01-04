@@ -8,6 +8,7 @@ import Link from 'gatsby-link'
 import Mls from '../components/mls'
 import Sheet from '../components/sheet'
 import SideBar from '../components/Side-bar/side-bar'
+import '../components/global-styles.css'
 
 class BoardTemplate extends React.Component {
   render() {
@@ -41,7 +42,6 @@ class BoardTemplate extends React.Component {
                     }}
                   /> */}
                   <div>
-                    {post.mainContent.childContentfulRichText.html}
                     <div
                       className="content"
                       dangerouslySetInnerHTML={{
