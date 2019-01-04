@@ -42,18 +42,10 @@ exports.createPages = ({ graphql, actions }) => {
                     title
                     slug
                   }
-
                   childBoards {
                     title
                     id
                     slug
-                    mainContent {
-                      content {
-                        content {
-                          value
-                        }
-                      }
-                    }
                   }
                 }
               }

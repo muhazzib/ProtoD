@@ -47,12 +47,6 @@ class BoardTemplate extends React.Component {
                         __html: post.mainContent.childContentfulRichText.html,
                       }}
                     />
-                    {/*  <p
-                      className="content"
-                      dangerouslySetInnerHTML={{
-                        __html: post.mainContent.mainContent,
-                      }}
-                    /> */}
                   </div>
                 </div>
               </div>
@@ -118,9 +112,6 @@ export const pageQuery = graphql`
       mlsStatistics {
         title
         slug
-      }
-      mainContent {
-        mainContent
       }
       childBoards {
         title
