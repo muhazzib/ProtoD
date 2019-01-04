@@ -76,7 +76,7 @@ module.exports = {
               }</div>`
             },
             [BLOCKS.EMBEDDED_ASSET]: node => {
-              return `<img src="${
+              return `<img onClick="" src="${
                 node.data.target.fields.file['en-US'].url
               }" />`
             },
