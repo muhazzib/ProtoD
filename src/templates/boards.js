@@ -41,6 +41,7 @@ class BoardTemplate extends React.Component {
                     }}
                   /> */}
                   <div>
+                    {post.mainContent.childContentfulRichText.html}
                     <p
                       className="content"
                       dangerouslySetInnerHTML={{
