@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import style from '../Side-bar/side-bar.css'
+import '../Side-bar/side-bar.css'
 import Menu from '../Board-Menu/menu'
 
 const SideBar = ({ siteTitle }) => (
