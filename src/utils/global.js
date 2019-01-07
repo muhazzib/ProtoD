@@ -2,6 +2,49 @@ import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
 
+@font-face {
+  font-family: 'AvenirLTStd-Light';
+  src: url('../fonts/2FBBBA_3_0.eot');
+  src: url('../fonts/2FBBBA_3_0.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/2FBBBA_3_0.woff2') format('woff2'),
+    url('../fonts/2FBBBA_3_0.woff') format('woff'),
+    url('../fonts/2FBBBA_3_0.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'AvenirLTStd-Heavy';
+  src: url('../fonts/2FBBBA_1_0.eot');
+  src: url('../fonts/2FBBBA_1_0.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/2FBBBA_1_0.woff2') format('woff2'),
+    url('../fonts/2FBBBA_1_0.woff') format('woff'),
+    url('../fonts/2FBBBA_1_0.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'AvenirLTStd-BookOblique';
+  src: url('../fonts/2FBBBA_2_0.eot');
+  src: url('../fonts/2FBBBA_2_0.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/2FBBBA_2_0.woff2') format('woff2'),
+    url('../fonts/2FBBBA_2_0.woff') format('woff'),
+    url('../fonts/2FBBBA_2_0.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'AvenirLTStd-Book';
+  src: url('../fonts/2FBBBA_4_0.eot');
+  src: url('../fonts/2FBBBA_4_0.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/2FBBBA_4_0.woff2') format('woff2'),
+    url('../fonts/2FBBBA_4_0.woff') format('woff'),
+    url('../fonts/2FBBBA_4_0.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'AvenirLTStd-HeavyOblique';
+  src: url('../fonts/2FBBBA_5_0.eot');
+  src: url('../fonts/2FBBBA_5_0.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/2FBBBA_5_0.woff2') format('woff2'),
+    url('../fonts/2FBBBA_5_0.woff') format('woff'),
+    url('../fonts/2FBBBA_5_0.ttf') format('truetype');
+}
+
+
 */ body {
   color: #505050;
   line-height: 30px;
