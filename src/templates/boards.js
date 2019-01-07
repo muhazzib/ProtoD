@@ -8,12 +8,10 @@ import Link from 'gatsby-link'
 import Mls from '../components/mls'
 import Sheet from '../components/sheet'
 import SideBar from '../components/Side-bar/side-bar'
-import '../components/global-styles.css'
 
 class BoardTemplate extends React.Component {
   render() {
     const post = get(this.props, 'data.contentfulBoards')
-    const siteTitle = get(this.props, 'data.site.siteMetadata.title')
     console.log(post.mainContent.childContentfulRichText.html)
     console.log('p', post)
 

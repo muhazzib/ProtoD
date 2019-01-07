@@ -57,6 +57,7 @@ module.exports = {
     {
       resolve: `gatsby-transformer-csv`,
     },
+
     {
       resolve: '@contentful/gatsby-transformer-contentful-richtext',
       options: {
