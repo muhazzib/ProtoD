@@ -11,7 +11,7 @@ import Breadcrumb from '../components/Breadcrumb/breadcrumb'
 import Footer from '../components/Footer/footer'
 
 import SiteHeader from './Site-header/site-header'
-// import './global-styles.css'
+import './global-styles.css'
 
 class Template extends React.Component {
   render() {
