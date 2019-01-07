@@ -33,6 +33,7 @@ module.exports = {
     'gatsby-transformer-remark',
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
+    `gatsby-plugin-styled-components`,
     'gatsby-plugin-sharp',
     '@contentful/gatsby-transformer-contentful-richtext',
     {
