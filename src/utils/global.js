@@ -1,7 +1,41 @@
 import { createGlobalStyle } from 'styled-components'
+import AvenirLTStdHeavy from '../fonts/2FBBBA_1_0.ttf'
+import AvenirLTStdBookOblique from '../fonts/2FBBBA_2_0.ttf'
+import AvenirLTStdLight from '../fonts/2FBBBA_3_0.ttf'
+import AvenirLTStdBook from '../fonts/2FBBBA_4_0.ttf'
+import AvenirLTStdHeavyOblique from '../fonts/2FBBBA_5_0.ttf'
 
 export const GlobalStyle = createGlobalStyle`
 
+  
+@font-face {
+  font-family: 'AvenirLTStd-Light';
+  src: url(${AvenirLTStdLight});
+
+}
+@font-face {
+  font-family: 'AvenirLTStd-Heavy';
+  src: url(${AvenirLTStdHeavy});
+
+}
+@font-face {
+  font-family: 'AvenirLTStd-BookOblique';
+  src: url(${AvenirLTStdBookOblique});
+
+}
+@font-face {
+  font-family: 'AvenirLTStd-Book';
+  src: url(${AvenirLTStdBook});
+
+}
+@font-face {
+  font-family: 'AvenirLTStd-HeavyOblique';
+  src: url(${AvenirLTStdHeavyOblique});
+
+}
+
+${
+  '' /* }
 @font-face {
   font-family: 'AvenirLTStd-Light';
   src: url('../fonts/2FBBBA_3_0.eot');
@@ -9,14 +43,18 @@ export const GlobalStyle = createGlobalStyle`
     url('../fonts/2FBBBA_3_0.woff2') format('woff2'),
     url('../fonts/2FBBBA_3_0.woff') format('woff'),
     url('../fonts/2FBBBA_3_0.ttf') format('truetype');
+
 }
-@font-face {
+
+{
+  @font-face {
   font-family: 'AvenirLTStd-Heavy';
   src: url('../fonts/2FBBBA_1_0.eot');
   src: url('../fonts/2FBBBA_1_0.eot?#iefix') format('embedded-opentype'),
     url('../fonts/2FBBBA_1_0.woff2') format('woff2'),
     url('../fonts/2FBBBA_1_0.woff') format('woff'),
     url('../fonts/2FBBBA_1_0.ttf') format('truetype');
+} 
 }
 @font-face {
   font-family: 'AvenirLTStd-BookOblique';
@@ -42,6 +80,7 @@ export const GlobalStyle = createGlobalStyle`
     url('../fonts/2FBBBA_5_0.woff2') format('woff2'),
     url('../fonts/2FBBBA_5_0.woff') format('woff'),
     url('../fonts/2FBBBA_5_0.ttf') format('truetype');
+} */
 }
 
 

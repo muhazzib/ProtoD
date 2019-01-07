@@ -12,6 +12,7 @@ import Footer from '../components/Footer/footer'
 
 import SiteHeader from './Site-header/site-header'
 import './global-styles.css'
+import '../components/Content/content.css'
 import { GlobalStyle } from '../utils/global'
 
 class Template extends React.Component {

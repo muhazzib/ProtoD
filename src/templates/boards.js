@@ -9,6 +9,8 @@ import Mls from '../components/mls'
 import Sheet from '../components/sheet'
 import SideBar from '../components/Side-bar/side-bar'
 
+import { GlobalStyle } from '../utils/global'
+
 class BoardTemplate extends React.Component {
   render() {
     const post = get(this.props, 'data.contentfulBoards')
@@ -17,6 +19,7 @@ class BoardTemplate extends React.Component {
 
     return (
       <Layout location={this.props.location}>
+        <GlobalStyle />
         <div className="content-wrapper">
           <div className="row split">
             <div className="col-md">
