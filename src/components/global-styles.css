@@ -273,17 +273,23 @@ h5 {
   font-size: 16px !important;
 }
 p {
-  margin-bottom: 1.6em;
-  color: #505050 !important;
+  margin-bottom: 1.6em !important;
+  font-family: 'AvenirLTStd-Light', Verdana, sans-serif;
+  font-size: 16px;
+  line-height: 30px;
+  font-weight: normal;
 }
 
-b,
-strong {
+b {
   font-family: 'AvenirLTStd-Heavy', Verdana, sans-serif;
   font-weight: normal;
   /* color: #345fa8; */
 }
 
+strong {
+  font-family: 'AvenirLTStd-Heavy', Verdana, sans-serif;
+  font-weight: normal;
+}
 dfn,
 cite,
 em,
