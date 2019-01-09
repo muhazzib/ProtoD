@@ -79,7 +79,7 @@ module.exports = {
               }</div>`
             },
             [BLOCKS.EMBEDDED_ASSET]: node => {
-              return `<img onClick="" src="${
+              return `<ReactFancy image="${
                 node.data.target.fields.file['en-US'].url
               }" />`
             },

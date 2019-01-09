@@ -1,12 +1,12 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+
 import Helmet from 'react-helmet'
 import get from 'lodash/get'
 import Img from 'gatsby-image'
 import Layout from '../components/layout'
 import Link from 'gatsby-link'
 import Mls from '../components/mls'
-import Sheet from '../components/sheet'
 import SideBar from '../components/Side-bar/side-bar'
 
 import { GlobalStyle } from '../utils/global'

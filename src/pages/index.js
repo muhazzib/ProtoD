@@ -7,7 +7,7 @@ import Layout from '../components/layout'
 import Content from '../components/Content/Content'
 import Container from '../components/container'
 import Sidebar from '../components/Side-bar/side-bar'
-import Sheet from '../components/sheet'
+import Sheet from '../components/Table/sheet'
 
 class RootIndex extends React.Component {
   render() {

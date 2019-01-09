@@ -376,6 +376,10 @@ blockquote cite {
   font-style: normal;
 }
 
+.content strong{
+  color: #345fa8;
+}
+
 /* new styles to be conformed */
 .text_upper {
   text-transform: uppercase;
