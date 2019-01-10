@@ -38,7 +38,7 @@
   margin: 0 0 1.6em 1.3333em;
 }
 
-.entry-content img {
+.entry-content .thumbnail {
   width: 350px;
   height: 240px;
   padding: 5px;

@@ -79,9 +79,15 @@ module.exports = {
               }</div>`
             },
             [BLOCKS.EMBEDDED_ASSET]: node => {
-              return `<ReactFancy image="${
+              return `<a href="#img1">
+              <img class="thumbnail" src="${
                 node.data.target.fields.file['en-US'].url
-              }" />`
+              }" >
+            </a>
+              
+              <a href="#_" class="lightbox" id="img1"> <img src="${
+                node.data.target.fields.file['en-US'].url
+              }" > </a>`
             },
           },
           /*

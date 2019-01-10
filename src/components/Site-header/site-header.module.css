@@ -1,6 +1,6 @@
 .mainMenu {
   height: 182px;
-  z-index: 1000;
+  z-index: 10;
   position: relative;
 
   /* border-bottom: 2px solid #f5f5f5; */
