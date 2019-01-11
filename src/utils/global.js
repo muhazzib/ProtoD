@@ -417,9 +417,10 @@ blockquote cite {
 
 .lightbox img {
 	/** Pad the lightbox image */
-	max-width: 90%;
-	max-height: 80%;
-	margin-top: 2%;
+	max-width: 100%;
+	max-height: 100%;
+	margin-top: 0;
+  padding-top:2%;
 }
 
 .lightbox:target {

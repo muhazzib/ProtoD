@@ -38,9 +38,25 @@
   margin: 0 0 1.6em 1.3333em;
 }
 
-.entry-content .thumbnail {
+/* .entry-content .thumbnail {
   width: 350px;
   height: 240px;
   padding: 5px;
   float: right;
+} */
+.chart_container {
+  text-align: center;
+  text-decoration: none;
+}
+
+.chart_container p {
+  color: #345fa8;
+}
+
+.thumbnail {
+  cursor: pointer;
+}
+
+.image-box {
+  cursor: pointer;
 }
