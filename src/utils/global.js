@@ -431,5 +431,10 @@ blockquote cite {
 	display: block;
 }
 
+.modal-dialog {
+  max-width: 1079px !important;
+}
+
+
 `
 export default GlobalStyle

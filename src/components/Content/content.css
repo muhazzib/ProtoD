@@ -67,5 +67,5 @@
 }
 
 .modal-dialog {
-  max-width: 1079px;
+  max-width: 1079px !important;
 }
