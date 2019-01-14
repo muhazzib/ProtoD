@@ -1,0 +1,95 @@
+/* accordion */
+:root {
+  --border-radius: 6px;
+  --color-primary: rgb(39, 164, 254);
+  --color-background: var(--color-primary);
+  --color-background-active: rgb(39, 148, 235);
+  --color-border: rgb(22, 110, 170);
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+.demo-container {
+  h1 {
+    border-bottom: 1px solid #ccc;
+    color: var(--color-primary);
+    text-align: center;
+  }
+
+  h2 {
+    color: #ccc;
+  }
+}
+
+.react-sanfona {
+  border: 1px solid #ccc;
+}
+
+.react-sanfona-item:first-child .react-sanfona-item-title {
+  border-top: none;
+}
+
+.react-sanfona-item-title:hover {
+  color: #cd0a0a !important;
+}
+.react-sanfona-item-expanded .react-sanfona-item-title {
+  color: #cd0a0a !important;
+
+  .title-done-btn {
+    display: inline-block;
+    float: right;
+    color: #000;
+  }
+}
+
+.react-sanfona-item-body-wrapper {
+  padding: 20px;
+  position: relative;
+  border: 1px solid rgba(51, 51, 51, 0.1);
+  background-color: #edf0fe !important;
+  align-content: center;
+}
+
+.react-sanfona-item-body-wrapper:hover .tooltip {
+  opacity: 1;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.title-done-btn {
+  display: none;
+}
+
+.tooltip {
+  background-color: #000;
+  bottom: -10px;
+  border-radius: 3px;
+  color: #fff;
+  left: 10px;
+  opacity: 0;
+  padding: 10px;
+  position: absolute;
+  transition: opacity 0.3s;
+}
+
+.togglers {
+  align-items: center;
+  display: flex;
+  margin-bottom: 90px;
+  margin-top: -40px;
+}
+
+.togglers button {
+  margin-right: 10px;
+}
+
+.togglers button:last-child {
+  margin-right: 0;
+}

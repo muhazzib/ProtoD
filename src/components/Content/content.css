@@ -55,8 +55,17 @@
 
 .thumbnail {
   cursor: pointer;
+  width: 50%;
 }
 
 .image-box {
   cursor: pointer;
+}
+
+.imageBox {
+  text-align: -webkit-center;
+}
+
+.modal-dialog {
+  max-width: 1079px;
 }

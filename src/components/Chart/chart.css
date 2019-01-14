@@ -1,0 +1,25 @@
+.chart {
+  max-width: 420px;
+  float: left;
+  margin-right: 20px;
+}
+
+.grid {
+  width: 32.27158424140821%;
+}
+
+.react-sanfona-item-title {
+  color: rgb(80, 80, 80) !important;
+  text-transform: uppercase;
+  border-top: 1px solid rgb(204, 204, 204);
+  padding: 20px;
+  transition: background-color 0.3s ease 0s;
+  margin: 0 0;
+  padding: 0 0 0 1.5em;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  border: 1px solid #eaeaea;
+  background-color: #ffffff;
+  font-family: 'AvenirLTStd-Heavy', Verdana, sans-serif !important;
+}

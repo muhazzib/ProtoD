@@ -1,25 +1,43 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
-import ReactFancyBox from 'react-fancybox'
-import 'react-fancybox/lib/fancybox.css'
+/* import ReactFancyBox from 'react-fancybox'
+import 'react-fancybox/lib/fancybox.css' */
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
+
 import Img from 'gatsby-image'
 import Layout from '../components/layout'
-import Content from '../components/Content/Content'
-import Container from '../components/container'
+import Chart from '../components/Chart/chart'
 import Sidebar from '../components/Side-bar/side-bar'
 import Sheet from '../components/Table/sheet'
 
 class RootIndex extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      modal: false,
+    }
+
+    this.toggle = this.toggle.bind(this)
+  }
+
+  toggle() {
+    this.setState({
+      modal: !this.state.modal,
+    })
+  }
+
   render() {
     const natl = get(this, 'props.data.allContentfulNational.edges[0].node')
     console.log('image', natl.chartA)
+
     return (
       <Layout location={this.props.location}>
         <div className="content-wrapper">
           <div className="row split">
             <div className="col-md">
               <div className="entry-header">
+                {/* <Chart /> */}
                 <h1
                   className="entry-title"
                   dangerouslySetInnerHTML={{
@@ -27,7 +45,6 @@ class RootIndex extends React.Component {
                   }}
                 />
               </div>
-
               <div className="entry-content">
                 <div className="entry-sub">
                   <h2>{natl.headline}</h2>
@@ -41,13 +58,31 @@ class RootIndex extends React.Component {
                         }}
                       />
                       <div className="chart_container">
-                        <ReactFancyBox
-                          thumbnail={natl.chartA.fixed.src}
-                          image={natl.chartA.fluid.src}
-                        />
+                        {/* Char A Start */}
+                        <div className="imageBox">
+                          <img
+                            onClick={this.toggle}
+                            src={natl.chartA.fixed.src}
+                            className="thumbnail"
+                          />
+                        </div>
+                        <Modal
+                          isOpen={this.state.modal}
+                          toggle={this.toggle}
+                          className={this.props.className}
+                        >
+                          <ModalBody>
+                            <img src={natl.chartA.fixed.src} />
+                          </ModalBody>
+                          <ModalFooter>
+                            <Button color="secondary" onClick={this.toggle}>
+                              Close
+                            </Button>
+                          </ModalFooter>
+                        </Modal>
                         <p>Chart A</p>
                       </div>
-
+                      {/* Char A End */}
                       <div
                         className="content"
                         dangerouslySetInnerHTML={{
@@ -55,10 +90,32 @@ class RootIndex extends React.Component {
                         }}
                       />
                       <div className="chart_container">
-                        <ReactFancyBox
+                        {/* <ReactFancyBox
                           thumbnail={natl.chartB.fixed.src}
                           image={natl.chartB.fluid.src}
-                        />
+                        /> */}
+                        <div className="imageBox">
+                          <img
+                            onClick={this.toggle}
+                            src={natl.chartB.fixed.src}
+                            className="thumbnail"
+                          />
+                        </div>
+                        <Modal
+                          isOpen={this.state.modal}
+                          toggle={this.toggle}
+                          className={this.props.className}
+                        >
+                          <ModalBody>
+                            <img src={natl.chartB.fluid.src} />
+                          </ModalBody>
+                          <ModalFooter>
+                            <Button color="secondary" onClick={this.toggle}>
+                              Close
+                            </Button>
+                          </ModalFooter>
+                        </Modal>
+
                         <p>Chart B</p>
                       </div>
 
