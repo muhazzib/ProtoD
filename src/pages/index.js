@@ -1,10 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
-/* import ReactFancyBox from 'react-fancybox'
-import 'react-fancybox/lib/fancybox.css' */
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
-
+import contentStyles from '../components/Content/content.css'
 import Img from 'gatsby-image'
 import Layout from '../components/layout'
 import Chart from '../components/Chart/chart'
@@ -14,17 +12,30 @@ import Sheet from '../components/Table/sheet'
 class RootIndex extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      modal: false,
-    }
 
-    this.toggle = this.toggle.bind(this)
+    this.state = {
+      dd1: false,
+      modal1: false,
+      modal2: false,
+    }
+    this.dropdownToggle = this.dropdownToggle.bind(this)
   }
 
-  toggle() {
+  dropdownToggle() {
     this.setState({
-      modal: !this.state.modal,
+      dd1: !this.state.dd1,
     })
+  }
+  closeModal(tabId) {
+    this.setState({
+      [tabId]: false,
+    })
+  }
+  showModal(modal) {
+    this.setState({
+      [modal]: true,
+    })
+    console.log(this.state)
   }
 
   render() {
@@ -61,24 +72,24 @@ class RootIndex extends React.Component {
                         {/* Char A Start */}
                         <div className="imageBox">
                           <img
-                            onClick={this.toggle}
+                            onClick={this.showModal.bind(this, 'modal1')}
                             src={natl.chartA.fixed.src}
                             className="thumbnail"
                           />
                         </div>
                         <Modal
-                          isOpen={this.state.modal}
-                          toggle={this.toggle}
+                          isOpen={this.state.modal1}
+                          toggle={this.closeModal.bind(this, 'modal1')}
                           className={this.props.className}
                         >
+                          <ModalHeader
+                            toggle={this.closeModal.bind(this, 'modal1')}
+                          >
+                            Chart A
+                          </ModalHeader>
                           <ModalBody>
-                            <img src={natl.chartA.fixed.src} />
+                            <img src={natl.chartA.fluid.src} />
                           </ModalBody>
-                          <ModalFooter>
-                            <Button color="secondary" onClick={this.toggle}>
-                              Close
-                            </Button>
-                          </ModalFooter>
                         </Modal>
                         <p>Chart A</p>
                       </div>
@@ -90,30 +101,26 @@ class RootIndex extends React.Component {
                         }}
                       />
                       <div className="chart_container">
-                        {/* <ReactFancyBox
-                          thumbnail={natl.chartB.fixed.src}
-                          image={natl.chartB.fluid.src}
-                        /> */}
                         <div className="imageBox">
                           <img
-                            onClick={this.toggle}
+                            onClick={this.showModal.bind(this, 'modal2')}
                             src={natl.chartB.fixed.src}
                             className="thumbnail"
                           />
                         </div>
                         <Modal
-                          isOpen={this.state.modal}
-                          toggle={this.toggle}
+                          isOpen={this.state.modal2}
+                          toggle={this.closeModal.bind(this, 'modal2')}
                           className={this.props.className}
                         >
+                          <ModalHeader
+                            toggle={this.closeModal.bind(this, 'modal2')}
+                          >
+                            Chart B
+                          </ModalHeader>
                           <ModalBody>
                             <img src={natl.chartB.fluid.src} />
                           </ModalBody>
-                          <ModalFooter>
-                            <Button color="secondary" onClick={this.toggle}>
-                              Close
-                            </Button>
-                          </ModalFooter>
                         </Modal>
 
                         <p>Chart B</p>

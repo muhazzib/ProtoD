@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import './content.css'
+import contentStyles from './content.css'
 import { StaticQuery, graphql } from 'gatsby'
 import get from 'lodash/get'
 
@@ -21,7 +21,7 @@ class Content extends React.Component {
 
     // })
     return (
-      <div className="content-wrapper">
+      <div className={ContentSyles.contentWrapper}>
         {/* <div className="row split">
           <div className="col-md">
             <div className="entry-header">
