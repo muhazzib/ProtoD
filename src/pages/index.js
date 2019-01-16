@@ -8,6 +8,7 @@ import Layout from '../components/layout'
 import Chart from '../components/Chart/chart'
 import Sidebar from '../components/Side-bar/side-bar'
 import Sheet from '../components/Table/sheet'
+import Swiper from 'react-id-swiper'
 
 class RootIndex extends React.Component {
   constructor(props) {
@@ -44,11 +45,17 @@ class RootIndex extends React.Component {
 
     return (
       <Layout location={this.props.location}>
+        <Swiper>
+          <div>Slide 1</div>
+          <div>Slide 2</div>
+          <div>Slide 3</div>
+          <div>Slide 4</div>
+          <div>Slide 5</div>
+        </Swiper>
         <div className="content-wrapper">
           <div className="row split">
             <div className="col-md">
               <div className="entry-header">
-                {/* <Chart /> */}
                 <h1
                   className="entry-title"
                   dangerouslySetInnerHTML={{
@@ -60,82 +67,80 @@ class RootIndex extends React.Component {
                 <div className="entry-sub">
                   <h2>{natl.headline}</h2>
 
-                  {natl.mainContent !== null && (
-                    <div>
-                      <div
-                        className="content"
-                        dangerouslySetInnerHTML={{
-                          __html: natl.mainContent.childMarkdownRemark.html,
-                        }}
-                      />
-                      <div className="chart_container">
-                        {/* Char A Start */}
-                        <div className="imageBox">
-                          <img
-                            onClick={this.showModal.bind(this, 'modal1')}
-                            src={natl.chartA.fixed.src}
-                            className="thumbnail"
-                          />
-                        </div>
-                        <Modal
-                          isOpen={this.state.modal1}
+                  <div>
+                    <div
+                      className="content"
+                      dangerouslySetInnerHTML={{
+                        __html: natl.mainContent.childMarkdownRemark.html,
+                      }}
+                    />
+                    <div className="chart_container">
+                      {/* Char A Start */}
+                      <div className="imageBox">
+                        <img
+                          onClick={this.showModal.bind(this, 'modal1')}
+                          src={natl.chartA.fixed.src}
+                          className="thumbnail"
+                        />
+                      </div>
+                      <Modal
+                        isOpen={this.state.modal1}
+                        toggle={this.closeModal.bind(this, 'modal1')}
+                        className={this.props.className}
+                      >
+                        <ModalHeader
                           toggle={this.closeModal.bind(this, 'modal1')}
-                          className={this.props.className}
                         >
-                          <ModalHeader
-                            toggle={this.closeModal.bind(this, 'modal1')}
-                          >
-                            Chart A
-                          </ModalHeader>
-                          <ModalBody>
-                            <img src={natl.chartA.fluid.src} />
-                          </ModalBody>
-                        </Modal>
-                        <p>Chart A</p>
-                      </div>
-                      {/* Char A End */}
-                      <div
-                        className="content"
-                        dangerouslySetInnerHTML={{
-                          __html: natl.contentB.childContentfulRichText.html,
-                        }}
-                      />
-                      <div className="chart_container">
-                        <div className="imageBox">
-                          <img
-                            onClick={this.showModal.bind(this, 'modal2')}
-                            src={natl.chartB.fixed.src}
-                            className="thumbnail"
-                          />
-                        </div>
-                        <Modal
-                          isOpen={this.state.modal2}
-                          toggle={this.closeModal.bind(this, 'modal2')}
-                          className={this.props.className}
-                        >
-                          <ModalHeader
-                            toggle={this.closeModal.bind(this, 'modal2')}
-                          >
-                            Chart B
-                          </ModalHeader>
-                          <ModalBody>
-                            <img src={natl.chartB.fluid.src} />
-                          </ModalBody>
-                        </Modal>
-
-                        <p>Chart B</p>
-                      </div>
-
-                      <div
-                        className="content"
-                        dangerouslySetInnerHTML={{
-                          __html: natl.contentC.childContentfulRichText.html,
-                        }}
-                      />
-
-                      <Sheet />
+                          Chart A
+                        </ModalHeader>
+                        <ModalBody>
+                          <img src={natl.chartA.fluid.src} />
+                        </ModalBody>
+                      </Modal>
+                      <p>Chart A</p>
                     </div>
-                  )}
+                    {/* Char A End */}
+                    <div
+                      className="content"
+                      dangerouslySetInnerHTML={{
+                        __html: natl.contentB.childContentfulRichText.html,
+                      }}
+                    />
+                    <div className="chart_container">
+                      <div className="imageBox">
+                        <img
+                          onClick={this.showModal.bind(this, 'modal2')}
+                          src={natl.chartB.fixed.src}
+                          className="thumbnail"
+                        />
+                      </div>
+                      <Modal
+                        isOpen={this.state.modal2}
+                        toggle={this.closeModal.bind(this, 'modal2')}
+                        className={this.props.className}
+                      >
+                        <ModalHeader
+                          toggle={this.closeModal.bind(this, 'modal2')}
+                        >
+                          Chart B
+                        </ModalHeader>
+                        <ModalBody>
+                          <img src={natl.chartB.fluid.src} />
+                        </ModalBody>
+                      </Modal>
+
+                      <p>Chart B</p>
+                    </div>
+
+                    <div
+                      className="content"
+                      dangerouslySetInnerHTML={{
+                        __html: natl.contentC.childContentfulRichText.html,
+                      }}
+                    />
+
+                    <Sheet />
+                  </div>
                 </div>
               </div>
             </div>

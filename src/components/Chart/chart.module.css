@@ -23,3 +23,16 @@
   background-color: #ffffff;
   font-family: 'AvenirLTStd-Heavy', Verdana, sans-serif !important;
 }
+
+.tabTitle {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.tabContent {
+  background: #edf0fe;
+}
+.tabContent img {
+  width: 100%;
+  padding: 10%;
+}

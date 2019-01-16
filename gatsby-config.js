@@ -50,6 +50,27 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        name: `barrie`,
+        path: `${__dirname}/src/charts/Barrie`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `toronto`,
+        path: `${__dirname}/src/charts/Toronto`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `victoria`,
+        path: `${__dirname}/src/charts/Victoria`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         name: `data`,
         path: `${__dirname}/src/data/`, // CSV Folder
         ignore: [`**/\.*`], // ignore files starting with a dot
