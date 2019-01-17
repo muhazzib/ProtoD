@@ -8,7 +8,6 @@ import Layout from '../components/layout'
 import Chart from '../components/Chart/chart'
 import Sidebar from '../components/Side-bar/side-bar'
 import Sheet from '../components/Table/sheet'
-import Swiper from 'react-id-swiper'
 
 class RootIndex extends React.Component {
   constructor(props) {
@@ -41,17 +40,10 @@ class RootIndex extends React.Component {
 
   render() {
     const natl = get(this, 'props.data.allContentfulNational.edges[0].node')
-    console.log('image', natl.chartA)
 
     return (
       <Layout location={this.props.location}>
-        <Swiper>
-          <div>Slide 1</div>
-          <div>Slide 2</div>
-          <div>Slide 3</div>
-          <div>Slide 4</div>
-          <div>Slide 5</div>
-        </Swiper>
+        <Chart />
         <div className="content-wrapper">
           <div className="row split">
             <div className="col-md">
