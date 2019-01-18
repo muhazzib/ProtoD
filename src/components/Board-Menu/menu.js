@@ -15,7 +15,6 @@ class MenuX extends React.Component {
 
   render() {
     const { selectedOption } = this.state
-
     const data = this.props.menu.allContentfulBoardMenu.edges[0].node
       .menuForBoards
 

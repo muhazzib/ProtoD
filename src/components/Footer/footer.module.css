@@ -4,8 +4,17 @@
   padding-top: 52px;
   font-size: 14px;
 }
-
-.footer span {
+.footer strong {
+  color: #345fa8;
+}
+.footer strong p {
+  font-weight: bold;
+}
+.footer em {
   font-size: 12px;
   line-height: 24px;
+}
+
+.boardCredit p {
+  font-size: 12px;
 }
