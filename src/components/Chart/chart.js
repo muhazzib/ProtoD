@@ -109,7 +109,7 @@ class Chart extends React.Component {
           />
         )}
         <Nav tabs className={charts.tabTitle}>
-          <NavItem>
+          <NavItem className={charts.tabList}>
             <NavLink
               className={classnames({ active: this.state.activeTab === '1' })}
               onClick={() => {
@@ -119,7 +119,7 @@ class Chart extends React.Component {
               NATIONAL RESIDENTIAL STATISTICS
             </NavLink>
           </NavItem>
-          <NavItem>
+          <NavItem className={charts.tabList}>
             <NavLink
               className={classnames({ active: this.state.activeTab === '2' })}
               onClick={() => {
@@ -129,7 +129,7 @@ class Chart extends React.Component {
               VANCOUVER ISLAND
             </NavLink>
           </NavItem>
-          <NavItem>
+          <NavItem className={charts.tabList}>
             <NavLink
               className={classnames({ active: this.state.activeTab === '3' })}
               onClick={() => {
@@ -139,7 +139,7 @@ class Chart extends React.Component {
               GREATER VANCOUVER
             </NavLink>
           </NavItem>
-          <NavItem>
+          <NavItem className={charts.tabList}>
             <NavLink
               className={classnames({ active: this.state.activeTab === '4' })}
               onClick={() => {
@@ -149,7 +149,7 @@ class Chart extends React.Component {
               REGINA
             </NavLink>
           </NavItem>
-          <NavItem>
+          <NavItem className={charts.tabList}>
             <NavLink
               className={classnames({ active: this.state.activeTab === '5' })}
               onClick={() => {
@@ -159,7 +159,7 @@ class Chart extends React.Component {
               BARRIE
             </NavLink>
           </NavItem>
-          <NavItem>
+          <NavItem className={charts.tabList}>
             <NavLink
               className={classnames({ active: this.state.activeTab === '6' })}
               onClick={() => {
@@ -169,7 +169,7 @@ class Chart extends React.Component {
               FRASER VALLEY
             </NavLink>
           </NavItem>
-          <NavItem>
+          <NavItem className={charts.tabList}>
             <NavLink
               className={classnames({ active: this.state.activeTab === '7' })}
               onClick={() => {
@@ -179,7 +179,7 @@ class Chart extends React.Component {
               SASKATOON
             </NavLink>
           </NavItem>
-          <NavItem>
+          <NavItem className={charts.tabList}>
             <NavLink
               className={classnames({ active: this.state.activeTab === '8' })}
               onClick={() => {
@@ -189,7 +189,7 @@ class Chart extends React.Component {
               OTTAWA
             </NavLink>
           </NavItem>
-          <NavItem>
+          <NavItem className={charts.tabList}>
             <NavLink
               className={classnames({ active: this.state.activeTab === '9' })}
               onClick={() => {
@@ -199,7 +199,7 @@ class Chart extends React.Component {
               GUELPH
             </NavLink>
           </NavItem>
-          <NavItem>
+          <NavItem className={charts.tabList}>
             <NavLink
               className={classnames({ active: this.state.activeTab === '10' })}
               onClick={() => {

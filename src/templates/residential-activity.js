@@ -10,7 +10,7 @@ import SideBar from '../components/Side-bar/side-bar'
 import footerStyle from '../components/Footer/footer.module.css'
 import { GlobalStyle } from '../utils/global'
 
-class BoardTemplate extends React.Component {
+class ResidentialATemplate extends React.Component {
   getYear() {
     return new Date().getFullYear()
   }
@@ -51,79 +51,7 @@ class BoardTemplate extends React.Component {
                         }}
                       />
                     )}
-                    <div className="boardInfo">
-                      <hr />
-                      <h3>BOARD & ASSOCIATION INFORMATION</h3>
-                      {post.boardInformation !== null && (
-                        <p
-                          className="content"
-                          dangerouslySetInnerHTML={{
-                            __html:
-                              post.boardInformation.childMarkdownRemark.html,
-                          }}
-                        />
-                      )}
-                      <hr />
 
-                      {post.boardInformation !== null && (
-                        <div>
-                          <Img fixed={post.boardLogo.fixed} tracedSVG />
-                        </div>
-                      )}
-                      <h3>{post.title}</h3>
-                      {post.boardExternalLink !== null && (
-                        <div>
-                          <Link to={post.boardExternalLink}>
-                            Visit External Link
-                          </Link>
-                        </div>
-                      )}
-                      <br />
-                      <br />
-                      <p className="removeMargin">
-                        <strong>
-                          For more information, <br />
-                          please contact:
-                        </strong>
-                      </p>
-                      {post.boardExternalLink !== null && (
-                        <p
-                          className="content-contact"
-                          dangerouslySetInnerHTML={{
-                            __html:
-                              post.boardContactInformation
-                                .childContentfulRichText.html,
-                          }}
-                        />
-                      )}
-
-                      {/* <img
-                        src={post.boardPresidentPhoto.fixed.src}
-                        title={post.boardPresidentName}
-                      /> */}
-
-                      <Container>
-                        <Row>
-                          <Col xs="2">
-                            {post.boardPresidentPhoto !== null && (
-                              <Img
-                                className="boardPresPhoto"
-                                fixed={post.boardPresidentPhoto.fixed}
-                              />
-                            )}
-                          </Col>
-
-                          <Col xs="2">
-                            {post.boardPresidentName !== null && (
-                              <p>
-                                President <br />
-                                {post.boardPresidentName}
-                              </p>
-                            )}
-                          </Col>
-                        </Row>
-                      </Container>
-                    </div>
                     {/* <!--  ==========================================================  -->
   <!--  BOARD AND CREA DECLARATION HERE ==========================  -->
   <!--  ==========================================================  --> */}
@@ -268,16 +196,14 @@ class BoardTemplate extends React.Component {
   }
 }
 
-export default BoardTemplate
+export default ResidentialATemplate
 
 export const pageQuery = graphql`
-  query BoardPostBySlug($id: String!) {
+  query ResidentialAQuerySlug($id: String!) {
     contentfulBoards(id: { eq: $id }) {
       title
       slug
       headline
-      boardExternalLink
-      boardPresidentName
       about {
         title
         slug
@@ -315,41 +241,13 @@ export const pageQuery = graphql`
         title
         slug
       }
-      boardContactInformation {
-        childContentfulRichText {
-          html
-        }
-      }
-      boardInformation {
-        childMarkdownRemark {
-          html
-        }
-      }
+
       mainContent {
         childContentfulRichText {
           html
         }
       }
 
-      boardPresidentPhoto {
-        fixed(width: 130) {
-          src
-          srcSet
-          width
-          height
-        }
-      }
-      boardLogo {
-        fixed(width: 250) {
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          tracedSVG
-          width
-          height
-        }
-      }
       chartA {
         fixed {
           src

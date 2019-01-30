@@ -31,6 +31,7 @@ class Template extends React.Component {
         <Wrapper>
           <Breadcrumb />
           {children}
+
           <Footer />
         </Wrapper>
       </Container>

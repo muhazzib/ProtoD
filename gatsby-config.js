@@ -107,6 +107,7 @@ module.exports = {
                 node.data.target.fields.name['en-US']
               }</div>`
             },
+            //return image asset in rich text
             [BLOCKS.EMBEDDED_ASSET]: node => {
               return `
               <img src="${node.data.target.fields.file['en-US'].url}" > `

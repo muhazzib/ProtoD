@@ -7,6 +7,10 @@
 .footer strong {
   color: #345fa8;
 }
+.Trademark {
+  font-size: 12px;
+  line-height: 24px;
+}
 .footer strong p {
   font-weight: bold;
 }
@@ -17,4 +21,5 @@
 
 .boardCredit p {
   font-size: 12px;
+  line-height: 24px;
 }

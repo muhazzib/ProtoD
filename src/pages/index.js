@@ -8,8 +8,13 @@ import Layout from '../components/layout'
 import Chart from '../components/Chart/chart'
 import Sidebar from '../components/Side-bar/side-bar'
 import Sheet from '../components/Table/sheet'
+import Footersub from '../components/Footer/footer-sub'
+import footerStyle from '../components/Footer/footer.module.css'
 
 class RootIndex extends React.Component {
+  getYear() {
+    return new Date().getFullYear()
+  }
   constructor(props) {
     super(props)
 
@@ -40,10 +45,11 @@ class RootIndex extends React.Component {
 
   render() {
     const natl = get(this, 'props.data.allContentfulNational.edges[0].node')
+    console.log('national', natl)
 
     return (
       <Layout location={this.props.location}>
-        <Chart />
+        {/* <Chart /> */}
         <div className="content-wrapper">
           <div className="row split">
             <div className="col-md">
@@ -143,6 +149,25 @@ class RootIndex extends React.Component {
             </div>
           </div>
         </div>
+        <Footersub />
+        {/* <!--  ==========================================================  -->
+  <!--  BOARD AND CREA DECLARATION HERE ==========================  -->
+  <!--  ==========================================================  --> */}
+        <div className={footerStyle.boardCredit}>
+          <p>
+            The information contained in this report has been prepared by The
+            Canadian Real Estate Association drawn from sources deemed to be
+            reliable, but the accuracy and completeness of the information is
+            not guaranteed. In providing this information, The Canadian Real
+            Estate Association does not assume any responsibility or liability.
+            Copyright © {this.getYear()} The Canadian Real Estate Association.
+            All rights reserved. Reproduction in whole or in part is prohibited
+            without written permission.
+          </p>
+        </div>
+        {/* <!--  ==========================================================  -->
+  <!-- END EDITING PAGE CONTENT HERE =============================  -->
+  <!--  ==========================================================  --></div> */}
       </Layout>
     )
   }

@@ -6,7 +6,10 @@
   color: #345fa8;
   text-transform: none;
 }
-
+.entry-headline {
+  color: #000000;
+  text-transform: none;
+}
 .content-wrapper .main-content {
   width: 74.60184409052808%;
   float: left;
@@ -68,4 +71,14 @@
 
 .modal-dialog {
   max-width: 1079px !important;
+}
+
+.content-contact {
+  width: 21%;
+}
+.boardPresPhoto {
+  border: 4px solid #efefef;
+}
+.removeMargin {
+  margin-bottom: 10px !important;
 }
