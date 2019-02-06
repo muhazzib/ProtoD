@@ -2,10 +2,15 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Link from 'gatsby-link'
 import get from 'lodash/get'
+import * as PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import styles from './blog.module.css'
 import Layout from '../components/layout'
 import BoardPreview from '../components/board-preview'
+
+const propTypes = {
+  data: PropTypes.object.isRequired,
+}
 
 class BlogIndex extends React.Component {
   render() {
@@ -14,7 +19,7 @@ class BlogIndex extends React.Component {
     console.log(boards)
 
     return (
-      <Layout location={this.props.location}>
+      <Layout data={this.props.data} location={this.props.location}>
         <div style={{ background: '#fff' }}>
           <Helmet title={siteTitle} />
           <div className={styles.hero}>Blog page</div>
@@ -36,10 +41,20 @@ class BlogIndex extends React.Component {
   }
 }
 
+BlogIndex.propTypes = propTypes
+
 export default BlogIndex
 
 export const pageQuery = graphql`
   query BoardIndexQuery {
+    site {
+      siteMetadata {
+        languages {
+          defaultLangKey
+          langs
+        }
+      }
+    }
     allContentfulBoards {
       edges {
         node {

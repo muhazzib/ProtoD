@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import { Button } from 'reactstrap'
 import siteHeader from '../Site-header/site-header.module.css'
 
-const SiteHeader = ({ siteTitle }) => (
+const SiteHeaderFr = ({ siteTitle }) => (
   <div className={siteHeader.mainMenu}>
     <div className={siteHeader.container}>
       <div className={siteHeader.menuContainer}>
@@ -16,19 +16,19 @@ const SiteHeader = ({ siteTitle }) => (
           <div className={siteHeader.colBg}>
             <ul className={siteHeader.primaryMenu}>
               <li>
-                <a href="http://www.crea.ca/">About</a>
+                <a href="http://www.crea.ca/">À PROPOS DE</a>
               </li>
               <li>
-                <a href="http://www.crea.ca/">Realtor Members</a>
+                <a href="http://www.crea.ca/">COURTIERS/AGENTS MEMBRES</a>
               </li>
               <li>
-                <a href="http://www.crea.ca/">Buyers or Sellers</a>
+                <a href="http://www.crea.ca/">ACHAT OU VENTE</a>
               </li>
               <li>
-                <a href="http://www.crea.ca/">Federal Affairs</a>
+                <a href="http://www.crea.ca/">AFFAIRES FÉDÉRALES</a>
               </li>
               <li>
-                <a href="http://www.crea.ca/">Housing Market Stats</a>
+                <a href="http://www.crea.ca/">Stat. (marché résidentiel)</a>
               </li>
             </ul>
           </div>
@@ -38,4 +38,4 @@ const SiteHeader = ({ siteTitle }) => (
   </div>
 )
 
-export default SiteHeader
+export default SiteHeaderFr

@@ -61,53 +61,7 @@ class Sheet extends React.Component {
               ))}
             </tbody>
           )}
-          {/* <tbody>
-            <tr>
-              <th scope="row">Aggregate</th>
-              <td>$32222</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>@mdo</td>
-              <td>@mdo</td>
-              <td>@mdo</td>
-              <td>@mdo</td>
-              <td>@mdo</td>
-              <td>@mdo</td>
-              <td>@mdo</td>
-            </tr>
-          </tbody> */}
         </Table>
-        {/* <table>
-          <thead className={TableSheet.header}>
-            <tr className={TableSheet.title}>
-              MLS® Home Price Index Benchmark Price
-            </tr>
-          </thead>
-          <thead>
-            <tr>
-              <th>Area</th>
-              <th>Benchmark</th>
-              <th>One Month</th>
-              <th>Three Month</th>
-              <th>Six Month</th>
-              <th>Twelve Month</th>
-              <th>Three Year</th>
-              <th>Five Year</th>
-              <th>Month</th>
-              <th>Year</th>
-            </tr>
-          </thead>
-          {data !== undefined && (
-            <tbody>
-              {data.map((row, i) => (
-                <tr key={`${row.node.Area} ${i}`}>
-                  <td>{row.node.Benchmark}</td>
-                  <td>{row.node.One_Month}</td>
-                </tr>
-              ))}
-            </tbody>
-          )}
-        </table> */}
       </div>
     )
   }

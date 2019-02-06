@@ -290,7 +290,6 @@ textarea {
 h1 {
   font-size: 43px;
   line-height: 53px;
-  text-transform: uppercase;
   color: #345fa8;
   margin-bottom: 20px;
   font-weight: normal;

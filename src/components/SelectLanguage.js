@@ -23,7 +23,7 @@ const SelectLanguage = props => {
           color: 'white',
         }}
       >
-        <FormattedMessage id="selectLanguage" />
+        {/* <FormattedMessage id="selectLanguage" /> */}
       </header>
       <ul>{links}</ul>
     </section>

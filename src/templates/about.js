@@ -3,12 +3,17 @@ import { graphql } from 'gatsby'
 import { Container, Row, Col } from 'reactstrap'
 import Helmet from 'react-helmet'
 import get from 'lodash/get'
+import * as PropTypes from 'prop-types'
 import Img from 'gatsby-image'
 import Layout from '../components/layout'
 import Link from 'gatsby-link'
 import SideBar from '../components/Side-bar/side-bar'
 import footerStyle from '../components/Footer/footer.module.css'
 import { GlobalStyle } from '../utils/global'
+
+const propTypes = {
+  data: PropTypes.object.isRequired,
+}
 
 class AboutTemplate extends React.Component {
   getYear() {
@@ -20,7 +25,7 @@ class AboutTemplate extends React.Component {
     console.log('p', post)
 
     return (
-      <Layout location={this.props.location}>
+      <Layout data={this.props.data} location={this.props.location}>
         <GlobalStyle />
         <div className="content-wrapper">
           <div className="row split">
@@ -196,10 +201,20 @@ class AboutTemplate extends React.Component {
   }
 }
 
+AboutTemplate.propTypes = propTypes
+
 export default AboutTemplate
 
 export const pageQuery = graphql`
   query AboutPostBySlug($id: String!) {
+    site {
+      siteMetadata {
+        languages {
+          defaultLangKey
+          langs
+        }
+      }
+    }
     contentfulBoards(id: { eq: $id }) {
       title
       slug

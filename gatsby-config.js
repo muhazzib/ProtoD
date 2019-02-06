@@ -2,6 +2,8 @@
 require('dotenv').config()
 let contentfulConfig
 
+const languages = require('./src/data/languages')
+
 //rich text
 const { BLOCKS, MARKS, INLINES } = require('@contentful/rich-text-types')
 try {
@@ -28,6 +30,7 @@ module.exports = {
   pathPrefix: '/gatsby-contentful-starter',
   siteMetadata: {
     title: 'Gatsby + WordPress Starter',
+    languages,
   },
   plugins: [
     'gatsby-transformer-remark',
@@ -39,6 +42,15 @@ module.exports = {
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
+      locale: 'en',
+    },
+    {
+      resolve: 'gatsby-plugin-i18n',
+      options: {
+        langKeyForNull: 'any',
+        langKeyDefault: languages.defaultLangKey,
+        useLangKeyLayout: false,
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,

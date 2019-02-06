@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { Container, Row, Col } from 'reactstrap'
 import Helmet from 'react-helmet'
+import * as PropTypes from 'prop-types'
 import get from 'lodash/get'
 import Img from 'gatsby-image'
 import Layout from '../components/layout'
@@ -9,6 +10,10 @@ import Link from 'gatsby-link'
 import SideBar from '../components/Side-bar/side-bar'
 import footerStyle from '../components/Footer/footer.module.css'
 import { GlobalStyle } from '../utils/global'
+
+const propTypes = {
+  data: PropTypes.object.isRequired,
+}
 
 class BoardTemplate extends React.Component {
   getYear() {
@@ -20,7 +25,7 @@ class BoardTemplate extends React.Component {
     console.log('p', post)
 
     return (
-      <Layout location={this.props.location}>
+      <Layout data={this.props.data} location={this.props.location}>
         <GlobalStyle />
         <div className="content-wrapper">
           <div className="row split">
@@ -247,7 +252,7 @@ class BoardTemplate extends React.Component {
                     {post.marketConditions !== null && (
                       <li>
                         <Link
-                          to={`/merket-conditions/${
+                          to={`/market-conditions/${
                             post.marketConditions.slug
                           }`}
                         >
@@ -268,10 +273,20 @@ class BoardTemplate extends React.Component {
   }
 }
 
+BoardTemplate.propTypes = propTypes
+
 export default BoardTemplate
 
 export const pageQuery = graphql`
   query BoardPostBySlug($id: String!) {
+    site {
+      siteMetadata {
+        languages {
+          defaultLangKey
+          langs
+        }
+      }
+    }
     contentfulBoards(id: { eq: $id }) {
       title
       slug

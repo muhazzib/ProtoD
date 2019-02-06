@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { Button } from 'reactstrap'
 import headerStyles from './header.module.css'
+import SelectLanguage from '../SelectLanguage'
 
 import {
   Collapse,
@@ -17,7 +18,7 @@ import {
   DropdownItem,
 } from 'reactstrap'
 
-const Header = ({ siteTitle }) => (
+const Header = props => (
   <div className={headerStyles.wrapper}>
     <div className={headerStyles.container}>
       <div className="row">
@@ -58,8 +59,11 @@ const Header = ({ siteTitle }) => (
               <li>
                 <a href="http://www.crea.ca/">Contact</a>
               </li>
-              <li>
+              {/*   <li>
                 <a href="http://www.crea.ca/">FR</a>
+              </li> */}
+              <li>
+                <SelectLanguage langs={props.langs} />
               </li>
             </ul>
           </div>

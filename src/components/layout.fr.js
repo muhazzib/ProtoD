@@ -21,6 +21,7 @@ import SiteHeader from './Site-header/site-header'
 import './global-styles.css'
 import '../components/Content/content.css'
 import { GlobalStyle } from '../utils/global'
+import SidebarFr from './Side-bar/side-bar.fr'
 
 // add concatenated locale data
 addLocaleData([...en, ...fr])
@@ -65,7 +66,35 @@ class Template extends React.Component {
           <SiteHeader />
           <Wrapper>
             <Breadcrumb />
-            {this.children}
+            <div className="content-wrapper">
+              <div className="row split">
+                <div className="col-md">
+                  <div className="entry-header" />
+                  <div className="entry-content">
+                    <div className="entry-sub">
+                      <h1>Statistiques nationales</h1>
+                      <div>
+                        {this.children}
+                        <div className="chart_container">
+                          {/* Char A Start */}
+                          <div className="imageBox" />
+                        </div>
+                        {/* Char A End */}
+
+                        <div className="chart_container">
+                          <div className="imageBox" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-sm- side-content">
+                  <div className="chart">
+                    <SidebarFr />
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <Footer />
           </Wrapper>
