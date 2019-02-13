@@ -3,12 +3,17 @@ import { graphql } from 'gatsby'
 import { Container, Row, Col } from 'reactstrap'
 import Helmet from 'react-helmet'
 import get from 'lodash/get'
+import * as PropTypes from 'prop-types'
 import Img from 'gatsby-image'
 import Layout from '../components/layout'
 import Link from 'gatsby-link'
 import SideBar from '../components/Side-bar/side-bar'
 import footerStyle from '../components/Footer/footer.module.css'
 import { GlobalStyle } from '../utils/global'
+
+const propTypes = {
+  data: PropTypes.object.isRequired,
+}
 
 class SalesPriceRangeTemplate extends React.Component {
   getYear() {
@@ -17,10 +22,9 @@ class SalesPriceRangeTemplate extends React.Component {
 
   render() {
     const post = get(this.props, 'data.contentfulBoards')
-    console.log('p', post)
 
     return (
-      <Layout location={this.props.location}>
+      <Layout data={this.props.data} location={this.props.location}>
         <GlobalStyle />
         <div className="content-wrapper">
           <div className="row split">
@@ -175,7 +179,7 @@ class SalesPriceRangeTemplate extends React.Component {
                     {post.marketConditions !== null && (
                       <li>
                         <Link
-                          to={`/merket-conditions/${
+                          to={`/market-conditions/${
                             post.marketConditions.slug
                           }`}
                         >
@@ -196,10 +200,20 @@ class SalesPriceRangeTemplate extends React.Component {
   }
 }
 
+SalesPriceRangeTemplate.propTypes = propTypes
+
 export default SalesPriceRangeTemplate
 
 export const pageQuery = graphql`
   query SalesPriceRangeQuerySlug($id: String!) {
+    site {
+      siteMetadata {
+        languages {
+          defaultLangKey
+          langs
+        }
+      }
+    }
     contentfulBoards(id: { eq: $id }) {
       title
       slug

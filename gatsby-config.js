@@ -41,7 +41,11 @@ module.exports = {
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
+<<<<<<< HEAD
       locale: 'en-CA',
+=======
+      locale: 'en',
+>>>>>>> e8686f427982cf77b622935b8a5b7c3da598f616
     },
     {
       resolve: 'gatsby-plugin-i18n',

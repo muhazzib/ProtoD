@@ -193,7 +193,15 @@ class BoardTemplate extends React.Component {
                     )}
                     {post.marketConditions !== null && (
                       <li>
+<<<<<<< HEAD
                         <Link to={`/board/${post.marketConditions.slug}`}>
+=======
+                        <Link
+                          to={`/market-conditions/${
+                            post.marketConditions.slug
+                          }`}
+                        >
+>>>>>>> e8686f427982cf77b622935b8a5b7c3da598f616
                           {post.marketConditions.title}
                         </Link>
                       </li>
