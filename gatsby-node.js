@@ -8,7 +8,25 @@ exports.createPages = ({ graphql, actions }) => {
 
   return new Promise((resolve, reject) => {
     const natlPost = path.resolve('./src/templates/home.js')
+<<<<<<< HEAD
     const natlStatsSubPost = path.resolve('./src/templates/stats-subpages.js')
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+    const natlStatsSubPost = path.resolve('./src/templates/stats-subpages.js')
+=======
+=======
+>>>>>>> e8686f427982cf77b622935b8a5b7c3da598f616
+    const natlAboutPost = path.resolve('./src/templates/natl-about.js')
+    // const natlEmploymentTrendPost = path.resolve(
+    //   './src/templates/natl-employment-trend.js'
+    // )
+    // const natlInterestRatePost = path.resolve('./src/templates/natl-about.js')
+<<<<<<< HEAD
+>>>>>>> e8686f427982cf77b622935b8a5b7c3da598f616
+=======
+>>>>>>> e8686f427982cf77b622935b8a5b7c3da598f616
+>>>>>>> bd2178d816c7aca45be1d83a38ce85b438eb9528
 
     const boardPost = path.resolve('./src/templates/boards.js')
     // const aboutPost = path.resolve('./src/templates/about.js')
@@ -103,6 +121,189 @@ exports.createPages = ({ graphql, actions }) => {
           // Gatsby uses Redux to manage its internal state.
           // Plugins and sites can use functions like "createPage"
           // to interact with Gatsby.
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+          createPage({
+            // Each page is required to have a `path` as well
+            // as a template component. The `context` is
+            // optional but is often necessary so the template
+            // can query data specific to each page.
+            path: `/${edge.node.node_locale}/national/${commonId}/`,
+            component: slash(natlPost),
+            context: {
+              id: edge.node.id,
+              slug: edge.node.slug,
+              contentful_id: edge.node.contentful_id,
+            },
+          })
+        })
+
+        _.each(result.data.allContentfulStatsPages.edges, edge => {
+          // We need a common ID to cycle between locales.
+          const commonId = edge.node.contentful_id
+          // Gatsby uses Redux to manage its internal state.
+          // Plugins and sites can use functions like "createPage"
+          // to interact with Gatsby.
+          createPage({
+            // Each page is required to have a `path` as well
+            // as a template component. The `context` is
+            // optional but is often necessary so the template
+            // can query data specific to each page.
+            path: `/${edge.node.node_locale}/stats/${commonId}/`,
+<<<<<<< HEAD
+            component: slash(natlStatsSubPost),
+=======
+            component: slash(natlAboutPost),
+            context: {
+              id: edge.node.id,
+              slug: edge.node.slug,
+              contentful_id: edge.node.contentful_id,
+            },
+          })
+        })
+
+        /*         _.each(result.data.allContentfulStatsPages.edges, edge => {
+          // We need a common ID to cycle between locales.
+          const commonId = edge.node.contentful_id
+          // Gatsby uses Redux to manage its internal state.
+          // Plugins and sites can use functions like "createPage"
+          // to interact with Gatsby.
+>>>>>>> e8686f427982cf77b622935b8a5b7c3da598f616
+          createPage({
+            // Each page is required to have a `path` as well
+            // as a template component. The `context` is
+            // optional but is often necessary so the template
+            // can query data specific to each page.
+<<<<<<< HEAD
+            path: `/${edge.node.node_locale}/national/${commonId}/`,
+            component: slash(natlPost),
+=======
+            path: `/${edge.node.node_locale}/stats/${commonId}/`,
+            component: slash(natlEmploymentTrendPost),
+>>>>>>> e8686f427982cf77b622935b8a5b7c3da598f616
+            context: {
+              id: edge.node.id,
+              slug: edge.node.slug,
+              contentful_id: edge.node.contentful_id,
+            },
+          })
+        })
+
+        _.each(result.data.allContentfulStatsPages.edges, edge => {
+          // We need a common ID to cycle between locales.
+          const commonId = edge.node.contentful_id
+          // Gatsby uses Redux to manage its internal state.
+          // Plugins and sites can use functions like "createPage"
+          // to interact with Gatsby.
+<<<<<<< HEAD
+=======
+          createPage({
+            // Each page is required to have a `path` as well
+            // as a template component. The `context` is
+            // optional but is often necessary so the template
+            // can query data specific to each page.
+            path: `/${edge.node.node_locale}/stats/${commonId}/`,
+            component: slash(natlInterestRatePost),
+>>>>>>> bd2178d816c7aca45be1d83a38ce85b438eb9528
+            context: {
+              id: edge.node.id,
+              slug: edge.node.slug,
+              contentful_id: edge.node.contentful_id,
+            },
+          })
+        })
+
+        const boards = result.data.allContentfulBoards.edges
+        boards.forEach((board, index) => {
+>>>>>>> e8686f427982cf77b622935b8a5b7c3da598f616
+          createPage({
+            // Each page is required to have a `path` as well
+            // as a template component. The `context` is
+            // optional but is often necessary so the template
+            // can query data specific to each page.
+            path: `/${edge.node.node_locale}/stats/${commonId}/`,
+            component: slash(natlAboutPost),
+            context: {
+              id: edge.node.id,
+              slug: edge.node.slug,
+              contentful_id: edge.node.contentful_id,
+            },
+          })
+        })
+<<<<<<< HEAD
+=======
+
+        /*         _.each(result.data.allContentfulStatsPages.edges, edge => {
+          // We need a common ID to cycle between locales.
+          const commonId = edge.node.contentful_id
+          // Gatsby uses Redux to manage its internal state.
+          // Plugins and sites can use functions like "createPage"
+          // to interact with Gatsby.
+          createPage({
+            // Each page is required to have a `path` as well
+            // as a template component. The `context` is
+            // optional but is often necessary so the template
+            // can query data specific to each page.
+            path: `/${edge.node.node_locale}/stats/${commonId}/`,
+            component: slash(natlEmploymentTrendPost),
+            context: {
+              id: edge.node.id,
+              slug: edge.node.slug,
+              contentful_id: edge.node.contentful_id,
+            },
+          })
+        })
+
+        _.each(result.data.allContentfulStatsPages.edges, edge => {
+          // We need a common ID to cycle between locales.
+          const commonId = edge.node.contentful_id
+          // Gatsby uses Redux to manage its internal state.
+          // Plugins and sites can use functions like "createPage"
+          // to interact with Gatsby.
+          createPage({
+            // Each page is required to have a `path` as well
+            // as a template component. The `context` is
+            // optional but is often necessary so the template
+            // can query data specific to each page.
+            path: `/${edge.node.node_locale}/stats/${commonId}/`,
+            component: slash(natlInterestRatePost),
+            context: {
+              id: edge.node.id,
+              slug: edge.node.slug,
+              contentful_id: edge.node.contentful_id,
+            },
+          })
+        })
+
+        const natlConsumerConfPost = path.resolve(
+          './src/templates/natl-consumer-confidence.js'
+        )
+        _.each(result.data.allContentfulStatsPages.edges, edge => {
+          // We need a common ID to cycle between locales.
+          const commonId = edge.node.contentful_id
+          // Gatsby uses Redux to manage its internal state.
+          // Plugins and sites can use functions like "createPage"
+          // to interact with Gatsby.
+          createPage({
+            // Each page is required to have a `path` as well
+            // as a template component. The `context` is
+            // optional but is often necessary so the template
+            // can query data specific to each page.
+            path: `/${edge.node.node_locale}/stats/${commonId}/`,
+            component: slash(natlConsumerConfPost),
+            context: {
+              id: edge.node.id,
+              slug: edge.node.slug,
+              contentful_id: edge.node.contentful_id,
+            },
+          })
+        }) */
+
+        const boards = result.data.allContentfulBoards.edges
+        boards.forEach((board, index) => {
+>>>>>>> e8686f427982cf77b622935b8a5b7c3da598f616
           createPage({
             // Each page is required to have a `path` as well
             // as a template component. The `context` is
@@ -150,6 +351,7 @@ exports.createPages = ({ graphql, actions }) => {
             },
           })
         })
+>>>>>>> bd2178d816c7aca45be1d83a38ce85b438eb9528
       })
     )
   })
