@@ -21,7 +21,7 @@ class BoardTemplate extends React.Component {
 
   render() {
     const post = get(this.props, 'data.contentfulBoards')
-    console.log('p', post)
+    console.log('fp', post)
 
     return (
       <Layout data={this.props.data} location={this.props.location}>
