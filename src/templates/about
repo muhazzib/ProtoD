@@ -2,8 +2,8 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { Container, Row, Col } from 'reactstrap'
 import Helmet from 'react-helmet'
-import * as PropTypes from 'prop-types'
 import get from 'lodash/get'
+import * as PropTypes from 'prop-types'
 import Img from 'gatsby-image'
 import Layout from '../components/layout'
 import Link from 'gatsby-link'
@@ -15,7 +15,7 @@ const propTypes = {
   data: PropTypes.object.isRequired,
 }
 
-class BoardTemplate extends React.Component {
+class AboutTemplate extends React.Component {
   getYear() {
     return new Date().getFullYear()
   }
@@ -56,41 +56,7 @@ class BoardTemplate extends React.Component {
                         }}
                       />
                     )}
-                    <div className="boardInfo">
-                      {post.boardInfo !== null && (
-                        <div>
-                          <p
-                            className="content"
-                            dangerouslySetInnerHTML={{
-                              __html: post.boardInfo.childMarkdownRemark.html,
-                            }}
-                          />
-                        </div>
-                      )}
 
-                      <Container>
-                        <Row>
-                          <Col xs="2">
-                            {post.boardPresidentPhoto !== null && (
-                              <Img
-                                className="boardPresPhoto"
-                                fixed={post.boardPresidentPhoto.fixed}
-                                tracedSVG
-                              />
-                            )}
-                          </Col>
-
-                          <Col xs="2">
-                            {post.boardPresidentName !== null && (
-                              <p>
-                                President <br />
-                                {post.boardPresidentName}
-                              </p>
-                            )}
-                          </Col>
-                        </Row>
-                      </Container>
-                    </div>
                     {/* <!--  ==========================================================  -->
   <!--  BOARD AND CREA DECLARATION HERE ==========================  -->
   <!--  ==========================================================  --> */}
@@ -125,35 +91,47 @@ class BoardTemplate extends React.Component {
                 <ul>
                   {post.about !== null && (
                     <li>
-                      <Link to={`/board/${post.about.slug}`}>
+                      <Link to={`/about/${post.about.slug}`}>
                         {post.about.title}
                       </Link>
                     </li>
                   )}
                   {post.employmentTrendsPage !== null && (
                     <li>
-                      <Link to={`/board/${post.employmentTrendsPage.slug}`}>
+                      <Link
+                        to={`/employment-trends/${
+                          post.employmentTrendsPage.slug
+                        }`}
+                      >
                         {post.employmentTrendsPage.title}
                       </Link>
                     </li>
                   )}
-                  {post.interestRateChangePage !== null && (
+                  {post.employmentTrendsPage !== null && (
                     <li>
-                      <Link to={`/board/${post.interestRateChangePage.slug}`}>
-                        {post.interestRateChangePage.title}
+                      <Link
+                        to={`/interest-rate-changes/${
+                          post.employmentTrendsPage.slug
+                        }`}
+                      >
+                        {post.employmentTrendsPage.title}
                       </Link>
                     </li>
                   )}
                   {post.consumerConfidencePage !== null && (
                     <li>
-                      <Link to={`/board/${post.consumerConfidencePage.slug}`}>
+                      <Link
+                        to={`/consumer-confidence/${
+                          post.consumerConfidencePage.slug
+                        }`}
+                      >
                         {post.consumerConfidencePage.title}
                       </Link>
                     </li>
                   )}
                   {post.migrationPage !== null && (
                     <li>
-                      <Link to={`/board/${post.migrationPage.slug}`}>
+                      <Link to={`/migration/${post.migrationPage.slug}`}>
                         {post.migrationPage.title}
                       </Link>
                     </li>
@@ -165,35 +143,47 @@ class BoardTemplate extends React.Component {
                   <ul>
                     {post.residentialActivity !== null && (
                       <li>
-                        <Link to={`/board/${post.residentialActivity.slug}`}>
+                        <Link
+                          to={`/residential/${post.residentialActivity.slug}`}
+                        >
                           {post.residentialActivity.title}
                         </Link>
                       </li>
                     )}
                     {post.salesByCategory !== null && (
                       <li>
-                        <Link to={`/board/${post.salesByCategory.slug}`}>
+                        <Link
+                          to={`/sales-category/${post.salesByCategory.slug}`}
+                        >
                           {post.salesByCategory.title}
                         </Link>
                       </li>
                     )}
                     {post.salesByPriceRange !== null && (
                       <li>
-                        <Link to={`/board/${post.salesByPriceRange.slug}`}>
+                        <Link
+                          to={`/sales-by-price-range/${
+                            post.salesByPriceRange.slug
+                          }`}
+                        >
                           {post.salesByPriceRange.title}
                         </Link>
                       </li>
                     )}
                     {post.medianPrice !== null && (
                       <li>
-                        <Link to={`/board/${post.medianPrice.slug}`}>
+                        <Link to={`/median-price/${post.medianPrice.slug}`}>
                           {post.medianPrice.title}
                         </Link>
                       </li>
                     )}
                     {post.marketConditions !== null && (
                       <li>
-                        <Link to={`/board/${post.marketConditions.slug}`}>
+                        <Link
+                          to={`/merket-conditions/${
+                            post.marketConditions.slug
+                          }`}
+                        >
                           {post.marketConditions.title}
                         </Link>
                       </li>
@@ -211,12 +201,12 @@ class BoardTemplate extends React.Component {
   }
 }
 
-BoardTemplate.propTypes = propTypes
+AboutTemplate.propTypes = propTypes
 
-export default BoardTemplate
+export default AboutTemplate
 
 export const pageQuery = graphql`
-  query BoardPostBySlug($id: String!) {
+  query AboutPostBySlug($id: String!) {
     site {
       siteMetadata {
         languages {
@@ -229,12 +219,6 @@ export const pageQuery = graphql`
       title
       slug
       headline
-      boardPresidentName
-      boardInfo {
-        childMarkdownRemark {
-          html
-        }
-      }
       about {
         title
         slug
@@ -276,15 +260,6 @@ export const pageQuery = graphql`
       mainContent {
         childContentfulRichText {
           html
-        }
-      }
-
-      boardPresidentPhoto {
-        fixed(width: 130) {
-          src
-          srcSet
-          width
-          height
         }
       }
 

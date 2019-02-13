@@ -2,6 +2,8 @@
 require('dotenv').config()
 let contentfulConfig
 
+const languages = require('./src/data/languages')
+
 //rich text
 const { BLOCKS, MARKS, INLINES } = require('@contentful/rich-text-types')
 try {
@@ -28,6 +30,7 @@ module.exports = {
   pathPrefix: '/gatsby-contentful-starter',
   siteMetadata: {
     title: 'Gatsby + WordPress Starter',
+    languages,
   },
   plugins: [
     'gatsby-transformer-remark',
@@ -35,10 +38,18 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-styled-components`,
     'gatsby-plugin-sharp',
-    '@contentful/gatsby-transformer-contentful-richtext',
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
+      locale: 'en-CA',
+    },
+    {
+      resolve: 'gatsby-plugin-i18n',
+      options: {
+        langKeyForNull: 'any',
+        langKeyDefault: languages.defaultLangKey,
+        useLangKeyLayout: false,
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -113,11 +124,16 @@ module.exports = {
               <img src="${node.data.target.fields.file['en-US'].url}" > `
             },
           },
+
           /*
            * Defines custom html string for each mark type like bold, italic etc..
            */
         },
       },
+    },
+    {
+      resolve: 'gatsby-source-contentful',
+      options: contentfulConfig,
     },
   ],
 }
