@@ -107,7 +107,7 @@ class BoardTemplate extends React.Component {
                         Copyright&nbsp;&copy;{this.getYear()}. The Canadian Real
                         Estate Association. All rights reserved. Reproduction in
                         whole or in part is prohibited without written
-                        permission.
+                        permission..
                       </p>
                     </div>
                     {/* <!--  ==========================================================  -->
