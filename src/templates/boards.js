@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Container, Row, Col } from 'reactstrap'
-import Helmet from 'react-helmet'
 import * as PropTypes from 'prop-types'
 import get from 'lodash/get'
 import Img from 'gatsby-image'
