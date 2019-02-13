@@ -34,10 +34,16 @@ module.exports = {
   },
   plugins: [
     'gatsby-transformer-remark',
-    'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-styled-components`,
     'gatsby-plugin-sharp',
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        useMozJpeg: false,
+        stripMetadata: true,
+      },
+    },
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
