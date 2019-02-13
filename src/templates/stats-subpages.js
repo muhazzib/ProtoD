@@ -34,8 +34,8 @@ class NatlAboutTemplate extends React.Component {
           <div className="row split">
             <div className="col-md">
               <div className="entry-header">
-                {location.pathname}
-                {location.pathname === '/fr-CA/2WzwJAqfKd3QekqmJcKmli/' && (
+                {Location.pathname}
+                {Location.pathname === '/fr-CA/2WzwJAqfKd3QekqmJcKmli/' && (
                   <div>
                     <SidebarFr />
                   </div>
