@@ -57,55 +57,16 @@ class BoardTemplate extends React.Component {
                       />
                     )}
                     <div className="boardInfo">
-                      <hr />
-                      <h3>BOARD & ASSOCIATION INFORMATION</h3>
-                      {post.boardInformation !== null && (
-                        <p
-                          className="content"
-                          dangerouslySetInnerHTML={{
-                            __html:
-                              post.boardInformation.childMarkdownRemark.html,
-                          }}
-                        />
-                      )}
-                      <hr />
-
-                      {post.boardInformation !== null && (
+                      {post.boardInfo !== null && (
                         <div>
-                          <Img fixed={post.boardLogo.fixed} tracedSVG />
+                          <p
+                            className="content"
+                            dangerouslySetInnerHTML={{
+                              __html: post.boardInfo.childMarkdownRemark.html,
+                            }}
+                          />
                         </div>
                       )}
-                      <h3>{post.title}</h3>
-                      {post.boardExternalLink !== null && (
-                        <div>
-                          <Link to={post.boardExternalLink}>
-                            Visit External Link
-                          </Link>
-                        </div>
-                      )}
-                      <br />
-                      <br />
-                      <p className="removeMargin">
-                        <strong>
-                          For more information, <br />
-                          please contact:
-                        </strong>
-                      </p>
-                      {post.boardExternalLink !== null && (
-                        <p
-                          className="content-contact"
-                          dangerouslySetInnerHTML={{
-                            __html:
-                              post.boardContactInformation
-                                .childContentfulRichText.html,
-                          }}
-                        />
-                      )}
-
-                      {/* <img
-                        src={post.boardPresidentPhoto.fixed.src}
-                        title={post.boardPresidentName}
-                      /> */}
 
                       <Container>
                         <Row>
@@ -114,6 +75,7 @@ class BoardTemplate extends React.Component {
                               <Img
                                 className="boardPresPhoto"
                                 fixed={post.boardPresidentPhoto.fixed}
+                                tracedSVG
                               />
                             )}
                           </Col>
@@ -163,47 +125,35 @@ class BoardTemplate extends React.Component {
                 <ul>
                   {post.about !== null && (
                     <li>
-                      <Link to={`/about/${post.about.slug}`}>
+                      <Link to={`/board/${post.about.slug}`}>
                         {post.about.title}
                       </Link>
                     </li>
                   )}
                   {post.employmentTrendsPage !== null && (
                     <li>
-                      <Link
-                        to={`/employment-trends/${
-                          post.employmentTrendsPage.slug
-                        }`}
-                      >
+                      <Link to={`/board/${post.employmentTrendsPage.slug}`}>
                         {post.employmentTrendsPage.title}
                       </Link>
                     </li>
                   )}
-                  {post.employmentTrendsPage !== null && (
+                  {post.interestRateChangePage !== null && (
                     <li>
-                      <Link
-                        to={`/interest-rate-changes/${
-                          post.employmentTrendsPage.slug
-                        }`}
-                      >
-                        {post.employmentTrendsPage.title}
+                      <Link to={`/board/${post.interestRateChangePage.slug}`}>
+                        {post.interestRateChangePage.title}
                       </Link>
                     </li>
                   )}
                   {post.consumerConfidencePage !== null && (
                     <li>
-                      <Link
-                        to={`/consumer-confidence/${
-                          post.consumerConfidencePage.slug
-                        }`}
-                      >
+                      <Link to={`/board/${post.consumerConfidencePage.slug}`}>
                         {post.consumerConfidencePage.title}
                       </Link>
                     </li>
                   )}
                   {post.migrationPage !== null && (
                     <li>
-                      <Link to={`/migration/${post.migrationPage.slug}`}>
+                      <Link to={`/board/${post.migrationPage.slug}`}>
                         {post.migrationPage.title}
                       </Link>
                     </li>
@@ -215,47 +165,35 @@ class BoardTemplate extends React.Component {
                   <ul>
                     {post.residentialActivity !== null && (
                       <li>
-                        <Link
-                          to={`/residential/${post.residentialActivity.slug}`}
-                        >
+                        <Link to={`/board/${post.residentialActivity.slug}`}>
                           {post.residentialActivity.title}
                         </Link>
                       </li>
                     )}
                     {post.salesByCategory !== null && (
                       <li>
-                        <Link
-                          to={`/sales-category/${post.salesByCategory.slug}`}
-                        >
+                        <Link to={`/board/${post.salesByCategory.slug}`}>
                           {post.salesByCategory.title}
                         </Link>
                       </li>
                     )}
                     {post.salesByPriceRange !== null && (
                       <li>
-                        <Link
-                          to={`/sales-by-price-range/${
-                            post.salesByPriceRange.slug
-                          }`}
-                        >
+                        <Link to={`/board/${post.salesByPriceRange.slug}`}>
                           {post.salesByPriceRange.title}
                         </Link>
                       </li>
                     )}
                     {post.medianPrice !== null && (
                       <li>
-                        <Link to={`/median-price/${post.medianPrice.slug}`}>
+                        <Link to={`/board/${post.medianPrice.slug}`}>
                           {post.medianPrice.title}
                         </Link>
                       </li>
                     )}
                     {post.marketConditions !== null && (
                       <li>
-                        <Link
-                          to={`/market-conditions/${
-                            post.marketConditions.slug
-                          }`}
-                        >
+                        <Link to={`/board/${post.marketConditions.slug}`}>
                           {post.marketConditions.title}
                         </Link>
                       </li>
@@ -291,8 +229,12 @@ export const pageQuery = graphql`
       title
       slug
       headline
-      boardExternalLink
       boardPresidentName
+      boardInfo {
+        childMarkdownRemark {
+          html
+        }
+      }
       about {
         title
         slug
@@ -330,16 +272,7 @@ export const pageQuery = graphql`
         title
         slug
       }
-      boardContactInformation {
-        childContentfulRichText {
-          html
-        }
-      }
-      boardInformation {
-        childMarkdownRemark {
-          html
-        }
-      }
+
       mainContent {
         childContentfulRichText {
           html
@@ -354,17 +287,7 @@ export const pageQuery = graphql`
           height
         }
       }
-      boardLogo {
-        fixed(width: 250) {
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          tracedSVG
-          width
-          height
-        }
-      }
+
       chartA {
         fixed {
           src

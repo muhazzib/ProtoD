@@ -7,7 +7,7 @@
     "url": "https://github.com/contentful-userland/gatsby-contentful-starter/issues"
   },
   "dependencies": {
-    "@contentful/gatsby-transformer-contentful-richtext": "^12.1.2",
+    "@contentful/gatsby-transformer-contentful-richtext": "^13.0.0",
     "@fancyapps/fancybox": "^3.5.6",
     "babel-plugin-styled-components": "^1.10.0",
     "bootstrap": "^4.1.3",

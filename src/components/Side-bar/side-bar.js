@@ -34,18 +34,18 @@ const SideBar = ({ siteTitle }) => (
       <h5 className="text_upper">National Statistics</h5>
       <ul className="children ntl_stats">
         <li>
-          <a href="/en-CA/stats/2WzwJAqfKd3QekqmJcKmli/">About </a>
+          <a href="/en-US/stats/2WzwJAqfKd3QekqmJcKmli/">About </a>
         </li>
         <li>
-          <a href="/en-CA/stats/3Yj8RUXHGUebU2k1UfYnqT/">Employment Trends</a>
+          <a href="/en-US/stats/3Yj8RUXHGUebU2k1UfYnqT/">Employment Trends</a>
         </li>
         <li>
-          <a href="/en-CA/stats/ZtDiHSNyWRJYz57YMk7aX/">
+          <a href="/en-US/stats/ZtDiHSNyWRJYz57YMk7aX/">
             Interest Rate Changes
           </a>
         </li>
         <li>
-          <a href="/en-CA/stats/2k7dZil1MPa7B2vbqlNKlH/">Consumer Confidence</a>
+          <a href="/en-US/stats/2k7dZil1MPa7B2vbqlNKlH/">Consumer Confidence</a>
         </li>
       </ul>
     </ul>

@@ -67,7 +67,7 @@ class RootENIndex extends React.Component {
                   }}
                 /> */}
               </div>
-        
+
               <div className="entry-content">
                 <div className="entry-sub">
                   <h2>{natl.headline}</h2>
@@ -194,7 +194,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    ca: allContentfulNational(filter: { node_locale: { eq: "en-CA" } }) {
+    ca: allContentfulNational(filter: { node_locale: { eq: "en-US" } }) {
       edges {
         node {
           title

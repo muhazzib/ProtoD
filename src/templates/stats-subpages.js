@@ -11,12 +11,14 @@ import Sidebar from '../components/Side-bar/side-bar'
 import Sheet from '../components/Table/sheet'
 import Footersub from '../components/Footer/footer-sub'
 import footerStyle from '../components/Footer/footer.module.css'
+import { Location } from '@reach/router'
+import SidebarFr from '../components/Side-bar/side-bar.fr'
 
 const propTypes = {
   data: PropTypes.object.isRequired,
 }
 
-class NatlInterestRateTemplate extends React.Component {
+class NatlAboutTemplate extends React.Component {
   getYear() {
     return new Date().getFullYear()
   }
@@ -32,6 +34,18 @@ class NatlInterestRateTemplate extends React.Component {
           <div className="row split">
             <div className="col-md">
               <div className="entry-header">
+                {location.pathname}
+                {location.pathname === '/fr-CA/2WzwJAqfKd3QekqmJcKmli/' && (
+                  <div>
+                    <SidebarFr />
+                  </div>
+                )}
+                {/*   <SidebarFr
+                  isIndex={
+                    this.props.location.pathname !==
+                    '/fr-CA/stats/2WzwJAqfKd3QekqmJcKmli/'
+                  }
+                /> */}
                 <h1
                   className="entry-title"
                   dangerouslySetInnerHTML={{
@@ -92,12 +106,12 @@ class NatlInterestRateTemplate extends React.Component {
   }
 }
 
-NatlInterestRateTemplate.propTypes = propTypes
+NatlAboutTemplate.propTypes = propTypes
 
-export default NatlInterestRateTemplate
+export default NatlAboutTemplate
 
 export const pageQuery = graphql`
-  query natlInterestRCQuery($id: String!) {
+  query natlAboutQuery($id: String!) {
     site {
       siteMetadata {
         languages {

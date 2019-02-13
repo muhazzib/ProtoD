@@ -38,11 +38,10 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-styled-components`,
     'gatsby-plugin-sharp',
-    '@contentful/gatsby-transformer-contentful-richtext',
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
-      locale: 'en',
+      locale: 'en-CA',
     },
     {
       resolve: 'gatsby-plugin-i18n',
@@ -125,11 +124,16 @@ module.exports = {
               <img src="${node.data.target.fields.file['en-US'].url}" > `
             },
           },
+
           /*
            * Defines custom html string for each mark type like bold, italic etc..
            */
         },
       },
+    },
+    {
+      resolve: 'gatsby-source-contentful',
+      options: contentfulConfig,
     },
   ],
 }
