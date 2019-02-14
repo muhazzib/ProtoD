@@ -11,31 +11,6 @@ exports.createPages = ({ graphql, actions }) => {
     const natlStatsSubPost = path.resolve('./src/templates/stats-subpages.js')
 
     const boardPost = path.resolve('./src/templates/boards.js')
-    // const aboutPost = path.resolve('./src/templates/about.js')
-    // const residentialPost = path.resolve(
-    //   './src/templates/residential-activity.js'
-    // )
-    // const salesCategoryPost = path.resolve(
-    //   './src/templates/sales-by-category.js'
-    // )
-    // const salesByPriceRangePost = path.resolve(
-    //   './src/templates/sales-by-price-range.js'
-    // )
-    // const marketConditionPost = path.resolve(
-    //   './src/templates/market-condition.js'
-    // )
-    // const medianPricePost = path.resolve('./src/templates/median-price.js')
-    // const employmentTrendsPost = path.resolve(
-    //   './src/templates/employment-trend.js'
-    // )
-    // const consumerConfidencePost = path.resolve(
-    //   './src/templates/consumer-confidence.js'
-    // )
-    // const interestRateChangesPost = path.resolve(
-    //   './src/templates/interest-rate-changes.js'
-    // )
-
-    // const migrationPost = path.resolve('./src/templates/migration.js')
 
     resolve(
       graphql(
