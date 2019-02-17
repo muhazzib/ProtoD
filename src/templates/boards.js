@@ -64,6 +64,10 @@ class BoardTemplate extends React.Component {
                               __html: post.boardInfo.childMarkdownRemark.html,
                             }}
                           />
+                        </div>
+                      )}
+                      {post.binfo !== null && (
+                        <div>
                           <p
                             className="content"
                             dangerouslySetInnerHTML={{
