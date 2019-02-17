@@ -21,7 +21,7 @@ class BoardTemplate extends React.Component {
 
   render() {
     const post = get(this.props, 'data.contentfulBoards')
-    console.log('fp', post)
+    console.log('board', post.boardInfo)
 
     return (
       <Layout data={this.props.data} location={this.props.location}>
@@ -57,14 +57,7 @@ class BoardTemplate extends React.Component {
                     )}
                     <div className="boardInfo">
                       {post.boardInfo !== null && (
-                        <div>
-                          <p
-                            className="content"
-                            dangerouslySetInnerHTML={{
-                              __html: post.boardInfo.childMarkdownRemark.html,
-                            }}
-                          />
-                        </div>
+                        <div>{post.boardInfo.childMarkdownRemark.html}</div>
                       )}
 
                       <Container>

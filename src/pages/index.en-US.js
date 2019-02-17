@@ -50,7 +50,6 @@ class RootENIndex extends React.Component {
 
   render() {
     const natl = get(this, 'props.data.ca.edges[0].node')
-    const natls = get(this, 'props.data.en.edges[0].node')
 
     return (
       <Layout data={this.props.data} location={this.props.location}>

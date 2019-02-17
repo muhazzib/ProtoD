@@ -9,7 +9,6 @@ exports.createPages = ({ graphql, actions }) => {
   return new Promise((resolve, reject) => {
     const natlPost = path.resolve('./src/templates/home.js')
     const natlStatsSubPost = path.resolve('./src/templates/stats-subpages.js')
-
     const boardPost = path.resolve('./src/templates/boards.js')
 
     resolve(

@@ -12,7 +12,7 @@ const propTypes = {
   data: PropTypes.object.isRequired,
 }
 
-class BlogIndex extends React.Component {
+class Beech extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const boards = get(this, 'props.data.allContentfulBoards.edges')
@@ -41,12 +41,12 @@ class BlogIndex extends React.Component {
   }
 }
 
-BlogIndex.propTypes = propTypes
+Beech.propTypes = propTypes
 
-export default BlogIndex
+export default Beech
 
 export const pageQuery = graphql`
-  query BoardIndexQuery {
+  query BeechQuery {
     site {
       siteMetadata {
         languages {
@@ -108,9 +108,9 @@ class BlogIndex extends React.Component {
   }
 }
 
-BlogIndex.propTypes = propTypes
+Beech.propTypes = propTypes
 
-export default BlogIndex
+export default Beech
 
 export const pageQuery = graphql`
   query BoardIndexQuery {
