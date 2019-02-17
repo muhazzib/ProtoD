@@ -109,9 +109,9 @@ module.exports = {
           renderNode: {
             // Example
             [INLINES.ASSET_HYPERLINK]: node => {
-              return `<img class='custom-asset' src="${
+              return `<img src="${
                 node.data.target.fields.file['en-US'].url
-              }"/>`
+              }" />`
             },
             [INLINES.EMBEDDED_ENTRY]: node => {
               return `<div class='custom-entry' />${
@@ -121,7 +121,7 @@ module.exports = {
             //return image asset in rich text
             [BLOCKS.EMBEDDED_ASSET]: node => {
               return `
-              <img src="${node.data.target.fields.file['en-US'].url}" > `
+              <img src="${node.data.target.fields.file['en-US'].url}" />`
             },
           },
 

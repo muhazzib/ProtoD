@@ -57,7 +57,20 @@ class BoardTemplate extends React.Component {
                     )}
                     <div className="boardInfo">
                       {post.boardInfo !== null && (
-                        <div>{post.boardInfo.childMarkdownRemark.html}</div>
+                        <div>
+                          <p
+                            className="content"
+                            dangerouslySetInnerHTML={{
+                              __html: post.boardInfo.childMarkdownRemark.html,
+                            }}
+                          />
+                          <p
+                            className="content"
+                            dangerouslySetInnerHTML={{
+                              __html: post.binfo.childContentfulRichText.html,
+                            }}
+                          />
+                        </div>
                       )}
 
                       <Container>
@@ -222,6 +235,11 @@ export const pageQuery = graphql`
       slug
       headline
       boardPresidentName
+      binfo {
+        childContentfulRichText {
+          html
+        }
+      }
       boardInfo {
         childMarkdownRemark {
           html
