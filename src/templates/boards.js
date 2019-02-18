@@ -30,7 +30,7 @@ class BoardTemplate extends React.Component {
 
         {post.binfo !== null && (
           <div>
-            <h2
+            <div
               className="content"
               dangerouslySetInnerHTML={{
                 __html: post.binfo.childContentfulRichText.html,
