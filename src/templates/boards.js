@@ -21,23 +21,11 @@ class BoardTemplate extends React.Component {
 
   render() {
     const post = get(this.props, 'data.contentfulBoards')
-    console.log('board-info', post.boardInfo)
-    console.log('binfo', post.binfo)
+    console.log('board', post.boardInfo)
 
     return (
       <Layout data={this.props.data} location={this.props.location}>
         <GlobalStyle />
-
-        {post.binfo !== null && (
-          <div>
-            <div
-              className="content"
-              dangerouslySetInnerHTML={{
-                __html: post.binfo.childContentfulRichText.html,
-              }}
-            />
-          </div>
-        )}
         <div className="content-wrapper">
           <div className="row split">
             <div className="col-md">
@@ -74,16 +62,6 @@ class BoardTemplate extends React.Component {
                             className="content"
                             dangerouslySetInnerHTML={{
                               __html: post.boardInfo.childMarkdownRemark.html,
-                            }}
-                          />
-                        </div>
-                      )}
-                      {post.binfo !== null && (
-                        <div>
-                          <div
-                            className="content"
-                            dangerouslySetInnerHTML={{
-                              __html: post.binfo.childContentfulRichText.html,
                             }}
                           />
                         </div>
