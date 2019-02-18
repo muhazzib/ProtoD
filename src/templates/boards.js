@@ -27,6 +27,26 @@ class BoardTemplate extends React.Component {
     return (
       <Layout data={this.props.data} location={this.props.location}>
         <GlobalStyle />
+        {post.boardInfo !== null && (
+          <div>
+            <p
+              className="content"
+              dangerouslySetInnerHTML={{
+                __html: post.boardInfo.childMarkdownRemark.html,
+              }}
+            />
+          </div>
+        )}
+        {post.binfo !== null && (
+          <div>
+            <p
+              className="content"
+              dangerouslySetInnerHTML={{
+                __html: post.binfo.childContentfulRichText.html,
+              }}
+            />
+          </div>
+        )}
         <div className="content-wrapper">
           <div className="row split">
             <div className="col-md">
