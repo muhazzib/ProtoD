@@ -229,11 +229,6 @@ export const pageQuery = graphql`
       slug
       headline
       boardPresidentName
-      binfo {
-        childContentfulRichText {
-          html
-        }
-      }
       boardInfo {
         childMarkdownRemark {
           html
