@@ -108,14 +108,10 @@ module.exports = {
            */
           renderNode: {
             // Example
-            [INLINES.ASSET_HYPERLINK]: node => {
-              return `<img src="${
-                node.data.target.fields.file['en-US'].url
-              }" />`
-            },
+
             [INLINES.EMBEDDED_ENTRY]: node => {
               return `<div class='custom-entry' />${
-                node.data.target.fields.name['en-US']
+                node.data.target.fields.file['en-US'].url
               }</div>`
             },
             //return image asset in rich text
