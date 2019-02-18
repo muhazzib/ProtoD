@@ -70,7 +70,7 @@ class BoardTemplate extends React.Component {
                     <div className="boardInfo">
                       {post.boardInfo !== null && (
                         <div>
-                          <p
+                          <div
                             className="content"
                             dangerouslySetInnerHTML={{
                               __html: post.boardInfo.childMarkdownRemark.html,
@@ -80,7 +80,7 @@ class BoardTemplate extends React.Component {
                       )}
                       {post.binfo !== null && (
                         <div>
-                          <p
+                          <div
                             className="content"
                             dangerouslySetInnerHTML={{
                               __html: post.binfo.childContentfulRichText.html,
