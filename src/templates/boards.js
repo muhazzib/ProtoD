@@ -27,19 +27,10 @@ class BoardTemplate extends React.Component {
     return (
       <Layout data={this.props.data} location={this.props.location}>
         <GlobalStyle />
-        {post.boardInfo !== null && (
-          <div>
-            <p
-              className="content"
-              dangerouslySetInnerHTML={{
-                __html: post.boardInfo.childMarkdownRemark.html,
-              }}
-            />
-          </div>
-        )}
+
         {post.binfo !== null && (
           <div>
-            <p
+            <h2
               className="content"
               dangerouslySetInnerHTML={{
                 __html: post.binfo.childContentfulRichText.html,
