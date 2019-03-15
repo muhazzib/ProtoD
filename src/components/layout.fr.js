@@ -2,11 +2,13 @@ import React from 'react'
 import { Link } from 'gatsby'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Container from './container'
-import Wrapper from './wrapper'
+import get from 'lodash/get'
+import Wrapper from './wrapper/wrapper'
 import Navigation from './navigation'
 import Header from './Header/header'
 import Breadcrumb from '../components/Breadcrumb/breadcrumb'
 import Footer from '../components/Footer/footer'
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 
 import Helmet from 'react-helmet'
 import { getCurrentLangKey, getLangs, getUrlForLang } from 'ptz-i18n'
@@ -50,6 +52,7 @@ class Template extends React.Component {
   }
 
   render() {
+    const natl = get(this, 'props.data.fr.edges[0].node')
     /*     const { location, children } = this.props
     let header
 
@@ -62,6 +65,22 @@ class Template extends React.Component {
       <IntlProvider locale={this.langKey} messages={this.i18nMessages}>
         <Container>
           <GlobalStyle />
+          {/*  MODAL CODE STARTS HERE */}
+          <Modal isOpen={this.props.chartAProp} toggle={this.props.closeChartA}>
+            <ModalHeader toggle={this.props.closeChartA}>Chart A</ModalHeader>
+            <ModalBody>
+              <img src={natl.chartA.fluid.src} />
+            </ModalBody>
+          </Modal>
+
+          <Modal isOpen={this.props.chartBProp} toggle={this.props.closeChartB}>
+            <ModalHeader toggle={this.props.closeChartB}>Chart B</ModalHeader>
+            <ModalBody>
+              <img src={natl.chartB.fluid.src} />
+            </ModalBody>
+          </Modal>
+          {/*   MODAL CODE ENDS HERE */}
+
           <Header langs={this.langsMenu} />
           <SiteHeader />
           <Wrapper>
@@ -72,7 +91,6 @@ class Template extends React.Component {
                   <div className="entry-header" />
                   <div className="entry-content">
                     <div className="entry-sub">
-                      <h1>Statistiques nationales</h1>
                       <div>
                         {this.children}
                         <div className="chart_container">

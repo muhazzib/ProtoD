@@ -5,24 +5,161 @@ class Footer extends React.Component {
   render() {
     return (
       <div className={footerStyle.footer}>
-        <div className="row">
-          <div className="col">
-            <h5>
-              <strong>CANADIAN REAL ESTATE ASSOCIATION</strong>
-            </h5>
+        <div className="container">
+          <div className="row">
+            <div className="col-sm">
+              <h5>
+                <strong>CANADIAN REAL ESTATE ASSOCIATION</strong>
+              </h5>
+            </div>
+            <div className="col-sm">
+              <strong>Phone</strong>
+              :613.237-7111 &nbsp; &nbsp;
+              <strong>Email:</strong>
+              <a href="#">info@crea.ca</a>
+            </div>
+            <div className="col-sm" className={footerStyle.col1}>
+              <a
+                href="https://www.facebook.com/CREA.ACI"
+                target="_blank"
+                id="icon_facebook"
+                alt="CREA's Facebook page"
+              >
+                <img src={require('../../images/icon_facebook.png')} />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/1400987"
+                target="_blank"
+                id="icon_linkedin"
+                alt="CREA's LinkedIn page"
+              >
+                <img src={require('../../images/icon_linkedin.png')} />
+              </a>
+              <a
+                href="https://twitter.com/CREA_ACI"
+                target="_blank"
+                id="icon_twitter"
+                alt="CREA's Twitter page"
+              >
+                <img src={require('../../images/icon_twitter.png')} />
+              </a>
+              <a
+                href="https://www.youtube.com/user/CREACHANNEL"
+                target="_blank"
+                id="icon_youtube"
+                alt="CREA's YouTube page"
+              >
+                <img src={require('../../images/icon_youtube.png')} />
+              </a>
+              <a
+                href="https://www.instagram.com/crea_aci/"
+                target="_blank"
+                id="icon_instagram"
+                alt="CREA's Instagram page"
+              >
+                <img src={require('../../images/icon_instagram.png')} />
+              </a>
+              <a
+                href="http://www.crea.ca/feed/?post_type=crea_newsroom"
+                target="_blank"
+                id="icon_rss"
+                alt="CREA's RSS Feed"
+              >
+                <img src={require('../../images/icon_rss.png')} />
+              </a>
+              <a
+                href="https://plus.google.com/+CREAACI/posts"
+                target="_blank"
+                id="icon_googleplus"
+                alt="CREA's GooglePlus page"
+              >
+                <img src={require('../../images/icon_googleplus.png')} />
+              </a>
+            </div>
           </div>
-          <div className="col">
-            <strong>Phone</strong>
-            :613.237-7111 &nbsp; &nbsp;
-            <strong>Email:</strong>
-            <a href="#">info@crea.ca</a>
-          </div>
-          <div className="col">Social icons go here</div>
         </div>
+        {/*         <div className="row">
+          <div className={footerStyle.inlineFooter}>
+            <div className="col">
+              <h5>
+                <strong>CANADIAN REAL ESTATE ASSOCIATION</strong>
+              </h5>
+            </div>
+            <div className="col">
+              <strong>Phone</strong>
+              :613.237-7111 &nbsp; &nbsp;
+              <strong>Email:</strong>
+              <a href="#">info@crea.ca</a>
+            </div>
+          </div>
+          <div className="col">
+            <div className={footerStyle.col1}>
+              <a
+                href="https://www.facebook.com/CREA.ACI"
+                target="_blank"
+                id="icon_facebook"
+                alt="CREA's Facebook page"
+              >
+                <img src={require('../../images/icon_facebook.png')} />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/1400987"
+                target="_blank"
+                id="icon_linkedin"
+                alt="CREA's LinkedIn page"
+              >
+                <img src={require('../../images/icon_linkedin.png')} />
+              </a>
+              <a
+                href="https://twitter.com/CREA_ACI"
+                target="_blank"
+                id="icon_twitter"
+                alt="CREA's Twitter page"
+              >
+                <img src={require('../../images/icon_twitter.png')} />
+              </a>
+              <a
+                href="https://www.youtube.com/user/CREACHANNEL"
+                target="_blank"
+                id="icon_youtube"
+                alt="CREA's YouTube page"
+              >
+                <img src={require('../../images/icon_youtube.png')} />
+              </a>
+
+              <a
+                href="https://www.instagram.com/crea_aci/"
+                target="_blank"
+                id="icon_instagram"
+                alt="CREA's Instagram page"
+              >
+                <img src={require('../../images/icon_instagram.png')} />
+              </a>
+              <a
+                href="http://www.crea.ca/feed/?post_type=crea_newsroom"
+                target="_blank"
+                id="icon_rss"
+                alt="CREA's RSS Feed"
+              >
+                <img src={require('../../images/icon_rss.png')} />
+              </a>
+              <a
+                href="https://plus.google.com/+CREAACI/posts"
+                target="_blank"
+                id="icon_googleplus"
+                alt="CREA's GooglePlus page"
+              >
+                <img src={require('../../images/icon_googleplus.png')} />
+              </a>
+            </div>
+          </div>
+        </div> */}
         <hr />
-        <div className="row">
-          <div className="col-2">
-            <img src={require('../../images/logo_crea_EN.svg')} />
+        <div className="row row-2">
+          <div className={footerStyle.logo}>
+            <div className="col-2">
+              <img src={require('../../images/logo_crea_EN.svg')} />
+            </div>
           </div>
           <div className="col ">
             <p className={footerStyle.Trademark}>
@@ -32,7 +169,7 @@ class Footer extends React.Component {
               professionals who are members of CREA. The trademarks REALTOR®,
               REALTORS® and the REALTOR® logo are controlled by CREA and
               identify real estate professionals who are members of CREA.{' '}
-              <a href="#">Legal</a> | <a href="#">Privacy</a>
+              <a href="#">Legal</a> |<a href="#">Privacy</a>
             </p>
           </div>
         </div>

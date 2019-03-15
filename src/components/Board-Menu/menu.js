@@ -2,6 +2,11 @@ import React from 'react'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import Select from 'react-select'
 
+const style = {
+  fontSize: '12px',
+  fontWeight: 'bold',
+}
+
 class MenuX extends React.Component {
   state = {
     selectedOption: null,
@@ -27,7 +32,7 @@ class MenuX extends React.Component {
     })
     console.log(itemList)
     return (
-      <div>
+      <div style={style}>
         <Select
           value={selectedOption}
           onChange={this.handleChange}

@@ -11,6 +11,8 @@ import Sidebar from '../components/Side-bar/side-bar'
 import Sheet from '../components/Table/sheet'
 import Footersub from '../components/Footer/footer-sub'
 import footerStyle from '../components/Footer/footer.module.css'
+import ChartA from '../components/Chart/chartA'
+import ChartB from '../components/Chart/chartB'
 
 const propTypes = {
   data: PropTypes.object.isRequired,
@@ -27,6 +29,8 @@ class RootENIndex extends React.Component {
       dd1: false,
       modal1: false,
       modal2: false,
+      chartA: false,
+      chartB: false,
     }
     this.dropdownToggle = this.dropdownToggle.bind(this)
   }
@@ -41,19 +45,32 @@ class RootENIndex extends React.Component {
       [tabId]: false,
     })
   }
-  showModal(modal) {
+  showModal = () => {
     this.setState({
-      [modal]: true,
+      chartA: !this.state.chartA,
     })
-    console.log(this.state)
   }
-
+  showModal2 = () => {
+    this.setState({
+      chartB: !this.state.chartB,
+    })
+  }
   render() {
     const natl = get(this, 'props.data.ca.edges[0].node')
+    const natls = get(this, 'props.data.en.edges[0].node')
 
     return (
-      <Layout data={this.props.data} location={this.props.location}>
+      <Layout
+        data={this.props.data}
+        location={this.props.location}
+        chartAProp={this.state.chartA}
+        closeChartA={this.showModal}
+        chartBProp={this.state.chartB}
+        closeChartA={this.showModal}
+        closeChartB={this.showModal2}
+      >
         {/* <Chart /> */}
+
         <div className="content-wrapper">
           <div className="row split">
             <div className="col-md">
@@ -82,25 +99,13 @@ class RootENIndex extends React.Component {
                       {/* Char A Start */}
                       <div className="imageBox">
                         <img
-                          onClick={this.showModal.bind(this, 'modal1')}
+                          onClick={this.showModal}
                           src={natl.chartA.fixed.src}
                           className="thumbnail"
                         />
+                        {/* <ChartA className="thumbnail" /> */}
                       </div>
-                      <Modal
-                        isOpen={this.state.modal1}
-                        toggle={this.closeModal.bind(this, 'modal1')}
-                        className={this.props.className}
-                      >
-                        <ModalHeader
-                          toggle={this.closeModal.bind(this, 'modal1')}
-                        >
-                          Chart A
-                        </ModalHeader>
-                        <ModalBody>
-                          <img src={natl.chartA.fluid.src} />
-                        </ModalBody>
-                      </Modal>
+
                       <p>Chart A</p>
                     </div>
                     {/* Char A End */}
@@ -113,25 +118,12 @@ class RootENIndex extends React.Component {
                     <div className="chart_container">
                       <div className="imageBox">
                         <img
-                          onClick={this.showModal.bind(this, 'modal2')}
+                          onClick={this.showModal2}
                           src={natl.chartB.fixed.src}
                           className="thumbnail"
                         />
+                        {/*  <ChartB className="thumbnail" /> */}
                       </div>
-                      <Modal
-                        isOpen={this.state.modal2}
-                        toggle={this.closeModal.bind(this, 'modal2')}
-                        className={this.props.className}
-                      >
-                        <ModalHeader
-                          toggle={this.closeModal.bind(this, 'modal2')}
-                        >
-                          Chart B
-                        </ModalHeader>
-                        <ModalBody>
-                          <img src={natl.chartB.fluid.src} />
-                        </ModalBody>
-                      </Modal>
 
                       <p>Chart B</p>
                     </div>
@@ -142,8 +134,9 @@ class RootENIndex extends React.Component {
                         __html: natl.contentC.childContentfulRichText.html,
                       }}
                     />
-
-                    <Sheet />
+                    <div className="sheet">
+                      <Sheet />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -254,7 +247,7 @@ export const pageQuery = graphql`
     natltitle: allContentfulStatsPages(filter: { title: { eq: "About" } }) {
       ...Sourcex
     }
-    en: allContentfulStatsPages(filter: { node_locale: { eq: "en-CA" } }) {
+    en: allContentfulStatsPages(filter: { node_locale: { eq: "en-US" } }) {
       ...Sourcex
     }
   }
