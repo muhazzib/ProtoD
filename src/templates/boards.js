@@ -74,6 +74,17 @@ class BoardTemplate extends React.Component {
                         </div>
                       )}
 
+                      {post.wtf2 !== null && (
+                        <div>
+                          <p
+                            className="content"
+                            dangerouslySetInnerHTML={{
+                              __html: post.wtf2.childMarkdownRemark.html,
+                            }}
+                          />
+                        </div>
+                      )}
+
                       <Container>
                         <Row>
                           <Col xs="4" className="pres-photo">
@@ -240,11 +251,17 @@ export const pageQuery = graphql`
       slug
       headline
       boardPresidentName
+      wtf2 {
+        childMarkdownRemark {
+          html
+        }
+      }
       boardInfo {
         childMarkdownRemark {
           html
         }
       }
+
       about {
         title
         slug
