@@ -38,7 +38,7 @@ class NatlAboutTemplate extends React.Component {
           <div className="row split">
             <div className="col-md">
               <div className="entry-header">
-                {location.pathname}
+                {/*  {location.pathname}
                 <Location>
                   {({ location }) => {
                     {
@@ -58,7 +58,7 @@ class NatlAboutTemplate extends React.Component {
                     <div>
                       <SidebarFr />
                     </div>
-                  )}
+                  )} */}
 
                 {/*   <SidebarFr
                   isIndex={

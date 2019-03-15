@@ -28,7 +28,7 @@ class BlogyIndex extends React.Component {
               {boards.map(({ node }) => {
                 return (
                   <li key={node.slug}>
-                    <BoardPreview board={node} />
+                    <p board={node} />
                   </li>
                 )
               })}

@@ -77,7 +77,7 @@ class Template extends React.Component {
         <Container>
           <GlobalStyle />
           {/*MODAL CODE STARTS HERE  */}
-          <Modal isOpen={this.props.chartAProp} toggle={this.props.closeChartA}>
+          {/* <Modal isOpen={this.props.chartAProp} toggle={this.props.closeChartA}>
             <ModalHeader toggle={this.props.closeChartA}>Chart A</ModalHeader>
             <ModalBody>
               <img src={natl.chartA.fluid.src} />
@@ -89,7 +89,7 @@ class Template extends React.Component {
             <ModalBody>
               <img src={natl.chartB.fluid.src} />
             </ModalBody>
-          </Modal>
+          </Modal> */}
           {/*MODAL CODE ENDS HERE  */}
           <Header langs={this.langsMenu} />
           <div style={styles}>

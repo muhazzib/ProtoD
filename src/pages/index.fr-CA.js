@@ -61,15 +61,7 @@ class RootDEIndex extends React.Component {
     console.log('national-fr', natl)
 
     return (
-      <LayoutFr
-        data={this.props.data}
-        location={this.props.location}
-        chartAProp={this.state.chartA}
-        closeChartA={this.showModal}
-        chartBProp={this.state.chartB}
-        closeChartA={this.showModal}
-        closeChartB={this.showModal2}
-      >
+      <LayoutFr data={this.props.data} location={this.props.location}>
         {/* <Chart /> */}
         <div className="content-wrapper">
           <div className="row split">
@@ -97,11 +89,12 @@ class RootDEIndex extends React.Component {
                     <div className="chart_container">
                       {/* Char A Start */}
                       <div className="imageBox">
-                        <img
+                        <ChartA className="thumbnail" />
+                        {/*    <img
                           onClick={this.showModal}
                           src={natl.chartA.fixed.src}
                           className="thumbnail"
-                        />
+                        /> */}
                       </div>
 
                       <p>Chart A</p>
@@ -115,11 +108,12 @@ class RootDEIndex extends React.Component {
                     />
                     <div className="chart_container">
                       <div className="imageBox">
-                        <img
+                        <ChartB className="thumbnail" />
+                        {/*  <img
                           onClick={this.showModal2}
                           src={natl.chartB.fixed.src}
                           className="thumbnail"
-                        />
+                        /> */}
                       </div>
 
                       <p>Chart B</p>

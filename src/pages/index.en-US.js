@@ -57,18 +57,9 @@ class RootENIndex extends React.Component {
   }
   render() {
     const natl = get(this, 'props.data.ca.edges[0].node')
-    const natls = get(this, 'props.data.en.edges[0].node')
 
     return (
-      <Layout
-        data={this.props.data}
-        location={this.props.location}
-        chartAProp={this.state.chartA}
-        closeChartA={this.showModal}
-        chartBProp={this.state.chartB}
-        closeChartA={this.showModal}
-        closeChartB={this.showModal2}
-      >
+      <Layout data={this.props.data} location={this.props.location}>
         {/* <Chart /> */}
 
         <div className="content-wrapper">
@@ -98,12 +89,12 @@ class RootENIndex extends React.Component {
                     <div className="chart_container">
                       {/* Char A Start */}
                       <div className="imageBox">
-                        <img
+                        {/*    <img
                           onClick={this.showModal}
                           src={natl.chartA.fixed.src}
                           className="thumbnail"
-                        />
-                        {/* <ChartA className="thumbnail" /> */}
+                        /> */}
+                        <ChartA className="thumbnail" />
                       </div>
 
                       <p>Chart A</p>
@@ -117,12 +108,12 @@ class RootENIndex extends React.Component {
                     />
                     <div className="chart_container">
                       <div className="imageBox">
-                        <img
+                        {/*   <img
                           onClick={this.showModal2}
                           src={natl.chartB.fixed.src}
                           className="thumbnail"
-                        />
-                        {/*  <ChartB className="thumbnail" /> */}
+                        /> */}
+                        <ChartB className="thumbnail" />
                       </div>
 
                       <p>Chart B</p>
