@@ -115,10 +115,10 @@ module.exports = {
               }</div>`
             },
             //return image asset in rich text
-            /*    [BLOCKS.EMBEDDED_ASSET]: node => {
+            [BLOCKS.EMBEDDED_ASSET]: node => {
               return `
               <img src="${node.data.target.fields.file['en-US'].url}" />`
-            }, */
+            },
           },
 
           /*
