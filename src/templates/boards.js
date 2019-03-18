@@ -43,6 +43,14 @@ class BoardTemplate extends React.Component {
                     }}
                   />
                 ) : null}
+                {post.wtf !== null ? (
+                  <p
+                    className="content"
+                    dangerouslySetInnerHTML={{
+                      __html: post.wtf.childContentfulRichText.html,
+                    }}
+                  />
+                ) : null}
                 {post.mainContent !== null && (
                   <div
                     className="content"
