@@ -10,6 +10,12 @@ import SideBar from '../components/Side-bar/side-bar'
 import footerStyle from '../components/Footer/footer.module.css'
 import { GlobalStyle } from '../utils/global'
 
+const pStyle = {
+  fontSize: '15px',
+  textAlign: 'center',
+  display: 'inlineTable',
+}
+
 const propTypes = {
   data: PropTypes.object.isRequired,
 }
@@ -21,7 +27,8 @@ class BoardTemplate extends React.Component {
 
   render() {
     const post = get(this.props, 'data.contentfulBoards')
-    console.log('fp', post)
+    const allpost = get(this.props, 'data.allboards')
+    console.log('fp', allpost)
 
     return (
       <Layout data={this.props.data} location={this.props.location}>
@@ -66,10 +73,40 @@ class BoardTemplate extends React.Component {
                           />
                         </div>
                       )}
+                      {post.binfo !== null && (
+                        <div>
+                          <p
+                            className="content"
+                            dangerouslySetInnerHTML={{
+                              __html: post.binfo.childContentfulRichText.html,
+                            }}
+                          />
+                        </div>
+                      )}
+                      {post.wtf !== null && (
+                        <div>
+                          <p
+                            className="content"
+                            dangerouslySetInnerHTML={{
+                              __html: post.wtf.childContentfulRichText.html,
+                            }}
+                          />
+                        </div>
+                      )}
+                      {post.wtftwo !== null && (
+                        <div>
+                          <p
+                            className="content"
+                            dangerouslySetInnerHTML={{
+                              __html: post.wtftwo.childMarkdownRemark.html,
+                            }}
+                          />
+                        </div>
+                      )}
 
                       <Container>
                         <Row>
-                          <Col xs="2">
+                          <Col xs="4" className="pres-photo">
                             {post.boardPresidentPhoto !== null && (
                               <Img
                                 className="boardPresPhoto"
@@ -77,9 +114,6 @@ class BoardTemplate extends React.Component {
                                 tracedSVG
                               />
                             )}
-                          </Col>
-
-                          <Col xs="2">
                             {post.boardPresidentName !== null && (
                               <p>
                                 President <br />
@@ -224,7 +258,24 @@ export const pageQuery = graphql`
         }
       }
     }
+    allboards: allContentfulBoards {
+      edges {
+        node {
+          title
+        }
+      }
+    }
     contentfulBoards(id: { eq: $id }) {
+      wtf {
+        childContentfulRichText {
+          html
+        }
+      }
+      wtftwo {
+        childMarkdownRemark {
+          html
+        }
+      }
       title
       slug
       headline
@@ -271,7 +322,11 @@ export const pageQuery = graphql`
         title
         slug
       }
-
+      binfo {
+        childContentfulRichText {
+          html
+        }
+      }
       mainContent {
         childContentfulRichText {
           html

@@ -13,6 +13,8 @@ import SidebarFr from '../components/Side-bar/side-bar.fr'
 import Sheet from '../components/Table/sheet'
 import Footersub from '../components/Footer/footer-sub'
 import footerStyle from '../components/Footer/footer.module.css'
+import ChartA from '../components/Chart/chartA.fr'
+import ChartB from '../components/Chart/chartB.fr'
 
 const propTypes = {
   data: PropTypes.object.isRequired,
@@ -43,17 +45,20 @@ class RootDEIndex extends React.Component {
       [tabId]: false,
     })
   }
-  showModal(modal) {
+  showModal = () => {
     this.setState({
-      [modal]: true,
+      chartA: !this.state.chartA,
     })
-    console.log(this.state)
+  }
+  showModal2 = () => {
+    this.setState({
+      chartB: !this.state.chartB,
+    })
   }
 
   render() {
     const natl = get(this, 'props.data.fr.edges[0].node')
-    const natls = get(this, 'props.data.frn.edges[0].node')
-    console.log('national-fr', natls)
+    console.log('national-fr', natl)
 
     return (
       <LayoutFr data={this.props.data} location={this.props.location}>
@@ -84,26 +89,14 @@ class RootDEIndex extends React.Component {
                     <div className="chart_container">
                       {/* Char A Start */}
                       <div className="imageBox">
-                        <img
-                          onClick={this.showModal.bind(this, 'modal1')}
+                        <ChartA className="thumbnail" />
+                        {/*    <img
+                          onClick={this.showModal}
                           src={natl.chartA.fixed.src}
                           className="thumbnail"
-                        />
+                        /> */}
                       </div>
-                      <Modal
-                        isOpen={this.state.modal1}
-                        toggle={this.closeModal.bind(this, 'modal1')}
-                        className={this.props.className}
-                      >
-                        <ModalHeader
-                          toggle={this.closeModal.bind(this, 'modal1')}
-                        >
-                          Chart A
-                        </ModalHeader>
-                        <ModalBody>
-                          <img src={natl.chartA.fluid.src} />
-                        </ModalBody>
-                      </Modal>
+
                       <p>Chart A</p>
                     </div>
                     {/* Char A End */}
@@ -115,26 +108,13 @@ class RootDEIndex extends React.Component {
                     />
                     <div className="chart_container">
                       <div className="imageBox">
-                        <img
-                          onClick={this.showModal.bind(this, 'modal2')}
+                        <ChartB className="thumbnail" />
+                        {/*  <img
+                          onClick={this.showModal2}
                           src={natl.chartB.fixed.src}
                           className="thumbnail"
-                        />
+                        /> */}
                       </div>
-                      <Modal
-                        isOpen={this.state.modal2}
-                        toggle={this.closeModal.bind(this, 'modal2')}
-                        className={this.props.className}
-                      >
-                        <ModalHeader
-                          toggle={this.closeModal.bind(this, 'modal2')}
-                        >
-                          Chart B
-                        </ModalHeader>
-                        <ModalBody>
-                          <img src={natl.chartB.fluid.src} />
-                        </ModalBody>
-                      </Modal>
 
                       <p>Chart B</p>
                     </div>

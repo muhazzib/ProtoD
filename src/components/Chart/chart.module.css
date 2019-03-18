@@ -45,3 +45,8 @@
 .entry-sub ul {
   margin: 0px;
 }
+
+.dodo {
+  display: block;
+  max-width: 100%;
+}

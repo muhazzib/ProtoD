@@ -7,7 +7,7 @@ const SiteHeader = ({ siteTitle }) => (
   <div className={siteHeader.mainMenu}>
     <div className={siteHeader.container}>
       <div className={siteHeader.menuContainer}>
-        <div className="row">
+        <div className={siteHeader.row}>
           <div className="col left-grid">
             <a href="http://localhost:8000/">
               <img src={require('../../images/logo_crea_EN.svg')} />

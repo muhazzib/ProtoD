@@ -16,7 +16,9 @@ exports.createPages = ({ graphql, actions }) => {
       graphql(
         `
           {
-            allContentfulNational {
+            allContentfulNational(
+              sort: { fields: [publishDate], order: DESC }
+            ) {
               edges {
                 node {
                   title

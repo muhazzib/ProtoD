@@ -28,18 +28,38 @@ class NatlAboutTemplate extends React.Component {
     console.log('national-ca', natl)
 
     return (
-      <Layout data={this.props.data} location={this.props.location}>
+      <Layout
+        data={this.props.data}
+        location={this.props.location}
+        noHeader="true"
+      >
         {/* <Chart /> */}
         <div className="content-wrapper">
           <div className="row split">
             <div className="col-md">
               <div className="entry-header">
-                {Location.pathname}
-                {Location.pathname === '/fr-CA/2WzwJAqfKd3QekqmJcKmli/' && (
-                  <div>
-                    <SidebarFr />
-                  </div>
-                )}
+                {/*  {location.pathname}
+                <Location>
+                  {({ location }) => {
+                    {
+                      Location.pathname &&
+                        '/fr-CA/stats/2WzwJAqfKd3QekqmJcKmli/'(
+                          <div>
+                            <SidebarFr />
+                          </div>
+                        )
+                    }
+                    console.log(location)
+                    return <p>The location is {location.pathname}</p>
+                  }}
+                </Location>
+                {Location.pathname &&
+                  '/fr-CA/stats/2WzwJAqfKd3QekqmJcKmli/'(
+                    <div>
+                      <SidebarFr />
+                    </div>
+                  )} */}
+
                 {/*   <SidebarFr
                   isIndex={
                     this.props.location.pathname !==
