@@ -27,8 +27,6 @@ class BoardTemplate extends React.Component {
 
   render() {
     const post = get(this.props, 'data.contentfulBoards')
-    const allpost = get(this.props, 'data.allboards')
-    console.log('fp', allpost)
 
     return (
       <Layout data={this.props.data} location={this.props.location}>
@@ -37,6 +35,16 @@ class BoardTemplate extends React.Component {
           <div className="row split">
             <div className="col-md">
               <div className="entry-header">
+                {post.wtf !== null && (
+                  <div>
+                    <p
+                      className="content"
+                      dangerouslySetInnerHTML={{
+                        __html: post.wtf.childContentfulRichText.html,
+                      }}
+                    />
+                  </div>
+                )}
                 <h1
                   className="entry-title"
                   dangerouslySetInnerHTML={{
@@ -103,8 +111,6 @@ class BoardTemplate extends React.Component {
                           />
                         </div>
                       )}
-
-                  
 
                       <Container>
                         <Row>
@@ -282,7 +288,7 @@ export const pageQuery = graphql`
       slug
       headline
       boardPresidentName
-     
+
       boardInfo {
         childMarkdownRemark {
           html
