@@ -35,6 +35,14 @@ class BoardTemplate extends React.Component {
           <div className="row split">
             <div className="col-md">
               <div className="entry-header">
+                {post.wtf !== null ? (
+                  <p
+                    className="content"
+                    dangerouslySetInnerHTML={{
+                      __html: post.wtf.childContentfulRichText.html,
+                    }}
+                  />
+                ) : null}
                 {post.mainContent !== null && (
                   <div
                     className="content"
