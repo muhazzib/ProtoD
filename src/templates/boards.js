@@ -35,12 +35,15 @@ class BoardTemplate extends React.Component {
           <div className="row split">
             <div className="col-md">
               <div className="entry-header">
-                <p
-                  className="content"
-                  dangerouslySetInnerHTML={{
-                    __html: post.wtf.childContentfulRichText.html,
-                  }}
-                />
+                {post.mainContent !== null && (
+                  <div
+                    className="content"
+                    dangerouslySetInnerHTML={{
+                      __html: post.mainContent.childContentfulRichText.html,
+                    }}
+                  />
+                )}
+
                 <h1
                   className="entry-title"
                   dangerouslySetInnerHTML={{
@@ -259,13 +262,6 @@ export const pageQuery = graphql`
         languages {
           defaultLangKey
           langs
-        }
-      }
-    }
-    allboards: allContentfulBoards {
-      edges {
-        node {
-          title
         }
       }
     }
