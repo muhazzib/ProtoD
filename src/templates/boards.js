@@ -104,6 +104,8 @@ class BoardTemplate extends React.Component {
                         </div>
                       )}
 
+                  
+
                       <Container>
                         <Row>
                           <Col xs="4" className="pres-photo">
@@ -280,11 +282,13 @@ export const pageQuery = graphql`
       slug
       headline
       boardPresidentName
+     
       boardInfo {
         childMarkdownRemark {
           html
         }
       }
+
       about {
         title
         slug
