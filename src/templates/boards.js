@@ -35,30 +35,14 @@ class BoardTemplate extends React.Component {
           <div className="row split">
             <div className="col-md">
               <div className="entry-header">
-                {post.wtftwo !== null ? (
+                {/*  {post.wtftwo !== null ? (
                   <p
                     className="content"
                     dangerouslySetInnerHTML={{
                       __html: post.wtftwo.childMarkdownRemark.html,
                     }}
                   />
-                ) : null}
-                {post.wtf !== null ? (
-                  <p
-                    className="content"
-                    dangerouslySetInnerHTML={{
-                      __html: post.wtf.childContentfulRichText.html,
-                    }}
-                  />
-                ) : null}
-                {post.mainContent !== null && (
-                  <div
-                    className="content"
-                    dangerouslySetInnerHTML={{
-                      __html: post.mainContent.childContentfulRichText.html,
-                    }}
-                  />
-                )}
+                ) : null} */}
 
                 <h1
                   className="entry-title"
@@ -102,26 +86,6 @@ class BoardTemplate extends React.Component {
                             className="content"
                             dangerouslySetInnerHTML={{
                               __html: post.binfo.childContentfulRichText.html,
-                            }}
-                          />
-                        </div>
-                      )}
-                      {post.wtf !== null && (
-                        <div>
-                          <p
-                            className="content"
-                            dangerouslySetInnerHTML={{
-                              __html: post.wtf.childContentfulRichText.html,
-                            }}
-                          />
-                        </div>
-                      )}
-                      {post.wtftwo !== null && (
-                        <div>
-                          <p
-                            className="content"
-                            dangerouslySetInnerHTML={{
-                              __html: post.wtftwo.childMarkdownRemark.html,
                             }}
                           />
                         </div>
@@ -282,16 +246,6 @@ export const pageQuery = graphql`
       }
     }
     contentfulBoards(id: { eq: $id }) {
-      wtf {
-        childContentfulRichText {
-          html
-        }
-      }
-      wtftwo {
-        childMarkdownRemark {
-          html
-        }
-      }
       title
       slug
       headline
