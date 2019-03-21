@@ -87,6 +87,14 @@ module.exports = {
         ignore: [`**/\.*`], // ignore files starting with a dot
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `chats`,
+        path: `${__dirname}/src/data/`, // CSV Folder
+        ignore: [`**/\.*`], // ignore files starting with a dot
+      },
+    },
     // {
     //   resolve: `gatsby-source-filesystem`,
     //   options: {
