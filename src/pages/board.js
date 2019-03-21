@@ -15,7 +15,6 @@ class BlogyIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const boards = get(this, 'props.data.allContentfulBoards.edges')
-    console.log(boards)
 
     return (
       <Layout data={this.props.data} location={this.props.location}>
