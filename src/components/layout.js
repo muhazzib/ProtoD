@@ -26,6 +26,7 @@ import '../components/Content/content.css'
 import { GlobalStyle } from '../utils/global'
 
 // add concatenated locale data
+// add concatenated locale data
 addLocaleData([...en, ...fr])
 
 const styles = {
