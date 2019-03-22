@@ -26,6 +26,7 @@ import './global-styles.css'
 import '../components/Content/content.css'
 import { GlobalStyle } from '../utils/global'
 import BoardTable from './BoardsTable/boardsTable'
+import ChartY from './Chart/chx'
 
 // add concatenated locale data
 addLocaleData([...en, ...fr])
@@ -177,6 +178,7 @@ class Template extends React.Component {
                             />
                           ) : null}
 
+                          <ChartY charts={this.props.charts} />
                           {this.props.tableData2.length > 0 ? (
                             <BoardTable
                               tableData={this.props.tableData2}

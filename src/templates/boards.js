@@ -32,6 +32,7 @@ class BoardTemplate extends React.Component {
       name2: '',
       name3: '',
       name4: '',
+      charts: [],
     }
   }
   getYear() {
@@ -39,10 +40,11 @@ class BoardTemplate extends React.Component {
   }
   componentDidMount() {
     const slug = this.props.pageContext.slug
-    if (slug == 'barrie') {
+    if (slug == 'barrie-residential-activity') {
       this.setState({
         // data: this.props.data.allBarrieCsv.edges,
         // name1: 'Barrie Home'
+        charts: this.props.data.barrieChart.edges,
       })
     } else if (slug == 'montreal') {
       this.setState({
@@ -77,6 +79,7 @@ class BoardTemplate extends React.Component {
         data2: this.props.data.allSalesbyprice2Csv.edges,
         name1: 'vic Residential Sheet 1',
         name2: 'vic Residential Sheet 2',
+        charts: this.props.data.victoriaChart.edges,
       })
     } else if (slug == 'barrie-sales-by-price-range') {
       this.setState({
@@ -100,6 +103,7 @@ class BoardTemplate extends React.Component {
         data2: this.props.data.allTorontoresidentialactivity2Csv.edges,
         name1: 'Toronto Residential sheet 1',
         name2: 'Toronto Residential sheet 2',
+        charts: this.props.data.torontoChart.edges,
       })
     } else if (slug == 'toronto-sales-by-category') {
       // No table at home page
@@ -119,6 +123,7 @@ class BoardTemplate extends React.Component {
         data1: [],
         data2: [],
         data3: [],
+        charts: [],
       })
     }
   }
@@ -126,7 +131,17 @@ class BoardTemplate extends React.Component {
     console.log(this.props, '-----')
     const post = get(this.props, 'data.contentfulBoards')
 
-    const { data, data2, data3, data4, name1, name2, name3, name4 } = this.state
+    const {
+      data,
+      data2,
+      data3,
+      data4,
+      name1,
+      name2,
+      name3,
+      name4,
+      charts,
+    } = this.state
     return (
       <Layout
         data={this.props.data}
@@ -141,6 +156,7 @@ class BoardTemplate extends React.Component {
         tableData2={data2}
         tableData3={data3}
         tableData4={data4}
+        charts={charts}
       >
         <GlobalStyle />
       </Layout>
@@ -454,6 +470,17 @@ export const pageQuery = graphql`
         }
       }
     }
+    barrieChart:  allFile(filter: {relativeDirectory: {eq: "boards\\barrie\\BarrieCharts"}}) {
+      ...ChartSources
+    }
+    torontoChart: allFile(filter: {relativeDirectory: {eq: "boards\\toronto\\TorontoCharts"}}) {
+      ...ChartSources
+    }
+    victoriaChart: allFile(filter: {relativeDirectory: {eq: "boards\\victoria\\VictoriaCharts"}}) {
+      ...ChartSources
+    }
+
+    
     allSalesbyprice1Csv {
       edges {
         node {
@@ -515,6 +542,21 @@ export const pageQuery = graphql`
           Five_Year
           Month
           Year
+        }
+      }
+    }
+  }
+
+  fragment ChartSources on FileConnection {
+    edges {
+      node {
+        name
+        id
+        sourceInstanceName
+        childImageSharp {
+          fluid {
+            src
+          }
         }
       }
     }

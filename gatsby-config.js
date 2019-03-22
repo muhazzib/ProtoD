@@ -90,7 +90,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `chats`,
+        name: `charts`,
         path: `${__dirname}/src/data/`, // CSV Folder
         ignore: [`**/\.*`], // ignore files starting with a dot
       },
