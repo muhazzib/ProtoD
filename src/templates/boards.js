@@ -28,11 +28,11 @@ class BoardTemplate extends React.Component {
       data2: [],
       data3: [],
       data4: [],
+      charts: [],
       name1: '',
       name2: '',
       name3: '',
       name4: '',
-      charts: [],
     }
   }
   getYear() {
@@ -130,6 +130,7 @@ class BoardTemplate extends React.Component {
   render() {
     console.log(this.props, '-----')
     const post = get(this.props, 'data.contentfulBoards')
+    const mls = get(this.props, 'data.contentfulMls')
 
     const {
       data,
@@ -152,11 +153,12 @@ class BoardTemplate extends React.Component {
         name3={name3}
         name4={name4}
         post={post}
+        mls={mls}
         tableData={data}
         tableData2={data2}
         tableData3={data3}
         tableData4={data4}
-        charts={charts}
+        chartsData={charts}
       >
         <GlobalStyle />
       </Layout>
@@ -183,50 +185,21 @@ export const pageQuery = graphql`
       slug
       headline
       boardPresidentName
-
+      boardName
       boardInfo {
         childMarkdownRemark {
           html
         }
       }
-
-      about {
-        title
+      mls{
         slug
-      }
-      employmentTrendsPage {
         title
-        slug
       }
-      interestRateChangePage {
+      boardSubPages{
         title
-        slug
-      }
-      consumerConfidencePage {
-        title
-        slug
-      }
-
-      migrationPage {
-        title
-        slug
-      }
-      marketConditions {
-        title
-        slug
-      }
-      medianPrice {
-        title
-        slug
-      }
-      salesByCategory {
-        title
-        slug
-      }
-      salesByPriceRange {
-        title
-        slug
-      }
+         slug
+       }
+  
       binfo {
         childContentfulRichText {
           html
@@ -244,32 +217,7 @@ export const pageQuery = graphql`
           width
           height
         }
-      }
-      chartA {
-        fixed {
-          src
-        }
-      }
-      residentialActivity {
-        title
-        slug
-      }
-      salesByCategory {
-        title
-        slug
-      }
-      salesByPriceRange {
-        title
-        slug
-      }
-      medianPrice {
-        title
-        slug
-      }
-      marketConditions {
-        title
-        slug
-      }
+      }        
     }
 
     allAlbertaCsv {

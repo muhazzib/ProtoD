@@ -57,9 +57,11 @@ class Template extends React.Component {
     return new Date().getFullYear()
   }
   render() {
-    console.log(this.props, '-')
+    console.log('board props', this.props)
     const natl = get(this, 'props.data.ca.edges[0].node')
     const post = this.props.post
+    const mls = this.props.mls
+    console.log('boardzz', post)
     /*     const { location, children } = this.props
     let header
 
@@ -178,7 +180,7 @@ class Template extends React.Component {
                             />
                           ) : null}
 
-                          <ChartY charts={this.props.charts} />
+                          <ChartY chartsData={this.props.chartsData} />
                           {this.props.tableData2.length > 0 ? (
                             <BoardTable
                               tableData={this.props.tableData2}
@@ -214,12 +216,12 @@ class Template extends React.Component {
                             <p>
                               The information contained in this report has been
                               prepared by The Canadian Real Estate Association,
-                              in co-operation with the {post.title}. The
+                              in co-operation with the {post.boardName}. The
                               information has been drawn from sources deemed to
                               be reliable, but the accuracy and completeness of
                               the information is not guaranteed. In providing
                               this information, neither The Canadian Real Estate
-                              Association nor the {post.title}
+                              Association nor the {post.boardName}
                               assumes any responsibility or liability.
                               Copyright&nbsp;&copy;{this.getYear()}. The
                               Canadian Real Estate Association. All rights
@@ -238,94 +240,32 @@ class Template extends React.Component {
 
                   <div className="col-sm- side-content">
                     <div className="boardInformation sidebar-wrapper">
-                      <h5 className="text_upper">Board Information</h5>
-                      <ul>
-                        {post.about !== null && (
-                          <li>
-                            <Link to={`/board/${post.about.slug}`}>
-                              {post.about.title}
-                            </Link>
-                          </li>
-                        )}
-                        {post.employmentTrendsPage !== null && (
-                          <li>
-                            <Link
-                              to={`/board/${post.employmentTrendsPage.slug}`}
-                            >
-                              {post.employmentTrendsPage.title}
-                            </Link>
-                          </li>
-                        )}
-                        {post.interestRateChangePage !== null && (
-                          <li>
-                            <Link
-                              to={`/board/${post.interestRateChangePage.slug}`}
-                            >
-                              {post.interestRateChangePage.title}
-                            </Link>
-                          </li>
-                        )}
-                        {post.consumerConfidencePage !== null && (
-                          <li>
-                            <Link
-                              to={`/board/${post.consumerConfidencePage.slug}`}
-                            >
-                              {post.consumerConfidencePage.title}
-                            </Link>
-                          </li>
-                        )}
-                        {post.migrationPage !== null && (
-                          <li>
-                            <Link to={`/board/${post.migrationPage.slug}`}>
-                              {post.migrationPage.title}
-                            </Link>
-                          </li>
-                        )}
-                      </ul>
+                      {post.boardSubPages !== null && (
+                        <ul>
+                          <h5 className="text_upper">Board Information</h5>
+                          {post.boardSubPages.map((item, i) => (
+                            <li key={i}>
+                              <Link to={`/board/${item.slug}`}>
+                                {item.title}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
 
                       <div className="sidebar-wrapper">
-                        <h5 className="text_upper">MLS Statistics</h5>
-                        <ul>
-                          {post.residentialActivity !== null && (
-                            <li>
-                              <Link
-                                to={`/board/${post.residentialActivity.slug}`}
-                              >
-                                {post.residentialActivity.title}
-                              </Link>
-                            </li>
-                          )}
-                          {post.salesByCategory !== null && (
-                            <li>
-                              <Link to={`/board/${post.salesByCategory.slug}`}>
-                                {post.salesByCategory.title}
-                              </Link>
-                            </li>
-                          )}
-                          {post.salesByPriceRange !== null && (
-                            <li>
-                              <Link
-                                to={`/board/${post.salesByPriceRange.slug}`}
-                              >
-                                {post.salesByPriceRange.title}
-                              </Link>
-                            </li>
-                          )}
-                          {post.medianPrice !== null && (
-                            <li>
-                              <Link to={`/board/${post.medianPrice.slug}`}>
-                                {post.medianPrice.title}
-                              </Link>
-                            </li>
-                          )}
-                          {post.marketConditions !== null && (
-                            <li>
-                              <Link to={`/board/${post.marketConditions.slug}`}>
-                                {post.marketConditions.title}
-                              </Link>
-                            </li>
-                          )}
-                        </ul>
+                        {post.mls !== null && (
+                          <ul>
+                            <h5 className="text_upper">MLS Statistics</h5>
+                            {post.mls.map((item, i) => (
+                              <li key={i}>
+                                <Link to={`/mls/${item.slug}`}>
+                                  {item.title}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
                       </div>
                       {/* mls ends */}
                       <SideBar />

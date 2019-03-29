@@ -1,23 +1,6 @@
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
-import { Accordion, AccordionItem } from 'react-sanfona'
 import Lightbox from 'react-image-lightbox'
 import 'react-image-lightbox/style.css' // This only needs to be imported once in your app
-import {
-  TabContent,
-  TabPane,
-  Nav,
-  NavItem,
-  NavLink,
-  Card,
-  Button,
-  CardTitle,
-  CardText,
-  Row,
-  Col,
-} from 'reactstrap'
-import classnames from 'classnames'
-import charts from './chart.module.css'
 import './chart-accordion.css'
 
 const imgStyle = {
@@ -39,16 +22,17 @@ export default class ChartY extends React.Component {
   }
 
   render() {
-    /* const data = this.props.acc.allFile.edges */
-    const data = this.props.charts
-    console.log('pioc', data)
+    ;/ const data = this.props.acc.allFile.edges /
+    const charts = this.props.chartsData
+    console.log('chx', charts, ' chx')
 
     return (
       <div>
         <div className="container">
           <div className="row" style={customRow}>
             <div className=".col-lg-">
-              {data.map((item, i) => (
+              chart
+              {charts.map((item, i) => (
                 <img
                   style={imgStyle}
                   key={i}

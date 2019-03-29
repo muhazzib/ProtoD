@@ -10,6 +10,7 @@ exports.createPages = ({ graphql, actions }) => {
     const natlPost = path.resolve('./src/templates/home.js')
     const natlStatsSubPost = path.resolve('./src/templates/stats-subpages.js')
     const boardPost = path.resolve('./src/templates/boards.js')
+    const mlsPost = path.resolve('./src/templates/mlspages.js')
 
     resolve(
       graphql(
@@ -53,6 +54,15 @@ exports.createPages = ({ graphql, actions }) => {
                     title
                     slug
                   }
+                }
+              }
+            }
+            allContentfulMls {
+              edges {
+                node {
+                  title
+                  id
+                  slug
                 }
               }
             }
@@ -118,11 +128,23 @@ exports.createPages = ({ graphql, actions }) => {
         const boards = result.data.allContentfulBoards.edges
         boards.forEach((board, index) => {
           createPage({
-            path: `/board/${board.node.slug}/`,
+            path: `/board/${board.node.slug}`,
             component: boardPost,
             context: {
               id: board.node.id,
               slug: board.node.slug,
+            },
+          })
+        })
+
+        const mlspages = result.data.allContentfulMls.edges
+        mlspages.forEach((mls, index) => {
+          createPage({
+            path: `/mls/${mls.node.slug}`,
+            component: mlsPost,
+            context: {
+              id: mls.node.id,
+              slug: mls.node.slug,
             },
           })
         })
