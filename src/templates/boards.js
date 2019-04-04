@@ -40,16 +40,18 @@ class BoardTemplate extends React.Component {
   }
   componentDidMount() {
     const slug = this.props.pageContext.slug
-    if (slug == 'barrie-residential-activity') {
+
+    if (slug == 'barrie') {
       this.setState({
         // data: this.props.data.allBarrieCsv.edges,
         // name1: 'Barrie Home'
         charts: this.props.data.barrieChart.edges,
+        data: this.props.data.allMontrealCsv.edges,
       })
     } else if (slug == 'montreal') {
       this.setState({
         data: this.props.data.allMontrealCsv.edges,
-        name1: 'Montreal Home',
+        name1: 'Montreal Homey',
       })
     } else if (slug == 'alberta-real-estate-association') {
       this.setState({
@@ -63,7 +65,7 @@ class BoardTemplate extends React.Component {
         data: this.props.data.allAlbertaresidentialactivityCsv.edges,
         name1: 'Alberta Residential Sheet 1',
       })
-    } else if (slug == 'realtors-r-association-of-edmonton') {
+    } else if (slug == 'edmonton') {
       this.setState({
         data: this.props.data.allAlbertaresidentialactivityCsv.edges,
         name1: 'eddy Residential Sheet 1',
@@ -130,7 +132,7 @@ class BoardTemplate extends React.Component {
   render() {
     console.log(this.props, '-----')
     const post = get(this.props, 'data.contentfulBoards')
-    const mls = get(this.props, 'data.contentfulMls')
+    console.log('boa', post)
 
     const {
       data,
@@ -153,7 +155,6 @@ class BoardTemplate extends React.Component {
         name3={name3}
         name4={name4}
         post={post}
-        mls={mls}
         tableData={data}
         tableData2={data2}
         tableData3={data3}
@@ -191,15 +192,7 @@ export const pageQuery = graphql`
           html
         }
       }
-      mls{
-        slug
-        title
-      }
-      boardSubPages{
-        title
-         slug
-       }
-  
+   
       binfo {
         childContentfulRichText {
           html

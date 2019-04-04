@@ -22,7 +22,7 @@ export default class ChartY extends React.Component {
   }
 
   render() {
-    ;/ const data = this.props.acc.allFile.edges /
+    /* const data = this.props.acc.allFile.edges  */
     const charts = this.props.chartsData
     console.log('chx', charts, ' chx')
 

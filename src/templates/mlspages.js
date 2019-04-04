@@ -10,6 +10,7 @@ import SideBar from '../components/Side-bar/side-bar'
 import footerStyle from '../components/Footer/footer.module.css'
 import { GlobalStyle } from '../utils/global'
 import BoardTable from '../components/BoardsTable/boardsTable'
+import RABoardTable from '../components/BoardsTable/RA_boardsTable'
 import ChartY from '../components/Chart/chx'
 
 const pStyle = {
@@ -34,7 +35,14 @@ class MlsTemplate extends React.Component {
       name2: '',
       name3: '',
       name4: '',
-      charts: [],
+      chartsHome: [],
+      chartsResAc: [],
+      chartsSPR: [],
+      chartsSPR2: [],
+      chartsSPR3: [],
+      chartsSPR4: [],
+      chartsMrktCond: [],
+      chartsMednPrice: [],
     }
   }
 
@@ -43,11 +51,15 @@ class MlsTemplate extends React.Component {
   }
   componentDidMount() {
     const slug = this.props.pageContext.slug
-    if (slug == 'montreal') {
+    console.log('slugb', slug)
+    if (slug == 'barrie-residential-activity') {
       this.setState({
         // data: this.props.data.allBarrieCsv.edges,
         // name1: 'Barrie Home'
-        charts: this.props.charts.barrieChart.edges,
+        chartsSPR: this.props.data.barrieChart.edges,
+        data: this.props.data.alberta.edges,
+        data2: this.props.data.BarrieRA.edges,
+        name2: 'Summary – Sales by Housing Type',
       })
     } else if (slug == 'montreal') {
       this.setState({
@@ -69,6 +81,7 @@ class MlsTemplate extends React.Component {
     } else if (slug == 'realtors-r-association-of-edmonton') {
       this.setState({
         data: this.props.data.alberta.edges,
+        data2: this.props.data.allSalesbyprice2Csv.edges,
         name1: 'eddy Residential Sheet 1',
       })
     } else if (slug == 'victoria-residential-activity') {
@@ -127,13 +140,21 @@ class MlsTemplate extends React.Component {
         data2: [],
         data3: [],
         charts: [],
+        chartsHome: [],
+        chartsResAc: [],
+        chartsSPR: [],
+        chartsSPR2: [],
+        chartsSPR3: [],
+        chartsSPR4: [],
+        chartsMrktCond: [],
+        chartsMednPrice: [],
       })
     }
   }
 
   render() {
-    console.log('mlspages', this.props)
     const mls = get(this.props, 'data.contentfulMls')
+    console.log('xxx', mls)
 
     const {
       data,
@@ -145,6 +166,14 @@ class MlsTemplate extends React.Component {
       name3,
       name4,
       charts,
+      chartsHome,
+      chartsResAc,
+      chartsSPR,
+      chartsSPR2,
+      chartsSPR3,
+      chartsSPR4,
+      chartsMrktCond,
+      chartsMednPrice,
     } = this.state
 
     return (
@@ -154,13 +183,27 @@ class MlsTemplate extends React.Component {
         chartsData={charts}
         mls={mls}
         tableData={data}
+        tableData2={data2}
+        tableData3={data3}
+        tableData4={data4}
+        name1={name1}
+        name2={name2}
+        name3={name3}
+        name4={name4}
+        chartsHome={chartsHome}
+        chartsResAc={chartsResAc}
+        chartsSPR={chartsSPR}
+        chartsSPR2={chartsSPR2}
+        chartsSPR3={chartsSPR3}
+        chartsSPR4={chartsSPR4}
+        chartsMrktCond={chartsMrktCond}
+        chartsMednPrice={chartsMednPrice}
       >
         <GlobalStyle />
         <div className="content-wrapper">
           <div className="row split">
             <div className="col-md">
               <div className="entry-header">
-                {/*   <ChartY chartsData={chartsData} /> */}
                 <h1
                   className="entry-title"
                   dangerouslySetInnerHTML={{
@@ -178,11 +221,47 @@ class MlsTemplate extends React.Component {
                           }}
                         /> */}
                   <div className="content">
+                    {/* CONTENT ONE */}
                     {mls.mainContent !== null && (
                       <div
                         className="content"
                         dangerouslySetInnerHTML={{
                           __html: mls.mainContent.childContentfulRichText.html,
+                        }}
+                      />
+                    )}
+
+                    {/*  <BoardTable
+                      tableData={this.props.tableData}
+                      name={this.props.name1}
+                    /> */}
+
+                    {/* CONTENT TWO */}
+                    {mls.mainContent2 !== null && (
+                      <div
+                        className="content"
+                        dangerouslySetInnerHTML={{
+                          __html: mls.mainContent2.childContentfulRichText.html,
+                        }}
+                      />
+                    )}
+
+                    {/* CONTENT THREE */}
+                    {mls.mainContent3 !== null && (
+                      <div
+                        className="content"
+                        dangerouslySetInnerHTML={{
+                          __html: mls.mainContent3.childContentfulRichText.html,
+                        }}
+                      />
+                    )}
+
+                    {/* CONTENT FOUR */}
+                    {mls.mainContent4 !== null && (
+                      <div
+                        className="content"
+                        dangerouslySetInnerHTML={{
+                          __html: mls.mainContent4.childContentfulRichText.html,
                         }}
                       />
                     )}
@@ -227,18 +306,18 @@ class MlsTemplate extends React.Component {
 
             <div className="col-sm- side-content">
               <div className="boardInformation sidebar-wrapper">
-                {mls.boardSubPages !== null && (
+                {/*   {mls.boardSubPagesz !== null && (
                   <ul>
                     <h5 className="text_upper">Board Information</h5>
-                    {mls.boardSubPages.map((item, i) => (
+                    {mls.boardSubPagesz.map((item, i) => (
                       <li key={i}>
                         <Link to={`/board/${item.slug}`}>{item.title}</Link>
                       </li>
                     ))}
                   </ul>
-                )}
+                )} */}
 
-                <div className="sidebar-wrapper">
+                {/*        <div className="sidebar-wrapper">
                   {mls.mlsPagesRefreneces !== null && (
                     <ul>
                       <h5 className="text_upper">MLS Statistics</h5>
@@ -249,7 +328,7 @@ class MlsTemplate extends React.Component {
                       ))}
                     </ul>
                   )}
-                </div>
+                </div> */}
                 {/* mls ends */}
                 <SideBar />
               </div>
@@ -267,19 +346,13 @@ export default MlsTemplate
 
 export const pageQuery = graphql`
   query MlsPostBySlug($id: String!) {
-    contentfulMls(id: { eq: $id }) {
+    contentfulMlsPages(id: { eq: $id }) {
       id
       title
       slug
       boardName
-      boardSubPages {
-        title
-        slug
-      }
-      mlsPagesRefreneces{
-        title
-        slug
-      }
+
+    
       mainContent {
         childContentfulRichText {
           html
@@ -301,7 +374,38 @@ export const pageQuery = graphql`
         }
       }
     }
-
+    allSalesbyprice1Csv {
+      edges {
+        node {
+          Area
+          Benchmark
+          One_Month
+          Three_Month
+          Six_Month
+          Twelve_Month
+          Three_Year
+          Five_Year
+          Month
+          Year
+        }
+      }
+    }
+    allSalesbyprice2Csv {
+      edges {
+        node {
+          Area
+          Benchmark
+          One_Month
+          Three_Month
+          Six_Month
+          Twelve_Month
+          Three_Year
+          Five_Year
+          Month
+          Year
+        }
+      }
+    }
 alberta: allAlbertahome2Csv {
         edges {
           node {
@@ -315,6 +419,19 @@ alberta: allAlbertahome2Csv {
             Five_Year
             Month
             Year
+          }
+        }
+      }
+
+     BarrieRA: allBarrieTable02RaCsv {
+        edges {
+          node {
+            cat
+            current_p
+            past_p
+            yyp
+            current_date
+            past_date
           }
         }
       }

@@ -60,7 +60,6 @@ class Template extends React.Component {
     console.log('board props', this.props)
     const natl = get(this, 'props.data.ca.edges[0].node')
     const post = this.props.post
-    const mls = this.props.mls
     console.log('boardzz', post)
     /*     const { location, children } = this.props
     let header
@@ -180,7 +179,7 @@ class Template extends React.Component {
                             />
                           ) : null}
 
-                          <ChartY chartsData={this.props.chartsData} />
+                          {/* <ChartY chartsData={this.props.chartsData} /> */}
                           {this.props.tableData2.length > 0 ? (
                             <BoardTable
                               tableData={this.props.tableData2}
@@ -240,7 +239,7 @@ class Template extends React.Component {
 
                   <div className="col-sm- side-content">
                     <div className="boardInformation sidebar-wrapper">
-                      {post.boardSubPages !== null && (
+                      {/*   {post.boardSubPages !== null && (
                         <ul>
                           <h5 className="text_upper">Board Information</h5>
                           {post.boardSubPages.map((item, i) => (
@@ -251,9 +250,9 @@ class Template extends React.Component {
                             </li>
                           ))}
                         </ul>
-                      )}
+                      )} */}
 
-                      <div className="sidebar-wrapper">
+                      {/*     <div className="sidebar-wrapper">
                         {post.mls !== null && (
                           <ul>
                             <h5 className="text_upper">MLS Statistics</h5>
@@ -266,7 +265,7 @@ class Template extends React.Component {
                             ))}
                           </ul>
                         )}
-                      </div>
+                      </div> */}
                       {/* mls ends */}
                       <SideBar />
                     </div>

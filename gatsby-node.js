@@ -57,7 +57,7 @@ exports.createPages = ({ graphql, actions }) => {
                 }
               }
             }
-            allContentfulMls {
+            allContentfulMlsPages(filter: { node_locale: { eq: "en-US" } }) {
               edges {
                 node {
                   title
@@ -137,7 +137,7 @@ exports.createPages = ({ graphql, actions }) => {
           })
         })
 
-        const mlspages = result.data.allContentfulMls.edges
+        const mlspages = result.data.allContentfulMlsPages.edges
         mlspages.forEach((mls, index) => {
           createPage({
             path: `/mls/${mls.node.slug}`,
