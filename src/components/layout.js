@@ -259,9 +259,9 @@ class Template extends React.Component {
 
                       <div className="sidebar-wrapper">
                         <h5 className="text_upper">MLS Statistics</h5>
-                        {post.mls !== null && (
+                        {post.mlsStatistics !== null && (
                           <ul>
-                            {post.mls.map((item, i) => (
+                            {post.mlsStatistics.map((item, i) => (
                               <li key={i}>
                                 <Link to={`/mls/${item.slug}`}>
                                   {item.title}
