@@ -10,7 +10,6 @@ import SideBar from '../components/Side-bar/side-bar'
 import footerStyle from '../components/Footer/footer.module.css'
 import { GlobalStyle } from '../utils/global'
 import BoardTable from '../components/BoardsTable/boardsTable'
-import RABoardTable from '../components/BoardsTable/RA_boardsTable'
 import ChartY from '../components/Chart/chx'
 
 const pStyle = {
@@ -35,19 +34,8 @@ class MlsTemplate extends React.Component {
       name2: '',
       name3: '',
       name4: '',
-<<<<<<< HEAD
-      chartsHome: [],
-      chartsResAc: [],
-      chartsSPR: [],
-      chartsSPR2: [],
-      chartsSPR3: [],
-      chartsSPR4: [],
-      chartsMrktCond: [],
-      chartsMednPrice: [],
-=======
       charts: [],
       charts2: [],
->>>>>>> tralsation on going
     }
   }
 
@@ -56,19 +44,11 @@ class MlsTemplate extends React.Component {
   }
   componentDidMount() {
     const slug = this.props.pageContext.slug
-    console.log('slugb', slug)
-    if (slug == 'barrie-residential-activity') {
+    if (slug == 'montreal') {
       this.setState({
         // data: this.props.data.allBarrieCsv.edges,
         // name1: 'Barrie Home'
-<<<<<<< HEAD
-        chartsSPR: this.props.data.barrieChart.edges,
-        data: this.props.data.alberta.edges,
-        data2: this.props.data.BarrieRA.edges,
-        name2: 'Summary – Sales by Housing Type',
-=======
         charts: this.props.data.barrieChart.edges,
->>>>>>> tralsation on going
       })
     } else if (slug == 'montreal') {
       this.setState({
@@ -90,7 +70,6 @@ class MlsTemplate extends React.Component {
     } else if (slug == 'realtors-r-association-of-edmonton') {
       this.setState({
         data: this.props.data.alberta.edges,
-        data2: this.props.data.allSalesbyprice2Csv.edges,
         name1: 'eddy Residential Sheet 1',
       })
     } else if (slug == 'barrie-residential-activity') {
@@ -160,31 +139,14 @@ class MlsTemplate extends React.Component {
         data2: [],
         data3: [],
         charts: [],
-<<<<<<< HEAD
-        chartsHome: [],
-        chartsResAc: [],
-        chartsSPR: [],
-        chartsSPR2: [],
-        chartsSPR3: [],
-        chartsSPR4: [],
-        chartsMrktCond: [],
-        chartsMednPrice: [],
-=======
         charts2: [],
->>>>>>> tralsation on going
       })
     }
   }
 
   render() {
-<<<<<<< HEAD
-    const mls = get(this.props, 'data.contentfulMls')
-    console.log('xxx', mls)
-
-=======
     const mls = get(this.props, 'data.contentfulMlsPages')
     console.log('mlspages', mls)
->>>>>>> tralsation on going
     const {
       data,
       data2,
@@ -195,18 +157,7 @@ class MlsTemplate extends React.Component {
       name3,
       name4,
       charts,
-<<<<<<< HEAD
-      chartsHome,
-      chartsResAc,
-      chartsSPR,
-      chartsSPR2,
-      chartsSPR3,
-      chartsSPR4,
-      chartsMrktCond,
-      chartsMednPrice,
-=======
       charts2,
->>>>>>> tralsation on going
     } = this.state
 
     return (
@@ -216,35 +167,14 @@ class MlsTemplate extends React.Component {
         chartsData={charts}
         mls={mls}
         tableData={data}
-<<<<<<< HEAD
-        tableData2={data2}
-        tableData3={data3}
-        tableData4={data4}
-        name1={name1}
-        name2={name2}
-        name3={name3}
-        name4={name4}
-        chartsHome={chartsHome}
-        chartsResAc={chartsResAc}
-        chartsSPR={chartsSPR}
-        chartsSPR2={chartsSPR2}
-        chartsSPR3={chartsSPR3}
-        chartsSPR4={chartsSPR4}
-        chartsMrktCond={chartsMrktCond}
-        chartsMednPrice={chartsMednPrice}
-=======
         charts2={charts2}
->>>>>>> tralsation on going
       >
         <GlobalStyle />
         <div className="content-wrapper">
           <div className="row split">
             <div className="col-md">
               <div className="entry-header">
-<<<<<<< HEAD
-=======
                 <ChartY chartsData={charts} />
->>>>>>> tralsation on going
                 <h1
                   className="entry-title"
                   dangerouslySetInnerHTML={{
@@ -262,7 +192,6 @@ class MlsTemplate extends React.Component {
                           }}
                         /> */}
                   <div className="content">
-                    {/* CONTENT ONE */}
                     {mls.mainContent !== null && (
                       <div
                         className="content"
@@ -272,20 +201,11 @@ class MlsTemplate extends React.Component {
                       />
                     )}
 
-<<<<<<< HEAD
-                    {/*  <BoardTable
-                      tableData={this.props.tableData}
-                      name={this.props.name1}
-                    /> */}
-
-                    {/* CONTENT TWO */}
-=======
                     <BoardTable
                       tableData={this.props.tableData}
                       name={this.props.name1}
                     />
 
->>>>>>> tralsation on going
                     {mls.mainContent2 !== null && (
                       <div
                         className="content"
@@ -294,16 +214,11 @@ class MlsTemplate extends React.Component {
                         }}
                       />
                     )}
-<<<<<<< HEAD
-
-                    {/* CONTENT THREE */}
-=======
                     <BoardTable
                       tableData={this.props.tableData2}
                       name={this.props.name2}
                     />
 
->>>>>>> tralsation on going
                     {mls.mainContent3 !== null && (
                       <div
                         className="content"
@@ -312,15 +227,10 @@ class MlsTemplate extends React.Component {
                         }}
                       />
                     )}
-<<<<<<< HEAD
-
-                    {/* CONTENT FOUR */}
-=======
                     <BoardTable
                       tableData={this.props.tableData3}
                       name={this.props.name3}
                     />
->>>>>>> tralsation on going
                     {mls.mainContent4 !== null && (
                       <div
                         className="content"
@@ -329,13 +239,10 @@ class MlsTemplate extends React.Component {
                         }}
                       />
                     )}
-<<<<<<< HEAD
-=======
                     <BoardTable
                       tableData={this.props.tableData4}
                       name={this.props.name4}
                     />
->>>>>>> tralsation on going
 
                     {/* Cutom table for rendering board's sheet */}
 
@@ -377,11 +284,7 @@ class MlsTemplate extends React.Component {
 
             <div className="col-sm- side-content">
               <div className="boardInformation sidebar-wrapper">
-<<<<<<< HEAD
-                {/*   {mls.boardSubPagesz !== null && (
-=======
                 {mls.boardSubPagesz !== null && (
->>>>>>> tralsation on going
                   <ul>
                     <h5 className="text_upper">Board Information</h5>
                     {mls.boardSubPagesz.map((item, i) => (
@@ -390,15 +293,10 @@ class MlsTemplate extends React.Component {
                       </li>
                     ))}
                   </ul>
-                )} */}
+                )}
 
-<<<<<<< HEAD
-                {/*        <div className="sidebar-wrapper">
-                  {mls.mlsPagesRefreneces !== null && (
-=======
                 <div className="sidebar-wrapper">
                   {mls.mlsSubRefernces !== null && (
->>>>>>> tralsation on going
                     <ul>
                       <h5 className="text_upper">MLS Statistics</h5>
                       {mls.mlsSubRefernces.map((item, i) => (
@@ -408,7 +306,7 @@ class MlsTemplate extends React.Component {
                       ))}
                     </ul>
                   )}
-                </div> */}
+                </div>
                 {/* mls ends */}
                 <SideBar />
               </div>
@@ -431,10 +329,6 @@ export const pageQuery = graphql`
       title
       slug
       boardName
-<<<<<<< HEAD
-
-    
-=======
       boardSubPagesz{
         title
         slug
@@ -444,7 +338,6 @@ export const pageQuery = graphql`
         title
         slug
       }
->>>>>>> tralsation on going
       mainContent {
         childContentfulRichText {
           html
@@ -466,38 +359,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allSalesbyprice1Csv {
-      edges {
-        node {
-          Area
-          Benchmark
-          One_Month
-          Three_Month
-          Six_Month
-          Twelve_Month
-          Three_Year
-          Five_Year
-          Month
-          Year
-        }
-      }
-    }
-    allSalesbyprice2Csv {
-      edges {
-        node {
-          Area
-          Benchmark
-          One_Month
-          Three_Month
-          Six_Month
-          Twelve_Month
-          Three_Year
-          Five_Year
-          Month
-          Year
-        }
-      }
-    }
+
 alberta: allAlbertahome2Csv {
         edges {
           node {
@@ -514,24 +376,7 @@ alberta: allAlbertahome2Csv {
           }
         }
       }
-<<<<<<< HEAD
-
-     BarrieRA: allBarrieTable02RaCsv {
-        edges {
-          node {
-            cat
-            current_p
-            past_p
-            yyp
-            current_date
-            past_date
-          }
-        }
-      }
-    barrieChart:  allFile(filter: {relativeDirectory: {eq: "boards\\barrie\\BarrieCharts"}}) {
-=======
       barrieChart:  allFile(filter: {relativeDirectory: {eq: "boards\\barrie\\BarrieCharts"}}) {
->>>>>>> tralsation on going
         ...ChartSourcesx
       }
       torontoChart: allFile(filter: {relativeDirectory: {eq: "boards\\toronto\\TorontoCharts"}}) {

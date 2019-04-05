@@ -22,11 +22,7 @@ export default class ChartY extends React.Component {
   }
 
   render() {
-<<<<<<< HEAD
-    /* const data = this.props.acc.allFile.edges  */
-=======
     /*  const data = this.props.acc.allFile.edges  */
->>>>>>> tralsation on going
     const charts = this.props.chartsData
     console.log('chx', charts, ' chx')
 

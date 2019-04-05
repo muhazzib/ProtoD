@@ -40,18 +40,16 @@ class BoardTemplate extends React.Component {
   }
   componentDidMount() {
     const slug = this.props.pageContext.slug
-
-    if (slug == 'barrie') {
+    if (slug == 'barrie-residential-activity') {
       this.setState({
         // data: this.props.data.allBarrieCsv.edges,
         // name1: 'Barrie Home'
         charts: this.props.data.barrieChart.edges,
-        data: this.props.data.allMontrealCsv.edges,
       })
     } else if (slug == 'montreal') {
       this.setState({
         data: this.props.data.allMontrealCsv.edges,
-        name1: 'Montreal Homey',
+        name1: 'Montreal Home',
       })
     } else if (slug == 'alberta-real-estate-association') {
       this.setState({
@@ -65,7 +63,7 @@ class BoardTemplate extends React.Component {
         data: this.props.data.allAlbertaresidentialactivityCsv.edges,
         name1: 'Alberta Residential Sheet 1',
       })
-    } else if (slug == 'edmonton') {
+    } else if (slug == 'realtors-r-association-of-edmonton') {
       this.setState({
         data: this.props.data.allAlbertaresidentialactivityCsv.edges,
         name1: 'eddy Residential Sheet 1',
@@ -132,10 +130,6 @@ class BoardTemplate extends React.Component {
   render() {
     console.log(this.props, '-----')
     const post = get(this.props, 'data.contentfulBoards')
-<<<<<<< HEAD
-    console.log('boa', post)
-=======
->>>>>>> tralsation on going
 
     const {
       data,
@@ -195,9 +189,6 @@ export const pageQuery = graphql`
           html
         }
       }
-<<<<<<< HEAD
-   
-=======
       boardSubPages{
         title
         slug
@@ -208,7 +199,6 @@ export const pageQuery = graphql`
       }
       
   
->>>>>>> tralsation on going
       binfo {
         childContentfulRichText {
           html

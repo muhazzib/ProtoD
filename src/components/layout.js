@@ -60,13 +60,9 @@ class Template extends React.Component {
     console.log('board props', this)
     const natl = get(this, 'props.data.ca.edges[0].node')
     const post = this.props.post
-<<<<<<< HEAD
-    console.log('boardzz', post)
-=======
     const mls = this.props.mls
     const location = this.props.location
     const url = location.pathname
->>>>>>> tralsation on going
     /*     const { location, children } = this.props
     let header
 
@@ -185,7 +181,7 @@ class Template extends React.Component {
                             />
                           ) : null}
 
-                          {/* <ChartY chartsData={this.props.chartsData} /> */}
+                          <ChartY chartsData={this.props.chartsData} />
                           {this.props.tableData2.length > 0 ? (
                             <BoardTable
                               tableData={this.props.tableData2}
@@ -245,15 +241,11 @@ class Template extends React.Component {
 
                   <div className="col-sm- side-content">
                     <div className="boardInformation sidebar-wrapper">
-<<<<<<< HEAD
-                      {/*   {post.boardSubPages !== null && (
-=======
                       <h5 className="text_upper">Board Information</h5>
                       <h4>
                         <Link to={`/board/${post.slug}`}>{post.title}</Link>
                       </h4>
                       {post.boardSubPages !== null && (
->>>>>>> tralsation on going
                         <ul>
                           {post.boardSubPages.map((item, i) => (
                             <li key={i}>
@@ -263,14 +255,10 @@ class Template extends React.Component {
                             </li>
                           ))}
                         </ul>
-                      )} */}
+                      )}
 
-<<<<<<< HEAD
-                      {/*     <div className="sidebar-wrapper">
-=======
                       <div className="sidebar-wrapper">
                         <h5 className="text_upper">MLS Statistics</h5>
->>>>>>> tralsation on going
                         {post.mls !== null && (
                           <ul>
                             {post.mls.map((item, i) => (
@@ -282,14 +270,8 @@ class Template extends React.Component {
                             ))}
                           </ul>
                         )}
-<<<<<<< HEAD
-                      </div> */}
-                      {/* mls ends */}
-                      <SideBar />
-=======
                       </div>
                       <SideBar pathname="en-US" />
->>>>>>> tralsation on going
                     </div>
                   </div>
                 </div>

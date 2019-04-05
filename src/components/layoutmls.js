@@ -19,7 +19,6 @@ import './global-styles.css'
 import '../components/Content/content.css'
 import { GlobalStyle } from '../utils/global'
 import BoardTable from './BoardsTable/boardsTable'
-import RABoardTable from './BoardsTable/RA_boardsTable'
 import ChartY from './Chart/chx'
 
 class MTemplate extends React.Component {
@@ -35,12 +34,7 @@ class MTemplate extends React.Component {
     console.log('mls layout', mls)
     const charts = this.props.chartsData
     const sheets = this.props.tableData
-<<<<<<< HEAD
-    console.log('charts componentx', charts)
-    console.log('sheets- componentx', sheets)
-=======
     console.log('sheets componentx', sheets)
->>>>>>> tralsation on going
     /*    const { location, children } = this.props
     let header
 
@@ -56,22 +50,9 @@ class MTemplate extends React.Component {
         <SiteHeader />
         <Wrapper>
           <Breadcrumb />
-<<<<<<< HEAD
-=======
           {/*   <ChartY charts={this.props.data} /> */}
           {/* <ChartY chartsData={charts} /> */}
->>>>>>> tralsation on going
 
-          {/*  <BoardTable
-            tableData={this.props.tableData}
-            name2={this.props.name2}
-          /> */}
-          <RABoardTable
-            tableData={this.props.tableData}
-            name2={this.props.name2}
-          />
-
-          {/* <ChartY chartsData={charts} /> */}
           {this.children}
           {/*  {this.props.tableData.length > 0 ? (
             <BoardTable
