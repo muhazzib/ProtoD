@@ -18,6 +18,10 @@ const propTypes = {
   data: PropTypes.object.isRequired,
 }
 
+const style = {
+  marginBottom: '20px',
+}
+
 class RootENIndex extends React.Component {
   getYear() {
     return new Date().getFullYear()
@@ -126,6 +130,10 @@ class RootENIndex extends React.Component {
                         __html: natl.contentC.childContentfulRichText.html,
                       }}
                     />
+                    <div style={style}>
+                      <Chart />
+                    </div>
+
                     <div className="sheet">
                       <Sheet />
                     </div>

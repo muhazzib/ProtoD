@@ -47,18 +47,18 @@ const Header = props => {
             ) : (
               <ul className={headerStyles.siteTabs}>
                 <li>
-                  <a href="http://www.crea.ca/">French CREA.ca</a>
+                  <a href="http://www.crea.ca/">Aci.ca</a>
                 </li>
                 <li>
-                  <a href="http://www.crea.ca/">French CREA CAFE</a>
+                  <a href="http://www.crea.ca/">Café ACI</a>
                 </li>
                 <li>
                   <a href="http://www.crea.ca/">
-                    French REALTORS CARE<sup>®</sup>
+                    REALTORS CARE<sup>®</sup>
                   </a>
                 </li>
                 <li>
-                  <a href="http://www.crea.ca/">French CREA STATS</a>
+                  <a href="http://www.crea.ca/">Stat. L'aci</a>
                 </li>
               </ul>
             )}
@@ -83,9 +83,7 @@ const Header = props => {
                   <li>
                     <a href="http://www.crea.ca/">Contact</a>
                   </li>
-                  {/*   <li>
-                <a href="http://www.crea.ca/">FR</a>
-              </li> */}
+
                   <li>
                     <SelectLanguage
                       langs={props.langs}
@@ -96,23 +94,21 @@ const Header = props => {
               ) : (
                 <ul className={headerStyles.utilityNav}>
                   <li>
-                    <a href="http://www.crea.ca/">FrenchHome</a>
+                    <a href="http://www.crea.ca/">Accueil</a>
                   </li>
                   <li>
-                    <a href="http://www.crea.ca/">FrenchMLogin</a>
+                    <a href="http://www.crea.ca/">Accès membre</a>
                   </li>
                   <li>
-                    <a href="http://www.crea.ca/">FrenchNewsroom</a>
+                    <a href="http://www.crea.ca/">Salle des nouvelles</a>
                   </li>
                   <li>
-                    <a href="http://www.crea.ca/">FrenchCareers</a>
+                    <a href="http://www.crea.ca/">Carrières</a>
                   </li>
                   <li>
-                    <a href="http://www.crea.ca/">French</a>
+                    <a href="http://www.crea.ca/">Pour nous joindre</a>
                   </li>
-                  {/*   <li>
-                <a href="http://www.crea.ca/">FR</a>
-              </li> */}
+
                   <li>
                     <SelectLanguage
                       langs={props.langs}

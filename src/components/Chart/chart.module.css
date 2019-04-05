@@ -27,6 +27,7 @@
 .tabTitle {
   font-size: 14px;
   font-weight: bold;
+  margin: 0 0 1.6em 0 !important;
 }
 
 .tabContent {

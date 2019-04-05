@@ -86,9 +86,9 @@ class Chart extends React.Component {
     console.log('bmx', bx)
     return (
       <div>
-        <button type="button" onClick={() => this.setState({ isOpen: true })}>
+        {/*   <button type="button" onClick={() => this.setState({ isOpen: true })}>
           Open Lightbox
-        </button>
+        </button> */}
 
         {isOpen && (
           <Lightbox
