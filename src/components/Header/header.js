@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import { Button } from 'reactstrap'
 import headerStyles from './header.module.css'
 import SelectLanguage from '../SelectLanguage'
+import siteHeader from '../Site-header/site-header'
 
 import {
   Collapse,
@@ -17,6 +18,7 @@ import {
   DropdownMenu,
   DropdownItem,
 } from 'reactstrap'
+import SiteHeader from '../Site-header/site-header'
 
 const Header = props => {
   const path = props.pathname.split('/')[1]

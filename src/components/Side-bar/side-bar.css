@@ -74,6 +74,8 @@ select {
   font-size: 14px;
   line-height: 22px;
   color: #505050;
+  width: 90%;
+  word-break: break-word;
 }
 .widgets p a {
   text-decoration: underline;

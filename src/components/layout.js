@@ -76,7 +76,7 @@ class Template extends React.Component {
         <Container>
           <GlobalStyle />
           <Header langs={this.langsMenu} pathname={url} />
-          <SiteHeader />
+          <SiteHeader pathname={url} />
           <Wrapper>
             <Breadcrumb />
             {this.props.location.pathname == '/en-US/' ? (
@@ -241,12 +241,9 @@ class Template extends React.Component {
 
                   <div className="col-sm- side-content">
                     <div className="boardInformation sidebar-wrapper">
-                      <h5 className="text_upper">Board Information</h5>
-                      <h4>
-                        <Link to={`/board/${post.slug}`}>{post.title}</Link>
-                      </h4>
                       {post.boardSubPages !== null && (
                         <ul>
+                          <h5 className="text_upper">Board Information</h5>
                           {post.boardSubPages.map((item, i) => (
                             <li key={i}>
                               <Link to={`/board/${item.slug}`}>
@@ -258,9 +255,9 @@ class Template extends React.Component {
                       )}
 
                       <div className="sidebar-wrapper">
-                        <h5 className="text_upper">MLS Statistics</h5>
                         {post.mlsStatistics !== null && (
                           <ul>
+                            <h5 className="text_upper">MLS Statistics</h5>
                             {post.mlsStatistics.map((item, i) => (
                               <li key={i}>
                                 <Link to={`/mls/${item.slug}`}>
