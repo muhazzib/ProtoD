@@ -132,7 +132,10 @@ class BoardTemplate extends React.Component {
   render() {
     console.log(this.props, '-----')
     const post = get(this.props, 'data.contentfulBoards')
+<<<<<<< HEAD
     console.log('boa', post)
+=======
+>>>>>>> tralsation on going
 
     const {
       data,
@@ -192,7 +195,20 @@ export const pageQuery = graphql`
           html
         }
       }
+<<<<<<< HEAD
    
+=======
+      boardSubPages{
+        title
+        slug
+      }
+      mlsStatistics{
+        title
+        slug
+      }
+      
+  
+>>>>>>> tralsation on going
       binfo {
         childContentfulRichText {
           html

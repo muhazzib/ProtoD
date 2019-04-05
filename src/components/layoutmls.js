@@ -35,8 +35,12 @@ class MTemplate extends React.Component {
     console.log('mls layout', mls)
     const charts = this.props.chartsData
     const sheets = this.props.tableData
+<<<<<<< HEAD
     console.log('charts componentx', charts)
     console.log('sheets- componentx', sheets)
+=======
+    console.log('sheets componentx', sheets)
+>>>>>>> tralsation on going
     /*    const { location, children } = this.props
     let header
 
@@ -52,6 +56,11 @@ class MTemplate extends React.Component {
         <SiteHeader />
         <Wrapper>
           <Breadcrumb />
+<<<<<<< HEAD
+=======
+          {/*   <ChartY charts={this.props.data} /> */}
+          {/* <ChartY chartsData={charts} /> */}
+>>>>>>> tralsation on going
 
           {/*  <BoardTable
             tableData={this.props.tableData}
@@ -64,6 +73,12 @@ class MTemplate extends React.Component {
 
           {/* <ChartY chartsData={charts} /> */}
           {this.children}
+          {/*  {this.props.tableData.length > 0 ? (
+            <BoardTable
+              tableData={this.props.tableData}
+              name={this.props.name1}
+            />
+          ) : null} */}
 
           <Footer />
         </Wrapper>

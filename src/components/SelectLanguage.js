@@ -2,19 +2,24 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import { FormattedMessage } from 'react-intl'
-
+let key = 'fr-CA'
 const SelectLanguage = props => {
-  const links = props.langs.map(lang => (
-    <Link
-      to={lang.link}
-      key={lang.langKey}
-      style={{
-        color: 'white',
-      }}
-    >
-      <li selected={lang.selected}>{lang.langKey}</li>
-    </Link>
-  ))
+  const path = props.pathname.split('/')[1]
+  const langPath = path == 'en-US' || 'fr-CA' ? path : 'en-US'
+  console.log('oqwepoqwiepo', langPath, 'qpwoeiqpowei')
+  const links = props.langs.map(lang => {
+    return lang.langKey != langPath ? (
+      <Link
+        to={lang.link}
+        key={lang.langKey}
+        style={{
+          color: 'white',
+        }}
+      >
+        <li selected={lang.selected}>{lang.langKey}</li>
+      </Link>
+    ) : null
+  })
 
   return (
     <section>

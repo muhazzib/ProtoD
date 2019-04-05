@@ -26,7 +26,10 @@ class NatlAboutTemplate extends React.Component {
   render() {
     const natl = get(this, 'props.data.contentfulStatsPages')
     console.log('national-ca', natl)
-
+    const { location } = this.props
+    const { pathname } = location
+    const lang = pathname.split('/')[1] == 'fr-CA' ? true : false
+    console.log(lang, 'pathnaaksjdaskldjaskdj')
     return (
       <Layout
         data={this.props.data}
@@ -97,7 +100,7 @@ class NatlAboutTemplate extends React.Component {
             </div>
             <div className="col-sm- side-content">
               <div className="chart">
-                <Sidebar />
+                {lang ? <SidebarFr /> : <Sidebar pathname={pathname} />}
               </div>
             </div>
           </div>

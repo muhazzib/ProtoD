@@ -22,7 +22,11 @@ export default class ChartY extends React.Component {
   }
 
   render() {
+<<<<<<< HEAD
     /* const data = this.props.acc.allFile.edges  */
+=======
+    /*  const data = this.props.acc.allFile.edges  */
+>>>>>>> tralsation on going
     const charts = this.props.chartsData
     console.log('chx', charts, ' chx')
 
@@ -32,13 +36,13 @@ export default class ChartY extends React.Component {
           <div className="row" style={customRow}>
             <div className=".col-lg-">
               chart
-              {charts.map((item, i) => (
+              {/*   {charts.map((item, i) => (
                 <img
                   style={imgStyle}
                   key={i}
                   src={item.node.childImageSharp.fluid.src}
                 />
-              ))}
+              ))} */}
             </div>
           </div>
         </div>

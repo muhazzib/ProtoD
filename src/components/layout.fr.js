@@ -53,6 +53,8 @@ class Template extends React.Component {
 
   render() {
     const natl = get(this, 'props.data.fr.edges[0].node')
+    const location = this.props.location
+    const url = location.pathname
     /*     const { location, children } = this.props
     let header
 
@@ -81,7 +83,7 @@ class Template extends React.Component {
           </Modal> */}
           {/*   MODAL CODE ENDS HERE */}
 
-          <Header langs={this.langsMenu} />
+          <Header langs={this.langsMenu} pathname={url} />
           <SiteHeader />
           <Wrapper>
             <Breadcrumb />
@@ -108,7 +110,7 @@ class Template extends React.Component {
                 </div>
                 <div className="col-sm- side-content">
                   <div className="chart">
-                    <SidebarFr />
+                    <SidebarFr pathname="fr-CA" />
                   </div>
                 </div>
               </div>

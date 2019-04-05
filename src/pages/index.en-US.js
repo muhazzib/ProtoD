@@ -56,6 +56,7 @@ class RootENIndex extends React.Component {
     })
   }
   render() {
+    console.log('===>>>>>', this.props, '<<<<<<<=======')
     const natl = get(this, 'props.data.ca.edges[0].node')
 
     return (
@@ -134,7 +135,7 @@ class RootENIndex extends React.Component {
             </div>
             <div className="col-sm- side-content">
               <div className="chart">
-                <Sidebar />
+                <Sidebar pathname="en-US" />
               </div>
             </div>
           </div>
