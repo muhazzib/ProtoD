@@ -78,22 +78,43 @@ class NatlAboutTemplate extends React.Component {
               </div>
               <div className="entry-content">
                 <div className="entry-sub">
-                  <div>
-                    <div
-                      className="content"
-                      dangerouslySetInnerHTML={{
-                        __html: natl.mainContent.childContentfulRichText.html,
-                      }}
-                    />
-                    <div className="chart_container">
-                      {/* Char A Start */}
-                      <div className="imageBox" />
-                    </div>
-                    {/* Char A End */}
+                  <h2>{natl.headline}</h2>
+                </div>
+                <div>
+                  <div
+                    className="content"
+                    dangerouslySetInnerHTML={{
+                      __html: natl.mainContent.childContentfulRichText.html,
+                    }}
+                  />
+                  {/* <!--  ==========================================================  -->
+  <!--  BOARD AND CREA DECLARATION HERE ==========================  -->
+  <!--  ==========================================================  --> */}
+                  <div className={footerStyle.boardCredit}>
+                    <hr />
+                    <p>
+                      The information contained in this report has been prepared
+                      by The Canadian Real Estate Association drawn from sources
+                      deemed to be reliable, but the accuracy and completeness
+                      of the information is not guaranteed. In providing this
+                      information, The Canadian Real Estate Association does not
+                      assume any responsibility or liability. Copyright ©
+                      {this.getYear()} The Canadian Real Estate Association. All
+                      rights reserved. Reproduction in whole or in part is
+                      prohibited without written permission.
+                    </p>
+                  </div>
+                  {/* <!--  ==========================================================  -->
+  <!-- END EDITING PAGE CONTENT HERE =============================  -->
+  <!--  ==========================================================  --></div> */}
+                  <div className="chart_container">
+                    {/* Char A Start */}
+                    <div className="imageBox" />
+                  </div>
+                  {/* Char A End */}
 
-                    <div className="chart_container">
-                      <div className="imageBox" />
-                    </div>
+                  <div className="chart_container">
+                    <div className="imageBox" />
                   </div>
                 </div>
               </div>
@@ -105,25 +126,6 @@ class NatlAboutTemplate extends React.Component {
             </div>
           </div>
         </div>
-        <Footersub />
-        {/* <!--  ==========================================================  -->
-  <!--  BOARD AND CREA DECLARATION HERE ==========================  -->
-  <!--  ==========================================================  --> */}
-        <div className={footerStyle.boardCredit}>
-          <p>
-            The information contained in this report has been prepared by The
-            Canadian Real Estate Association drawn from sources deemed to be
-            reliable, but the accuracy and completeness of the information is
-            not guaranteed. In providing this information, The Canadian Real
-            Estate Association does not assume any responsibility or liability.
-            Copyright © {this.getYear()} The Canadian Real Estate Association.
-            All rights reserved. Reproduction in whole or in part is prohibited
-            without written permission.
-          </p>
-        </div>
-        {/* <!--  ==========================================================  -->
-  <!-- END EDITING PAGE CONTENT HERE =============================  -->
-  <!--  ==========================================================  --></div> */}
       </Layout>
     )
   }
@@ -148,6 +150,7 @@ export const pageQuery = graphql`
       contentful_id
       node_locale
       title
+      headline
       mainContent {
         childContentfulRichText {
           html

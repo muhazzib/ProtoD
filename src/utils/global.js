@@ -206,7 +206,9 @@ html {
 body {
   background: #ffffff;
 }
-
+a:hover {
+  cursor:pointer;
+ }
 article,
 aside,
 details,

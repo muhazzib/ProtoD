@@ -9,8 +9,6 @@ import Header from './Header/header'
 import Breadcrumb from '../components/Breadcrumb/breadcrumb'
 import Footer from '../components/Footer/footer'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
-
-import Helmet from 'react-helmet'
 import { getCurrentLangKey, getLangs, getUrlForLang } from 'ptz-i18n'
 import { IntlProvider, addLocaleData } from 'react-intl'
 import 'intl'
@@ -18,9 +16,7 @@ import en from 'react-intl/locale-data/en'
 import 'intl/locale-data/jsonp/en'
 import fr from 'react-intl/locale-data/fr'
 import 'intl/locale-data/jsonp/fr'
-
 import SiteHeader from './Site-header/site-header'
-import './global-styles.css'
 import '../components/Content/content.css'
 import { GlobalStyle } from '../utils/global'
 import SidebarFr from './Side-bar/side-bar.fr'
@@ -84,7 +80,7 @@ class Template extends React.Component {
           {/*   MODAL CODE ENDS HERE */}
 
           <Header langs={this.langsMenu} pathname={url} />
-          <SiteHeader />
+          <SiteHeader pathname={url} />
           <Wrapper>
             <Breadcrumb />
             <div className="content-wrapper">

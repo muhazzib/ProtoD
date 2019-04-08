@@ -22,8 +22,7 @@ import SiteHeader from '../Site-header/site-header'
 
 const Header = props => {
   const path = props.pathname.split('/')[1]
-  const langPath = path == 'en-US' ? true : false
-
+  const langPath = path == 'en-US' ? true : path == 'board' ? true : false
   return (
     <div className={headerStyles.wrapper}>
       <div className={headerStyles.container}>

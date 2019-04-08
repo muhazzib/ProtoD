@@ -14,8 +14,7 @@ import Footer from '../components/Footer/footer'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import footerStyle from './Footer/footer.module.css'
 import Helmet from 'react-helmet'
-import SiteHeader from './Site-header/site-header'
-import './global-styles.css'
+import SiteHeaderBoard from './Site-header/site-header-board'
 import '../components/Content/content.css'
 import { GlobalStyle } from '../utils/global'
 import BoardTable from './BoardsTable/boardsTable'
@@ -25,7 +24,6 @@ class MTemplate extends React.Component {
   constructor(props) {
     super(props)
     this.children = this.props.children
-    const url = location.pathname
   }
 
   render() {
@@ -47,7 +45,7 @@ class MTemplate extends React.Component {
       <Container>
         <GlobalStyle />
         <Header />
-        <SiteHeader />
+        {/*  <SiteHeaderBoard /> */}
         <Wrapper>
           <Breadcrumb />
           {/*   <ChartY charts={this.props.data} /> */}

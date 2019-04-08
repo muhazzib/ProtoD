@@ -6,14 +6,12 @@ import Img from 'gatsby-image'
 import Container from './container'
 import get from 'lodash/get'
 import Wrapper from './wrapper/wrapper'
-import Navigation from './navigation'
 import SideBar from './Side-bar/side-bar'
 import Header from './Header/header'
 import Breadcrumb from '../components/Breadcrumb/breadcrumb'
 import Footer from '../components/Footer/footer'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import footerStyle from './Footer/footer.module.css'
-import Helmet from 'react-helmet'
 import { getCurrentLangKey, getLangs, getUrlForLang } from 'ptz-i18n'
 import { IntlProvider, addLocaleData } from 'react-intl'
 import 'intl'
@@ -22,7 +20,6 @@ import 'intl/locale-data/jsonp/en'
 import fr from 'react-intl/locale-data/fr'
 import 'intl/locale-data/jsonp/fr'
 import SiteHeader from './Site-header/site-header'
-import './global-styles.css'
 import '../components/Content/content.css'
 import { GlobalStyle } from '../utils/global'
 import BoardTable from './BoardsTable/boardsTable'
@@ -142,7 +139,7 @@ class Template extends React.Component {
                           <div className="boardInfo">
                             {post.boardInfo !== null && (
                               <div>
-                                <p
+                                <div
                                   className="content"
                                   dangerouslySetInnerHTML={{
                                     __html:
