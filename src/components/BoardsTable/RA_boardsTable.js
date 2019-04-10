@@ -12,8 +12,7 @@ export default class RABoardTable extends React.Component {
   render() {
     const data = this.props.tableData
     const name = this.props.name
-
-    console.log('table name', data)
+    const name2 = this.props.name2
     return (
       <Table
         bordered
@@ -28,7 +27,7 @@ export default class RABoardTable extends React.Component {
           </tr>
           <tr>
             <th rowSpan="2" bgcolor="#E7EBFE" id="table_col_one">
-              Category
+              {name2}
             </th>
             <th rowSpan="2" bgcolor="#E7EBFE">
               Q1-2019

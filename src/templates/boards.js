@@ -33,6 +33,16 @@ class BoardTemplate extends React.Component {
       name2: '',
       name3: '',
       name4: '',
+      field1: '',
+      field2: '',
+      field3: '',
+      field4: '',
+      field5: '',
+      field6: '',
+      field7: '',
+      field8: '',
+      field9: '',
+      field10: '',
     }
   }
   getYear() {
@@ -40,28 +50,48 @@ class BoardTemplate extends React.Component {
   }
   componentDidMount() {
     const slug = this.props.pageContext.slug
-    if (slug == 'barrie-residential-activity') {
+    if (slug == 'xxxx') {
       this.setState({
         // data: this.props.data.allBarrieCsv.edges,
         // name1: 'Barrie Home'
         charts: this.props.data.barrieChart.edges,
-      })
-    } else if (slug == 'montreal') {
-      this.setState({
         data: this.props.data.allMontrealCsv.edges,
-        name1: 'Montreal Home',
+      })
+    } else if (slug == 'barrie') {
+      this.setState({
+        charts: this.props.data.barrieChart.edges,
       })
     } else if (slug == 'alberta-real-estate-association') {
       this.setState({
-        data: this.props.data.allAlbertaCsv.edges,
-        data2: this.props.data.allAlbertahome2Csv.edges,
-        name1: 'Alberta Home Sheet 1',
-        name2: 'Alberta Home Sheet 2',
+        data: this.props.data.ABHome.edges,
+        data2: this.props.data.ABHome2.edges,
+        name1: 'Alberta Monthly Summary',
+        name2: 'Alberta Year-To-Date Summary',
+        field1: 'December 2018',
+        field2: 'Residential Dollar Volume',
+        field3: 'Total Dollar Volume',
+        field4: 'Residential Average Price',
+        field5: 'YTD 2018',
+        /*      data: this.props.data.ABHome.edges,
+        data2: this.props.data.ABHome2.edges,
+        name1: 'Alberta Monthly Summary',
+        name2: 'Alberta Year-To-Date Summary',
+        field1: 'December 2018',
+        field2: 'Residential Dollar Volume',
+        field3: 'Total Dollar Volume',
+        field4: 'Residential Average Price',
+        field5: 'YTD 2018', */
       })
-    } else if (slug == 'alberta-residential-activity') {
+    } else if (slug == 'montreal') {
       this.setState({
-        data: this.props.data.allAlbertaresidentialactivityCsv.edges,
-        name1: 'Alberta Residential Sheet 1',
+        data: this.props.data.MTL1.edges,
+        data2: this.props.data.MTL2.edges,
+        data3: this.props.data.MTL3.edges,
+        name1: 'Alberta Year-To-Date Summary',
+        field1: 'YTD 2018',
+        field2: 'Residential Dollar Volume',
+        field3: 'Total Dollar Volume',
+        field4: 'Residential Average Price',
       })
     } else if (slug == 'realtors-r-association-of-edmonton') {
       this.setState({
@@ -140,6 +170,11 @@ class BoardTemplate extends React.Component {
       name2,
       name3,
       name4,
+      field1,
+      field2,
+      field3,
+      field4,
+      field5,
       charts,
     } = this.state
     return (
@@ -151,6 +186,11 @@ class BoardTemplate extends React.Component {
         name2={name2}
         name3={name3}
         name4={name4}
+        field1={field1}
+        field2={field2}
+        field3={field3}
+        field4={field4}
+        field5={field5}
         post={post}
         tableData={data}
         tableData2={data2}
@@ -235,7 +275,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allAlbertahome2Csv {
+  ABHome:  allAlbertahome2Csv{
       edges {
         node {
           Area
@@ -251,7 +291,55 @@ export const pageQuery = graphql`
         }
       }
     }
-    allAlbertahome2Csv {
+    ABHome2:  allAlbertahome2Csv {
+      edges {
+        node {
+          Area
+          Benchmark
+          One_Month
+          Three_Month
+          Six_Month
+          Twelve_Month
+          Three_Year
+          Five_Year
+          Month
+          Year
+        }
+      }
+    }
+   MTL1: allMontrealCsv {
+      edges {
+        node {
+          Area
+          Benchmark
+          One_Month
+          Three_Month
+          Six_Month
+          Twelve_Month
+          Three_Year
+          Five_Year
+          Month
+          Year
+        }
+      }
+    }
+    MTL2: allMontreal2Csv {
+      edges {
+        node {
+          Area
+          Benchmark
+          One_Month
+          Three_Month
+          Six_Month
+          Twelve_Month
+          Three_Year
+          Five_Year
+          Month
+          Year
+        }
+      }
+    }
+    MTL3:  allMontreal3Csv {
       edges {
         node {
           Area

@@ -206,9 +206,7 @@ html {
 body {
   background: #ffffff;
 }
-a:hover {
-  cursor:pointer;
- }
+
 article,
 aside,
 details,
@@ -536,7 +534,13 @@ iPad 3
 .sheet{
   display:none;
 }
+.chart{
+  display: none;
+}
 .side-content {
+    display: none;
+  }
+  .boardSheets{
     display: none;
   }
 }
@@ -565,8 +569,16 @@ iPad 3
 .sheet{
   display:none;
 }
+.chart{
+  display: none;
+}
 .side-content {
     display: none;
+  }
+
+
+  a{
+    color: white !important
   }
 }
 

@@ -20,6 +20,10 @@ const propTypes = {
   data: PropTypes.object.isRequired,
 }
 
+const style = {
+  marginBottom: '20px',
+}
+
 class RootDEIndex extends React.Component {
   getYear() {
     return new Date().getFullYear()
@@ -125,8 +129,12 @@ class RootDEIndex extends React.Component {
                         __html: natl.contentC.childContentfulRichText.html,
                       }}
                     />
-
-                    <Sheet />
+                    <div className="sheet">
+                      <div style={style}>
+                        <Chart />
+                      </div>
+                      <Sheet />
+                    </div>
                   </div>
                 </div>
               </div>

@@ -130,11 +130,10 @@ class RootENIndex extends React.Component {
                         __html: natl.contentC.childContentfulRichText.html,
                       }}
                     />
-                    <div style={style}>
-                      <Chart />
-                    </div>
-
                     <div className="sheet">
+                      <div style={style}>
+                        <Chart />
+                      </div>
                       <Sheet />
                     </div>
                   </div>

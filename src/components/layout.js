@@ -23,11 +23,25 @@ import SiteHeader from './Site-header/site-header'
 import '../components/Content/content.css'
 import { GlobalStyle } from '../utils/global'
 import BoardTable from './BoardsTable/boardsTable'
+import FourColBoardTable from './BoardsTable/4_boardTable'
+import FourCol4BoardTable from './BoardsTable/4_1_boardTable'
+import FiveColBoardTable from './BoardsTable/5_boardTable'
+import EightColBoardTable from './BoardsTable/8_boardTable'
 import ChartY from './Chart/chx'
+import BurgerIcon from '../components/Mobile-menu/burgerIcon'
+import Popup from 'reactjs-popup'
+import Menu from '../components/Mobile-menu/mobile-menu'
+import '../components/Mobile-menu/mobile.menu.css'
 
 // add concatenated locale data
 addLocaleData([...en, ...fr])
 
+const contentStyle = {
+  background: 'rgba(255,255,255,0)',
+  width: '80%',
+  border: 'none',
+  background: 'rgba(219,47,37,0.8)',
+}
 class Template extends React.Component {
   constructor(props) {
     super(props)
@@ -75,6 +89,15 @@ class Template extends React.Component {
           <Header langs={this.langsMenu} pathname={url} />
           <SiteHeader pathname={url} />
           <Wrapper>
+            <Popup
+              modal
+              overlayStyle={{ background: 'rgba(219,47,37,0.98)' }}
+              contentStyle={contentStyle}
+              closeOnDocumentClick={false}
+              trigger={open => <BurgerIcon open={open} />}
+            >
+              {close => <Menu close={close} />}
+            </Popup>
             <Breadcrumb />
             {this.props.location.pathname == '/en-US/' ? (
               <Modal
@@ -171,34 +194,86 @@ class Template extends React.Component {
                           </div>
 
                           {/* Cutom table for rendering board's sheet */}
-                          {this.props.tableData.length > 0 ? (
-                            <BoardTable
-                              tableData={this.props.tableData}
-                              name={this.props.name1}
-                            />
-                          ) : null}
+                          <div className="boardSheets">
+                            {/*        {this.props.tableData.length > 0 ? (
+                              <FiveColBoardTable
+                                tableData={this.props.tableData}
+                                name={this.props.name1}
+                                name2={this.props.name2}
+                                field1={this.props.field1}
+                                field2={this.props.field2}
+                                field3={this.props.field3}
+                                field4={this.props.field4}
+                                field5={this.props.field5}
+                              />
+                            ) : null} */}
 
-                          <ChartY chartsData={this.props.chartsData} />
-                          {this.props.tableData2.length > 0 ? (
-                            <BoardTable
-                              tableData={this.props.tableData2}
-                              name={this.props.name2}
-                            />
-                          ) : null}
+                            {this.props.tableData.length > 0 ? (
+                              <FourColBoardTable
+                                tableData={this.props.tableData}
+                                name={this.props.name1}
+                                field1={this.props.field1}
+                                field2={this.props.field2}
+                                field3={this.props.field3}
+                                field4={this.props.field4}
+                              />
+                            ) : null}
+                            {this.props.tableData2.length > 0 ? (
+                              <FourCol4BoardTable
+                                tableData={this.props.tableData2}
+                                name={this.props.name2}
+                                field2={this.props.field2}
+                                field3={this.props.field3}
+                                field4={this.props.field4}
+                                field5={this.props.field5}
+                              />
+                            ) : null}
 
-                          {this.props.tableData3.length > 0 ? (
-                            <BoardTable
-                              tableData={this.props.tableData3}
-                              name={this.props.name3}
-                            />
-                          ) : null}
+                            {this.props.tableData.length > 0 ? (
+                              <BoardTable
+                                tableData={this.props.tableData}
+                                name={this.props.name}
+                                field1={this.props.field1}
+                                field2={this.props.field2}
+                                field3={this.props.field3}
+                                field4={this.props.field4}
+                              />
+                            ) : null}
 
-                          {this.props.tableData4.length > 0 ? (
-                            <BoardTable
-                              tableData={this.props.tableData4}
-                              name={this.props.name4}
-                            />
-                          ) : null}
+                            {this.props.tableData.length > 0 ? (
+                              <EightColBoardTable
+                                tableData={this.props.tableData}
+                                name={this.props.name}
+                                field1={this.props.field1}
+                                field2={this.props.field2}
+                                field3={this.props.field3}
+                                field4={this.props.field4}
+                              />
+                            ) : null}
+
+                            <ChartY chartsData={this.props.chartsData} />
+
+                            {/*      {this.props.tableData2.length > 0 ? (
+                              <BoardTable
+                                tableData={this.props.tableData2}
+                                name={this.props.name2}
+                              />
+                            ) : null}
+
+                            {this.props.tableData3.length > 0 ? (
+                              <BoardTable
+                                tableData={this.props.tableData3}
+                                name={this.props.name3}
+                              />
+                            ) : null}
+
+                            {this.props.tableData4.length > 0 ? (
+                              <BoardTable
+                                tableData={this.props.tableData4}
+                                name={this.props.name4}
+                              />
+                            ) : null} */}
+                          </div>
                           {/* {
                             !renderTable ? (
                             ) : null
@@ -273,7 +348,7 @@ class Template extends React.Component {
             ) : // <BoardTable tableData={this.props.tableData} name={this.props.name} />
             null}
 
-            <Footer />
+            <Footer pathname={url} />
           </Wrapper>
         </Container>
       </IntlProvider>

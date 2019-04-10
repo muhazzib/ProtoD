@@ -13,7 +13,7 @@ export default class BoardTable extends React.Component {
     const data = this.props.tableData
     const name = this.props.name
 
-    console.log('table', data)
+    console.log('table', name)
     return (
       <Table
         bordered

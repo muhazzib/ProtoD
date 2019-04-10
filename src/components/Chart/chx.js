@@ -31,14 +31,13 @@ export default class ChartY extends React.Component {
         <div className="container">
           <div className="row" style={customRow}>
             <div className=".col-lg-">
-              chart
-              {/*   {charts.map((item, i) => (
+              {charts.map((item, i) => (
                 <img
                   style={imgStyle}
                   key={i}
                   src={item.node.childImageSharp.fluid.src}
                 />
-              ))} */}
+              ))}
             </div>
           </div>
         </div>

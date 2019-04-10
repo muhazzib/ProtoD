@@ -12,15 +12,6 @@ import { GlobalStyle } from '../utils/global'
 import BoardTable from '../components/BoardsTable/boardsTable'
 import ChartY from '../components/Chart/chx'
 
-const pStyle = {
-  fontSize: '15px',
-  textAlign: 'center',
-  display: 'inlineTable',
-}
-const customRow = {
-  background: '#edf0fe',
-}
-
 const propTypes = {
   data: PropTypes.object.isRequired,
 }
@@ -38,47 +29,43 @@ class MlsTemplate extends React.Component {
       name3: '',
       name4: '',
       charts: [],
-      charts2: [],
     }
   }
-
   getYear() {
     return new Date().getFullYear()
   }
   componentDidMount() {
     const slug = this.props.pageContext.slug
-    if (slug == 'montreal') {
+    if (slug == 'barrie-residential-activity') {
       this.setState({
-        // data: this.props.data.allBarrieCsv.edges,
-        // name1: 'Barrie Home'
+        data: this.props.data.BarrieResA.edges,
+        charts: this.props.data.barrieResAChart.edges,
+
+        /*   
+        data3: this.props.data.BarrieResA2.edges,
+
+        charts: this.props.data.barrieChart.edges, */
+        name1: 'Detached',
+      })
+    } else if (slug == 'barrie') {
+      this.setState({
         charts: this.props.data.barrieChart.edges,
       })
-    } else if (slug == 'montreal') {
+    } else if (slug == 'barrie-sales-by-category') {
       this.setState({
-        data: this.props.data.allMontrealCsv.edges,
-        name1: 'Montreal Home',
+        charts: this.props.data.barrieSalesByCat.edges,
       })
-    } else if (slug == 'alberta-real-estate-association') {
+    } else if (slug == 'barrie-sales-by-price-range') {
       this.setState({
-        data: this.props.data.allAlbertaCsv.edges,
-        data2: this.props.data.allAlbertahome2Csv.edges,
-        name1: 'Alberta Home Sheet 1',
-        name2: 'Alberta Home Sheet 2',
+        charts: this.props.data.barrieSalesByPriceRange.edges,
       })
-    } else if (slug == 'alberta-residential-activity') {
+    } else if (slug == 'barrie-market-conditions') {
       this.setState({
-        data: this.props.data.alberta.edges,
-        name1: 'Alberta Residential Sheet 1',
+        charts: this.props.data.barrieMarketConditions.edges,
       })
-    } else if (slug == 'realtors-r-association-of-edmonton') {
+    } else if (slug == 'barrie-median-price') {
       this.setState({
-        data: this.props.data.alberta.edges,
-        name1: 'eddy Residential Sheet 1',
-      })
-    } else if (slug == 'barrie-residential-activity') {
-      this.setState({
-        data: this.props.data.alberta.edges,
-        charts: this.props.data.barrieChart.edges,
+        charts: this.props.data.barrieMedianPrice.edges,
       })
     } else if (slug == 'victoria-sales') {
       this.setState({
@@ -86,25 +73,14 @@ class MlsTemplate extends React.Component {
         data2: this.props.data.allSalesbyprice2Csv.edges,
         name1: 'vic Residential Sheet 1',
         name2: 'vic Residential Sheet 2',
-        charts: this.props.charts.victoriaChart.edges,
+        charts: this.props.data.victoriaChart.edges,
       })
     } else if (slug == 'barrie-sales-by-price-range') {
       this.setState({
-        // data: this.props.data.allSalesbyprice1Csv.edges,
-        // data2: this.props.data.allSalesbyprice2Csv.edges,
-        // name1: 'Sales by price sheet 1',
-        // name2: 'Sales by price sheet 2',
-      })
-    } else if (slug == 'barrie-market-conditions') {
-      this.setState({
-        data: this.props.data.alberta.edges,
-        data2: this.props.data.alberta.edges,
-        data3: this.props.data.alberta.edges,
-        data4: this.props.data.alberta.edges,
-        name1: 'sheet 1',
-        name2: 'sheet 2',
-        name3: 'sheet 3',
-        name4: 'sheet 4',
+        data: this.props.data.allSalesbyprice1Csv.edges,
+        data2: this.props.data.allSalesbyprice2Csv.edges,
+        name1: 'Sales by price sheet 1',
+        name2: 'Sales by price sheet 2',
       })
     } else if (slug == 'toronto') {
       // No table at home page
@@ -142,7 +118,6 @@ class MlsTemplate extends React.Component {
         data2: [],
         data3: [],
         charts: [],
-        charts2: [],
       })
     }
   }
@@ -150,6 +125,7 @@ class MlsTemplate extends React.Component {
   render() {
     const mls = get(this.props, 'data.contentfulMlsPages')
     console.log('mlspages', mls)
+
     const {
       data,
       data2,
@@ -160,178 +136,24 @@ class MlsTemplate extends React.Component {
       name3,
       name4,
       charts,
-      charts2,
     } = this.state
 
     return (
       <Layout
-        board={true}
         data={this.props.data}
-        chartsData={charts}
         mls={mls}
+        board={true}
+        name1={name1}
+        name2={name2}
+        name3={name3}
+        name4={name4}
         tableData={data}
-        charts2={charts2}
+        tableData2={data2}
+        tableData3={data3}
+        tableData4={data4}
+        chartsData={charts}
       >
         <GlobalStyle />
-        <div className="content-wrapper">
-          <div className="row split">
-            <div className="col-md">
-              <div className="entry-header">
-                {/*  <ChartY chartsData={charts} /> */}
-                <div>
-                  <div className="container">
-                    <div className="row" style={customRow}>
-                      <div className=".col-lg-">
-                        chart
-                        {/*    {charts.map((item, i) => (
-                          <img
-                            style={imgStyle}
-                            key={i}
-                            src={item.node.childImageSharp.fluid.src}
-                          />
-                        ))} */}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <h1
-                  className="entry-title"
-                  dangerouslySetInnerHTML={{
-                    __html: mls.title,
-                  }}
-                />
-              </div>
-
-              <div className="entry-content">
-                <div className="entry-sub">
-                  {/*    <h2
-                          className="entry-headline"
-                          dangerouslySetInnerHTML={{
-                            __html: post.headline,
-                          }}
-                        /> */}
-                  <div className="content">
-                    {mls.mainContent !== null && (
-                      <div
-                        className="content"
-                        dangerouslySetInnerHTML={{
-                          __html: mls.mainContent.childContentfulRichText.html,
-                        }}
-                      />
-                    )}
-
-                    <BoardTable
-                      tableData={this.props.tableData}
-                      name={this.props.name1}
-                    />
-
-                    {mls.mainContent2 !== null && (
-                      <div
-                        className="content"
-                        dangerouslySetInnerHTML={{
-                          __html: mls.mainContent2.childContentfulRichText.html,
-                        }}
-                      />
-                    )}
-                    <BoardTable
-                      tableData={this.props.tableData2}
-                      name={this.props.name2}
-                    />
-
-                    {mls.mainContent3 !== null && (
-                      <div
-                        className="content"
-                        dangerouslySetInnerHTML={{
-                          __html: mls.mainContent3.childContentfulRichText.html,
-                        }}
-                      />
-                    )}
-                    <BoardTable
-                      tableData={this.props.tableData3}
-                      name={this.props.name3}
-                    />
-                    {mls.mainContent4 !== null && (
-                      <div
-                        className="content"
-                        dangerouslySetInnerHTML={{
-                          __html: mls.mainContent4.childContentfulRichText.html,
-                        }}
-                      />
-                    )}
-                    <BoardTable
-                      tableData={this.props.tableData4}
-                      name={this.props.name4}
-                    />
-
-                    {/* Cutom table for rendering board's sheet */}
-
-                    {/* {
-                            !renderTable ? (
-                            ) : null
-                          } */}
-
-                    {/* CUSTOM TABLE SHEETS END HERE */}
-
-                    {/* <!--  ==========================================================  -->
-        <!--  BOARD AND CREA DECLARATION HERE ==========================  -->
-        <!--  ==========================================================  --> */}
-                    <div className={footerStyle.boardCredit}>
-                      <hr />
-                      <p>
-                        The information contained in this report has been
-                        prepared by The Canadian Real Estate Association, in
-                        co-operation with the {mls.boardName}. The information
-                        has been drawn from sources deemed to be reliable, but
-                        the accuracy and completeness of the information is not
-                        guaranteed. In providing this information, neither The
-                        Canadian Real Estate Association nor the {mls.boardName}
-                        assumes any responsibility or liability.
-                        Copyright&nbsp;&copy;{this.getYear()}. The Canadian Real
-                        Estate Association. All rights reserved. Reproduction in
-                        whole or in part is prohibited without written
-                        permission..
-                      </p>
-                    </div>
-
-                    {/* <!--  ==========================================================  -->
-        <!-- END EDITING PAGE CONTENT HERE =============================  -->
-        <!--  ==========================================================  --></div> */}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-sm- side-content">
-              <div className="boardInformation sidebar-wrapper">
-                {mls.boardSubPagesz !== null && (
-                  <ul>
-                    <h5 className="text_upper">Board Information</h5>
-                    {mls.boardSubPagesz.map((item, i) => (
-                      <li key={i}>
-                        <Link to={`/board/${item.slug}`}>{item.title}</Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-
-                <div className="sidebar-wrapper">
-                  {mls.mlsSubRefernces !== null && (
-                    <ul>
-                      <h5 className="text_upper">MLS Statistics</h5>
-                      {mls.mlsSubRefernces.map((item, i) => (
-                        <li key={i}>
-                          <Link to={`/mls/${item.slug}`}>{item.title}</Link>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-                {/* mls ends */}
-                <SideBar />
-              </div>
-            </div>
-          </div>
-        </div>
       </Layout>
     )
   }
@@ -379,6 +201,46 @@ export const pageQuery = graphql`
       }
     }
 
+   BarrieResA: allBarrieTable02RaCsv{
+      edges{
+        node{
+          cat
+          current_p
+          past_p
+          yyp
+          current_date
+        }
+      }
+    }
+    BarrieResA1: allBarrieTable03RaCsv{
+      edges{
+        node{
+          cat
+          current_p
+          past_p
+          yyp
+          current_date
+        }
+      }
+    }
+
+
+    BarrieResA3: allBarrieTable03Csv {
+      edges {
+        node {
+          area
+          current_s
+          current_p
+          past_s
+          yys
+          yyp
+          current_date
+          past_date
+          past_p
+        }
+      }
+    }
+
 alberta: allAlbertahome2Csv {
         edges {
           node {
@@ -395,7 +257,236 @@ alberta: allAlbertahome2Csv {
           }
         }
       }
-      barrieChart:  allFile(filter: {relativeDirectory: {eq: "boards\\barrie\\BarrieCharts"}}) {
+      allAlbertaresidentialactivityCsv {
+        edges {
+          node {
+            Area
+            Benchmark
+            One_Month
+            Three_Month
+            Six_Month
+            Twelve_Month
+            Three_Year
+            Five_Year
+            Month
+            Year
+          }
+        }
+      }
+      allTorontoresidentialactivity1Csv {
+        edges {
+          node {
+            Area
+            Benchmark
+            One_Month
+            Three_Month
+            Six_Month
+            Twelve_Month
+            Three_Year
+            Five_Year
+            Month
+            Year
+          }
+        }
+      }
+      allTorontoresidentialactivity2Csv {
+        edges {
+          node {
+            Area
+            Benchmark
+            One_Month
+            Three_Month
+            Six_Month
+            Twelve_Month
+            Three_Year
+            Five_Year
+            Month
+            Year
+          }
+        }
+      }
+  
+      allTorontosalesbypricerange1Csv {
+        edges {
+          node {
+            Area
+            Benchmark
+            One_Month
+            Three_Month
+            Six_Month
+            Twelve_Month
+            Three_Year
+            Five_Year
+            Month
+            Year
+          }
+        }
+      }
+  
+      allTorontosalesbypricerange2Csv {
+        edges {
+          node {
+            Area
+            Benchmark
+            One_Month
+            Three_Month
+            Six_Month
+            Twelve_Month
+            Three_Year
+            Five_Year
+            Month
+            Year
+          }
+        }
+      }
+  
+      allTorontosalesbypricerange3Csv {
+        edges {
+          node {
+            Area
+            Benchmark
+            One_Month
+            Three_Month
+            Six_Month
+            Twelve_Month
+            Three_Year
+            Five_Year
+            Month
+            Year
+          }
+        }
+      }
+  
+      allTorontosalesbypricerange4Csv {
+        edges {
+          node {
+            Area
+            Benchmark
+            One_Month
+            Three_Month
+            Six_Month
+            Twelve_Month
+            Three_Year
+            Five_Year
+            Month
+            Year
+          }
+        }
+      }
+  
+      allCookiesCsv {
+        edges {
+          node {
+            Area
+            Benchmark
+            One_Month
+            Three_Month
+            Six_Month
+            Twelve_Month
+            Three_Year
+            Five_Year
+            Month
+            Year
+          }
+        }
+      }
+  
+      allBarrieCsv {
+        edges {
+          node {
+            Area
+            Benchmark
+            One_Month
+            Three_Month
+            Six_Month
+            Twelve_Month
+            Three_Year
+            Five_Year
+            Month
+            Year
+          }
+        }
+      }
+
+  
+      
+      allSalesbyprice1Csv {
+        edges {
+          node {
+            Area
+            Benchmark
+            One_Month
+            Three_Month
+            Six_Month
+            Twelve_Month
+            Three_Year
+            Five_Year
+            Month
+            Year
+          }
+        }
+      }
+      allSalesbyprice2Csv {
+        edges {
+          node {
+            Area
+            Benchmark
+            One_Month
+            Three_Month
+            Six_Month
+            Twelve_Month
+            Three_Year
+            Five_Year
+            Month
+            Year
+          }
+        }
+      }
+      allMontrealCsv {
+        edges {
+          node {
+            Area
+            Benchmark
+            One_Month
+            Three_Month
+            Six_Month
+            Twelve_Month
+            Three_Year
+            Five_Year
+            Month
+            Year
+          }
+        }
+      }
+      allNrHpiTableEnCsv {
+        edges {
+          node {
+            Area
+            Benchmark
+            One_Month
+            Three_Month
+            Six_Month
+            Twelve_Month
+            Three_Year
+            Five_Year
+            Month
+            Year
+          }
+        }
+      }
+      barrieResAChart:  allFile(filter: {relativeDirectory: {eq: "boards\\barrie\\residentialActivity\\chart"}}) {
+        ...ChartSourcesx
+      }
+      barrieSalesByCat:  allFile(filter: {relativeDirectory: {eq: "boards\\barrie\\salesByCategory"}}) {
+        ...ChartSourcesx
+      }
+      barrieSalesByPriceRange:  allFile(filter: {relativeDirectory: {eq: "boards\\barrie\\salesByPriceRange"}}) {
+        ...ChartSourcesx
+      }
+      barrieMarketConditions:  allFile(filter: {relativeDirectory: {eq: "boards\\barrie\\marketConditions"}}) {
+        ...ChartSourcesx
+      }
+      barrieMedianPrice:  allFile(filter: {relativeDirectory: {eq: "boards\\barrie\\medianPrice"}}) {
         ...ChartSourcesx
       }
       torontoChart: allFile(filter: {relativeDirectory: {eq: "boards\\toronto\\TorontoCharts"}}) {
@@ -404,19 +495,19 @@ alberta: allAlbertahome2Csv {
       victoriaChart: allFile(filter: {relativeDirectory: {eq: "boards\\victoria\\VictoriaCharts"}}) {
         ...ChartSourcesx
       }
-  }
-  fragment ChartSourcesx on FileConnection {
-    edges {
-      node {
-        name
-        id
-        sourceInstanceName
-        childImageSharp {
-          fluid {
-            src
+    }
+  
+    fragment ChartSourcesx on FileConnection {
+      edges {
+        node {
+          id
+          sourceInstanceName
+          childImageSharp {
+            fluid {
+              src
+            }
           }
         }
       }
     }
-  }
-`
+  `

@@ -4,7 +4,7 @@
   cursor: pointer;
   position: fixed;
   right: 20px;
-  top: 25px;
+  top: 80px;
   z-index: 1000;
   background: #fff;
   padding: 10px;
@@ -58,4 +58,28 @@
 }
 .menu li:hover {
   color: #345fa8;
+}
+
+.popup-overlay {
+  overflow-y: scroll;
+}
+
+.popup-overlay a {
+  color: white;
+}
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 1224px) {
+  /* Styles */
+  .burger-menu {
+    display: none;
+  }
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width: 1824px) {
+  /* Styles */
+
+  .burger-menu {
+    display: none;
+  }
 }

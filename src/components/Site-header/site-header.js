@@ -11,10 +11,23 @@ const SiteHeaderBoard = props => {
       <div className={siteHeader.container}>
         <div className={siteHeader.menuContainer}>
           <div className={siteHeader.row}>
-            <div className="col left-grid">
-              <a href="http://localhost:8000/">
-                <img src={require('../../images/logo_crea_EN.svg')} />
-              </a>
+            <div className="col-sm ">
+              {langPath ? (
+                <div className={siteHeader.logoWidth}>
+                  <a href="/">
+                    <img src={require('../../images/logo_crea_EN.svg')} />
+                  </a>
+                </div>
+              ) : (
+                <div className={siteHeader.logoWidthFR}>
+                  <a href="/">
+                    <img
+                      className={siteHeader.frLogo}
+                      src={require('../../images/ACI_logo.png')}
+                    />
+                  </a>
+                </div>
+              )}
             </div>
             <div className={siteHeader.colBg}>
               {langPath ? (

@@ -20,10 +20,25 @@ import SiteHeader from './Site-header/site-header'
 import '../components/Content/content.css'
 import { GlobalStyle } from '../utils/global'
 import SidebarFr from './Side-bar/side-bar.fr'
+import BurgerIcon from '../components/Mobile-menu/burgerIcon'
+import Popup from 'reactjs-popup'
+import MenuFR from '../components/Mobile-menu/mobile-menu-fr'
+import '../components/Mobile-menu/mobile.menu.css'
 
 // add concatenated locale data
 addLocaleData([...en, ...fr])
 
+const styles = {
+  fontFamily: 'sans-serif',
+  textAlign: 'center',
+  /* marginTop: '40px', */
+}
+const contentStyle = {
+  background: 'rgba(255,255,255,0)',
+  width: '80%',
+  border: 'none',
+  background: 'rgba(219,47,37,0.8)',
+}
 class Template extends React.Component {
   constructor(props) {
     super(props)
@@ -82,6 +97,15 @@ class Template extends React.Component {
           <Header langs={this.langsMenu} pathname={url} />
           <SiteHeader pathname={url} />
           <Wrapper>
+            <Popup
+              modal
+              overlayStyle={{ background: 'rgba(219,47,37,0.98)' }}
+              contentStyle={contentStyle}
+              closeOnDocumentClick={false}
+              trigger={open => <BurgerIcon open={open} />}
+            >
+              {close => <MenuFR close={close} />}
+            </Popup>
             <Breadcrumb />
             <div className="content-wrapper">
               <div className="row split">

@@ -28,6 +28,15 @@
   margin-top: 26px;
 }
 
+.frLogo {
+  width: 70%;
+}
+.logoWidth {
+  width: 40%;
+}
+.logoWidthFR {
+  width: 50%;
+}
 .left-grid {
   width: 49.20368818105616%;
 }
@@ -84,7 +93,7 @@
     display: none;
   }
   .mainMenu {
-    padding: 5px;
+    padding: 15px;
   }
   .mainMenu img {
     margin-top: 0px;
@@ -98,7 +107,7 @@
     display: none;
   }
   .mainMenu {
-    padding: 5px;
+    padding: 15px;
   }
   .mainMenu img {
     margin-top: 0px;
@@ -112,7 +121,7 @@
     display: none;
   }
   .mainMenu {
-    padding: 5px;
+    padding: 15px;
   }
   .mainMenu img {
     margin-top: 0px;
@@ -127,7 +136,7 @@
     display: none;
   }
   .mainMenu {
-    padding: 5px;
+    padding: 15px;
   }
   .mainMenu img {
     margin-top: 0px;
@@ -140,7 +149,7 @@
     display: none;
   }
   .mainMenu {
-    padding: 5px;
+    padding: 15px;
   }
   .mainMenu img {
     margin-top: 0px;
@@ -163,8 +172,11 @@
   .colBg {
     display: none;
   }
+  .logoWidth {
+    width: 100%;
+  }
   .mainMenu {
-    padding: 5px;
+    padding: 15px;
   }
   .mainMenu img {
     margin-top: 0px;
@@ -177,8 +189,14 @@
   .colBg {
     display: none;
   }
+  .logoWidth {
+    width: 100%;
+  }
+  .logoWidthFR {
+    width: 60%;
+  }
   .mainMenu {
-    padding: 5px;
+    padding: 15px;
   }
   .mainMenu img {
     margin-top: 0px;
@@ -193,7 +211,10 @@
     display: none;
   }
   .mainMenu {
-    padding: 5px;
+    padding: 15px;
+  }
+  .logoWidth {
+    width: 100%;
   }
   .mainMenu img {
     margin-top: 0px;
@@ -211,7 +232,7 @@
     display: none;
   }
   .mainMenu {
-    padding: 5px;
+    padding: 15px;
   }
   .mainMenu img {
     margin-top: 0px;
@@ -225,7 +246,7 @@
     display: none;
   }
   .mainMenu {
-    padding: 5px;
+    padding: 15px;
   }
   .mainMenu img {
     margin-top: 0px;
@@ -238,7 +259,7 @@
     display: none;
   }
   .mainMenu {
-    padding: 5px;
+    padding: 15px;
   }
   .mainMenu img {
     margin-top: 0px;
