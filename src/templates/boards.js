@@ -29,6 +29,15 @@ class BoardTemplate extends React.Component {
       data3: [],
       data4: [],
       charts: [],
+      abData: [],
+      abData2: [],
+      abData3: [],
+      mtlData: [],
+      mtlData2: [],
+      mtlData3: [],
+      mtlData4: [],
+      chatData: [],
+      chatData2: [],
       name1: '',
       name2: '',
       name3: '',
@@ -60,18 +69,30 @@ class BoardTemplate extends React.Component {
     } else if (slug == 'barrie') {
       this.setState({
         charts: this.props.data.barrieChart.edges,
-      })
-    } else if (slug == 'alberta-real-estate-association') {
-      this.setState({
-        data: this.props.data.ABHome.edges,
-        data2: this.props.data.ABHome2.edges,
-        name1: 'Alberta Monthly Summary',
-        name2: 'Alberta Year-To-Date Summary',
+        data: this.props.data.ABHome2.edges,
+        data2: this.props.data.allMontrealCsv.edges,
+        name1: 'mantis',
+        name2: 'peedge',
         field1: 'December 2018',
         field2: 'Residential Dollar Volume',
         field3: 'Total Dollar Volume',
         field4: 'Residential Average Price',
-        field5: 'YTD 2018',
+        field5: 'December 2017',
+      })
+    } else if (slug == 'alberta-real-estate-association') {
+      this.setState({
+        abData: this.props.data.ABHome.edges,
+        name1: 'Alberta Monthly Summary',
+
+        field1: 'December 2018',
+        field2: 'Residential Dollar Volume',
+        field3: 'Total Dollar Volume',
+        field4: 'Residential Average Price',
+
+        abData2: this.props.data.ABHome2.edges,
+        name2: 'Alberta Year-To-Date Summary',
+        abfield1: 'YTY',
+
         /*      data: this.props.data.ABHome.edges,
         data2: this.props.data.ABHome2.edges,
         name1: 'Alberta Monthly Summary',
@@ -84,10 +105,15 @@ class BoardTemplate extends React.Component {
       })
     } else if (slug == 'montreal') {
       this.setState({
-        data: this.props.data.MTL1.edges,
-        data2: this.props.data.MTL2.edges,
-        data3: this.props.data.MTL3.edges,
-        name1: 'Alberta Year-To-Date Summary',
+        mtlData: this.props.data.MTL1.edges,
+        mtlData2: this.props.data.MTL2.edges,
+        mtlData3: this.props.data.MTL3.edges,
+        mtlData4: this.props.data.MTL4.edges,
+
+        name1: 'mtl one',
+        name2: 'mtl two',
+        name3: 'mtl three',
+        name4: 'mtl 4',
         field1: 'YTD 2018',
         field2: 'Residential Dollar Volume',
         field3: 'Total Dollar Volume',
@@ -100,8 +126,11 @@ class BoardTemplate extends React.Component {
       })
     } else if (slug == 'victoria') {
       this.setState({
-        data: this.props.data.allAlbertaresidentialactivityCsv.edges,
-        name1: 'vic Residential Sheet 1',
+        chatData: this.props.data.allAlbertaresidentialactivityCsv.edges,
+        name1: 'vic on chat',
+
+        chatData2: this.props.data.allAlbertaresidentialactivityCsv.edges,
+        name2: 'chart 2',
       })
     } else if (slug == 'victoria-sales') {
       this.setState({
@@ -154,6 +183,15 @@ class BoardTemplate extends React.Component {
         data2: [],
         data3: [],
         charts: [],
+        abData: [],
+        abData2: [],
+        abData3: [],
+        mtlData1: [],
+        mtlData2: [],
+        mtlData3: [],
+        mtlData4: [],
+        chatData: [],
+        chatData2: [],
       })
     }
   }
@@ -174,8 +212,21 @@ class BoardTemplate extends React.Component {
       field2,
       field3,
       field4,
+      abfield1,
+      abfield2,
+      abfield3,
+      abfield4,
       field5,
       charts,
+      abData,
+      abData2,
+      abData3,
+      mtlData,
+      mtlData2,
+      mtlData3,
+      mtlData4,
+      chatData,
+      chatData2,
     } = this.state
     return (
       <Layout
@@ -191,12 +242,25 @@ class BoardTemplate extends React.Component {
         field3={field3}
         field4={field4}
         field5={field5}
+        abfield1={abfield1}
+        abfield2={abfield2}
+        abfield3={abfield3}
+        abfield4={abfield4}
         post={post}
         tableData={data}
         tableData2={data2}
         tableData3={data3}
         tableData4={data4}
         chartsData={charts}
+        abData={abData}
+        abData2={abData2}
+        abData3={abData3}
+        mtlData={mtlData}
+        mtlData2={mtlData2}
+        mtlData3={mtlData3}
+        mtlData4={mtlData4}
+        chatData={chatData}
+        chatData2={chatData2}
       >
         <GlobalStyle />
       </Layout>
@@ -339,7 +403,24 @@ export const pageQuery = graphql`
         }
       }
     }
-    MTL3:  allMontreal3Csv {
+    MTL3: allMontreal3Csv {
+      edges {
+        node {
+          Area
+          Benchmark
+          One_Month
+          Three_Month
+          Six_Month
+          Twelve_Month
+          Three_Year
+          Five_Year
+          Month
+          Year
+        }
+      }
+    }
+
+    MTL4: allMontreal4Csv {
       edges {
         node {
           Area

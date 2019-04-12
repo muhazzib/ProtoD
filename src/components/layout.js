@@ -23,10 +23,14 @@ import SiteHeader from './Site-header/site-header'
 import '../components/Content/content.css'
 import { GlobalStyle } from '../utils/global'
 import BoardTable from './BoardsTable/boardsTable'
-import FourColBoardTable from './BoardsTable/4_boardTable'
-import FourCol4BoardTable from './BoardsTable/4_1_boardTable'
+import AB1BoardTable from './BoardsTable/AB1_boardTable'
+import AB2BoardTable from './BoardsTable/AB2_boardTable'
+import Col8BoardTable from './BoardsTable/8Col_boardTable'
+import MTL1BoardTable from './BoardsTable/MTL1_boardTable'
+import MTL3BoardTable from './BoardsTable/MTL3_boardTable'
+import Col4BoardTable from './BoardsTable/4Col_boardTable'
+import Col4TwoBoardTable from './BoardsTable/4Col_2_boardTable'
 import FiveColBoardTable from './BoardsTable/5_boardTable'
-import EightColBoardTable from './BoardsTable/8_boardTable'
 import ChartY from './Chart/chx'
 import BurgerIcon from '../components/Mobile-menu/burgerIcon'
 import Popup from 'reactjs-popup'
@@ -194,7 +198,102 @@ class Template extends React.Component {
                           </div>
 
                           {/* Cutom table for rendering board's sheet */}
+
                           <div className="boardSheets">
+                            {this.props.tableData.length > 0 ? (
+                              <Col4BoardTable
+                                tableData={this.props.tableData}
+                                name={this.props.name1}
+                                field1={this.props.field1}
+                                field2={this.props.field2}
+                                field3={this.props.field3}
+                                field4={this.props.field4}
+                              />
+                            ) : null}
+
+                            {this.props.tableData2.length > 0 ? (
+                              <Col4TwoBoardTable
+                                tableData={this.props.tableData2}
+                                name={this.props.name2}
+                                field2={this.props.field2}
+                                field3={this.props.field3}
+                                field4={this.props.field4}
+                                field5={this.props.field5}
+                              />
+                            ) : null}
+
+                            {this.props.chatData.length > 0 ? (
+                              <Col8BoardTable
+                                chatData={this.props.chatData}
+                                name={this.props.name1}
+                              />
+                            ) : null}
+                            {this.props.chatData2.length > 0 ? (
+                              <Col8BoardTable
+                                chatData={this.props.chatData2}
+                                name={this.props.name2}
+                              />
+                            ) : null}
+                            {this.props.abData.length > 0 ? (
+                              <AB1BoardTable
+                                abData={this.props.abData}
+                                name={this.props.name1}
+                                field1={this.props.field1}
+                                field2={this.props.field2}
+                                field3={this.props.field3}
+                                field4={this.props.field4}
+                              />
+                            ) : null}
+                            {this.props.abData2.length > 0 ? (
+                              <AB1BoardTable
+                                abData={this.props.abData2}
+                                name={this.props.name2}
+                                abfield1={this.props.abfield1}
+                                field2={this.props.field2}
+                                field3={this.props.field3}
+                                field4={this.props.field4}
+                              />
+                            ) : null}
+                            {this.props.mtlData.length > 0 ? (
+                              <MTL1BoardTable
+                                mtlData={this.props.mtlData}
+                                name={this.props.name1}
+                                field1={this.props.field1}
+                                field2={this.props.field2}
+                                field3={this.props.field3}
+                                field4={this.props.field4}
+                              />
+                            ) : null}
+                            {this.props.mtlData2.length > 0 ? (
+                              <MTL1BoardTable
+                                mtlData={this.props.mtlData2}
+                                name={this.props.name2}
+                                field1={this.props.field1}
+                                field2={this.props.field2}
+                                field3={this.props.field3}
+                                field4={this.props.field4}
+                              />
+                            ) : null}
+                            {this.props.mtlData3.length > 0 ? (
+                              <MTL3BoardTable
+                                mtlData={this.props.mtlData3}
+                                name={this.props.name3}
+                                field1={this.props.field1}
+                                field2={this.props.field2}
+                                field3={this.props.field3}
+                                field4={this.props.field4}
+                              />
+                            ) : null}
+                            {this.props.mtlData4.length > 0 ? (
+                              <MTL3BoardTable
+                                mtlData={this.props.mtlData4}
+                                name={this.props.name4}
+                                field1={this.props.field1}
+                                field2={this.props.field2}
+                                field3={this.props.field3}
+                                field4={this.props.field4}
+                              />
+                            ) : null}
                             {/*        {this.props.tableData.length > 0 ? (
                               <FiveColBoardTable
                                 tableData={this.props.tableData}
@@ -207,8 +306,7 @@ class Template extends React.Component {
                                 field5={this.props.field5}
                               />
                             ) : null} */}
-
-                            {this.props.tableData.length > 0 ? (
+                            {/*            {this.props.tableData.length > 0 ? (
                               <FourColBoardTable
                                 tableData={this.props.tableData}
                                 name={this.props.name1}
@@ -249,10 +347,8 @@ class Template extends React.Component {
                                 field3={this.props.field3}
                                 field4={this.props.field4}
                               />
-                            ) : null}
-
+                            ) : null} */}
                             <ChartY chartsData={this.props.chartsData} />
-
                             {/*      {this.props.tableData2.length > 0 ? (
                               <BoardTable
                                 tableData={this.props.tableData2}
