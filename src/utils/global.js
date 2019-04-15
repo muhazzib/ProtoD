@@ -397,6 +397,15 @@ blockquote cite {
   color: #345fa8;
 }
 
+.BoardTable tr:first-child{
+  background: #E7EBFE !important;
+  font-weight: bold;
+}
+
+.BoardTable td:first-child{
+}
+
+
 /** LIGHTBOX MARKUP **/
 
 .lightbox {

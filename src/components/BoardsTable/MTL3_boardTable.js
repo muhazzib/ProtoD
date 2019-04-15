@@ -2,6 +2,10 @@ import React from 'react'
 import TableSheet from '../Table/sheet.module.css'
 import { Table } from 'reactstrap'
 
+const boardtablehead = {
+  background: 'white',
+}
+
 export default class BoardTable extends React.Component {
   constructor(props) {
     super(props)
@@ -27,34 +31,22 @@ export default class BoardTable extends React.Component {
       >
         <thead>
           <tr>
-            <th colSpan="8" className="tableHeader boardTableHead">
+            <th
+              boardtablehead={boardtablehead}
+              colSpan="8"
+              className="tableHeader boardTableHead"
+            >
               {name}
             </th>
           </tr>
           <tr>
-            <th rowSpan="2" bgcolor="#E7EBFE" id="table_col_one">
-              Composite HPI
-            </th>
-            <th rowSpan="2" bgcolor="#E7EBFE">
-              month / year
-            </th>
-            <th colSpan="6" bgcolor="#E7EBFE">
+            <th colSpan="8" bgcolor="#E7EBFE">
               Percentage Change vs.
             </th>
           </tr>
-          <tr>
-            <th bgcolor="#E7EBFE" id="table_col_one">
-              1 month ago
-            </th>
-            <th bgcolor="#E7EBFE">3 months ago</th>
-            <th bgcolor="#E7EBFE">6 months ago</th>
-            <th bgcolor="#E7EBFE">12 months ago</th>
-            <th bgcolor="#E7EBFE">3 years ago</th>
-            <th bgcolor="#E7EBFE">5 years ago</th>
-          </tr>
         </thead>
         {data !== undefined && (
-          <tbody>
+          <tbody className="BoardTable">
             {data.map((row, i) => (
               <tr scope="row" key={`${row.node.Area} ${i}`}>
                 <td>{row.node.Area}</td>

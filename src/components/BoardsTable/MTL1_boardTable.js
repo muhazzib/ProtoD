@@ -2,6 +2,10 @@ import React from 'react'
 import TableSheet from '../Table/sheet.module.css'
 import { Table } from 'reactstrap'
 
+const boardtablehead = {
+  background: 'white',
+}
+
 export default class BoardTable extends React.Component {
   constructor(props) {
     super(props)
@@ -23,32 +27,35 @@ export default class BoardTable extends React.Component {
         className={TableSheet.tableBordered}
         style={{ marginTop: '20px' }}
       >
-        <thead>
+        <thead className="BoardTable">
           <tr>
-            <th colSpan="4" className="tableHeader boardTableHead">
+            <th
+              boardtablehead={boardtablehead}
+              colSpan="4"
+              className="tableHeader boardTableHead"
+            >
               {name}
             </th>
           </tr>
-          <tr>
+          {/*           <tr>
             <th rowSpan="2" bgcolor="#E7EBFE" id="table_col_one">
-              {/*  Composite HPI  */}
+           
               {field1}
             </th>
             <th rowSpan="2" bgcolor="#E7EBFE">
-              {/*  month / year */}
+              
               {field2}
             </th>
           </tr>
           <tr>
             <th bgcolor="#E7EBFE" id="table_col_one">
-              {/* 1 month ago  */}
               {field3}
             </th>
             <th bgcolor="#E7EBFE">{field4}</th>
-          </tr>
+          </tr> */}
         </thead>
         {data !== undefined && (
-          <tbody>
+          <tbody className="BoardTable">
             {data.map((row, i) => (
               <tr scope="row" key={`${row.node.Area} ${i}`}>
                 <td>{row.node.Area}</td>

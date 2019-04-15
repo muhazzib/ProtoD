@@ -22,22 +22,22 @@ export default class BoardTable extends React.Component {
       >
         <thead>
           <tr>
-            <th colSpan="8" className="tableHeader boardTableHead">
+            <th colSpan="8" className="tableHeader boardtablehead">
               {name}
             </th>
           </tr>
           <tr>
-            <th rowSpan="2" bgcolor="#E7EBFE" id="table_col_one">
+            {/*    <th rowSpan="2" bgcolor="#E7EBFE" id="table_col_one">
               Composite HPI
             </th>
             <th rowSpan="2" bgcolor="#E7EBFE">
               month / year
-            </th>
+            </th> */}
             <th colSpan="6" bgcolor="#E7EBFE">
               Percentage Change vs.
             </th>
           </tr>
-          <tr>
+          {/* <tr>
             <th bgcolor="#E7EBFE" id="table_col_one">
               1 month ago
             </th>
@@ -46,7 +46,7 @@ export default class BoardTable extends React.Component {
             <th bgcolor="#E7EBFE">12 months ago</th>
             <th bgcolor="#E7EBFE">3 years ago</th>
             <th bgcolor="#E7EBFE">5 years ago</th>
-          </tr>
+          </tr> */}
         </thead>
         {data !== undefined && (
           <tbody>
