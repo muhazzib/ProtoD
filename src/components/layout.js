@@ -23,11 +23,10 @@ import SiteHeader from './Site-header/site-header'
 import '../components/Content/content.css'
 import { GlobalStyle } from '../utils/global'
 import BoardTable from './BoardsTable/boardsTable'
-
-import Col8BoardTable from './BoardsTable/8Col_boardTable'
-
 import Col4BoardTable from './BoardsTable/4Col_boardTable'
-
+import Col7BoardTable from './BoardsTable/7Col_boardTable'
+import Col8BoardTable from './BoardsTable/8Col_boardTable'
+import TCol8BoardTable from './BoardsTable/T8Col_boardTable'
 import ChartY from './Chart/chx'
 import BurgerIcon from '../components/Mobile-menu/burgerIcon'
 import Popup from 'reactjs-popup'
@@ -199,10 +198,11 @@ class Template extends React.Component {
                           <div className="boardSheets">
                             {this.props.tableData.length > 0 ||
                             this.props.mtlData.length > 0 ||
-                            this.props.abData.length > 0 ? (
+                            this.props.areaData.length > 0 ||
+                            this.props.muskData.length > 0 ? (
                               <Col4BoardTable
                                 tableData={this.props.tableData}
-                                abData={this.props.abData}
+                                areaData={this.props.areaData}
                                 mtlData={this.props.mtlData}
                                 name={this.props.name1}
                                 muskData={this.props.muskData}
@@ -210,84 +210,56 @@ class Template extends React.Component {
                             ) : null}
 
                             {this.props.tableData2.length > 0 ||
-                            this.props.abData2.length > 0 ? (
+                            this.props.areaData2.length > 0 ||
+                            this.props.muskData2.length > 0 ? (
                               <Col4BoardTable
                                 tableData={this.props.tableData2}
                                 mtlData={this.props.mtlData2}
-                                abData={this.props.abData2}
+                                areaData={this.props.areaData2}
+                                muskData={this.props.muskData2}
                                 name={this.props.name2}
                               />
                             ) : null}
 
-                            {/*       
-
-                            {this.props.tableData3.length > 0 ? (
-                              <Col4BoardTable
-                                tableData={this.props.tableData3}
+                            {this.props.muskData3.length > 0 ? (
+                              <Col7BoardTable
+                                muskData={this.props.muskData3}
                                 name={this.props.name3}
                               />
                             ) : null}
 
-                            {this.props.tableData4.length > 0 ? (
-                              <Col4BoardTable
-                                tableData={this.props.tableData4}
-                                mtlData={this.props.mtlData4}
+                            {this.props.muskData4.length > 0 ? (
+                              <Col7BoardTable
+                                muskData={this.props.muskData4}
                                 name={this.props.name4}
                               />
-                            ) : null} */}
+                            ) : null}
 
                             {this.props.tableData.length > 0 ||
                             this.props.mtlData2.length > 0 ||
-                            this.props.mtlData2.length > 0 ||
-                            this.props.muskData.length > 0 ? (
+                            this.props.mtlData2.length > 0 ? (
                               <Col8BoardTable
                                 tableData={this.props.tableData2}
                                 mtlData={this.props.mtlData2}
-                                muskData={this.props.muskData}
                                 name={this.props.name1}
                                 name={this.props.name3}
                               />
                             ) : null}
 
-                            {/*        {this.props.tableData.length > 0 ? (
-                              <Col4BoardTable
-                                tableData={this.props.tableData}
+                            {this.props.chatData.length > 0 ? (
+                              <TCol8BoardTable
+                                chatData={this.props.chatData}
                                 name={this.props.name1}
-                                field1={this.props.field1}
-                                field2={this.props.field2}
-                                field3={this.props.field3}
-                                field4={this.props.field4}
                               />
                             ) : null}
 
-                     
-                  
-                            <ChartY chartsData={this.props.chartsData} />
-                            {/*      {this.props.tableData2.length > 0 ? (
-                              <BoardTable
-                                tableData={this.props.tableData2}
+                            {this.props.chatData2.length > 0 ? (
+                              <TCol8BoardTable
+                                chatData={this.props.chatData2}
                                 name={this.props.name2}
                               />
                             ) : null}
-
-                            {this.props.tableData3.length > 0 ? (
-                              <BoardTable
-                                tableData={this.props.tableData3}
-                                name={this.props.name3}
-                              />
-                            ) : null}
-
-                            {this.props.tableData4.length > 0 ? (
-                              <BoardTable
-                                tableData={this.props.tableData4}
-                                name={this.props.name4}
-                              />
-                            ) : null} */}
                           </div>
-                          {/* {
-                            !renderTable ? (
-                            ) : null
-                          } */}
 
                           {/* CUSTOM TABLE SHEETS END HERE */}
 

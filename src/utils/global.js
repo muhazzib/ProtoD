@@ -397,6 +397,14 @@ blockquote cite {
   color: #345fa8;
 }
 
+
+${'Board table'}
+.table td{
+  padding: 0.4em !important;
+}
+.table th{
+  padding: 0.4em !important;
+}
 .BoardTable tr:first-child{
   background: #E7EBFE !important;
   font-weight: bold;

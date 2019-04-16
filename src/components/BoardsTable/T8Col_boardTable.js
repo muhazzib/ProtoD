@@ -14,7 +14,7 @@ export default class BoardTable extends React.Component {
     console.log(nextProp, 'next')
   }
   render() {
-    const musk = this.props.muskData
+    const chat = this.props.chatData
     const name = this.props.name
 
     console.log('table', name)
@@ -28,31 +28,51 @@ export default class BoardTable extends React.Component {
           <tr>
             <th
               boardtablehead={boardtablehead}
-              colSpan="7"
+              colSpan="8"
+              className="tableHeader boardTableHead"
+            >
+              Percentage change compared to
+            </th>
+          </tr>
+
+          {/* <tr>
+            <th
+              boardtablehead={boardtablehead}
+              colSpan="8"
               className="tableHeader boardTableHead"
             >
               {name}
             </th>
           </tr>
-          <th
+          <td
             boardtablehead={boardtablehead}
-            colSpan="4"
+            colSpan="2"
+            rowspan="3"
             className="tableHeader boardTableHead"
           >
-            Unit Sales
-          </th>
+            Actual<sup>1</sup>
+          </td>
           <th
             boardtablehead={boardtablehead}
-            colSpan="3"
+            colSpan="6"
             className="tableHeader boardTableHead"
           >
-            Median Sales
-          </th>
+            Percentage change compared to
+          </th> */}
         </thead>
-        {musk !== undefined && (
+        <thead>
+          <tr>
+            <th>
+              {/* Actual<sup>1</sup> */}
+              {name}
+            </th>
+          </tr>
+        </thead>
+        {chat !== undefined && (
           <tbody className="BoardTable">
-            {musk.map((row, i) => (
-              <tr scope="row" key={`${row.node.field_1} ${i}`}>
+            {chat.map((row, i) => (
+              <tr scope="row" key={`${row.node.name} ${i}`}>
+                <td>{row.node.name}</td>
                 <td>{row.node.field_1}</td>
                 <td>{row.node.field_2}</td>
                 <td>{row.node.field_3}</td>

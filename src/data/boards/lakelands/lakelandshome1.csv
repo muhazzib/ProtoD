@@ -1,21 +1,5 @@
-Area,Benchmark,One_Month,Three_Month
-DEC // 2018,Residential Dollar Volume,Total Dollar Volume,Residential Average Price
-Aggregate ,$700 ,-0.34,-0.94
-Lower Mainland ,$700 ,-0.89,-3.38
-Greater Vancouver ,"$32,400 ",-0.93,-3.57
-Fraser Valley ,"$834,700 ",-0.83,-2.97
-Vancouver Island ,"$44,500 ",-0.46,-0.58
-Victoria ,"$686,10 ",-0.05,-1.17
-Calgary ,"$413,90 ",-1.04,-2.41
-Edmonton ,"$39,200 ",-0.81,-2.3
-Regina ,"$67,400 ",-1.73,-3.43
-Saskatoon ,"$89,600 ",-1.33,-1.42
-Guelph ,"$24,100 ",-1,0.33
-Hamilton-Burlington ,"$584,100 ",0.39,1.52
-Oakville-Milton ,"$941,500 ",-1.45,-1.18
-Barrie & District ,"$466,000 ",-0.09,-1.31
-Greater Toronto ,"$764,200 ",0.08,-0.16
-Niagara Region ,"$391,800 ",-0.44,0.75
-Ottawa ,"$394,700 ",0.29,0.52
-Greater Montreal ,"$348,700 ",0.17,0.95
-Greater Moncton ,"$180,300 ",-1.1,-0.52
+field_1,field_2,field_3,field_4,current_month,current_year,past_year
+Category,19-Mar,18-Mar,"Year-over-year 
+percentage change",,,
+Non-Waterfront Residential ,200,178,12.4,March ,2019,2018
+Waterfront ,85,94,-9.6,March ,2019,2018

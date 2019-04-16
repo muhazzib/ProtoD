@@ -1,22 +1,13 @@
-Area,Benchmark,One_Month,Three_Month
-YTD 2018,Residential Dollar Volume ,Total Dollar Volume ,"Residential Average Price
-"
-Aggregate ,"$4,223 ",-644,-0.943567
-Lower Mainland ,$224 ,-0.7777,-5.38
-Greater Vancouver ,$675 ,-0.93,-3.57
-Fraser Valley ,$735 ,-0.83,-2.97
-Vancouver Island ,"$44,500 ",-0.46,-0.58
-Victoria ,"$686,10 ",-0.05,-1.17
-Calgary ,"$413,90 ",-1.04,-2.41
-Edmonton ,"$39,200 ",-0.81,-2.3
-Regina ,"$67,400 ",-1.73,-3.43
-Saskatoon ,"$89,600 ",-1.33,-1.42
-Guelph ,"$24,100 ",-1,0.33
-Hamilton-Burlington ,"$584,100 ",0.39,1.52
-Oakville-Milton ,"$941,500 ",-1.45,-1.18
-Barrie & District ,"$466,000 ",-0.09,-1.31
-Greater Toronto ,"$764,200 ",0.08,-0.16
-Niagara Region ,"$391,800 ",-0.44,0.75
-Ottawa ,"$394,700 ",0.29,0.52
-Greater Montreal ,"$348,700 ",0.17,0.95
-Greater Moncton ,"$180,300 ",-1.1,-0.52
+field_1,field_2,field_3,field_4,
+2018 December,Residential Dollar Volume,Total Dollar Volume,Residential Average Price,
+Alberta West ,"$88,315,461 ","$88,315,461 ","$346,335 ",YTD 2019
+Calgary ,"$1,760,116,088 ","$1,962,878,283 ","$443,466 ",YTD 2019
+Central Alberta ,"$183,295,521 ","$225,906,148 ","$284,179 ",YTD 2019
+Edmonton (Total Board) ,"$1,205,491,188 ","$1,246,650,787 ","$351,353 ",YTD 2019
+Fort McMurray ,"$94,848,910 ","$128,966,810 ","$371,957 ",YTD 2019
+Grande Prairie ,"$136,374,565 ","$155,667,365 ","$297,112 ",YTD 2019
+Lethbridge ,"$128,740,375 ","$150,364,775 ","$275,086 ",YTD 2019
+Lloydminster (AB) ,"$24,830,696 ","$24,830,696 ","$234,252 ",YTD 2019
+Medicine Hat ,"$58,798,350 ","$65,206,850 ","$257,888 ",YTD 2019
+South Central Alberta ,"$17,721,638 ","$50,600,538 ","$203,697 ",YTD 2019
+Alberta ,"$3,698,532,792 ","$4,099,387,714 ","$373,476 ",YTD 2019

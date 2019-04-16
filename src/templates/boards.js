@@ -29,9 +29,9 @@ class BoardTemplate extends React.Component {
       data3: [],
       data4: [],
       charts: [],
-      abData: [],
-      abData2: [],
-      abData3: [],
+      areaData: [],
+      areaData2: [],
+      areaData3: [],
       mtlData: [],
       mtlData2: [],
       mtlData3: [],
@@ -39,6 +39,9 @@ class BoardTemplate extends React.Component {
       chatData: [],
       chatData2: [],
       muskData: [],
+      muskData2: [],
+      muskData3: [],
+      muskData4: [],
       name1: '',
       name2: '',
       name3: '',
@@ -50,30 +53,32 @@ class BoardTemplate extends React.Component {
   }
   componentDidMount() {
     const slug = this.props.pageContext.slug
-    if (slug == 'xxxx') {
+    if (slug == 'cookies') {
       this.setState({
-        // data: this.props.data.allBarrieCsv.edges,
-        // name1: 'Barrie Home'
-        charts: this.props.data.barrieChart.edges,
-        data: this.props.data.allMontrealCsv.edges,
+        chatData: this.props.data.ChatHome1.edges,
+        chatData2: this.props.data.ChatHome2.edges,
+        name1: 'Actual 1',
+        name2: 'Year-To-Date 2',
       })
     } else if (slug == 'musk') {
       this.setState({
-        data: this.props.data.MuskHome1.edges,
-        name1: 'Lakelands sheet 1',
-        data2: this.props.data.MuskHome2.edges,
-        name2: 'Lakelands sheet 2',
-        data3: this.props.data.allSalesbyprice1Csv.edges,
-        name3: 'Lakelands sheet 3',
-        muskData: this.props.data.allSalesbyprice1Csv.edges,
-        name: 'Lake 4',
+        muskData: this.props.data.MuskHome1.edges,
+        muskData2: this.props.data.MuskHome2.edges,
+        muskData3: this.props.data.MuskHome3.edges,
+        muskData4: this.props.data.MuskHome4.edges,
+        name1: 'Summary – Sales by Housing Type',
+        name2: 'Summary – Median Price by Housing Type',
+        name3:
+          'Detailed – Non-Waterfront Residential Sales and Median Price by Area / Non-Waterfront Residential',
+        name4:
+          'Detailed – Waterfront Sales and Median Price by Area / Waterfront',
       })
     } else if (slug == 'alberta-real-estate-association') {
       this.setState({
-        abData: this.props.data.ABHome1.edges,
+        areaData: this.props.data.AreaHome1.edges,
         name1: 'Alberta Monthly Summary',
 
-        abData2: this.props.data.ABHome2.edges,
+        areaData2: this.props.data.AreaHome2.edges,
         name2: 'Alberta Year-To-Date Summary',
       })
     } else if (slug == 'montreal') {
@@ -91,11 +96,11 @@ class BoardTemplate extends React.Component {
       })
     } else if (slug == 'victoria') {
       this.setState({
-        chatData: this.props.data.allAlbertaresidentialactivityCsv.edges,
+        /*  chatData: this.props.data.allAlbertaresidentialactivityCsv.edges,
         name1: 'vic on chat',
 
         chatData2: this.props.data.allAlbertaresidentialactivityCsv.edges,
-        name2: 'chart 2',
+        name2: 'chart 2', */
       })
     } else if (slug == 'victoria-sales') {
       this.setState({
@@ -148,9 +153,9 @@ class BoardTemplate extends React.Component {
         data2: [],
         data3: [],
         charts: [],
-        abData: [],
-        abData2: [],
-        abData3: [],
+        areaData: [],
+        areaData2: [],
+        areaData3: [],
         mtlData1: [],
         mtlData2: [],
         mtlData3: [],
@@ -158,6 +163,7 @@ class BoardTemplate extends React.Component {
         chatData: [],
         chatData2: [],
         muskData: [],
+        muskData2: [],
       })
     }
   }
@@ -179,9 +185,9 @@ class BoardTemplate extends React.Component {
       abfield3,
       abfield4,
       charts,
-      abData,
-      abData2,
-      abData3,
+      areaData,
+      areaData2,
+      areaData3,
       mtlData,
       mtlData2,
       mtlData3,
@@ -189,6 +195,9 @@ class BoardTemplate extends React.Component {
       chatData,
       chatData2,
       muskData,
+      muskData2,
+      muskData3,
+      muskData4,
     } = this.state
     return (
       <Layout
@@ -209,9 +218,9 @@ class BoardTemplate extends React.Component {
         tableData3={data3}
         tableData4={data4}
         chartsData={charts}
-        abData={abData}
-        abData2={abData2}
-        abData3={abData3}
+        areaData={areaData}
+        areaData2={areaData2}
+        areaData3={areaData3}
         mtlData={mtlData}
         mtlData2={mtlData2}
         mtlData3={mtlData3}
@@ -219,6 +228,9 @@ class BoardTemplate extends React.Component {
         chatData={chatData}
         chatData2={chatData2}
         muskData={muskData}
+        muskData2={muskData2}
+        muskData3={muskData3}
+        muskData4={muskData4}
       >
         <GlobalStyle />
       </Layout>
@@ -283,44 +295,109 @@ export const pageQuery = graphql`
     MuskHome1: allLakelandshome1Csv {
     edges {
       node {
-        Area
-        Benchmark
-        One_Month
-        Three_Month
+        field_1
+        field_2
+        field_3
+        field_4
       }
     }
   }
   MuskHome2: allLakelandshome2Csv {
     edges {
       node {
-        Area
-        Benchmark
-        One_Month
-        Three_Month
+        field_1
+        field_2
+        field_3
+        field_4
+      }
+    }
+  }
+  MuskHome3: allLakelandshome3Csv {
+    edges {
+      node {
+        field_1
+        field_2
+        field_3
+        field_4
+        field_5
+        field_6
+        field_7
+      }
+    }
+  }
+  MuskHome4: allLakelandshome4Csv {
+    edges {
+      node {
+        field_1
+        field_2
+        field_3
+        field_4
+        field_5
+        field_6
+        field_7
       }
     }
   }
     
 
-    ABHome1:  allAlbertahome1Csv {
+    AreaHome1:  allAlbertahome1Csv {
       edges {
         node {
-          Area
-          Benchmark
-          One_Month
-          Three_Month
-     
+          field_1
+          field_2
+          field_3
+          field_4
         }
       }
     }
-  ABHome2:  allAlbertahome2Csv{
+  AreaHome2:  allAlbertahome2Csv{
       edges {
         node {
-          Area
-          Benchmark
-          One_Month
-          Three_Month
-         
+          field_1
+          field_2
+          field_3
+          field_4
+        }
+      }
+    }
+    ChatHome1: allChatHomeTable01Csv {
+      edges {
+        node {
+          name
+          field_1
+          field_2
+          field_3
+          field_4
+          field_5
+          field_6
+          field_7
+         y1
+         y2
+         y3
+         y4
+         y5
+         y6
+        }
+      }
+    }
+
+    ChatHome2: allChatHomeTable01Csv {
+      edges {
+        node {
+          name
+          field_1
+          field_2
+          field_3
+          field_4
+          field_5
+          field_6
+          field_7
+         y1
+         y2
+         y3
+         y4
+         y5
+         y6
         }
       }
     }

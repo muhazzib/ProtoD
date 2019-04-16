@@ -16,8 +16,8 @@ export default class BoardTable extends React.Component {
   render() {
     const data = this.props.tableData
     const dataMtl = this.props.mtlData
-    const dataAb = this.props.abData
-    const dataMusk = this.props.muskData
+    const area = this.props.areaData
+    const musk = this.props.muskData
     const name = this.props.name
 
     return (
@@ -40,11 +40,11 @@ export default class BoardTable extends React.Component {
         {data !== undefined && (
           <tbody className="BoardTable">
             {data.map((row, i) => (
-              <tr scope="row" key={`${row.node.Area} ${i}`}>
-                <td>{row.node.Area}</td>
-                <td>{row.node.Benchmark}</td>
-                <td>{row.node.One_Month}</td>
-                <td>{row.node.Three_Month}</td>
+              <tr scope="row" key={`${row.node.field_1} ${i}`}>
+                <td>{row.node.field_1}</td>
+                <td>{row.node.field_2}</td>
+                <td>{row.node.field_3}</td>
+                <td>{row.node.field_4}</td>
               </tr>
             ))}
           </tbody>
@@ -53,37 +53,37 @@ export default class BoardTable extends React.Component {
         {dataMtl !== undefined && (
           <tbody className="BoardTable">
             {dataMtl.map((row, i) => (
-              <tr scope="row" key={`${row.node.Area} ${i}`}>
-                <td>{row.node.Area}</td>
-                <td>{row.node.Benchmark}</td>
-                <td>{row.node.One_Month}</td>
-                <td>{row.node.Three_Month}</td>
+              <tr scope="row" key={`${row.node.field_1} ${i}`}>
+                <td>{row.node.field_1}</td>
+                <td>{row.node.field_2}</td>
+                <td>{row.node.field_3}</td>
+                <td>{row.node.field_4}</td>
               </tr>
             ))}
           </tbody>
         )}
 
-        {dataAb !== undefined && (
+        {area !== undefined && (
           <tbody className="BoardTable">
-            {dataAb.map((row, i) => (
-              <tr scope="row" key={`${row.node.Area} ${i}`}>
-                <td>{row.node.Area}</td>
-                <td>{row.node.Benchmark}</td>
-                <td>{row.node.One_Month}</td>
-                <td>{row.node.Three_Month}</td>
+            {area.map((row, i) => (
+              <tr scope="row" key={`${row.node.field_1} ${i}`}>
+                <td>{row.node.field_1}</td>
+                <td>{row.node.field_2}</td>
+                <td>{row.node.field_3}</td>
+                <td>{row.node.field_4}</td>
               </tr>
             ))}
           </tbody>
         )}
 
-        {dataMusk !== undefined && (
+        {musk !== undefined && (
           <tbody className="BoardTable">
-            {dataMusk.map((row, i) => (
-              <tr scope="row" key={`${row.node.Area} ${i}`}>
-                <td>{row.node.Area}</td>
-                <td>{row.node.Benchmark}</td>
-                <td>{row.node.One_Month}</td>
-                <td>{row.node.Three_Month}</td>
+            {musk.map((row, i) => (
+              <tr scope="row" key={`${row.node.field_1} ${i}`}>
+                <td>{row.node.field_1}</td>
+                <td>{row.node.field_2}</td>
+                <td>{row.node.field_3}</td>
+                <td>{row.node.field_4}</td>
               </tr>
             ))}
           </tbody>
