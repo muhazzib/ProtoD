@@ -35,7 +35,7 @@
 }
 .entry-sub li {
   font-family: 'AvenirLTStd-Light', Verdana, sans-serif !important;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 .entry-sub ul {
   margin: 0 0 1.6em 1.3333em;

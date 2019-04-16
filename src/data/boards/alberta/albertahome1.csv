@@ -1,10 +1,9 @@
 Area,Benchmark,One_Month,Three_Month
-YTD 2018,Residential Dollar Volume ,Total Dollar Volume ,"Residential Average Price
-"
-Aggregate ,"$4,223 ",-644,-0.943567
-Lower Mainland ,$224 ,-0.7777,-5.38
-Greater Vancouver ,$675 ,-0.93,-3.57
-Fraser Valley ,$735 ,-0.83,-2.97
+Dec-18,Residential Dollar Volume,Total Dollar Volume,Residential Average Price
+Aggregate ,$700 ,-0.34,-0.94
+Lower Mainland ,$700 ,-0.89,-3.38
+Greater Vancouver ,"$32,400 ",-0.93,-3.57
+Fraser Valley ,"$834,700 ",-0.83,-2.97
 Vancouver Island ,"$44,500 ",-0.46,-0.58
 Victoria ,"$686,10 ",-0.05,-1.17
 Calgary ,"$413,90 ",-1.04,-2.41

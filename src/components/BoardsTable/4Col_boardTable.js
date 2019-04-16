@@ -2,6 +2,10 @@ import React from 'react'
 import TableSheet from '../Table/sheet.module.css'
 import { Table } from 'reactstrap'
 
+const boardtablehead = {
+  background: 'white',
+}
+
 export default class BoardTable extends React.Component {
   constructor(props) {
     super(props)
@@ -11,15 +15,11 @@ export default class BoardTable extends React.Component {
   }
   render() {
     const data = this.props.tableData
+    const dataMtl = this.props.mtlData
+    const dataAb = this.props.abData
+    const dataMusk = this.props.muskData
     const name = this.props.name
-    const name2 = this.props.name2
-    const field1 = this.props.field1
-    const field2 = this.props.field2
-    const field3 = this.props.field3
-    const field4 = this.props.field4
-    const field5 = this.props.field5
 
-    console.log('table', name)
     return (
       <Table
         bordered
@@ -28,31 +28,57 @@ export default class BoardTable extends React.Component {
       >
         <thead>
           <tr>
-            <th colSpan="4" className="tableHeader boardTableHead">
+            <th
+              boardtablehead={boardtablehead}
+              colSpan="4"
+              className="tableHeader boardTableHead"
+            >
               {name}
             </th>
           </tr>
-          <tr>
-            <th rowSpan="2" bgcolor="#E7EBFE" id="table_col_one">
-              {/*  Composite HPI  */}
-              {field1}
-            </th>
-            <th rowSpan="2" bgcolor="#E7EBFE">
-              {/*  month / year */}
-              {field2}
-            </th>
-          </tr>
-          <tr>
-            <th bgcolor="#E7EBFE" id="table_col_one">
-              {/* 1 month ago  */}
-              {field3}
-            </th>
-            <th bgcolor="#E7EBFE">{field4}</th>
-          </tr>
         </thead>
         {data !== undefined && (
-          <tbody>
+          <tbody className="BoardTable">
             {data.map((row, i) => (
+              <tr scope="row" key={`${row.node.Area} ${i}`}>
+                <td>{row.node.Area}</td>
+                <td>{row.node.Benchmark}</td>
+                <td>{row.node.One_Month}</td>
+                <td>{row.node.Three_Month}</td>
+              </tr>
+            ))}
+          </tbody>
+        )}
+
+        {dataMtl !== undefined && (
+          <tbody className="BoardTable">
+            {dataMtl.map((row, i) => (
+              <tr scope="row" key={`${row.node.Area} ${i}`}>
+                <td>{row.node.Area}</td>
+                <td>{row.node.Benchmark}</td>
+                <td>{row.node.One_Month}</td>
+                <td>{row.node.Three_Month}</td>
+              </tr>
+            ))}
+          </tbody>
+        )}
+
+        {dataAb !== undefined && (
+          <tbody className="BoardTable">
+            {dataAb.map((row, i) => (
+              <tr scope="row" key={`${row.node.Area} ${i}`}>
+                <td>{row.node.Area}</td>
+                <td>{row.node.Benchmark}</td>
+                <td>{row.node.One_Month}</td>
+                <td>{row.node.Three_Month}</td>
+              </tr>
+            ))}
+          </tbody>
+        )}
+
+        {dataMusk !== undefined && (
+          <tbody className="BoardTable">
+            {dataMusk.map((row, i) => (
               <tr scope="row" key={`${row.node.Area} ${i}`}>
                 <td>{row.node.Area}</td>
                 <td>{row.node.Benchmark}</td>

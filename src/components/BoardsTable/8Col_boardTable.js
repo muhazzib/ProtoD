@@ -10,7 +10,8 @@ export default class BoardTable extends React.Component {
     console.log(nextProp, 'next')
   }
   render() {
-    const data = this.props.chatData
+    const data = this.props.tableData
+    const datamtl = this.props.mtlData
     const name = this.props.name
 
     console.log('table', name)
@@ -33,7 +34,7 @@ export default class BoardTable extends React.Component {
             <th rowSpan="2" bgcolor="#E7EBFE">
               month / year
             </th> */}
-            <th colSpan="6" bgcolor="#E7EBFE">
+            <th colSpan="8" bgcolor="#E7EBFE">
               Percentage Change vs.
             </th>
           </tr>
@@ -51,6 +52,22 @@ export default class BoardTable extends React.Component {
         {data !== undefined && (
           <tbody>
             {data.map((row, i) => (
+              <tr scope="row" key={`${row.node.Area} ${i}`}>
+                <td>{row.node.Area}</td>
+                <td>{row.node.Benchmark}</td>
+                <td>{row.node.One_Month}</td>
+                <td>{row.node.Three_Month}</td>
+                <td>{row.node.Six_Month}</td>
+                <td>{row.node.Twelve_Month}</td>
+                <td>{row.node.Three_Year}</td>
+                <td>{row.node.Five_Year}</td>
+              </tr>
+            ))}
+          </tbody>
+        )}
+        {datamtl !== undefined && (
+          <tbody>
+            {datamtl.map((row, i) => (
               <tr scope="row" key={`${row.node.Area} ${i}`}>
                 <td>{row.node.Area}</td>
                 <td>{row.node.Benchmark}</td>

@@ -38,20 +38,11 @@ class BoardTemplate extends React.Component {
       mtlData4: [],
       chatData: [],
       chatData2: [],
+      muskData: [],
       name1: '',
       name2: '',
       name3: '',
       name4: '',
-      field1: '',
-      field2: '',
-      field3: '',
-      field4: '',
-      field5: '',
-      field6: '',
-      field7: '',
-      field8: '',
-      field9: '',
-      field10: '',
     }
   }
   getYear() {
@@ -66,58 +57,32 @@ class BoardTemplate extends React.Component {
         charts: this.props.data.barrieChart.edges,
         data: this.props.data.allMontrealCsv.edges,
       })
-    } else if (slug == 'barrie') {
+    } else if (slug == 'musk') {
       this.setState({
-        charts: this.props.data.barrieChart.edges,
-        data: this.props.data.ABHome2.edges,
-        data2: this.props.data.allMontrealCsv.edges,
-        name1: 'mantis',
-        name2: 'peedge',
-        field1: 'December 2018',
-        field2: 'Residential Dollar Volume',
-        field3: 'Total Dollar Volume',
-        field4: 'Residential Average Price',
-        field5: 'December 2017',
+        data: this.props.data.MuskHome1.edges,
+        name1: 'Lakelands sheet 1',
+        data2: this.props.data.MuskHome2.edges,
+        name2: 'Lakelands sheet 2',
+        data3: this.props.data.allSalesbyprice1Csv.edges,
+        name3: 'Lakelands sheet 3',
+        muskData: this.props.data.allSalesbyprice1Csv.edges,
+        name: 'Lake 4',
       })
     } else if (slug == 'alberta-real-estate-association') {
       this.setState({
-        abData: this.props.data.ABHome.edges,
+        abData: this.props.data.ABHome1.edges,
         name1: 'Alberta Monthly Summary',
-
-        field1: 'December 2018',
-        field2: 'Residential Dollar Volume',
-        field3: 'Total Dollar Volume',
-        field4: 'Residential Average Price',
 
         abData2: this.props.data.ABHome2.edges,
         name2: 'Alberta Year-To-Date Summary',
-        abfield1: 'YTY',
-
-        /*      data: this.props.data.ABHome.edges,
-        data2: this.props.data.ABHome2.edges,
-        name1: 'Alberta Monthly Summary',
-        name2: 'Alberta Year-To-Date Summary',
-        field1: 'December 2018',
-        field2: 'Residential Dollar Volume',
-        field3: 'Total Dollar Volume',
-        field4: 'Residential Average Price',
-        field5: 'YTD 2018', */
       })
     } else if (slug == 'montreal') {
       this.setState({
         mtlData: this.props.data.MTL1.edges,
         mtlData2: this.props.data.MTL2.edges,
-        mtlData3: this.props.data.MTL3.edges,
-        mtlData4: this.props.data.MTL4.edges,
 
         name1: 'mtl one',
         name2: 'mtl two',
-        name3: 'mtl three',
-        name4: 'mtl 4',
-        field1: 'YTD 2018',
-        field2: 'Residential Dollar Volume',
-        field3: 'Total Dollar Volume',
-        field4: 'Residential Average Price',
       })
     } else if (slug == 'realtors-r-association-of-edmonton') {
       this.setState({
@@ -192,6 +157,7 @@ class BoardTemplate extends React.Component {
         mtlData4: [],
         chatData: [],
         chatData2: [],
+        muskData: [],
       })
     }
   }
@@ -208,15 +174,10 @@ class BoardTemplate extends React.Component {
       name2,
       name3,
       name4,
-      field1,
-      field2,
-      field3,
-      field4,
       abfield1,
       abfield2,
       abfield3,
       abfield4,
-      field5,
       charts,
       abData,
       abData2,
@@ -227,6 +188,7 @@ class BoardTemplate extends React.Component {
       mtlData4,
       chatData,
       chatData2,
+      muskData,
     } = this.state
     return (
       <Layout
@@ -237,11 +199,6 @@ class BoardTemplate extends React.Component {
         name2={name2}
         name3={name3}
         name4={name4}
-        field1={field1}
-        field2={field2}
-        field3={field3}
-        field4={field4}
-        field5={field5}
         abfield1={abfield1}
         abfield2={abfield2}
         abfield3={abfield3}
@@ -261,6 +218,7 @@ class BoardTemplate extends React.Component {
         mtlData4={mtlData4}
         chatData={chatData}
         chatData2={chatData2}
+        muskData={muskData}
       >
         <GlobalStyle />
       </Layout>
@@ -322,55 +280,51 @@ export const pageQuery = graphql`
         }
       }        
     }
+    MuskHome1: allLakelandshome1Csv {
+    edges {
+      node {
+        Area
+        Benchmark
+        One_Month
+        Three_Month
+      }
+    }
+  }
+  MuskHome2: allLakelandshome2Csv {
+    edges {
+      node {
+        Area
+        Benchmark
+        One_Month
+        Three_Month
+      }
+    }
+  }
+    
 
-    allAlbertaCsv {
+    ABHome1:  allAlbertahome1Csv {
       edges {
         node {
           Area
           Benchmark
           One_Month
           Three_Month
-          Six_Month
-          Twelve_Month
-          Three_Year
-          Five_Year
-          Month
-          Year
+     
         }
       }
     }
-  ABHome:  allAlbertahome2Csv{
+  ABHome2:  allAlbertahome2Csv{
       edges {
         node {
           Area
           Benchmark
           One_Month
           Three_Month
-          Six_Month
-          Twelve_Month
-          Three_Year
-          Five_Year
-          Month
-          Year
+         
         }
       }
     }
-    ABHome2:  allAlbertahome2Csv {
-      edges {
-        node {
-          Area
-          Benchmark
-          One_Month
-          Three_Month
-          Six_Month
-          Twelve_Month
-          Three_Year
-          Five_Year
-          Month
-          Year
-        }
-      }
-    }
+
    MTL1: allMontrealCsv {
       edges {
         node {

@@ -241,38 +241,7 @@ export const pageQuery = graphql`
       }
     }
 
-alberta: allAlbertahome2Csv {
-        edges {
-          node {
-            Area
-            Benchmark
-            One_Month
-            Three_Month
-            Six_Month
-            Twelve_Month
-            Three_Year
-            Five_Year
-            Month
-            Year
-          }
-        }
-      }
-      allAlbertaresidentialactivityCsv {
-        edges {
-          node {
-            Area
-            Benchmark
-            One_Month
-            Three_Month
-            Six_Month
-            Twelve_Month
-            Three_Year
-            Five_Year
-            Month
-            Year
-          }
-        }
-      }
+
       allTorontoresidentialactivity1Csv {
         edges {
           node {
