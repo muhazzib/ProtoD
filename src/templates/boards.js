@@ -53,7 +53,7 @@ class BoardTemplate extends React.Component {
   }
   componentDidMount() {
     const slug = this.props.pageContext.slug
-    if (slug == 'cookies') {
+    if (slug == 'chat') {
       this.setState({
         chatData: this.props.data.ChatHome1.edges,
         chatData2: this.props.data.ChatHome2.edges,
@@ -73,7 +73,7 @@ class BoardTemplate extends React.Component {
         name4:
           'Detailed – Waterfront Sales and Median Price by Area / Waterfront',
       })
-    } else if (slug == 'alberta-real-estate-association') {
+    } else if (slug == 'area') {
       this.setState({
         areaData: this.props.data.AreaHome1.edges,
         name1: 'Alberta Monthly Summary',
@@ -81,7 +81,7 @@ class BoardTemplate extends React.Component {
         areaData2: this.props.data.AreaHome2.edges,
         name2: 'Alberta Year-To-Date Summary',
       })
-    } else if (slug == 'montreal') {
+    } else if (slug == 'xx') {
       this.setState({
         mtlData: this.props.data.MTL1.edges,
         mtlData2: this.props.data.MTL2.edges,
@@ -89,12 +89,12 @@ class BoardTemplate extends React.Component {
         name1: 'mtl one',
         name2: 'mtl two',
       })
-    } else if (slug == 'realtors-r-association-of-edmonton') {
+    } else if (slug == 'edmo') {
       this.setState({
         data: this.props.data.allAlbertaresidentialactivityCsv.edges,
         name1: 'eddy Residential Sheet 1',
       })
-    } else if (slug == 'victoria') {
+    } else if (slug == 'vict') {
       this.setState({
         /*  chatData: this.props.data.allAlbertaresidentialactivityCsv.edges,
         name1: 'vic on chat',
@@ -270,16 +270,14 @@ export const pageQuery = graphql`
       mlsStatistics{
         title
         slug
-      }
-      
-  
-      binfo {
+      } 
+      mainContent {
         childContentfulRichText {
           html
         }
       }
-      mainContent {
-        childContentfulRichText {
+      additionalContent{
+        childMarkdownRemark{
           html
         }
       }

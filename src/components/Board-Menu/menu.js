@@ -27,7 +27,7 @@ class MenuX extends React.Component {
       console.log('slugs', item.slug)
       return {
         value: item.slug,
-        label: item.title,
+        label: item.boardName,
       }
     })
     console.log(itemList)
@@ -52,7 +52,7 @@ export default () => (
             node {
               title
               menuForBoards {
-                title
+                boardName
                 slug
               }
             }
