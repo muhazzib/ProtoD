@@ -42,7 +42,12 @@ const Header = props => {
                   </a>
                 </li>
                 <li>
-                  <a href="http://www.crea.ca/">CREA STATS</a>
+                  <a
+                    className={headerStyles.activeNav}
+                    href="http://www.crea.ca/"
+                  >
+                    CREA STATS
+                  </a>
                 </li>
               </ul>
             ) : (

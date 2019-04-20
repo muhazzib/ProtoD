@@ -150,7 +150,6 @@ class Template extends React.Component {
                           }}
                         />
                         <div>
-                          {/* CONTENT STARTS HERE */}
                           {post.mainContent !== null && (
                             <div
                               className="content"
@@ -160,21 +159,6 @@ class Template extends React.Component {
                               }}
                             />
                           )}
-
-                          {/*   {post.additionalContent !== null && (
-                            <div
-                              className="content"
-                              dangerouslySetInnerHTML={{
-                                __html:
-                                  post.additionalContent.childMarkdownRemark
-                                    .html,
-                              }}
-                            />
-                          )} */}
-
-                          {/*  CONTENT ENDS HERE */}
-
-                          {/*  BOARD INFO STARTS HERE */}
                           <div className="boardInfo">
                             {post.boardInfo !== null && (
                               <div>
@@ -187,7 +171,7 @@ class Template extends React.Component {
                                 />
                               </div>
                             )}
-                            {/*  BOARD INFO ENDS HERE */}
+
                             <Container>
                               <Row>
                                 <Col xs="4">
@@ -251,10 +235,14 @@ class Template extends React.Component {
                               />
                             ) : null}
 
-                            {this.props.tableData.length > 0 ? (
+                            {this.props.tableData.length > 0 ||
+                            this.props.mtlData2.length > 0 ||
+                            this.props.mtlData2.length > 0 ? (
                               <Col8BoardTable
                                 tableData={this.props.tableData2}
+                                mtlData={this.props.mtlData2}
                                 name={this.props.name1}
+                                name={this.props.name3}
                               />
                             ) : null}
 
