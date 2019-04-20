@@ -23,7 +23,7 @@ const SiteHeaderBoard = props => {
                   <a href="/">
                     <img
                       className={siteHeader.frLogo}
-                      src={require('../../images/ACI_logo.png')}
+                      src={require('../../images/ACI_Logo.png')}
                     />
                   </a>
                 </div>
