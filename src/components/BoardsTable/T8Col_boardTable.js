@@ -6,7 +6,7 @@ const boardtablehead = {
   background: 'white',
 }
 
-export default class BoardTable extends React.Component {
+export default class BoardTableT8 extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -22,7 +22,7 @@ export default class BoardTable extends React.Component {
       <Table
         bordered
         className={TableSheet.tableBordered}
-        style={{ marginTop: '20px' }}
+        style={{ marginTop: '20px', marginBottom: '40px' }}
       >
         <thead>
           <tr>
@@ -34,31 +34,6 @@ export default class BoardTable extends React.Component {
               Percentage change compared to
             </th>
           </tr>
-
-          {/* <tr>
-            <th
-              boardtablehead={boardtablehead}
-              colSpan="8"
-              className="tableHeader boardTableHead"
-            >
-              {name}
-            </th>
-          </tr>
-          <td
-            boardtablehead={boardtablehead}
-            colSpan="2"
-            rowspan="3"
-            className="tableHeader boardTableHead"
-          >
-            Actual<sup>1</sup>
-          </td>
-          <th
-            boardtablehead={boardtablehead}
-            colSpan="6"
-            className="tableHeader boardTableHead"
-          >
-            Percentage change compared to
-          </th> */}
         </thead>
         <thead>
           <tr>

@@ -46,6 +46,10 @@ class BoardTemplate extends React.Component {
       name2: '',
       name3: '',
       name4: '',
+      field1: '',
+      field2: '',
+      field3: '',
+      field4: '',
     }
   }
   getYear() {
@@ -89,7 +93,7 @@ class BoardTemplate extends React.Component {
         name1: 'mtl one',
         name2: 'mtl two',
       })
-    } else if (slug == 'edmo') {
+    } else if (slug == 'xo') {
       this.setState({
         data: this.props.data.allAlbertaresidentialactivityCsv.edges,
         name1: 'eddy Residential Sheet 1',
@@ -180,6 +184,10 @@ class BoardTemplate extends React.Component {
       name2,
       name3,
       name4,
+      field1,
+      field2,
+      field3,
+      field4,
       abfield1,
       abfield2,
       abfield3,
@@ -208,6 +216,10 @@ class BoardTemplate extends React.Component {
         name2={name2}
         name3={name3}
         name4={name4}
+        field1={field1}
+        field2={field2}
+        field3={field3}
+        field4={field4}
         abfield1={abfield1}
         abfield2={abfield2}
         abfield3={abfield3}

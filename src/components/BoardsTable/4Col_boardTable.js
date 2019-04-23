@@ -6,7 +6,7 @@ const boardtablehead = {
   background: 'white',
 }
 
-export default class BoardTable extends React.Component {
+export default class BoardTable4 extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -18,13 +18,16 @@ export default class BoardTable extends React.Component {
     const dataMtl = this.props.mtlData
     const area = this.props.areaData
     const musk = this.props.muskData
+    const muskRa = this.props.muskRa
     const name = this.props.name
+    const muskfield = this.props.field
+    const muskRafield = this.props.field
 
     return (
       <Table
         bordered
         className={TableSheet.tableBordered}
-        style={{ marginTop: '20px' }}
+        style={{ marginTop: '20px', marginBottom: '40px' }}
       >
         <thead>
           <tr>
@@ -86,6 +89,31 @@ export default class BoardTable extends React.Component {
                 <td>{row.node.field_4}</td>
               </tr>
             ))}
+            <tr>
+              <th colSpan="4">
+                Includes transactions in all areas recorded by The Lakelands
+                Association of REALTORS<sup>®</sup>
+              </th>
+            </tr>
+          </tbody>
+        )}
+
+        {muskRa !== undefined && (
+          <tbody className="BoardTable">
+            {muskRa.map((row, i) => (
+              <tr scope="row" key={`${row.node.field_1} ${i}`}>
+                <td>{row.node.field_1}</td>
+                <td>{row.node.field_2}</td>
+                <td>{row.node.field_3}</td>
+                <td>{row.node.field_4}</td>
+              </tr>
+            ))}
+            <tr>
+              <th colSpan="4">
+                Includes transactions in all areas recorded by The Lakelands
+                Association of REALTORS<sup>®</sup>
+              </th>
+            </tr>
           </tbody>
         )}
       </Table>

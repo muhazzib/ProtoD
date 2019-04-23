@@ -18,8 +18,8 @@ import SiteHeaderBoard from './Site-header/site-header-board'
 import '../components/Content/content.css'
 import { GlobalStyle } from '../utils/global'
 import BoardTable from './BoardsTable/boardsTable'
-import RABoardTable from './BoardsTable/RA_boardsTable'
-import RA2BoardTable from './BoardsTable/RA2_boardsTable'
+import Col4BoardTable from './BoardsTable/4Col_boardTable'
+import Col7BoardTable from './BoardsTable/7Col_boardTable'
 import ChartY from './Chart/chx'
 
 const pStyle = {
@@ -122,17 +122,20 @@ class MTemplate extends React.Component {
                             }}
                           />
                         )}
-                        {this.props.tableData.length > 0 ? (
-                          <RABoardTable
-                            tableData={this.props.tableData}
+
+                        {this.props.muskRa.length > 0 ? (
+                          <Col4BoardTable
                             name={this.props.name1}
+                            muskRa={this.props.muskRa}
+                            field={this.props.field1}
                           />
                         ) : null}
 
-                        {this.props.tableData2.length > 0 ? (
-                          <RABoardTable
-                            tableData={this.props.tableData2}
+                        {this.props.muskRa2.length > 0 ? (
+                          <Col4BoardTable
                             name={this.props.name2}
+                            muskRa={this.props.muskRa2}
+                            field={this.props.field1}
                           />
                         ) : null}
 
@@ -150,10 +153,17 @@ class MTemplate extends React.Component {
                           />
                         )}
 
-                        {this.props.tableData3.length > 0 ? (
-                          <RA2BoardTable
-                            tableData={this.props.tableData3}
+                        {this.props.muskRa.length > 0 ? (
+                          <Col7BoardTable
+                            muskRa={this.props.muskRa3}
                             name={this.props.name3}
+                          />
+                        ) : null}
+
+                        {this.props.muskRa4.length > 0 ? (
+                          <Col7BoardTable
+                            muskRa={this.props.muskRa4}
+                            name={this.props.name4}
                           />
                         ) : null}
 

@@ -6,7 +6,7 @@ const boardtablehead = {
   background: 'white',
 }
 
-export default class BoardTable extends React.Component {
+export default class BoardTable7 extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -15,14 +15,16 @@ export default class BoardTable extends React.Component {
   }
   render() {
     const musk = this.props.muskData
+    const muskRa = this.props.muskRa
     const name = this.props.name
+    const muskfield = this.props.field
 
     console.log('table', name)
     return (
       <Table
         bordered
         className={TableSheet.tableBordered}
-        style={{ marginTop: '20px' }}
+        style={{ marginTop: '20px', marginBottom: '40px' }}
       >
         <thead>
           <tr>
@@ -34,24 +36,41 @@ export default class BoardTable extends React.Component {
               {name}
             </th>
           </tr>
-          <th
+          <tr
             boardtablehead={boardtablehead}
-            colSpan="4"
             className="tableHeader boardTableHead"
           >
-            Unit Sales
-          </th>
-          <th
-            boardtablehead={boardtablehead}
-            colSpan="3"
-            className="tableHeader boardTableHead"
-          >
-            Median Sales
-          </th>
+            <th colSpan="4">Unit Sales</th>
+            <th colSpan="3">Median Sales</th>
+          </tr>
         </thead>
         {musk !== undefined && (
           <tbody className="BoardTable">
             {musk.map((row, i) => (
+              <tr scope="row" key={`${row.node.field_1} ${i}`}>
+                <td>{row.node.field_1}</td>
+                <td>{row.node.field_2}</td>
+                <td>{row.node.field_3}</td>
+                <td>{row.node.field_4}</td>
+                <td>{row.node.field_5}</td>
+                <td>{row.node.field_6}</td>
+                <td>{row.node.field_7}</td>
+              </tr>
+            ))}
+          </tbody>
+        )}
+        <thead>
+          <tr>
+            <th colSpan="7" className={TableSheet.tableFooter}>
+              <b>Note:</b> A percentage change of -- indicates there were no
+              sales in the same month one year ago.
+            </th>
+          </tr>
+        </thead>
+
+        {muskRa !== undefined && (
+          <tbody className="BoardTable">
+            {muskRa.map((row, i) => (
               <tr scope="row" key={`${row.node.field_1} ${i}`}>
                 <td>{row.node.field_1}</td>
                 <td>{row.node.field_2}</td>

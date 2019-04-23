@@ -24,11 +24,19 @@ class MlsTemplate extends React.Component {
       data2: [],
       data3: [],
       data4: [],
+      muskRa: [],
+      muskRa2: [],
+      muskRa3: [],
+      muskRa4: [],
       name1: '',
       name2: '',
       name3: '',
       name4: '',
       charts: [],
+      field1: '',
+      field2: '',
+      field3: '',
+      field4: '',
     }
   }
   getYear() {
@@ -47,9 +55,18 @@ class MlsTemplate extends React.Component {
         charts: this.props.data.barrieChart.edges, */
         name1: 'Detached',
       })
-    } else if (slug == 'barrie') {
+    } else if (slug == 'musk-residential-activity') {
       this.setState({
-        charts: this.props.data.barrieChart.edges,
+        muskRa: this.props.data.MuskRA1.edges,
+        muskRa2: this.props.data.MuskRA2.edges,
+        muskRa3: this.props.data.MuskRA3.edges,
+        muskRa4: this.props.data.MuskRA4.edges,
+        name1: 'Summary – Sales by Housing Type',
+        name2: 'Summary – Median Price by Housing Type',
+        name3:
+          'Detailed – Non-Waterfront Residential Sales and Median Price by Area / Non-Waterfront Residential',
+        name4:
+          'Detailed – Waterfront Sales and Median Price by Area / Waterfront',
       })
     } else if (slug == 'barrie-sales-by-category') {
       this.setState({
@@ -131,6 +148,14 @@ class MlsTemplate extends React.Component {
       data2,
       data3,
       data4,
+      muskRa,
+      muskRa2,
+      muskRa3,
+      muskRa4,
+      field1,
+      field2,
+      field3,
+      field4,
       name1,
       name2,
       name3,
@@ -147,10 +172,18 @@ class MlsTemplate extends React.Component {
         name2={name2}
         name3={name3}
         name4={name4}
+        field1={field1}
+        field2={field2}
+        field3={field3}
+        field4={field4}
         tableData={data}
         tableData2={data2}
         tableData3={data3}
         tableData4={data4}
+        muskRa={muskRa}
+        muskRa2={muskRa2}
+        muskRa3={muskRa3}
+        muskRa4={muskRa4}
         chartsData={charts}
       >
         <GlobalStyle />
@@ -200,7 +233,52 @@ export const pageQuery = graphql`
         }
       }
     }
-
+    MuskRA1: allLakelandshome1Csv {
+    edges {
+      node {
+        field_1
+        field_2
+        field_3
+        field_4
+      }
+    }
+  }
+  MuskRA2: allLakelandshome2Csv {
+    edges {
+      node {
+        field_1
+        field_2
+        field_3
+        field_4
+      }
+    }
+  }
+  MuskRA3: allLakelandshome3Csv {
+    edges {
+      node {
+        field_1
+        field_2
+        field_3
+        field_4
+        field_5
+        field_6
+        field_7
+      }
+    }
+  }
+  MuskRA4: allLakelandshome4Csv {
+    edges {
+      node {
+        field_1
+        field_2
+        field_3
+        field_4
+        field_5
+        field_6
+        field_7
+      }
+    }
+  }
    BarrieResA: allBarrieTable02RaCsv{
       edges{
         node{

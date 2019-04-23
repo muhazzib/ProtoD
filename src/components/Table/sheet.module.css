@@ -20,6 +20,9 @@ table {
   text-align: center;
   font-weight: bold;
 }
+.tableFooter {
+  font-weight: normal !important;
+}
 td {
   padding: 0.4em !important;
 }

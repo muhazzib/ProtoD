@@ -19,7 +19,7 @@ export default class BoardTable extends React.Component {
       <Table
         bordered
         className={TableSheet.tableBordered}
-        style={{ marginTop: '20px' }}
+        style={{ marginTop: '20px', marginBottom: '40px' }}
       >
         <thead>
           <tr>

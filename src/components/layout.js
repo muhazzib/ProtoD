@@ -71,7 +71,7 @@ class Template extends React.Component {
     console.log('board props', this)
     const natl = get(this, 'props.data.ca.edges[0].node')
     const post = this.props.post
-    const mls = this.props.mls
+
     const location = this.props.location
     const url = location.pathname
     /*     const { location, children } = this.props
@@ -133,6 +133,9 @@ class Template extends React.Component {
                 <div className="row split">
                   <div className="col-md">
                     <div className="entry-header">
+                      {/* <!--  ==========================================================  -->
+        <!--  START ---- PAGE TITLE, PAGE HEADLINE, PAGE CONTENT ==========================  -->
+        <!--  ==========================================================  --> */}
                       <h1
                         className="entry-title"
                         dangerouslySetInnerHTML={{
@@ -159,6 +162,89 @@ class Template extends React.Component {
                               }}
                             />
                           )}
+                          {/* <!--  ==========================================================  -->
+        <!--  START ---- PAGE TITLE, PAGE HEADLINE, PAGE CONTENT ==========================  -->
+        <!--  ==========================================================  --> */}
+
+                          {/* <!--  ==========================================================  -->
+        <!--  START--- BOARDS HOMEPAGE SHEETS ==========================  -->
+        <!--  ==========================================================  --> */}
+                          <div className="boardSheets">
+                            {this.props.tableData.length > 0 ||
+                            this.props.mtlData.length > 0 ||
+                            this.props.areaData.length > 0 ||
+                            this.props.muskData.length > 0 ? (
+                              <Col4BoardTable
+                                tableData={this.props.tableData}
+                                areaData={this.props.areaData}
+                                mtlData={this.props.mtlData}
+                                name={this.props.name1}
+                                muskData={this.props.muskData}
+                                field={this.props.field1}
+                              />
+                            ) : null}
+
+                            {this.props.tableData2.length > 0 ||
+                            this.props.areaData2.length > 0 ||
+                            this.props.muskData2.length > 0 ? (
+                              <Col4BoardTable
+                                tableData={this.props.tableData2}
+                                mtlData={this.props.mtlData2}
+                                areaData={this.props.areaData2}
+                                muskData={this.props.muskData2}
+                                name={this.props.name2}
+                                field={this.props.field1}
+                              />
+                            ) : null}
+
+                            {this.props.muskData3.length > 0 ? (
+                              <Col7BoardTable
+                                muskData={this.props.muskData3}
+                                name={this.props.name3}
+                                field={this.props.field2}
+                              />
+                            ) : null}
+
+                            {this.props.muskData4.length > 0 ? (
+                              <Col7BoardTable
+                                muskData={this.props.muskData4}
+                                name={this.props.name4}
+                                field={this.props.field2}
+                              />
+                            ) : null}
+
+                            {this.props.tableData.length > 0 ||
+                            this.props.mtlData2.length > 0 ||
+                            this.props.mtlData2.length > 0 ? (
+                              <Col8BoardTable
+                                tableData={this.props.tableData2}
+                                mtlData={this.props.mtlData2}
+                                name={this.props.name1}
+                                name={this.props.name3}
+                              />
+                            ) : null}
+
+                            {this.props.chatData.length > 0 ? (
+                              <TCol8BoardTable
+                                chatData={this.props.chatData}
+                                name={this.props.name1}
+                              />
+                            ) : null}
+
+                            {this.props.chatData2.length > 0 ? (
+                              <TCol8BoardTable
+                                chatData={this.props.chatData2}
+                                name={this.props.name2}
+                              />
+                            ) : null}
+                          </div>
+                          {/* <!--  ==========================================================  -->
+        <!--  END--- BOARDS HOMEPAGE SHEETS ==========================  -->
+        <!--  ==========================================================  --> */}
+
+                          {/* <!--  ==========================================================  -->
+        <!--  START--- BOARD INFORMATION ==========================  -->
+        <!--  ==========================================================  --> */}
                           <div className="boardInfo">
                             {post.boardInfo !== null && (
                               <div>
@@ -192,79 +278,12 @@ class Template extends React.Component {
                               </Row>
                             </Container>
                           </div>
-
-                          {/* Cutom table for rendering board's sheet */}
-
-                          <div className="boardSheets">
-                            {this.props.tableData.length > 0 ||
-                            this.props.mtlData.length > 0 ||
-                            this.props.areaData.length > 0 ||
-                            this.props.muskData.length > 0 ? (
-                              <Col4BoardTable
-                                tableData={this.props.tableData}
-                                areaData={this.props.areaData}
-                                mtlData={this.props.mtlData}
-                                name={this.props.name1}
-                                muskData={this.props.muskData}
-                              />
-                            ) : null}
-
-                            {this.props.tableData2.length > 0 ||
-                            this.props.areaData2.length > 0 ||
-                            this.props.muskData2.length > 0 ? (
-                              <Col4BoardTable
-                                tableData={this.props.tableData2}
-                                mtlData={this.props.mtlData2}
-                                areaData={this.props.areaData2}
-                                muskData={this.props.muskData2}
-                                name={this.props.name2}
-                              />
-                            ) : null}
-
-                            {this.props.muskData3.length > 0 ? (
-                              <Col7BoardTable
-                                muskData={this.props.muskData3}
-                                name={this.props.name3}
-                              />
-                            ) : null}
-
-                            {this.props.muskData4.length > 0 ? (
-                              <Col7BoardTable
-                                muskData={this.props.muskData4}
-                                name={this.props.name4}
-                              />
-                            ) : null}
-
-                            {this.props.tableData.length > 0 ||
-                            this.props.mtlData2.length > 0 ||
-                            this.props.mtlData2.length > 0 ? (
-                              <Col8BoardTable
-                                tableData={this.props.tableData2}
-                                mtlData={this.props.mtlData2}
-                                name={this.props.name1}
-                                name={this.props.name3}
-                              />
-                            ) : null}
-
-                            {this.props.chatData.length > 0 ? (
-                              <TCol8BoardTable
-                                chatData={this.props.chatData}
-                                name={this.props.name1}
-                              />
-                            ) : null}
-
-                            {this.props.chatData2.length > 0 ? (
-                              <TCol8BoardTable
-                                chatData={this.props.chatData2}
-                                name={this.props.name2}
-                              />
-                            ) : null}
-                          </div>
-
-                          {/* CUSTOM TABLE SHEETS END HERE */}
+                          {/* <!--  ==========================================================  -->
+        <!--  END--- BOARDS HOMEPAGE SHEETS ==========================  -->
+        <!--  ==========================================================  --> */}
 
                           {/* <!--  ==========================================================  -->
-        <!--  BOARD AND CREA DECLARATION HERE ==========================  -->
+        <!-- START---  BOARD AND CREA DECLARATION HERE ==========================  -->
         <!--  ==========================================================  --> */}
                           <div className={footerStyle.boardCredit}>
                             <hr />
@@ -286,13 +305,16 @@ class Template extends React.Component {
                           </div>
 
                           {/* <!--  ==========================================================  -->
-        <!-- END EDITING PAGE CONTENT HERE =============================  -->
+        <!-- END--- EDITING PAGE CONTENT HERE =============================  -->
         <!--  ==========================================================  --></div> */}
                         </div>
                       </div>
                     </div>
                   </div>
 
+                  {/* <!--  ==========================================================  -->
+        <!--  START--- DYNAMIC SIDEBAR ==========================  -->
+        <!--  ==========================================================  --> */}
                   <div className="col-sm- side-content">
                     <div className="boardInformation sidebar-wrapper">
                       {post.boardSubPages !== null && (
@@ -325,10 +347,12 @@ class Template extends React.Component {
                       <SideBar pathname="en-US" />
                     </div>
                   </div>
+                  {/* <!--  ==========================================================  -->
+        <!--  END--- DYNAMIC SIDEBAR ==========================  -->
+        <!--  ==========================================================  --> */}
                 </div>
               </div>
-            ) : // <BoardTable tableData={this.props.tableData} name={this.props.name} />
-            null}
+            ) : null}
 
             <Footer pathname={url} />
           </Wrapper>

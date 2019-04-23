@@ -2,7 +2,7 @@ import React from 'react'
 import TableSheet from '../Table/sheet.module.css'
 import { Table } from 'reactstrap'
 
-export default class BoardTable extends React.Component {
+export default class BoardTable8 extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -12,7 +12,7 @@ export default class BoardTable extends React.Component {
   render() {
     const data = this.props.tableData
     const datamtl = this.props.mtlData
-    const musk = this.props.muskData
+
     const name = this.props.name
 
     console.log('table', name)
@@ -20,7 +20,7 @@ export default class BoardTable extends React.Component {
       <Table
         bordered
         className={TableSheet.tableBordered}
-        style={{ marginTop: '20px' }}
+        style={{ marginTop: '20px', marginBottom: '40px' }}
       >
         <thead>
           <tr>
@@ -39,16 +39,6 @@ export default class BoardTable extends React.Component {
               Percentage Change vs.
             </th>
           </tr>
-          {/* <tr>
-            <th bgcolor="#E7EBFE" id="table_col_one">
-              1 month ago
-            </th>
-            <th bgcolor="#E7EBFE">3 months ago</th>
-            <th bgcolor="#E7EBFE">6 months ago</th>
-            <th bgcolor="#E7EBFE">12 months ago</th>
-            <th bgcolor="#E7EBFE">3 years ago</th>
-            <th bgcolor="#E7EBFE">5 years ago</th>
-          </tr> */}
         </thead>
         {data !== undefined && (
           <tbody>

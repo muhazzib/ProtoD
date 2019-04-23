@@ -10,7 +10,7 @@ const SiteHeaderFr = ({ siteTitle }) => (
         <div className="row">
           <div className="col left-grid">
             <a href="http://localhost:8000/">
-              <img src={require('../../images/ACI_logo.png')} />
+              <img src={require('../../images/ACI_Logo.png')} />
             </a>
           </div>
           <div className={siteHeader.colBg}>
