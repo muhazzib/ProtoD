@@ -19,9 +19,10 @@ export default class BoardTable4 extends React.Component {
     const area = this.props.areaData
     const musk = this.props.muskData
     const muskRa = this.props.muskRa
+    const barrRa = this.props.barrRa
+    const chatRa = this.props.chatRa
     const name = this.props.name
-    const muskfield = this.props.field
-    const muskRafield = this.props.field
+    const field = this.props.field
 
     return (
       <Table
@@ -43,6 +44,32 @@ export default class BoardTable4 extends React.Component {
         {data !== undefined && (
           <tbody className="BoardTable">
             {data.map((row, i) => (
+              <tr scope="row" key={`${row.node.field_1} ${i}`}>
+                <td>{row.node.field_1}</td>
+                <td>{row.node.field_2}</td>
+                <td>{row.node.field_3}</td>
+                <td>{row.node.field_4}</td>
+              </tr>
+            ))}
+          </tbody>
+        )}
+
+        {barrRa !== undefined && (
+          <tbody className="BoardTable">
+            {barrRa.map((row, i) => (
+              <tr scope="row" key={`${row.node.field_1} ${i}`}>
+                <td>{row.node.field_1}</td>
+                <td>{row.node.field_2}</td>
+                <td>{row.node.field_3}</td>
+                <td>{row.node.field_4}</td>
+              </tr>
+            ))}
+          </tbody>
+        )}
+
+        {chatRa !== undefined && (
+          <tbody className="BoardTable">
+            {chatRa.map((row, i) => (
               <tr scope="row" key={`${row.node.field_1} ${i}`}>
                 <td>{row.node.field_1}</td>
                 <td>{row.node.field_2}</td>
@@ -90,10 +117,7 @@ export default class BoardTable4 extends React.Component {
               </tr>
             ))}
             <tr>
-              <th colSpan="4">
-                Includes transactions in all areas recorded by The Lakelands
-                Association of REALTORS<sup>®</sup>
-              </th>
+              <th colSpan="4">{field}</th>
             </tr>
           </tbody>
         )}
@@ -108,12 +132,12 @@ export default class BoardTable4 extends React.Component {
                 <td>{row.node.field_4}</td>
               </tr>
             ))}
-            <tr>
+            {/*  <tr>
               <th colSpan="4">
                 Includes transactions in all areas recorded by The Lakelands
                 Association of REALTORS<sup>®</sup>
               </th>
-            </tr>
+            </tr> */}
           </tbody>
         )}
       </Table>

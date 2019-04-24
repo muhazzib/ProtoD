@@ -323,7 +323,7 @@ class Template extends React.Component {
                           {post.boardSubPages.map((item, i) => (
                             <li key={i}>
                               <Link to={`/board/${item.slug}`}>
-                                {item.title}
+                                {item.boardPageType}
                               </Link>
                             </li>
                           ))}
@@ -337,7 +337,7 @@ class Template extends React.Component {
                             {post.mlsStatistics.map((item, i) => (
                               <li key={i}>
                                 <Link to={`/mls/${item.slug}`}>
-                                  {item.title}
+                                  {item.MlsboardPageName}
                                 </Link>
                               </li>
                             ))}

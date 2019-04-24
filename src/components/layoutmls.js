@@ -19,6 +19,7 @@ import '../components/Content/content.css'
 import { GlobalStyle } from '../utils/global'
 import BoardTable from './BoardsTable/boardsTable'
 import Col4BoardTable from './BoardsTable/4Col_boardTable'
+import Col6BoardTable from './BoardsTable/6Col_boardTable'
 import Col7BoardTable from './BoardsTable/7Col_boardTable'
 import ChartY from './Chart/chx'
 
@@ -123,10 +124,14 @@ class MTemplate extends React.Component {
                           />
                         )}
 
-                        {this.props.muskRa.length > 0 ? (
+                        {this.props.muskRa.length > 0 ||
+                        this.props.barrRa.length > 0 ||
+                        this.props.chatRa.length > 0 ? (
                           <Col4BoardTable
                             name={this.props.name1}
                             muskRa={this.props.muskRa}
+                            barrRa={this.props.barrRa}
+                            chatRa={this.props.chatRa}
                             field={this.props.field1}
                           />
                         ) : null}
@@ -136,6 +141,13 @@ class MTemplate extends React.Component {
                             name={this.props.name2}
                             muskRa={this.props.muskRa2}
                             field={this.props.field1}
+                          />
+                        ) : null}
+
+                        {this.props.barrSPR.length > 0 ? (
+                          <Col6BoardTable
+                            name={this.props.name1}
+                            barrSPR={this.props.barrSPR}
                           />
                         ) : null}
 
@@ -229,7 +241,9 @@ class MTemplate extends React.Component {
                         <h5 className="text_upper">Board Information</h5>
                         {mls.boardSubPagesz.map((item, i) => (
                           <li key={i}>
-                            <Link to={`/board/${item.slug}`}>{item.title}</Link>
+                            <Link to={`/board/${item.slug}`}>
+                              {item.boardPageType}
+                            </Link>
                           </li>
                         ))}
                       </ul>
@@ -241,7 +255,9 @@ class MTemplate extends React.Component {
                           <h5 className="text_upper">MLS Statistics</h5>
                           {mls.mlsSubRefernces.map((item, i) => (
                             <li key={i}>
-                              <Link to={`/mls/${item.slug}`}>{item.title}</Link>
+                              <Link to={`/mls/${item.slug}`}>
+                                {item.MlsboardPageName}
+                              </Link>
                             </li>
                           ))}
                         </ul>

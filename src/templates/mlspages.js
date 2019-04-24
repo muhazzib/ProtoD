@@ -28,6 +28,10 @@ class MlsTemplate extends React.Component {
       muskRa2: [],
       muskRa3: [],
       muskRa4: [],
+      barrRa: [],
+      barrSPR: [],
+      chatRa: [],
+      chatSPR: [],
       name1: '',
       name2: '',
       name3: '',
@@ -46,27 +50,26 @@ class MlsTemplate extends React.Component {
     const slug = this.props.pageContext.slug
     if (slug == 'barrie-residential-activity') {
       this.setState({
-        data: this.props.data.BarrieResA.edges,
+        barrRa: this.props.data.BarrRA.edges,
         charts: this.props.data.barrieResAChart.edges,
 
-        /*   
-        data3: this.props.data.BarrieResA2.edges,
-
-        charts: this.props.data.barrieChart.edges, */
-        name1: 'Detached',
+        name1: 'Summary – Sales and Median Price/ Detached',
       })
-    } else if (slug == 'musk-residential-activity') {
+    } else if (slug == 'barrie-sales-by-price-range') {
       this.setState({
-        muskRa: this.props.data.MuskRA1.edges,
-        muskRa2: this.props.data.MuskRA2.edges,
-        muskRa3: this.props.data.MuskRA3.edges,
-        muskRa4: this.props.data.MuskRA4.edges,
-        name1: 'Summary – Sales by Housing Type',
-        name2: 'Summary – Median Price by Housing Type',
-        name3:
-          'Detailed – Non-Waterfront Residential Sales and Median Price by Area / Non-Waterfront Residential',
-        name4:
-          'Detailed – Waterfront Sales and Median Price by Area / Waterfront',
+        barrSPR: this.props.data.BarrSPR.edges,
+        name1: 'Summary – Sales by Price Range',
+      })
+    } else if (slug == 'barrie-sales-by-price-range') {
+      this.setState({
+        barrSPR: this.props.data.BarrSPR.edges,
+        name1: 'Summary – Sales by Price Range',
+      })
+    } else if (slug == 'chat-residential-activity') {
+      this.setState({
+        chatRa: this.props.data.ChatRA.edges,
+
+        name1: 'Summary – Sales by Price Range',
       })
     } else if (slug == 'barrie-sales-by-category') {
       this.setState({
@@ -86,16 +89,16 @@ class MlsTemplate extends React.Component {
       })
     } else if (slug == 'victoria-sales') {
       this.setState({
-        data: this.props.data.allSalesbyprice1Csv.edges,
-        data2: this.props.data.allSalesbyprice2Csv.edges,
+        /*   data: this.props.data.allSalesbyprice1Csv.edges,
+        data2: this.props.data.allSalesbyprice2Csv.edges, */
         name1: 'vic Residential Sheet 1',
         name2: 'vic Residential Sheet 2',
         charts: this.props.data.victoriaChart.edges,
       })
     } else if (slug == 'barrie-sales-by-price-range') {
       this.setState({
-        data: this.props.data.allSalesbyprice1Csv.edges,
-        data2: this.props.data.allSalesbyprice2Csv.edges,
+        /*  data: this.props.data.allSalesbyprice1Csv.edges,
+        data2: this.props.data.allSalesbyprice2Csv.edges, */
         name1: 'Sales by price sheet 1',
         name2: 'Sales by price sheet 2',
       })
@@ -152,6 +155,10 @@ class MlsTemplate extends React.Component {
       muskRa2,
       muskRa3,
       muskRa4,
+      barrRa,
+      barrSPR,
+      chatRa,
+      chatSPR,
       field1,
       field2,
       field3,
@@ -184,6 +191,10 @@ class MlsTemplate extends React.Component {
         muskRa2={muskRa2}
         muskRa3={muskRa3}
         muskRa4={muskRa4}
+        barrRa={barrRa}
+        barrSPR={barrSPR}
+        chatRa={chatRa}
+        chatSPR={chatSPR}
         chartsData={charts}
       >
         <GlobalStyle />
@@ -206,11 +217,13 @@ export const pageQuery = graphql`
       boardSubPagesz{
         title
         slug
+        boardPageType
         node_locale
       }
       mlsSubRefernces{
         title
         slug
+        MlsboardPageName
       }
       mainContent {
         childContentfulRichText {
@@ -279,42 +292,49 @@ export const pageQuery = graphql`
       }
     }
   }
-   BarrieResA: allBarrieTable02RaCsv{
+   BarrRA: allBarrTable01Csv{
       edges{
         node{
-          cat
-          current_p
-          past_p
-          yyp
-          current_date
+          field_1
+          field_2
+          field_3
+          field_4
+         
         }
       }
     }
-    BarrieResA1: allBarrieTable03RaCsv{
+    BarrSPR: allBarrTable02Csv{
       edges{
         node{
-          cat
-          current_p
-          past_p
-          yyp
-          current_date
+          field_1
+          field_2
+          field_3
+          field_4
+          field_5
+          field_6
         }
       }
     }
 
-
-    BarrieResA3: allBarrieTable03Csv {
-      edges {
-        node {
-          area
-          current_s
-          current_p
-          past_s
-          yys
-          yyp
-          current_date
-          past_date
-          past_p
+    ChatRA: allChatTable01Csv{
+      edges{
+        node{
+          field_1
+          field_2
+          field_3
+          field_4      
+        }
+      }
+    }
+    ChatSPR: allChatTable02Csv{
+      edges{
+        node{
+          field_1
+          field_2
+          field_3
+          field_4
+          field_5
+          field_6
         }
       }
     }
@@ -438,57 +458,11 @@ export const pageQuery = graphql`
         }
       }
   
-      allBarrieCsv {
-        edges {
-          node {
-            Area
-            Benchmark
-            One_Month
-            Three_Month
-            Six_Month
-            Twelve_Month
-            Three_Year
-            Five_Year
-            Month
-            Year
-          }
-        }
-      }
+   
 
   
       
-      allSalesbyprice1Csv {
-        edges {
-          node {
-            Area
-            Benchmark
-            One_Month
-            Three_Month
-            Six_Month
-            Twelve_Month
-            Three_Year
-            Five_Year
-            Month
-            Year
-          }
-        }
-      }
-      allSalesbyprice2Csv {
-        edges {
-          node {
-            Area
-            Benchmark
-            One_Month
-            Three_Month
-            Six_Month
-            Twelve_Month
-            Three_Year
-            Five_Year
-            Month
-            Year
-          }
-        }
-      }
+
       allMontrealCsv {
         edges {
           node {
@@ -521,19 +495,19 @@ export const pageQuery = graphql`
           }
         }
       }
-      barrieResAChart:  allFile(filter: {relativeDirectory: {eq: "boards\\barrie\\residentialActivity\\chart"}}) {
+      barrieResAChart:  allFile(filter: {relativeDirectory: {eq: "boards\\barrie\\charts\\residentialActivity\\chart"}}) {
         ...ChartSourcesx
       }
-      barrieSalesByCat:  allFile(filter: {relativeDirectory: {eq: "boards\\barrie\\salesByCategory"}}) {
+      barrieSalesByCat:  allFile(filter: {relativeDirectory: {eq: "boards\\barrie\\charts\\salesByCategory"}}) {
         ...ChartSourcesx
       }
-      barrieSalesByPriceRange:  allFile(filter: {relativeDirectory: {eq: "boards\\barrie\\salesByPriceRange"}}) {
+      barrieSalesByPriceRange:  allFile(filter: {relativeDirectory: {eq: "boards\\barrie\\charts\\salesByPriceRange"}}) {
         ...ChartSourcesx
       }
-      barrieMarketConditions:  allFile(filter: {relativeDirectory: {eq: "boards\\barrie\\marketConditions"}}) {
+      barrieMarketConditions:  allFile(filter: {relativeDirectory: {eq: "boards\\barrie\\charts\\marketConditions"}}) {
         ...ChartSourcesx
       }
-      barrieMedianPrice:  allFile(filter: {relativeDirectory: {eq: "boards\\barrie\\medianPrice"}}) {
+      barrieMedianPrice:  allFile(filter: {relativeDirectory: {eq: "boards\\barrie\\charts\\medianPrice"}}) {
         ...ChartSourcesx
       }
       torontoChart: allFile(filter: {relativeDirectory: {eq: "boards\\toronto\\TorontoCharts"}}) {
