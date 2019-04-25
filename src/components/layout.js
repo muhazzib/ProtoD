@@ -71,9 +71,9 @@ class Template extends React.Component {
     console.log('board props', this)
     const natl = get(this, 'props.data.ca.edges[0].node')
     const post = this.props.post
-
     const location = this.props.location
     const url = location.pathname
+
     /*     const { location, children } = this.props
     let header
 
@@ -180,7 +180,7 @@ class Template extends React.Component {
                                 mtlData={this.props.mtlData}
                                 name={this.props.name1}
                                 muskData={this.props.muskData}
-                                field={this.props.field1}
+                                muskField={this.props.muskField1}
                               />
                             ) : null}
 
@@ -193,7 +193,7 @@ class Template extends React.Component {
                                 areaData={this.props.areaData2}
                                 muskData={this.props.muskData2}
                                 name={this.props.name2}
-                                field={this.props.field1}
+                                muskField={this.props.muskField2}
                               />
                             ) : null}
 
@@ -201,7 +201,7 @@ class Template extends React.Component {
                               <Col7BoardTable
                                 muskData={this.props.muskData3}
                                 name={this.props.name3}
-                                field={this.props.field2}
+                                muskField={this.props.muskField2}
                               />
                             ) : null}
 
@@ -209,7 +209,7 @@ class Template extends React.Component {
                               <Col7BoardTable
                                 muskData={this.props.muskData4}
                                 name={this.props.name4}
-                                field={this.props.field2}
+                                muskField={this.props.muskField2}
                               />
                             ) : null}
 

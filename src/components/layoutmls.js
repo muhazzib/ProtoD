@@ -14,7 +14,7 @@ import Footer from '../components/Footer/footer'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import footerStyle from './Footer/footer.module.css'
 import Helmet from 'react-helmet'
-import SiteHeaderBoard from './Site-header/site-header-board'
+import SiteHeader from './Site-header/site-header-board'
 import '../components/Content/content.css'
 import { GlobalStyle } from '../utils/global'
 import BoardTable from './BoardsTable/boardsTable'
@@ -60,7 +60,7 @@ class MTemplate extends React.Component {
       <Container>
         <GlobalStyle />
         <Header />
-        {/*  <SiteHeaderBoard /> */}
+        <SiteHeader />
         <Wrapper>
           <Breadcrumb />
           {/*   <ChartY charts={this.props.data} /> */}
@@ -144,10 +144,14 @@ class MTemplate extends React.Component {
                           />
                         ) : null}
 
-                        {this.props.barrSPR.length > 0 ? (
+                        {this.props.barrSPR.length > 0 ||
+                        this.props.chatSPR.length > 0 ||
+                        this.props.muskSPR.length > 0 ? (
                           <Col6BoardTable
                             name={this.props.name1}
                             barrSPR={this.props.barrSPR}
+                            chatSPR={this.props.chatSPR}
+                            muskSPR={this.props.muskSPR}
                           />
                         ) : null}
 
@@ -165,10 +169,18 @@ class MTemplate extends React.Component {
                           />
                         )}
 
-                        {this.props.muskRa.length > 0 ? (
+                        {this.props.muskSPR1.length > 0 ? (
+                          <Col6BoardTable
+                            name={this.props.name1}
+                            muskSPR={this.props.muskSPR1}
+                          />
+                        ) : null}
+
+                        {this.props.muskRa3.length > 0 ? (
                           <Col7BoardTable
                             muskRa={this.props.muskRa3}
                             name={this.props.name3}
+                            field={this.props.field1}
                           />
                         ) : null}
 
@@ -176,6 +188,7 @@ class MTemplate extends React.Component {
                           <Col7BoardTable
                             muskRa={this.props.muskRa4}
                             name={this.props.name4}
+                            field={this.props.field}
                           />
                         ) : null}
 

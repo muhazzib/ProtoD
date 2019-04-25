@@ -17,7 +17,8 @@ export default class BoardTable7 extends React.Component {
     const musk = this.props.muskData
     const muskRa = this.props.muskRa
     const name = this.props.name
-    const muskfield = this.props.field
+    const muskfield = this.props.muskField
+    const field = this.props.field
 
     console.log('table', name)
     return (
@@ -62,8 +63,7 @@ export default class BoardTable7 extends React.Component {
         <thead>
           <tr>
             <th colSpan="7" className={TableSheet.tableFooter}>
-              <b>Note:</b> A percentage change of -- indicates there were no
-              sales in the same month one year ago.
+              {muskfield}
             </th>
           </tr>
         </thead>
@@ -83,6 +83,11 @@ export default class BoardTable7 extends React.Component {
             ))}
           </tbody>
         )}
+        <tr>
+          <th colSpan="7" className={TableSheet.tableFooter}>
+            {field}
+          </th>
+        </tr>
       </Table>
     )
   }

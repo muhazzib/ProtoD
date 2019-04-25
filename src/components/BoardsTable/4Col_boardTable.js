@@ -19,10 +19,13 @@ export default class BoardTable4 extends React.Component {
     const area = this.props.areaData
     const musk = this.props.muskData
     const muskRa = this.props.muskRa
+    const muskRa2 = this.props.muskRa2
     const barrRa = this.props.barrRa
     const chatRa = this.props.chatRa
     const name = this.props.name
-    const field = this.props.field
+    const field1 = this.props.field
+    const muskField = this.props.muskField
+    const muskField2 = this.props.muskField2
 
     return (
       <Table
@@ -117,7 +120,7 @@ export default class BoardTable4 extends React.Component {
               </tr>
             ))}
             <tr>
-              <th colSpan="4">{field}</th>
+              <th colSpan="4">{muskField}</th>
             </tr>
           </tbody>
         )}
@@ -132,12 +135,25 @@ export default class BoardTable4 extends React.Component {
                 <td>{row.node.field_4}</td>
               </tr>
             ))}
-            {/*  <tr>
-              <th colSpan="4">
-                Includes transactions in all areas recorded by The Lakelands
-                Association of REALTORS<sup>®</sup>
-              </th>
-            </tr> */}
+            <tr>
+              <th colSpan="4">{field1}</th>
+            </tr>
+          </tbody>
+        )}
+
+        {muskRa2 !== undefined && (
+          <tbody className="BoardTable">
+            {muskRa2.map((row, i) => (
+              <tr scope="row" key={`${row.node.field_1} ${i}`}>
+                <td>{row.node.field_1}</td>
+                <td>{row.node.field_2}</td>
+                <td>{row.node.field_3}</td>
+                <td>{row.node.field_4}</td>
+              </tr>
+            ))}
+            <tr>
+              <th colSpan="4">{field1}</th>
+            </tr>
           </tbody>
         )}
       </Table>

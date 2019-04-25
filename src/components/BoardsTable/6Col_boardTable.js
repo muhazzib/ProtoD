@@ -15,6 +15,8 @@ export default class BoardTable6 extends React.Component {
   }
   render() {
     const barrSpr = this.props.barrSPR
+    const chatSpr = this.props.chatSPR
+    const muskSpr = this.props.muskSPR
 
     const name = this.props.name
 
@@ -35,15 +37,44 @@ export default class BoardTable6 extends React.Component {
             </th>
           </tr>
         </thead>
-
+        <tr>
+          <th colSpan="6">
+            <b>Year-over-year percentage change</b>
+          </th>
+        </tr>
         {barrSpr !== undefined && (
           <tbody className="BoardTable">
-            <tr>
-              <th colSpan="6">
-                <b>Year-over-year percentage change</b>
-              </th>
-            </tr>
             {barrSpr.map((row, i) => (
+              <tr scope="row" key={`${row.node.field_1} ${i}`}>
+                <td>{row.node.field_1}</td>
+                <td>{row.node.field_2}</td>
+                <td>{row.node.field_3}</td>
+                <td>{row.node.field_4}</td>
+                <td>{row.node.field_5}</td>
+                <td>{row.node.field_6}</td>
+              </tr>
+            ))}
+          </tbody>
+        )}
+
+        {chatSpr !== undefined && (
+          <tbody className="BoardTable">
+            {chatSpr.map((row, i) => (
+              <tr scope="row" key={`${row.node.field_1} ${i}`}>
+                <td>{row.node.field_1}</td>
+                <td>{row.node.field_2}</td>
+                <td>{row.node.field_3}</td>
+                <td>{row.node.field_4}</td>
+                <td>{row.node.field_5}</td>
+                <td>{row.node.field_6}</td>
+              </tr>
+            ))}
+          </tbody>
+        )}
+
+        {muskSpr !== undefined && (
+          <tbody className="BoardTable">
+            {muskSpr.map((row, i) => (
               <tr scope="row" key={`${row.node.field_1} ${i}`}>
                 <td>{row.node.field_1}</td>
                 <td>{row.node.field_2}</td>

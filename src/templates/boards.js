@@ -46,10 +46,10 @@ class BoardTemplate extends React.Component {
       name2: '',
       name3: '',
       name4: '',
-      field1: '',
-      field2: '',
-      field3: '',
-      field4: '',
+      muskField1: '',
+      muskField2: '',
+      muskField3: '',
+      muskField4: '',
     }
   }
   getYear() {
@@ -76,7 +76,9 @@ class BoardTemplate extends React.Component {
           'Detailed – Non-Waterfront Residential Sales and Median Price by Area / Non-Waterfront Residential',
         name4:
           'Detailed – Waterfront Sales and Median Price by Area / Waterfront',
-        field1:
+        muskField1:
+          'Includes transactions in all areas recorded by The Lakelands Association of REALTORS®',
+        muskField2:
           'Includes transactions in all areas recorded by The Lakelands Association of REALTORS®',
       })
     } else if (slug == 'area') {
@@ -186,10 +188,10 @@ class BoardTemplate extends React.Component {
       name2,
       name3,
       name4,
-      field1,
-      field2,
-      field3,
-      field4,
+      muskField1,
+      muskField2,
+      muskField3,
+      muskField4,
       abfield1,
       abfield2,
       abfield3,
@@ -218,10 +220,10 @@ class BoardTemplate extends React.Component {
         name2={name2}
         name3={name3}
         name4={name4}
-        field1={field1}
-        field2={field2}
-        field3={field3}
-        field4={field4}
+        muskField1={muskField1}
+        muskField2={muskField2}
+        muskField3={muskField3}
+        muskField4={muskField4}
         abfield1={abfield1}
         abfield2={abfield2}
         abfield3={abfield3}

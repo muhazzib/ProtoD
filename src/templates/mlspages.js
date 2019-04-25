@@ -28,6 +28,8 @@ class MlsTemplate extends React.Component {
       muskRa2: [],
       muskRa3: [],
       muskRa4: [],
+      muskSPR: [],
+      muskSPR1: [],
       barrRa: [],
       barrSPR: [],
       chatRa: [],
@@ -69,6 +71,12 @@ class MlsTemplate extends React.Component {
       this.setState({
         chatRa: this.props.data.ChatRA.edges,
 
+        name1: 'Summary – Sales and Median Price / Single Detached',
+      })
+    } else if (slug == 'chat-sales-by-price-range') {
+      this.setState({
+        chatSPR: this.props.data.ChatSPR.edges,
+
         name1: 'Summary – Sales by Price Range',
       })
     } else if (slug == 'barrie-sales-by-category') {
@@ -87,20 +95,27 @@ class MlsTemplate extends React.Component {
       this.setState({
         charts: this.props.data.barrieMedianPrice.edges,
       })
-    } else if (slug == 'victoria-sales') {
+    } else if (slug == 'musk-residential-activity') {
       this.setState({
-        /*   data: this.props.data.allSalesbyprice1Csv.edges,
-        data2: this.props.data.allSalesbyprice2Csv.edges, */
-        name1: 'vic Residential Sheet 1',
-        name2: 'vic Residential Sheet 2',
-        charts: this.props.data.victoriaChart.edges,
+        muskRa: this.props.data.MuskRA1.edges,
+        muskRa2: this.props.data.MuskRA2.edges,
+        muskRa3: this.props.data.MuskRA3.edges,
+        muskRa4: this.props.data.MuskRA4.edges,
+        name1: 'Summary – Sales by Housing Type',
+        name2: 'Summary – Median Price by Housing Type',
+        name3:
+          'Detailed – Sales and Median Price by Area --  Non-Waterfront Residential',
+        name4: 'Detailed – Sales and Median Price by Area --  Waterfront',
+        field1:
+          'Includes transactions in all areas recorded by The Lakelands Association of REALTORS®',
       })
-    } else if (slug == 'barrie-sales-by-price-range') {
+    } else if (slug == 'musk-sales-by-price-range') {
       this.setState({
-        /*  data: this.props.data.allSalesbyprice1Csv.edges,
-        data2: this.props.data.allSalesbyprice2Csv.edges, */
-        name1: 'Sales by price sheet 1',
-        name2: 'Sales by price sheet 2',
+        muskSPR: this.props.data.MuskSPR.edges,
+        muskSPR1: this.props.data.MuskSPR1.edges,
+
+        name1: 'Summary – Sales by Price Range ',
+        name2: 'Year-over-year percentage change',
       })
     } else if (slug == 'toronto') {
       // No table at home page
@@ -115,6 +130,7 @@ class MlsTemplate extends React.Component {
       this.setState({
         data: this.props.data.allTorontoresidentialactivity1Csv.edges,
         data2: this.props.data.allTorontoresidentialactivity2Csv.edges,
+
         name1: 'Toronto Residential sheet 1',
         name2: 'Toronto Residential sheet 2',
         charts: this.props.data.torontoChart.edges,
@@ -137,6 +153,12 @@ class MlsTemplate extends React.Component {
         data1: [],
         data2: [],
         data3: [],
+        muskRa: [],
+        muskRa2: [],
+        muskRa3: [],
+        muskRa4: [],
+        muskSPR: [],
+        muskSPR2: [],
         charts: [],
       })
     }
@@ -155,6 +177,8 @@ class MlsTemplate extends React.Component {
       muskRa2,
       muskRa3,
       muskRa4,
+      muskSPR,
+      muskSPR1,
       barrRa,
       barrSPR,
       chatRa,
@@ -191,6 +215,8 @@ class MlsTemplate extends React.Component {
         muskRa2={muskRa2}
         muskRa3={muskRa3}
         muskRa4={muskRa4}
+        muskSPR={muskSPR}
+        muskSPR1={muskSPR1}
         barrRa={barrRa}
         barrSPR={barrSPR}
         chatRa={chatRa}
@@ -246,7 +272,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    MuskRA1: allLakelandshome1Csv {
+    MuskRA1: allMuskTable01Csv{
     edges {
       node {
         field_1
@@ -256,7 +282,7 @@ export const pageQuery = graphql`
       }
     }
   }
-  MuskRA2: allLakelandshome2Csv {
+  MuskRA2: allMuskTable02Csv{
     edges {
       node {
         field_1
@@ -266,7 +292,7 @@ export const pageQuery = graphql`
       }
     }
   }
-  MuskRA3: allLakelandshome3Csv {
+  MuskRA3: allMuskTable03Csv {
     edges {
       node {
         field_1
@@ -279,7 +305,7 @@ export const pageQuery = graphql`
       }
     }
   }
-  MuskRA4: allLakelandshome4Csv {
+  MuskRA4: allMuskTable04Csv {
     edges {
       node {
         field_1
@@ -289,6 +315,32 @@ export const pageQuery = graphql`
         field_5
         field_6
         field_7
+      }
+    }
+  }
+  MuskSPR: allMuskTable05Csv {
+    edges {
+      node {
+        field_1
+        field_2
+        field_3
+        field_4
+        field_5
+        field_6
+        
+      }
+    }
+  }
+  MuskSPR1: allMuskTable06Csv {
+    edges {
+      node {
+        field_1
+        field_2
+        field_3
+        field_4
+        field_5
+        field_6
+        
       }
     }
   }
