@@ -17,6 +17,7 @@ export default class BoardTable6 extends React.Component {
     const barrSpr = this.props.barrSPR
     const chatSpr = this.props.chatSPR
     const muskSpr = this.props.muskSPR
+    const edmoSpr = this.props.edmoSPR
 
     const name = this.props.name
 
@@ -75,6 +76,21 @@ export default class BoardTable6 extends React.Component {
         {muskSpr !== undefined && (
           <tbody className="BoardTable">
             {muskSpr.map((row, i) => (
+              <tr scope="row" key={`${row.node.field_1} ${i}`}>
+                <td>{row.node.field_1}</td>
+                <td>{row.node.field_2}</td>
+                <td>{row.node.field_3}</td>
+                <td>{row.node.field_4}</td>
+                <td>{row.node.field_5}</td>
+                <td>{row.node.field_6}</td>
+              </tr>
+            ))}
+          </tbody>
+        )}
+
+        {edmoSpr !== undefined && (
+          <tbody className="BoardTable">
+            {edmoSpr.map((row, i) => (
               <tr scope="row" key={`${row.node.field_1} ${i}`}>
                 <td>{row.node.field_1}</td>
                 <td>{row.node.field_2}</td>

@@ -107,12 +107,12 @@ class MTemplate extends React.Component {
 
                   <div className="entry-content">
                     <div className="entry-sub">
-                      {/*    <h2
-                          className="entry-headline"
-                          dangerouslySetInnerHTML={{
-                            __html: post.headline,
-                          }}
-                        /> */}
+                      <h2
+                        className="entry-headline"
+                        dangerouslySetInnerHTML={{
+                          __html: mls.headline,
+                        }}
+                      />
                       <div className="content">
                         {mls.mainContent !== null && (
                           <div
@@ -126,32 +126,38 @@ class MTemplate extends React.Component {
 
                         {this.props.muskRa.length > 0 ||
                         this.props.barrRa.length > 0 ||
-                        this.props.chatRa.length > 0 ? (
+                        this.props.chatRa.length > 0 ||
+                        this.props.edmoRA.length > 0 ? (
                           <Col4BoardTable
                             name={this.props.name1}
                             muskRa={this.props.muskRa}
                             barrRa={this.props.barrRa}
                             chatRa={this.props.chatRa}
+                            edmoRA={this.props.edmoRA}
                             field={this.props.field1}
                           />
                         ) : null}
 
-                        {this.props.muskRa2.length > 0 ? (
+                        {this.props.muskRa2.length > 0 ||
+                        this.props.edmoRA2.length > 0 ? (
                           <Col4BoardTable
                             name={this.props.name2}
                             muskRa={this.props.muskRa2}
+                            edmoRA={this.props.edmoRA2}
                             field={this.props.field1}
                           />
                         ) : null}
 
                         {this.props.barrSPR.length > 0 ||
                         this.props.chatSPR.length > 0 ||
-                        this.props.muskSPR.length > 0 ? (
+                        this.props.muskSPR.length > 0 ||
+                        this.props.edmoSPR.length > 0 ? (
                           <Col6BoardTable
                             name={this.props.name1}
                             barrSPR={this.props.barrSPR}
                             chatSPR={this.props.chatSPR}
                             muskSPR={this.props.muskSPR}
+                            edmoSPR={this.props.edmoSPR}
                           />
                         ) : null}
 
@@ -169,10 +175,12 @@ class MTemplate extends React.Component {
                           />
                         )}
 
-                        {this.props.muskSPR1.length > 0 ? (
+                        {this.props.muskSPR1.length > 0 ||
+                        this.props.edmoSPR2.length > 0 ? (
                           <Col6BoardTable
                             name={this.props.name1}
                             muskSPR={this.props.muskSPR1}
+                            edmoSPR={this.props.edmoSPR2}
                           />
                         ) : null}
 
@@ -201,6 +209,15 @@ class MTemplate extends React.Component {
                             }}
                           />
                         )}
+
+                        {this.props.muskSPR1.length > 0 ||
+                        this.props.edmoSPR3.length > 0 ? (
+                          <Col6BoardTable
+                            name={this.props.name1}
+                            muskSPR={this.props.muskSPR1}
+                            edmoSPR={this.props.edmoSPR3}
+                          />
+                        ) : null}
 
                         {mls.mainContent4 !== null && (
                           <div

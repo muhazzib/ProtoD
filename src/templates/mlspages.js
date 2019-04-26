@@ -34,6 +34,11 @@ class MlsTemplate extends React.Component {
       barrSPR: [],
       chatRa: [],
       chatSPR: [],
+      edmoRa: [],
+      edmoRa2: [],
+      edmoSpr: [],
+      edmoSpr2: [],
+      edmoSpr3: [],
       name1: '',
       name2: '',
       name3: '',
@@ -117,6 +122,23 @@ class MlsTemplate extends React.Component {
         name1: 'Summary – Sales by Price Range ',
         name2: 'Year-over-year percentage change',
       })
+    } else if (slug == 'edmo-residential-activity') {
+      this.setState({
+        edmoRa: this.props.data.EdmoRA.edges,
+        edmoRa2: this.props.data.EdmoRA2.edges,
+
+        name1: 'Summary – Sales by Price Range ',
+        name2: 'Year-over-year percentage change',
+      })
+    } else if (slug == 'edmo-sales-by-price-range') {
+      this.setState({
+        edmoSpr: this.props.data.EdmoSPR.edges,
+        edmoSpr2: this.props.data.EdmoSPR2.edges,
+        edmoSpr3: this.props.data.EdmoSPR3.edges,
+
+        name1: 'Summary – Sales by Price Range ',
+        name2: 'Year-over-year percentage change',
+      })
     } else if (slug == 'toronto') {
       // No table at home page
       // this.setState({
@@ -159,6 +181,12 @@ class MlsTemplate extends React.Component {
         muskRa4: [],
         muskSPR: [],
         muskSPR2: [],
+        edmoRa: [],
+        edmoRA2: [],
+        edmoSPR: [],
+        edmoSPR1: [],
+        edmoSPR2: [],
+        edmoSPR3: [],
         charts: [],
       })
     }
@@ -183,6 +211,11 @@ class MlsTemplate extends React.Component {
       barrSPR,
       chatRa,
       chatSPR,
+      edmoRa,
+      edmoRa2,
+      edmoSpr,
+      edmoSpr2,
+      edmoSpr3,
       field1,
       field2,
       field3,
@@ -221,6 +254,11 @@ class MlsTemplate extends React.Component {
         barrSPR={barrSPR}
         chatRa={chatRa}
         chatSPR={chatSPR}
+        edmoRA={edmoRa}
+        edmoRA2={edmoRa2}
+        edmoSPR={edmoSpr}
+        edmoSPR2={edmoSpr2}
+        edmoSPR3={edmoSpr3}
         chartsData={charts}
       >
         <GlobalStyle />
@@ -272,6 +310,64 @@ export const pageQuery = graphql`
         }
       }
     }
+    EdmoRA: allEdmoTable01Csv{
+      edges {
+        node {
+          field_1
+          field_2
+          field_3
+          field_4
+        }
+      }
+    }
+    EdmoRA2: allEdmoTable02Csv{
+      edges {
+        node {
+          field_1
+          field_2
+          field_3
+          field_4
+        }
+      }
+    }
+    EdmoSPR: allEdmoTable03Csv{
+      edges {
+        node {
+          field_1
+          field_2
+          field_3
+          field_4
+          field_5
+          field_6
+        }
+      }
+    }
+    EdmoSPR2: allEdmoTable04Csv{
+      edges {
+        node {
+          field_1
+          field_2
+          field_3
+          field_4
+          field_5
+          field_6
+        }
+      }
+    }
+    EdmoSPR3: allEdmoTable05Csv{
+      edges {
+        node {
+          field_1
+          field_2
+          field_3
+          field_4
+          field_5
+          field_6
+        }
+      }
+    }
+
+    
     MuskRA1: allMuskTable01Csv{
     edges {
       node {

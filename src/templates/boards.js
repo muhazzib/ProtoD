@@ -110,7 +110,7 @@ class BoardTemplate extends React.Component {
         chatData2: this.props.data.allAlbertaresidentialactivityCsv.edges,
         name2: 'chart 2', */
       })
-    } else if (slug == 'victoria-sales') {
+    } else if (slug == 'fghh') {
       this.setState({
         /*     data: this.props.data.allSalesbyprice1Csv.edges,
         data2: this.props.data.allSalesbyprice2Csv.edges,
@@ -118,7 +118,7 @@ class BoardTemplate extends React.Component {
         name2: 'vic Residential Sheet 2',
         charts: this.props.data.victoriaChart.edges, */
       })
-    } else if (slug == 'barrie-sales-by-price-range') {
+    } else if (slug == 'ff') {
       this.setState({
         /* data: this.props.data.allSalesbyprice1Csv.edges,
         data2: this.props.data.allSalesbyprice2Csv.edges, */
@@ -388,17 +388,12 @@ export const pageQuery = graphql`
           field_5
           field_6
           field_7
-         y1
-         y2
-         y3
-         y4
-         y5
-         y6
+     
         }
       }
     }
 
-    ChatHome2: allChatHomeTable01Csv {
+    ChatHome2: allChatHomeTable02Csv {
       edges {
         node {
           name
@@ -409,12 +404,7 @@ export const pageQuery = graphql`
           field_5
           field_6
           field_7
-         y1
-         y2
-         y3
-         y4
-         y5
-         y6
+     
         }
       }
     }
