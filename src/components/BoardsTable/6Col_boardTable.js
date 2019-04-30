@@ -18,6 +18,7 @@ export default class BoardTable6 extends React.Component {
     const chatSpr = this.props.chatSPR
     const muskSpr = this.props.muskSPR
     const edmoSpr = this.props.edmoSPR
+    const trebSpr = this.props.trebSPR
 
     const name = this.props.name
 
@@ -37,12 +38,13 @@ export default class BoardTable6 extends React.Component {
               {name}
             </th>
           </tr>
+          <tr>
+            <th colSpan="6">
+              <b>Year-over-year percentage change</b>
+            </th>
+          </tr>
         </thead>
-        <tr>
-          <th colSpan="6">
-            <b>Year-over-year percentage change</b>
-          </th>
-        </tr>
+
         {barrSpr !== undefined && (
           <tbody className="BoardTable">
             {barrSpr.map((row, i) => (
@@ -91,6 +93,21 @@ export default class BoardTable6 extends React.Component {
         {edmoSpr !== undefined && (
           <tbody className="BoardTable">
             {edmoSpr.map((row, i) => (
+              <tr scope="row" key={`${row.node.field_1} ${i}`}>
+                <td>{row.node.field_1}</td>
+                <td>{row.node.field_2}</td>
+                <td>{row.node.field_3}</td>
+                <td>{row.node.field_4}</td>
+                <td>{row.node.field_5}</td>
+                <td>{row.node.field_6}</td>
+              </tr>
+            ))}
+          </tbody>
+        )}
+
+        {trebSpr !== undefined && (
+          <tbody className="BoardTable">
+            {trebSpr.map((row, i) => (
               <tr scope="row" key={`${row.node.field_1} ${i}`}>
                 <td>{row.node.field_1}</td>
                 <td>{row.node.field_2}</td>

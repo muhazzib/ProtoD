@@ -4,7 +4,8 @@ import Select from 'react-select'
 
 const style = {
   fontSize: '14px',
-  fontWeight: 'bold',
+  fontWeight: '500',
+  lineHeight: '16px',
 }
 
 class MenuX extends React.Component {

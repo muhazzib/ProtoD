@@ -178,7 +178,7 @@ class BoardTemplate extends React.Component {
   render() {
     console.log(this.props, '-----')
     const post = get(this.props, 'data.contentfulBoards')
-
+    console.log('posts', post)
     const {
       data,
       data2,

@@ -114,6 +114,9 @@ class MTemplate extends React.Component {
                         }}
                       />
                       <div className="content">
+                        {/* <!--  ==========================================================  -->
+        <!-- START--- MAIN CONTENT 1  ==========================  -->
+        <!--  ==========================================================  --> */}
                         {mls.mainContent !== null && (
                           <div
                             className="content"
@@ -123,48 +126,63 @@ class MTemplate extends React.Component {
                             }}
                           />
                         )}
+                        {/* <!--  ==========================================================  -->
+        <!-- END--- MAIN CONTENT 1  ==========================  -->
+        <!--  ==========================================================  --> */}
 
+                        {/* <!--  ==========================================================  -->
+        <!-- START--- TABLES 1  ==========================  -->
+        <!--  ==========================================================  --> */}
                         {this.props.muskRa.length > 0 ||
                         this.props.barrRa.length > 0 ||
                         this.props.chatRa.length > 0 ||
-                        this.props.edmoRA.length > 0 ? (
+                        this.props.edmoRA.length > 0 ||
+                        this.props.trebRA.length > 0 ? (
                           <Col4BoardTable
                             name={this.props.name1}
                             muskRa={this.props.muskRa}
                             barrRa={this.props.barrRa}
                             chatRa={this.props.chatRa}
                             edmoRA={this.props.edmoRA}
+                            trebRA={this.props.trebRA}
                             field={this.props.field1}
                           />
                         ) : null}
-
                         {this.props.muskRa2.length > 0 ||
-                        this.props.edmoRA2.length > 0 ? (
+                        this.props.edmoRA2.length > 0 ||
+                        this.props.trebRA2.length > 0 ? (
                           <Col4BoardTable
                             name={this.props.name2}
                             muskRa={this.props.muskRa2}
                             edmoRA={this.props.edmoRA2}
+                            trebRA={this.props.trebRA2}
                             field={this.props.field1}
                           />
                         ) : null}
-
                         {this.props.barrSPR.length > 0 ||
                         this.props.chatSPR.length > 0 ||
                         this.props.muskSPR.length > 0 ||
-                        this.props.edmoSPR.length > 0 ? (
+                        this.props.edmoSPR.length > 0 ||
+                        this.props.trebSPR.length > 0 ? (
                           <Col6BoardTable
                             name={this.props.name1}
                             barrSPR={this.props.barrSPR}
                             chatSPR={this.props.chatSPR}
                             muskSPR={this.props.muskSPR}
                             edmoSPR={this.props.edmoSPR}
+                            trebSPR={this.props.trebSPR}
                           />
                         ) : null}
-
                         {this.props.chartsData.length > 0 ? (
                           <ChartY chartsData={this.props.chartsData} />
                         ) : null}
+                        {/* <!--  ==========================================================  -->
+        <!-- END--- TABLES 1  ==========================  -->
+        <!--  ==========================================================  --> */}
 
+                        {/* <!--  ==========================================================  -->
+        <!-- START--- MAIN CONTENT 2  ==========================  -->
+        <!--  ==========================================================  --> */}
                         {mls.mainContent2 !== null && (
                           <div
                             className="content"
@@ -174,16 +192,23 @@ class MTemplate extends React.Component {
                             }}
                           />
                         )}
+                        {/* <!--  ==========================================================  -->
+        <!-- END--- MAIN CONTENT 2  ==========================  -->
+        <!--  ==========================================================  --> */}
 
+                        {/* <!--  ==========================================================  -->
+        <!-- START--- TABLES 2  ==========================  -->
+        <!--  ==========================================================  --> */}
                         {this.props.muskSPR1.length > 0 ||
-                        this.props.edmoSPR2.length > 0 ? (
+                        this.props.edmoSPR2.length > 0 ||
+                        this.props.trebSPR2.length > 0 ? (
                           <Col6BoardTable
                             name={this.props.name1}
                             muskSPR={this.props.muskSPR1}
                             edmoSPR={this.props.edmoSPR2}
+                            trebSPR={this.props.trebSPR2}
                           />
                         ) : null}
-
                         {this.props.muskRa3.length > 0 ? (
                           <Col7BoardTable
                             muskRa={this.props.muskRa3}
@@ -191,7 +216,6 @@ class MTemplate extends React.Component {
                             field={this.props.field1}
                           />
                         ) : null}
-
                         {this.props.muskRa4.length > 0 ? (
                           <Col7BoardTable
                             muskRa={this.props.muskRa4}
@@ -199,7 +223,13 @@ class MTemplate extends React.Component {
                             field={this.props.field}
                           />
                         ) : null}
+                        {/* <!--  ==========================================================  -->
+        <!--  END--- TABLES 2 ==========================  -->
+        <!--  ==========================================================  --> */}
 
+                        {/* <!--  ==========================================================  -->
+        <!-- START--- MAIN CONTENT 3  ==========================  -->
+        <!--  ==========================================================  --> */}
                         {mls.mainContent3 !== null && (
                           <div
                             className="content"
@@ -209,16 +239,28 @@ class MTemplate extends React.Component {
                             }}
                           />
                         )}
+                        {/* <!--  ==========================================================  -->
+        <!--  END--- MAIN CONTENT 3 ==========================  -->
+        <!--  ==========================================================  --> */}
+
+                        {/* <!--  ==========================================================  -->
+        <!-- START---  TABLES 3 ==========================  -->
+        <!--  ==========================================================  --> */}
 
                         {this.props.muskSPR1.length > 0 ||
-                        this.props.edmoSPR3.length > 0 ? (
+                        this.props.edmoSPR3.length > 0 ||
+                        this.props.trebSPR3.length > 0 ? (
                           <Col6BoardTable
                             name={this.props.name1}
                             muskSPR={this.props.muskSPR1}
                             edmoSPR={this.props.edmoSPR3}
+                            trebSPR={this.props.trebSPR3}
                           />
                         ) : null}
 
+                        {/* <!--  ==========================================================  -->
+        <!-- START--- MAIN CONTENT 4  ==========================  -->
+        <!--  ==========================================================  --> */}
                         {mls.mainContent4 !== null && (
                           <div
                             className="content"
@@ -228,13 +270,23 @@ class MTemplate extends React.Component {
                             }}
                           />
                         )}
+                        {/* <!--  ==========================================================  -->
+        <!-- END--- MAIN CONTENT 4  ==========================  -->
+        <!--  ==========================================================  --> */}
 
-                        {/* Cutom table for rendering board's sheet */}
-                        {/* {
-                            !renderTable ? (
-                            ) : null
-                          } */}
-                        {/* CUSTOM TABLE SHEETS END HERE */}
+                        {/* <!--  ==========================================================  -->
+        <!-- START--- TABLES 4  ==========================  -->
+        <!--  ==========================================================  --> */}
+                        {this.props.trebSPR4.length > 0 ? (
+                          <Col6BoardTable
+                            name={this.props.name1}
+                            trebSPR={this.props.trebSPR4}
+                          />
+                        ) : null}
+                        {/* <!--  ==========================================================  -->
+        <!-- END--- TABLES 4  ==========================  -->
+        <!--  ==========================================================  --> */}
+
                         {/* <!--  ==========================================================  -->
         <!--  BOARD AND CREA DECLARATION HERE ==========================  -->
         <!--  ==========================================================  --> */}

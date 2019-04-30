@@ -23,6 +23,7 @@ export default class BoardTable4 extends React.Component {
     const barrRa = this.props.barrRa
     const chatRa = this.props.chatRa
     const edmoRa = this.props.edmoRA
+    const trebRa = this.props.trebRA
     const name = this.props.name
     const field1 = this.props.field
     const muskField = this.props.muskField
@@ -161,6 +162,19 @@ export default class BoardTable4 extends React.Component {
         {edmoRa !== undefined && (
           <tbody className="BoardTable">
             {edmoRa.map((row, i) => (
+              <tr scope="row" key={`${row.node.field_1} ${i}`}>
+                <td>{row.node.field_1}</td>
+                <td>{row.node.field_2}</td>
+                <td>{row.node.field_3}</td>
+                <td>{row.node.field_4}</td>
+              </tr>
+            ))}
+          </tbody>
+        )}
+
+        {trebRa !== undefined && (
+          <tbody className="BoardTable">
+            {trebRa.map((row, i) => (
               <tr scope="row" key={`${row.node.field_1} ${i}`}>
                 <td>{row.node.field_1}</td>
                 <td>{row.node.field_2}</td>

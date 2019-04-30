@@ -39,6 +39,12 @@ class MlsTemplate extends React.Component {
       edmoSpr: [],
       edmoSpr2: [],
       edmoSpr3: [],
+      trebRa: [],
+      trebRa2: [],
+      trebSpr: [],
+      trebSpr2: [],
+      trebSpr3: [],
+      trebSpr4: [],
       name1: '',
       name2: '',
       name3: '',
@@ -147,7 +153,7 @@ class MlsTemplate extends React.Component {
       //   name1: 'Sales by price sheet 1',
       //   name2: 'Sales by price sheet 2'
       // })
-    } else if (slug == 'toronto-residential-activity') {
+    } else if (slug == 'dcdc') {
       // No table at home page
       this.setState({
         data: this.props.data.allTorontoresidentialactivity1Csv.edges,
@@ -157,7 +163,7 @@ class MlsTemplate extends React.Component {
         name2: 'Toronto Residential sheet 2',
         charts: this.props.data.torontoChart.edges,
       })
-    } else if (slug == 'toronto-sales-by-category') {
+    } else if (slug == 'tgfake') {
       // No table at home page
       this.setState({
         data: this.props.data.allTorontosalesbypricerange1Csv.edges,
@@ -168,6 +174,26 @@ class MlsTemplate extends React.Component {
         name2: 'Toronto Sales By Price Range sheet 2',
         name3: 'Toronto Sales By Price Range sheet 3',
         name4: 'Toronto Sales By Price Range sheet 4',
+      })
+    } else if (slug == 'treb-residential-activity') {
+      // No table at home page
+      this.setState({
+        trebRa: this.props.data.TrebRA.edges,
+        trebRa2: this.props.data.TrebRA2.edges,
+
+        name1: 'Toronto Sales By Price Range sheet 1',
+        name2: 'Toronto Sales By Price Range sheet 2',
+      })
+    } else if (slug == 'treb-sales-by-price-range') {
+      // No table at home page
+      this.setState({
+        trebSpr: this.props.data.TrebSPR.edges,
+        trebSpr2: this.props.data.TrebSPR2.edges,
+        trebSpr3: this.props.data.TrebSPR3.edges,
+        trebSpr4: this.props.data.TrebSPR4.edges,
+
+        name1: 'Toronto Sales By Price Range sheet 1',
+        name2: 'Toronto Sales By Price Range sheet 2',
       })
     } else {
       this.setState({
@@ -187,6 +213,12 @@ class MlsTemplate extends React.Component {
         edmoSPR1: [],
         edmoSPR2: [],
         edmoSPR3: [],
+        trebRa: [],
+        trebRa2: [],
+        trebSpr: [],
+        trebSpr2: [],
+        trebSpr3: [],
+        trebSpr4: [],
         charts: [],
       })
     }
@@ -216,6 +248,12 @@ class MlsTemplate extends React.Component {
       edmoSpr,
       edmoSpr2,
       edmoSpr3,
+      trebRa,
+      trebRa2,
+      trebSpr,
+      trebSpr2,
+      trebSpr3,
+      trebSpr4,
       field1,
       field2,
       field3,
@@ -260,6 +298,12 @@ class MlsTemplate extends React.Component {
         edmoSPR2={edmoSpr2}
         edmoSPR3={edmoSpr3}
         chartsData={charts}
+        trebRA={trebRa}
+        trebRA2={trebRa2}
+        trebSPR={trebSpr}
+        trebSPR2={trebSpr2}
+        trebSPR3={trebSpr3}
+        trebSPR4={trebSpr4}
       >
         <GlobalStyle />
       </Layout>
@@ -307,6 +351,74 @@ export const pageQuery = graphql`
       mainContent4 {
         childContentfulRichText {
           html
+        }
+      }
+    }
+    TrebRA: allTrebTable01Csv {
+      edges {
+        node {
+          field_1
+          field_2
+          field_3
+          field_4
+        }
+      }
+    }
+    TrebRA2: allTrebTable02Csv {
+      edges {
+        node {
+          field_1
+          field_2
+          field_3
+          field_4
+        }
+      }
+    }
+    TrebSPR: allTrebTable03Csv{
+      edges {
+        node {
+          field_1
+          field_2
+          field_3
+          field_4
+          field_5
+          field_6
+        }
+      }
+    }
+    TrebSPR2: allTrebTable04Csv{
+      edges {
+        node {
+          field_1
+          field_2
+          field_3
+          field_4
+          field_5
+          field_6
+        }
+      }
+    }
+    TrebSPR3: allTrebTable05Csv{
+      edges {
+        node {
+          field_1
+          field_2
+          field_3
+          field_4
+          field_5
+          field_6
+        }
+      }
+    }
+    TrebSPR4: allTrebTable06Csv{
+      edges {
+        node {
+          field_1
+          field_2
+          field_3
+          field_4
+          field_5
+          field_6
         }
       }
     }
