@@ -194,6 +194,14 @@ export const pageQuery = graphql`
           node_locale
           headline
           slug
+          nationalResidentialStats {
+            fixed(width: 163, height: 111) {
+              src
+              width
+              height
+              srcSet
+            }
+          }
           chartA {
             fixed(width: 1079, height: 740) {
               src
