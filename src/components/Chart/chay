@@ -3,10 +3,6 @@ import { StaticQuery, graphql } from 'gatsby'
 import { Accordion, AccordionItem } from 'react-sanfona'
 import Lightbox from 'react-image-lightbox'
 import 'react-image-lightbox/style.css' // This only needs to be imported once in your app
-import ReactFancyBox from 'react-fancybox'
-import 'react-fancybox/lib/fancybox.css'
-import '../Chart/chart.module.css'
-
 import {
   TabContent,
   TabPane,
@@ -23,6 +19,13 @@ import {
 import classnames from 'classnames'
 import charts from './chart.module.css'
 import './chart-accordion.css'
+
+const images = [
+  '//placekitten.com/1500/500',
+  '//placekitten.com/4000/3000',
+  '//placekitten.com/800/1200',
+  '//placekitten.com/1500/1500',
+]
 
 class Chart extends React.Component {
   /*   <Accordion>
@@ -65,59 +68,44 @@ class Chart extends React.Component {
 
   render() {
     /* const data = this.props.acc.allFile.edges */
-    const barrie = this.props.acc.Barrie.edges
-    const toronto = this.props.acc.Toronto.edges
-    const victoria = this.props.acc.Victoria.edges
-    console.log('barries', barrie)
-    const { imagz } = this.state
-
-    /* const images = [
-      '//placekitten.com/1500/500',
-      '//placekitten.com/4000/3000',
-      '//placekitten.com/800/1200',
-      '//placekitten.com/1500/1500',
-    ] */
-
-    const images = barrie.map((item, id) => {
-      /* console.log('images', item.node.childImageSharp.fluid.src) */
-      return {
-        mainSrc: item.node.childImageSharp.fluid.src,
-      }
-    })
-    console.log('imagesCharts', images)
+    const post = this.props.acc.allContentfulNational.edges
+    console.log('charty', post)
 
     const { photoIndex, isOpen } = this.state
 
+    /*     const bx = barrie.map((xxy, id) => {
+      console.log('bx', xxy.node.childImageSharp.fluid.src)
+      return (
+        <div>
+          <img src={xxy.node.childImageSharp.fluid.src} />
+        </div>
+      )
+    })
+    console.log('bmx', bx) */
     return (
       <div>
-        <button type="button" onClick={() => this.setState({ isOpen: true })}>
+        {/*   <button type="button" onClick={() => this.setState({ isOpen: true })}>
           Open Lightbox
-        </button>
+        </button> */}
 
         {isOpen && (
           <Lightbox
-            mainSrc={images[photoIndex]}
-            nextSrc={images[(photoIndex + 1) % images.length]}
-            prevSrc={images[(photoIndex + images.length - 1) % images.length]}
+            mainSrc={bx[photoIndex]}
+            nextSrc={bx[(photoIndex + 1) % bx.length]}
+            prevSrc={bx[(photoIndex + bx.length - 1) % bx.length]}
             onCloseRequest={() => this.setState({ isOpen: false })}
             onMovePrevRequest={() =>
               this.setState({
-                photoIndex: (photoIndex + imagz.length - 1) % imagz.length,
+                photoIndex: (photoIndex + bx.length - 1) % bx.length,
               })
             }
             onMoveNextRequest={() =>
               this.setState({
-                photoIndex: (photoIndex + 1) % imagz.length,
+                photoIndex: (photoIndex + 1) % bx.length,
               })
             }
           />
         )}
-        <h1>system</h1>
-        <ReactFancyBox
-          thumbnail="https://loremflickr.com/320/240"
-          image="https://www.w3schools.com/howto/img_forest.jpg"
-        />
-
         <Nav tabs className={charts.tabTitle}>
           <NavItem className={charts.tabList}>
             <NavLink
@@ -226,32 +214,29 @@ class Chart extends React.Component {
         >
           <TabPane tabId="1">
             <Row>
-              {barrie.map((item, id) => (
+              {/*    {post.Van.map((item, id) => (
                 <Col sm="3" key={id}>
-                  <ReactFancyBox
-                    thumbnail={item.node.childImageSharp.fluid.src}
-                    image={item.node.childImageSharp.fluid.src}
-                  />
+                  <img src={item.node.childImageSharp.fluid.src} />
                 </Col>
-              ))}
+              ))} */}
             </Row>
           </TabPane>
           <TabPane tabId="2">
             <Row>
-              {toronto.map((item, id) => (
+              {/*    {post.Van.map((item, id) => (
                 <Col sm="3" key={id}>
                   <img src={item.node.childImageSharp.fluid.src} />
                 </Col>
-              ))}
+              ))} */}
             </Row>
           </TabPane>
           <TabPane tabId="3">
             <Row>
-              {victoria.map((item, id) => (
+              {/*  {post.Van.map((item, id) => (
                 <Col sm="3" key={id}>
                   <img src={item.node.childImageSharp.fluid.src} />
                 </Col>
-              ))}
+              ))} */}
             </Row>
           </TabPane>
         </TabContent>
@@ -263,27 +248,25 @@ class Chart extends React.Component {
 export default () => (
   <StaticQuery
     query={graphql`
-      query AccQuery {
-        Barrie: allFile(filter: { sourceInstanceName: { eq: "barrie" } }) {
-          ...Sources
-        }
-        Toronto: allFile(filter: { sourceInstanceName: { eq: "toronto" } }) {
-          ...Sources
-        }
-        Victoria: allFile(filter: { sourceInstanceName: { eq: "victoria" } }) {
-          ...Sources
-        }
-      }
-
-      fragment Sources on FileConnection {
-        edges {
-          node {
-            name
-            id
-            sourceInstanceName
-            childImageSharp {
-              fluid {
-                src
+      query ACCQuery {
+        allContentfulNational {
+          edges {
+            node {
+              Van: vancouverIsland {
+                fixed(width: 163, height: 111) {
+                  src
+                  width
+                  height
+                  srcSet
+                }
+              }
+              nationalResidentialStats {
+                fixed(width: 163, height: 111) {
+                  src
+                  width
+                  height
+                  srcSet
+                }
               }
             }
           }

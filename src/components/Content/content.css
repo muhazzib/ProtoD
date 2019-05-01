@@ -56,12 +56,18 @@
   color: #345fa8;
 }
 
-.thumbnail {
+.imageBox .thumbnail {
   cursor: pointer;
   width: 50%;
 }
-
-.image-box {
+.thumbnail img {
+  width: 80% !important;
+  padding: 10px;
+}
+.react-fancybox .thumbnail img {
+  padding: 10px !important;
+}
+.image-box .thumbnail {
   cursor: pointer;
 }
 

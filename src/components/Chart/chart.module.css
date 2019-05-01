@@ -33,9 +33,17 @@
 .tabContent {
   background: #edf0fe;
 }
+.react-fancybox .thumbnail img {
+  padding: 10px !important;
+}
+
+.fancyx {
+  padding: 10px;
+}
+
 .tabContent img {
   width: 100%;
-  padding: 10%;
+  /* padding: 10%; */
 }
 .tabList {
   text-decoration: none;
