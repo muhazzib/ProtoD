@@ -455,6 +455,8 @@ ${'Board table'}
   display:inline-table;
 }
 
+
+
 /** Media Queries **/
 @media only screen and (min-width: 900px) {
 

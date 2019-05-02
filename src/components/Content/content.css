@@ -55,7 +55,15 @@
 .chart_container p {
   color: #345fa8;
 }
+.charts {
+  background: #edf0fe;
+  padding: 10px;
+  cursor: pointer;
+}
 
+.charts img {
+  padding: 10px;
+}
 .imageBox .thumbnail {
   cursor: pointer;
   width: 50%;

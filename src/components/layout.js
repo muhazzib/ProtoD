@@ -22,6 +22,7 @@ import 'intl/locale-data/jsonp/fr'
 import SiteHeader from './Site-header/site-header'
 import '../components/Content/content.css'
 import { GlobalStyle } from '../utils/global'
+
 import BoardTable from './BoardsTable/boardsTable'
 import Col4BoardTable from './BoardsTable/4Col_boardTable'
 import Col7BoardTable from './BoardsTable/7Col_boardTable'
@@ -32,6 +33,8 @@ import BurgerIcon from '../components/Mobile-menu/burgerIcon'
 import Popup from 'reactjs-popup'
 import Menu from '../components/Mobile-menu/mobile-menu'
 import '../components/Mobile-menu/mobile.menu.css'
+import ReactFancyBox from 'react-fancybox'
+import 'react-fancybox/lib/fancybox.css'
 
 // add concatenated locale data
 addLocaleData([...en, ...fr])
@@ -165,6 +168,18 @@ class Template extends React.Component {
                           {/* <!--  ==========================================================  -->
         <!--  START ---- PAGE TITLE, PAGE HEADLINE, PAGE CONTENT ==========================  -->
         <!--  ==========================================================  --> */}
+                          <div className="charts">
+                            <Row>
+                              {post.charts.map((item, id) => (
+                                <Col sm="3" key={id}>
+                                  <ReactFancyBox
+                                    thumbnail={item.fixed.src}
+                                    image={item.fluid.src}
+                                  />
+                                </Col>
+                              ))}
+                            </Row>
+                          </div>
 
                           {/* <!--  ==========================================================  -->
         <!--  START--- BOARDS HOMEPAGE SHEETS ==========================  -->

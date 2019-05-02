@@ -274,7 +274,18 @@ export const pageQuery = graphql`
       headline
       boardPresidentName
       boardName
-      
+      charts {
+          fixed(width: 247, height: 169) {
+            width
+            height
+            src
+          }
+          fluid(maxWidth: 1080, maxHeight: 740) {
+            sizes
+            src
+            
+          }
+        }
       boardInfo {
         childMarkdownRemark {
           html
