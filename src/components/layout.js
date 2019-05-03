@@ -162,12 +162,22 @@ class Template extends React.Component {
 
                     <div className="entry-content">
                       <div className="entry-sub">
-                        <h2
-                          className="entry-headline"
-                          dangerouslySetInnerHTML={{
-                            __html: post.headline,
-                          }}
-                        />
+                        {post.headline !== null && (
+                          <h2
+                            className="entry-headline"
+                            dangerouslySetInnerHTML={{
+                              __html: post.headline,
+                            }}
+                          />
+                        )}
+                        {post.sharedContent !== null && (
+                          <h2
+                            className="entry-headline"
+                            dangerouslySetInnerHTML={{
+                              __html: post.sharedContent.sharedHeadline,
+                            }}
+                          />
+                        )}
                         <div>
                           {post.mainContent !== null && (
                             <div
@@ -175,6 +185,16 @@ class Template extends React.Component {
                               dangerouslySetInnerHTML={{
                                 __html:
                                   post.mainContent.childContentfulRichText.html,
+                              }}
+                            />
+                          )}
+                          {post.sharedContent !== null && (
+                            <div
+                              className="content"
+                              dangerouslySetInnerHTML={{
+                                __html:
+                                  post.sharedContent.sharedContent
+                                    .childContentfulRichText.html,
                               }}
                             />
                           )}

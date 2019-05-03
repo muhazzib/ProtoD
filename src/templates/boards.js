@@ -274,6 +274,15 @@ export const pageQuery = graphql`
       headline
       boardPresidentName
       boardName
+      sharedContent{
+        title
+        sharedHeadline
+        sharedContent{
+          childContentfulRichText{
+            html
+          }
+        }
+      }
       charts {
           fixed(width: 247, height: 169) {
             width
