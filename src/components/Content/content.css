@@ -60,6 +60,9 @@
   padding: 10px;
   cursor: pointer;
 }
+.charts-stats {
+  cursor: pointer;
+}
 
 .charts img {
   padding: 10px;

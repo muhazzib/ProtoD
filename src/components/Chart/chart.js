@@ -89,7 +89,7 @@ class Chart extends React.Component {
     const { photoIndex, isOpen } = this.state
 
     return (
-      <div>
+      <div className="charts-stats">
         {/*    <button type="button" onClick={() => this.setState({ isOpen: true })}>
           Open Lightbox
         </button>
@@ -226,21 +226,24 @@ class Chart extends React.Component {
         >
           <TabPane tabId="1">
             <Row>
-              {/*    {barrie.map((item, id) => (
+              {barrie.map((item, id) => (
                 <Col sm="3" key={id}>
                   <ReactFancyBox
                     thumbnail={item.node.childImageSharp.fluid.src}
                     image={item.node.childImageSharp.fluid.src}
                   />
                 </Col>
-              ))} */}
+              ))}
             </Row>
           </TabPane>
           <TabPane tabId="2">
             <Row>
               {toronto.map((item, id) => (
                 <Col sm="3" key={id}>
-                  <img src={item.node.childImageSharp.fluid.src} />
+                  <ReactFancyBox
+                    thumbnail={item.node.childImageSharp.fluid.src}
+                    image={item.node.childImageSharp.fluid.src}
+                  />
                 </Col>
               ))}
             </Row>

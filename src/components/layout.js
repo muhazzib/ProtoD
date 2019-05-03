@@ -35,6 +35,7 @@ import Menu from '../components/Mobile-menu/mobile-menu'
 import '../components/Mobile-menu/mobile.menu.css'
 import ReactFancyBox from 'react-fancybox'
 import 'react-fancybox/lib/fancybox.css'
+import Gallery from 'react-grid-gallery'
 
 // add concatenated locale data
 addLocaleData([...en, ...fr])
@@ -45,6 +46,7 @@ const contentStyle = {
   border: 'none',
   background: 'rgba(219,47,37,0.8)',
 }
+
 class Template extends React.Component {
   constructor(props) {
     super(props)
@@ -70,6 +72,7 @@ class Template extends React.Component {
   getYear() {
     return new Date().getFullYear()
   }
+
   render() {
     console.log('board props', this)
     const natl = get(this, 'props.data.ca.edges[0].node')
@@ -85,12 +88,21 @@ class Template extends React.Component {
       rootPath = __PATH_PREFIX__ + `/`
     } */
 
+    /* 
+    const IMAGES = post.charts.map((item, id) => {
+      console.log('images', item)
+      return {
+        image: item.fixed.src,
+      }
+    }) */
+
     return (
       <IntlProvider locale={this.langKey} messages={this.i18nMessages}>
         <Container>
           <GlobalStyle />
           <Header langs={this.langsMenu} pathname={url} />
           <SiteHeader pathname={url} />
+
           <Wrapper>
             <Popup
               modal
@@ -102,6 +114,7 @@ class Template extends React.Component {
               {close => <Menu close={close} />}
             </Popup>
             <Breadcrumb />
+
             {this.props.location.pathname == '/en-US/' ? (
               <Modal
                 isOpen={this.props.chartAProp}
@@ -168,19 +181,21 @@ class Template extends React.Component {
                           {/* <!--  ==========================================================  -->
         <!--  START ---- PAGE TITLE, PAGE HEADLINE, PAGE CONTENT ==========================  -->
         <!--  ==========================================================  --> */}
-                          <div className="charts">
-                            {/* <Row>
-                              {post.charts.map((item, id) => (
-                                <Col sm="3" key={id}>
-                                  <ReactFancyBox
-                                    thumbnail={item.fixed.src}
-                                    image={item.fixed.src}
-                                  />
-                                </Col>
-                              ))}
-                            </Row> */}
-                          </div>
-
+                          {post.charts !== null && (
+                            <div className="charts">
+                              <Row>
+                                {post.charts.map((item, id) => (
+                                  <Col sm="3" key={id}>
+                                    <ReactFancyBox
+                                      thumbnail={item.fixed.src}
+                                      image={item.fluid.src}
+                                    />
+                                    {/* <Gallery images={IMAGES} /> */}
+                                  </Col>
+                                ))}
+                              </Row>
+                            </div>
+                          )}
                           {/* <!--  ==========================================================  -->
         <!--  START--- BOARDS HOMEPAGE SHEETS ==========================  -->
         <!--  ==========================================================  --> */}
