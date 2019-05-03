@@ -169,16 +169,16 @@ class Template extends React.Component {
         <!--  START ---- PAGE TITLE, PAGE HEADLINE, PAGE CONTENT ==========================  -->
         <!--  ==========================================================  --> */}
                           <div className="charts">
-                            <Row>
+                            {/* <Row>
                               {post.charts.map((item, id) => (
                                 <Col sm="3" key={id}>
                                   <ReactFancyBox
                                     thumbnail={item.fixed.src}
-                                    image={item.fluid.src}
+                                    image={item.fixed.src}
                                   />
                                 </Col>
                               ))}
-                            </Row>
+                            </Row> */}
                           </div>
 
                           {/* <!--  ==========================================================  -->

@@ -90,7 +90,7 @@ class Chart extends React.Component {
 
     return (
       <div>
-        <button type="button" onClick={() => this.setState({ isOpen: true })}>
+        {/*    <button type="button" onClick={() => this.setState({ isOpen: true })}>
           Open Lightbox
         </button>
 
@@ -116,7 +116,7 @@ class Chart extends React.Component {
         <ReactFancyBox
           thumbnail="https://loremflickr.com/320/240"
           image="https://www.w3schools.com/howto/img_forest.jpg"
-        />
+        /> */}
 
         <Nav tabs className={charts.tabTitle}>
           <NavItem className={charts.tabList}>
@@ -226,14 +226,14 @@ class Chart extends React.Component {
         >
           <TabPane tabId="1">
             <Row>
-              {barrie.map((item, id) => (
+              {/*    {barrie.map((item, id) => (
                 <Col sm="3" key={id}>
                   <ReactFancyBox
                     thumbnail={item.node.childImageSharp.fluid.src}
                     image={item.node.childImageSharp.fluid.src}
                   />
                 </Col>
-              ))}
+              ))} */}
             </Row>
           </TabPane>
           <TabPane tabId="2">
