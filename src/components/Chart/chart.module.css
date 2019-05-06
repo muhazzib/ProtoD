@@ -32,6 +32,7 @@
 
 .tabContent {
   background: #edf0fe;
+  padding: 20px;
 }
 .react-fancybox .thumbnail img {
   padding: 10px !important;
@@ -42,8 +43,10 @@
 }
 
 .tabContent img {
-  width: 100%;
-  /* padding: 10%; */
+  max-width: 100%;
+  width: 200px;
+  height: 150px;
+  padding: 5px;
 }
 .tabList {
   text-decoration: none;

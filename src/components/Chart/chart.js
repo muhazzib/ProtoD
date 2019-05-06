@@ -1,10 +1,9 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import { Accordion, AccordionItem } from 'react-sanfona'
-import Lightbox from 'react-image-lightbox'
-import 'react-image-lightbox/style.css' // This only needs to be imported once in your app
-import ReactFancyBox from 'react-fancybox'
-import 'react-fancybox/lib/fancybox.css'
+import Lightbox from 'react-images'
+import Gallery from 'react-photo-gallery'
+
 import '../Chart/chart.module.css'
 
 import {
@@ -50,9 +49,12 @@ class Chart extends React.Component {
     this.toggle = this.toggle.bind(this)
     this.state = {
       activeTab: '1',
-      photoIndex: 0,
-      isOpen: false,
+      currentImage: 0,
     }
+    this.closeLightbox = this.closeLightbox.bind(this)
+    this.openLightbox = this.openLightbox.bind(this)
+    this.gotoNext = this.gotoNext.bind(this)
+    this.gotoPrevious = this.gotoPrevious.bind(this)
   }
 
   toggle(tab) {
@@ -62,6 +64,29 @@ class Chart extends React.Component {
       })
     }
   }
+  openLightbox(event, obj) {
+    this.setState({
+      currentImage: obj.index,
+      lightboxIsOpen: true,
+    })
+  }
+
+  closeLightbox() {
+    this.setState({
+      currentImage: 0,
+      lightboxIsOpen: false,
+    })
+  }
+  gotoPrevious() {
+    this.setState({
+      currentImage: this.state.currentImage - 1,
+    })
+  }
+  gotoNext() {
+    this.setState({
+      currentImage: this.state.currentImage + 1,
+    })
+  }
 
   render() {
     /* const data = this.props.acc.allFile.edges */
@@ -69,55 +94,35 @@ class Chart extends React.Component {
     const toronto = this.props.acc.Toronto.edges
     const victoria = this.props.acc.Victoria.edges
     console.log('barries', barrie)
-    const { imagz } = this.state
 
-    /* const images = [
-      '//placekitten.com/1500/500',
-      '//placekitten.com/4000/3000',
-      '//placekitten.com/800/1200',
-      '//placekitten.com/1500/1500',
-    ] */
-
-    const images = barrie.map((item, id) => {
-      /* console.log('images', item.node.childImageSharp.fluid.src) */
+    const BarrImages = barrie.map((item, id) => {
       return {
-        mainSrc: item.node.childImageSharp.fluid.src,
+        src: item.node.childImageSharp.fluid.src,
+        width: 247,
+        height: 169,
       }
     })
-    console.log('imagesCharts', images)
 
-    const { photoIndex, isOpen } = this.state
+    const TrebImages = toronto.map((item, id) => {
+      return {
+        src: item.node.childImageSharp.fluid.src,
+        width: 247,
+        height: 169,
+      }
+    })
+
+    const VictImages = victoria.map((item, id) => {
+      return {
+        src: item.node.childImageSharp.fluid.src,
+        width: 247,
+        height: 169,
+      }
+    })
+    /* const imagez = barrie.map((item, id) => item.node.childImageSharp.fluid.src)
+    console.log('imagesCharts', images) */
 
     return (
       <div className="charts-stats">
-        {/*    <button type="button" onClick={() => this.setState({ isOpen: true })}>
-          Open Lightbox
-        </button>
-
-        {isOpen && (
-          <Lightbox
-            mainSrc={images[photoIndex]}
-            nextSrc={images[(photoIndex + 1) % images.length]}
-            prevSrc={images[(photoIndex + images.length - 1) % images.length]}
-            onCloseRequest={() => this.setState({ isOpen: false })}
-            onMovePrevRequest={() =>
-              this.setState({
-                photoIndex: (photoIndex + imagz.length - 1) % imagz.length,
-              })
-            }
-            onMoveNextRequest={() =>
-              this.setState({
-                photoIndex: (photoIndex + 1) % imagz.length,
-              })
-            }
-          />
-        )}
-        <h1>system</h1>
-        <ReactFancyBox
-          thumbnail="https://loremflickr.com/320/240"
-          image="https://www.w3schools.com/howto/img_forest.jpg"
-        /> */}
-
         <Nav tabs className={charts.tabTitle}>
           <NavItem className={charts.tabList}>
             <NavLink
@@ -225,37 +230,37 @@ class Chart extends React.Component {
           className={charts.tabContent}
         >
           <TabPane tabId="1">
-            <Row>
-              {barrie.map((item, id) => (
-                <Col sm="3" key={id}>
-                  <ReactFancyBox
-                    thumbnail={item.node.childImageSharp.fluid.src}
-                    image={item.node.childImageSharp.fluid.src}
-                  />
-                </Col>
-              ))}
-            </Row>
+            <Gallery photos={BarrImages} onClick={this.openLightbox} />
+            <Lightbox
+              images={BarrImages}
+              onClose={this.closeLightbox}
+              onClickPrev={this.gotoPrevious}
+              onClickNext={this.gotoNext}
+              currentImage={this.state.currentImage}
+              isOpen={this.state.lightboxIsOpen}
+            />
           </TabPane>
           <TabPane tabId="2">
-            <Row>
-              {toronto.map((item, id) => (
-                <Col sm="3" key={id}>
-                  <ReactFancyBox
-                    thumbnail={item.node.childImageSharp.fluid.src}
-                    image={item.node.childImageSharp.fluid.src}
-                  />
-                </Col>
-              ))}
-            </Row>
+            <Gallery photos={TrebImages} onClick={this.openLightbox} />
+            <Lightbox
+              images={TrebImages}
+              onClose={this.closeLightbox}
+              onClickPrev={this.gotoPrevious}
+              onClickNext={this.gotoNext}
+              currentImage={this.state.currentImage}
+              isOpen={this.state.lightboxIsOpen}
+            />
           </TabPane>
           <TabPane tabId="3">
-            <Row>
-              {victoria.map((item, id) => (
-                <Col sm="3" key={id}>
-                  <img src={item.node.childImageSharp.fluid.src} />
-                </Col>
-              ))}
-            </Row>
+            {/*   <Gallery photos={VictImages} onClick={this.openLightbox} />
+            <Lightbox
+              images={VictImages}
+              onClose={this.closeLightbox}
+              onClickPrev={this.gotoPrevious}
+              onClickNext={this.gotoNext}
+              currentImage={this.state.currentImage}
+              isOpen={this.state.lightboxIsOpen}
+            /> */}
           </TabPane>
         </TabContent>
       </div>
