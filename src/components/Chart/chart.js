@@ -49,6 +49,7 @@ class Chart extends React.Component {
     this.toggle = this.toggle.bind(this)
     this.state = {
       activeTab: '1',
+
       currentImage: 0,
     }
     this.closeLightbox = this.closeLightbox.bind(this)
@@ -241,7 +242,7 @@ class Chart extends React.Component {
             />
           </TabPane>
           <TabPane tabId="2">
-            <Gallery photos={TrebImages} onClick={this.openLightbox} />
+            {/*   <Gallery photos={TrebImages} onClick={this.openLightbox} />
             <Lightbox
               images={TrebImages}
               onClose={this.closeLightbox}
@@ -249,7 +250,7 @@ class Chart extends React.Component {
               onClickNext={this.gotoNext}
               currentImage={this.state.currentImage}
               isOpen={this.state.lightboxIsOpen}
-            />
+            /> */}
           </TabPane>
           <TabPane tabId="3">
             {/*   <Gallery photos={VictImages} onClick={this.openLightbox} />
