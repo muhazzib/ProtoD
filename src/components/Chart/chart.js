@@ -90,10 +90,11 @@ class Chart extends React.Component {
   }
 
   render() {
-    /* const data = this.props.acc.allFile.edges */
+    ;/ const data = this.props.acc.allFile.edges /
     const barrie = this.props.acc.Barrie.edges
     const toronto = this.props.acc.Toronto.edges
     const victoria = this.props.acc.Victoria.edges
+    const { activeTab } = this.state
     console.log('barries', barrie)
 
     const BarrImages = barrie.map((item, id) => {
@@ -119,6 +120,16 @@ class Chart extends React.Component {
         height: 169,
       }
     })
+    const activeImages =
+      activeTab == '1'
+        ? BarrImages
+        : activeTab == '2'
+        ? TrebImages
+        : activeTab == '3'
+        ? VictImages
+        : []
+    console.log(activeImages, 'ac')
+
     /* const imagez = barrie.map((item, id) => item.node.childImageSharp.fluid.src)
     console.log('imagesCharts', images) */
 
@@ -226,7 +237,25 @@ class Chart extends React.Component {
             </NavLink>
           </NavItem>
         </Nav>
+
         <TabContent
+          activeTab={this.state.activeTab}
+          className={charts.tabContent}
+        >
+          <TabPane tabId={this.state.activeTab}>
+            <Gallery photos={activeImages} onClick={this.openLightbox} />
+            <Lightbox
+              images={activeImages}
+              onClose={this.closeLightbox}
+              onClickPrev={this.gotoPrevious}
+              onClickNext={this.gotoNext}
+              currentImage={this.state.currentImage}
+              isOpen={this.state.lightboxIsOpen}
+            />
+          </TabPane>
+        </TabContent>
+
+        {/* <TabContent
           activeTab={this.state.activeTab}
           className={charts.tabContent}
         >
@@ -242,7 +271,7 @@ class Chart extends React.Component {
             />
           </TabPane>
           <TabPane tabId="2">
-            {/*   <Gallery photos={TrebImages} onClick={this.openLightbox} />
+            <Gallery photos={TrebImages} onClick={this.openLightbox} />
             <Lightbox
               images={TrebImages}
               onClose={this.closeLightbox}
@@ -250,10 +279,10 @@ class Chart extends React.Component {
               onClickNext={this.gotoNext}
               currentImage={this.state.currentImage}
               isOpen={this.state.lightboxIsOpen}
-            /> */}
+            />
           </TabPane>
           <TabPane tabId="3">
-            {/*   <Gallery photos={VictImages} onClick={this.openLightbox} />
+            <Gallery photos={VictImages} onClick={this.openLightbox} />
             <Lightbox
               images={VictImages}
               onClose={this.closeLightbox}
@@ -261,9 +290,9 @@ class Chart extends React.Component {
               onClickNext={this.gotoNext}
               currentImage={this.state.currentImage}
               isOpen={this.state.lightboxIsOpen}
-            /> */}
+            />
           </TabPane>
-        </TabContent>
+        </TabContent> */}
       </div>
     )
   }
@@ -301,7 +330,6 @@ export default () => (
     `}
     render={data => (
       <header>
-        {/* <h1>{data.site.siteMetadata.title}</h1> */}
         <Chart acc={data} />
       </header>
     )}
