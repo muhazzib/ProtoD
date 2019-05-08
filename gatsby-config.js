@@ -62,22 +62,134 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `barrie`,
-        path: `${__dirname}/src/charts/Barrie`,
+        name: `natlResStats`,
+        path: `${__dirname}/src/data/natl_en/NRS`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `toronto`,
-        path: `${__dirname}/src/charts/Toronto`,
+        name: `vanIsland`,
+        path: `${__dirname}/src/data/natl_en/Van Island`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `victoria`,
-        path: `${__dirname}/src/charts/Victoria`,
+        path: `${__dirname}/src/data/natl_en/Victoria`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `GVC`,
+        path: `${__dirname}/src/data/natl_en/Greater Vancouver`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `fraserValley`,
+        path: `${__dirname}/src/data/natl_en/Fraser Valley`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `okanganValley`,
+        path: `${__dirname}/src/data/natl_en/Okanagan Valley`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `calgary`,
+        path: `${__dirname}/src/data/natl_en/Calgary`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `edmonton`,
+        path: `${__dirname}/src/data/natl_en/Edmonton`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `regina`,
+        path: `${__dirname}/src/data/natl_en/Regina`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `sask`,
+        path: `${__dirname}/src/data/natl_en/Saskatoon`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `guelph`,
+        path: `${__dirname}/src/data/natl_en/Guelph`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `hamiltonB`,
+        path: `${__dirname}/src/data/natl_en/Hamilton-Burlington`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `oakvilleM`,
+        path: `${__dirname}/src/data/natl_en/Oakville-Milton`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `barrie`,
+        path: `${__dirname}/src/data/natl_en/Barrie`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `GTA`,
+        path: `${__dirname}/src/data/natl_en/Greater Toronto`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `niagara`,
+        path: `${__dirname}/src/data/natl_en/Niagara Region`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `ottawa`,
+        path: `${__dirname}/src/data/natl_en/Ottawa`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `montreal`,
+        path: `${__dirname}/src/data/natl_en/Greater Montreal`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `moncton`,
+        path: `${__dirname}/src/data/natl_en/Greater Moncton`,
       },
     },
     {

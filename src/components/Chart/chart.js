@@ -24,25 +24,6 @@ import charts from './chart.module.css'
 import './chart-accordion.css'
 
 class Chart extends React.Component {
-  /*   <Accordion>
-    {[
-      'NATIONAL RESIDENTIAL STATISTICS',
-      'VANCOUVER ISLAND',
-      'VICTORIA',
-      'GREATER VANCOUVER',
-      'FRASER VALLEY',
-      'CALGARY',
-      'EDMONTON',
-      'REGINA',
-    ].map(item => {
-      return (
-        <AccordionItem title={` ${item}`} expanded={item === 1}>
-          <div>{`Item ${item} content`}</div>
-        </AccordionItem>
-      )
-    })}
-  </Accordion> */
-
   constructor(props) {
     super(props)
 
@@ -91,13 +72,29 @@ class Chart extends React.Component {
 
   render() {
     ;/ const data = this.props.acc.allFile.edges /
-    const barrie = this.props.acc.Barrie.edges
-    const toronto = this.props.acc.Toronto.edges
+    const nrs = this.props.acc.natlResStats.edges
+    const van = this.props.acc.VanIsland.edges
     const victoria = this.props.acc.Victoria.edges
+    const GVan = this.props.acc.GVancouver.edges
+    const fraserV = this.props.acc.FraserV.edges
+    const okan = this.props.acc.Okan.edges
+    const calg = this.props.acc.Calg.edges
+    const edmo = this.props.acc.Edmonton.edges
+    const regi = this.props.acc.Regina.edges
+    const sask = this.props.acc.Sask.edges
+    const gulp = this.props.acc.Guelph.edges
+    const hamB = this.props.acc.HamiltonB.edges
+    const oakv = this.props.acc.Oakv.edges
+    const barr = this.props.acc.Barrie.edges
+    const toronto = this.props.acc.Toronto.edges
+    const niagara = this.props.acc.Niagara.edges
+    const ottawa = this.props.acc.Ottawa.edges
+    const montreal = this.props.acc.Montreal.edges
+    const moncton = this.props.acc.Moncton.edges
+
     const { activeTab } = this.state
-    console.log('barries', barrie)
 
-    const BarrImages = barrie.map((item, id) => {
+    const nrsImages = nrs.map((item, id) => {
       return {
         src: item.node.childImageSharp.fluid.src,
         width: 247,
@@ -105,15 +102,126 @@ class Chart extends React.Component {
       }
     })
 
-    const TrebImages = toronto.map((item, id) => {
+    const vanImages = van.map((item, id) => {
       return {
         src: item.node.childImageSharp.fluid.src,
         width: 247,
         height: 169,
       }
     })
-
-    const VictImages = victoria.map((item, id) => {
+    const victImages = victoria.map((item, id) => {
+      return {
+        src: item.node.childImageSharp.fluid.src,
+        width: 247,
+        height: 169,
+      }
+    })
+    const gVanImages = GVan.map((item, id) => {
+      return {
+        src: item.node.childImageSharp.fluid.src,
+        width: 247,
+        height: 169,
+      }
+    })
+    const fraserImages = fraserV.map((item, id) => {
+      return {
+        src: item.node.childImageSharp.fluid.src,
+        width: 247,
+        height: 169,
+      }
+    })
+    const okanImages = okan.map((item, id) => {
+      return {
+        src: item.node.childImageSharp.fluid.src,
+        width: 247,
+        height: 169,
+      }
+    })
+    const calgImages = calg.map((item, id) => {
+      return {
+        src: item.node.childImageSharp.fluid.src,
+        width: 247,
+        height: 169,
+      }
+    })
+    const edmoImages = edmo.map((item, id) => {
+      return {
+        src: item.node.childImageSharp.fluid.src,
+        width: 247,
+        height: 169,
+      }
+    })
+    const regImages = regi.map((item, id) => {
+      return {
+        src: item.node.childImageSharp.fluid.src,
+        width: 247,
+        height: 169,
+      }
+    })
+    const saskImages = sask.map((item, id) => {
+      return {
+        src: item.node.childImageSharp.fluid.src,
+        width: 247,
+        height: 169,
+      }
+    })
+    const gulpImages = gulp.map((item, id) => {
+      return {
+        src: item.node.childImageSharp.fluid.src,
+        width: 247,
+        height: 169,
+      }
+    })
+    const hamBImages = hamB.map((item, id) => {
+      return {
+        src: item.node.childImageSharp.fluid.src,
+        width: 247,
+        height: 169,
+      }
+    })
+    const oakvImages = oakv.map((item, id) => {
+      return {
+        src: item.node.childImageSharp.fluid.src,
+        width: 247,
+        height: 169,
+      }
+    })
+    const barrImages = barr.map((item, id) => {
+      return {
+        src: item.node.childImageSharp.fluid.src,
+        width: 247,
+        height: 169,
+      }
+    })
+    const gtaImages = toronto.map((item, id) => {
+      return {
+        src: item.node.childImageSharp.fluid.src,
+        width: 247,
+        height: 169,
+      }
+    })
+    const nagrImages = niagara.map((item, id) => {
+      return {
+        src: item.node.childImageSharp.fluid.src,
+        width: 247,
+        height: 169,
+      }
+    })
+    const ottImages = ottawa.map((item, id) => {
+      return {
+        src: item.node.childImageSharp.fluid.src,
+        width: 247,
+        height: 169,
+      }
+    })
+    const mtlImages = montreal.map((item, id) => {
+      return {
+        src: item.node.childImageSharp.fluid.src,
+        width: 247,
+        height: 169,
+      }
+    })
+    const moncImages = moncton.map((item, id) => {
       return {
         src: item.node.childImageSharp.fluid.src,
         width: 247,
@@ -122,11 +230,43 @@ class Chart extends React.Component {
     })
     const activeImages =
       activeTab == '1'
-        ? BarrImages
+        ? nrsImages
         : activeTab == '2'
-        ? TrebImages
+        ? vanImages
         : activeTab == '3'
-        ? VictImages
+        ? victImages
+        : activeTab == '4'
+        ? gVanImages
+        : activeTab == '5'
+        ? fraserImages
+        : activeTab == '6'
+        ? okanImages
+        : activeTab == '7'
+        ? calgImages
+        : activeTab == '8'
+        ? edmoImages
+        : activeTab == '9'
+        ? regImages
+        : activeTab == '10'
+        ? saskImages
+        : activeTab == '11'
+        ? gulpImages
+        : activeTab == '12'
+        ? hamBImages
+        : activeTab == '13'
+        ? oakvImages
+        : activeTab == '14'
+        ? barrImages
+        : activeTab == '15'
+        ? gtaImages
+        : activeTab == '16'
+        ? nagrImages
+        : activeTab == '17'
+        ? ottImages
+        : activeTab == '18'
+        ? mtlImages
+        : activeTab == '19'
+        ? moncImages
         : []
     console.log(activeImages, 'ac')
 
@@ -163,7 +303,7 @@ class Chart extends React.Component {
                 this.toggle('3')
               }}
             >
-              GREATER VANCOUVER
+              VICTORIA
             </NavLink>
           </NavItem>
           <NavItem className={charts.tabList}>
@@ -173,7 +313,7 @@ class Chart extends React.Component {
                 this.toggle('4')
               }}
             >
-              REGINA
+              GREATER VANCOUVER
             </NavLink>
           </NavItem>
           <NavItem className={charts.tabList}>
@@ -183,7 +323,7 @@ class Chart extends React.Component {
                 this.toggle('5')
               }}
             >
-              BARRIE
+              FRASER VALLEY
             </NavLink>
           </NavItem>
           <NavItem className={charts.tabList}>
@@ -193,7 +333,7 @@ class Chart extends React.Component {
                 this.toggle('6')
               }}
             >
-              FRASER VALLEY
+              OKANAGAN VALLEY
             </NavLink>
           </NavItem>
           <NavItem className={charts.tabList}>
@@ -203,7 +343,7 @@ class Chart extends React.Component {
                 this.toggle('7')
               }}
             >
-              SASKATOON
+              CALGARY
             </NavLink>
           </NavItem>
           <NavItem className={charts.tabList}>
@@ -213,7 +353,7 @@ class Chart extends React.Component {
                 this.toggle('8')
               }}
             >
-              OTTAWA
+              EDMONTON
             </NavLink>
           </NavItem>
           <NavItem className={charts.tabList}>
@@ -223,7 +363,7 @@ class Chart extends React.Component {
                 this.toggle('9')
               }}
             >
-              GUELPH
+              REGINA
             </NavLink>
           </NavItem>
           <NavItem className={charts.tabList}>
@@ -233,7 +373,97 @@ class Chart extends React.Component {
                 this.toggle('10')
               }}
             >
-              NIAGRA REGION
+              SASKATOON
+            </NavLink>
+          </NavItem>
+          <NavItem className={charts.tabList}>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === '11' })}
+              onClick={() => {
+                this.toggle('11')
+              }}
+            >
+              GUELPH
+            </NavLink>
+          </NavItem>
+          <NavItem className={charts.tabList}>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === '12' })}
+              onClick={() => {
+                this.toggle('12')
+              }}
+            >
+              HAMILTON-BURLINGTON
+            </NavLink>
+          </NavItem>
+          <NavItem className={charts.tabList}>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === '13' })}
+              onClick={() => {
+                this.toggle('13')
+              }}
+            >
+              OAKVILLE-MILTON
+            </NavLink>
+          </NavItem>
+          <NavItem className={charts.tabList}>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === '14' })}
+              onClick={() => {
+                this.toggle('14')
+              }}
+            >
+              BARRIE
+            </NavLink>
+          </NavItem>
+          <NavItem className={charts.tabList}>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === '15' })}
+              onClick={() => {
+                this.toggle('15')
+              }}
+            >
+              GREATER TORONTO
+            </NavLink>
+          </NavItem>
+          <NavItem className={charts.tabList}>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === '16' })}
+              onClick={() => {
+                this.toggle('16')
+              }}
+            >
+              NIAGARA REGION
+            </NavLink>
+          </NavItem>
+          <NavItem className={charts.tabList}>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === '17' })}
+              onClick={() => {
+                this.toggle('17')
+              }}
+            >
+              OTTAWA
+            </NavLink>
+          </NavItem>
+          <NavItem className={charts.tabList}>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === '18' })}
+              onClick={() => {
+                this.toggle('18')
+              }}
+            >
+              GREATER MONTREAL
+            </NavLink>
+          </NavItem>
+          <NavItem className={charts.tabList}>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === '19' })}
+              onClick={() => {
+                this.toggle('19')
+              }}
+            >
+              GREATER MONCTON
             </NavLink>
           </NavItem>
         </Nav>
@@ -302,13 +532,70 @@ export default () => (
   <StaticQuery
     query={graphql`
       query AccQuery {
-        Barrie: allFile(filter: { sourceInstanceName: { eq: "barrie" } }) {
+        natlResStats: allFile(
+          filter: { sourceInstanceName: { eq: "natlResStats" } }
+        ) {
           ...Sources
         }
-        Toronto: allFile(filter: { sourceInstanceName: { eq: "toronto" } }) {
+
+        VanIsland: allFile(
+          filter: { sourceInstanceName: { eq: "vanIsland" } }
+        ) {
           ...Sources
         }
         Victoria: allFile(filter: { sourceInstanceName: { eq: "victoria" } }) {
+          ...Sources
+        }
+        GVancouver: allFile(filter: { sourceInstanceName: { eq: "GVC" } }) {
+          ...Sources
+        }
+        FraserV: allFile(
+          filter: { sourceInstanceName: { eq: "fraserValley" } }
+        ) {
+          ...Sources
+        }
+        Okan: allFile(filter: { sourceInstanceName: { eq: "okanganValley" } }) {
+          ...Sources
+        }
+        Calg: allFile(filter: { sourceInstanceName: { eq: "calgary" } }) {
+          ...Sources
+        }
+        Edmonton: allFile(filter: { sourceInstanceName: { eq: "edmonton" } }) {
+          ...Sources
+        }
+        Regina: allFile(filter: { sourceInstanceName: { eq: "regina" } }) {
+          ...Sources
+        }
+        Sask: allFile(filter: { sourceInstanceName: { eq: "sask" } }) {
+          ...Sources
+        }
+        Guelph: allFile(filter: { sourceInstanceName: { eq: "guelph" } }) {
+          ...Sources
+        }
+        HamiltonB: allFile(
+          filter: { sourceInstanceName: { eq: "hamiltonB" } }
+        ) {
+          ...Sources
+        }
+        Oakv: allFile(filter: { sourceInstanceName: { eq: "oakvilleM" } }) {
+          ...Sources
+        }
+        Barrie: allFile(filter: { sourceInstanceName: { eq: "barrie" } }) {
+          ...Sources
+        }
+        Toronto: allFile(filter: { sourceInstanceName: { eq: "GTA" } }) {
+          ...Sources
+        }
+        Niagara: allFile(filter: { sourceInstanceName: { eq: "niagara" } }) {
+          ...Sources
+        }
+        Ottawa: allFile(filter: { sourceInstanceName: { eq: "ottawa" } }) {
+          ...Sources
+        }
+        Montreal: allFile(filter: { sourceInstanceName: { eq: "montreal" } }) {
+          ...Sources
+        }
+        Moncton: allFile(filter: { sourceInstanceName: { eq: "moncton" } }) {
           ...Sources
         }
       }
