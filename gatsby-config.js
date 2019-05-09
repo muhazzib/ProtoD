@@ -59,6 +59,7 @@ module.exports = {
         path: `${__dirname}/src/pages/`,
       },
     },
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -192,22 +193,150 @@ module.exports = {
         path: `${__dirname}/src/data/natl_en/Greater Moncton`,
       },
     },
+
+    //FR CHARTS START HERE//
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `data`,
-        path: `${__dirname}/src/data/`, // CSV Folder
-        ignore: [`**/\.*`], // ignore files starting with a dot
+        name: `natlResStatsFR`,
+        path: `${__dirname}/src/data/natl_fr/NRS`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `charts`,
+        name: `vanIslandFR`,
+        path: `${__dirname}/src/data/natl_fr/Van Island`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `victoriaFR`,
+        path: `${__dirname}/src/data/natl_fr/Victoria`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `GVCFR`,
+        path: `${__dirname}/src/data/natl_fr/Greater Vancouver`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `fraserValleyFR`,
+        path: `${__dirname}/src/data/natl_fr/Fraser Valley`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `okanganValleyFR`,
+        path: `${__dirname}/src/data/natl_fr/Okanagan Valley`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `calgaryFR`,
+        path: `${__dirname}/src/data/natl_fr/Calgary`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `edmontonFR`,
+        path: `${__dirname}/src/data/natl_fr/Edmonton`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `reginaFR`,
+        path: `${__dirname}/src/data/natl_fr/Regina`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `saskFR`,
+        path: `${__dirname}/src/data/natl_fr/Saskatoon`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `guelphFR`,
+        path: `${__dirname}/src/data/natl_fr/Guelph`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `hamiltonBFR`,
+        path: `${__dirname}/src/data/natl_fr/Hamilton-Burlington`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `oakvilleMFR`,
+        path: `${__dirname}/src/data/natl_fr/Oakville-Milton`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `barrieFR`,
+        path: `${__dirname}/src/data/natl_fr/Barrie`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `GTAFR`,
+        path: `${__dirname}/src/data/natl_fr/Greater Toronto`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `niagaraFR`,
+        path: `${__dirname}/src/data/natl_fr/Niagara Region`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `ottawaFR`,
+        path: `${__dirname}/src/data/natl_fr/Ottawa`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `montrealFR`,
+        path: `${__dirname}/src/data/natl_fr/Greater Montreal`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `monctonFR`,
+        path: `${__dirname}/src/data/natl_fr/Greater Moncton`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `csv`,
         path: `${__dirname}/src/data/`, // CSV Folder
         ignore: [`**/\.*`], // ignore files starting with a dot
       },
     },
+
     // {
     //   resolve: `gatsby-source-filesystem`,
     //   options: {

@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from '../components/layout'
+import Layout from '../components/Layouts/layout.js'
 import * as PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 

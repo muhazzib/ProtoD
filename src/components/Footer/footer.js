@@ -187,15 +187,22 @@ class Footer extends React.Component {
           </div>
         ) : (
           <div className="row row-2">
-            <div className={footerStyle.logo}>
+            <div className={footerStyle.logoFR}>
               <div className="col">
-                <img src={require('../../images/logo_crea_EN.svg')} />
+                <img src={require('../../images/ACI_Logo.png')} />
               </div>
             </div>
-            <div className="col ">
+            <div className="col">
               <p className={footerStyle.Trademark}>
-                French French French FrenchFrenchFrenchFrenchFrench.{' '}
-                <a href="#">Legal</a> |<a href="#">Privacy</a>
+                Les marques de commerce MLS® et Multiple Listing Service® ainsi
+                que les logos connexes sont la propriété de l'Association
+                canadienne de l'immeuble (ACI) et ils mettent en valeur la
+                qualité des services qu'offrent les courtiers et agents
+                immobiliers exerçant la profession à titre de membres de l'ACI.
+                Les marques de commerce REALTOR® et REALTORS®, de même que le
+                logo REALTOR®, sont sous le contrôle de l'ACI et désignent les
+                professionnels de l'immobilier qui sont membres de l'ACI.
+                Renseignements juridiques | Confidentialité Web
               </p>
             </div>
           </div>

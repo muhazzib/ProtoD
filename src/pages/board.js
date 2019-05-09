@@ -5,7 +5,7 @@ import get from 'lodash/get'
 import * as PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import styles from './blog.module.css'
-import Layout from '../components/layout'
+import Layout from '../components/Layouts/layout.boards'
 
 const propTypes = {
   data: PropTypes.object.isRequired,

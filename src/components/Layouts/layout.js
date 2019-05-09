@@ -3,15 +3,15 @@ import { Link } from 'gatsby'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Row, Col } from 'reactstrap'
 import Img from 'gatsby-image'
-import Container from './container'
+import Container from '../container'
 import get from 'lodash/get'
-import Wrapper from './wrapper/wrapper'
-import SideBar from './Side-bar/side-bar'
-import Header from './Header/header'
-import Breadcrumb from '../components/Breadcrumb/breadcrumb'
-import Footer from '../components/Footer/footer'
+import Wrapper from '../wrapper/wrapper'
+import SideBar from '../Side-bar/side-bar'
+import Header from '../Header/header'
+import Breadcrumb from '../Breadcrumb/breadcrumb'
+import Footer from '../Footer/footer'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
-import footerStyle from './Footer/footer.module.css'
+import footerStyle from '../Footer/footer.module.css'
 import { getCurrentLangKey, getLangs, getUrlForLang } from 'ptz-i18n'
 import { IntlProvider, addLocaleData } from 'react-intl'
 import 'intl'
@@ -19,24 +19,22 @@ import en from 'react-intl/locale-data/en'
 import 'intl/locale-data/jsonp/en'
 import fr from 'react-intl/locale-data/fr'
 import 'intl/locale-data/jsonp/fr'
-import SiteHeader from './Site-header/site-header'
-import '../components/Content/content.css'
-import { GlobalStyle } from '../utils/global'
+import SiteHeader from '../Site-header/site-header'
+import '../Content/content.css'
+import { GlobalStyle } from '../../utils/global'
 
-import BoardTable from './BoardsTable/boardsTable'
-import Col4BoardTable from './BoardsTable/4Col_boardTable'
-import Col7BoardTable from './BoardsTable/7Col_boardTable'
-import Col8BoardTable from './BoardsTable/8Col_boardTable'
-import TCol8BoardTable from './BoardsTable/T8Col_boardTable'
-import ChartY from './Chart/chx'
-import BurgerIcon from '../components/Mobile-menu/burgerIcon'
+import BoardTable from '../BoardsTable/boardsTable'
+import Col4BoardTable from '../BoardsTable/4Col_boardTable'
+import Col7BoardTable from '../BoardsTable/7Col_boardTable'
+import Col8BoardTable from '../BoardsTable/8Col_boardTable'
+import TCol8BoardTable from '../BoardsTable/T8Col_boardTable'
+import ChartY from '../Chart/chx'
+import BurgerIcon from '../Mobile-menu/burgerIcon'
 import Popup from 'reactjs-popup'
-import Menu from '../components/Mobile-menu/mobile-menu'
-import '../components/Mobile-menu/mobile.menu.css'
+import Menu from '../Mobile-menu/mobile-menu'
+import '../Mobile-menu/mobile.menu.css'
 import ReactFancyBox from 'react-fancybox'
 import 'react-fancybox/lib/fancybox.css'
-import Gallery from 'react-grid-gallery'
-
 // add concatenated locale data
 addLocaleData([...en, ...fr])
 
@@ -67,7 +65,7 @@ class Template extends React.Component {
     // get the appropriate message file based on langKey
     // at the moment this assumes that langKey will provide us
     // with the appropriate language code
-    this.i18nMessages = require(`../data/messages/${this.langKey}`)
+    this.i18nMessages = require(`../../data/messages/${this.langKey}`)
   }
   getYear() {
     return new Date().getFullYear()
