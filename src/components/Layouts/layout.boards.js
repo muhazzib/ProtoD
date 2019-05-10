@@ -26,6 +26,7 @@ import BurgerIcon from '../Mobile-menu/burgerIcon'
 import Popup from 'reactjs-popup'
 import Menu from '../Mobile-menu/mobile-menu'
 import '../Mobile-menu/mobile.menu.css'
+import { IntlProvider, addLocaleData } from 'react-intl'
 
 const contentStyle = {
   background: 'rgba(255,255,255,0)',
