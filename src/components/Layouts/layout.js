@@ -33,8 +33,6 @@ import BurgerIcon from '../Mobile-menu/burgerIcon'
 import Popup from 'reactjs-popup'
 import Menu from '../Mobile-menu/mobile-menu'
 import '../Mobile-menu/mobile.menu.css'
-import ReactFancyBox from 'react-fancybox'
-import 'react-fancybox/lib/fancybox.css'
 // add concatenated locale data
 addLocaleData([...en, ...fr])
 
@@ -204,10 +202,10 @@ class Template extends React.Component {
                               <Row>
                                 {post.charts.map((item, id) => (
                                   <Col sm="3" key={id}>
-                                    <ReactFancyBox
+                                    {/*  <ReactFancyBox
                                       thumbnail={item.fixed.src}
                                       image={item.fluid.src}
-                                    />
+                                    /> */}
                                     {/* <Gallery images={IMAGES} /> */}
                                   </Col>
                                 ))}

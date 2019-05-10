@@ -1,8 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import { Accordion, AccordionItem } from 'react-sanfona'
-import Lightbox from 'react-image-lightbox'
-import 'react-image-lightbox/style.css' // This only needs to be imported once in your app
+
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 
 class ChartImageA extends React.Component {

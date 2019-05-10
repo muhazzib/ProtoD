@@ -458,7 +458,10 @@ ${'Board table'}
   display:inline-table;
 }
 
-
+bluebold {
+  color: #345fa8;
+  font-weight:600
+}
 
 /** Media Queries **/
 @media only screen and (min-width: 900px) {

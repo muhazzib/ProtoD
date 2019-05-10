@@ -356,6 +356,10 @@ module.exports = {
           /*
            * Defines custom html string for each node type like heading, embedded entries etc..
            */
+          renderMark: {
+            // Example
+            [MARKS.BOLD]: text => `<bluebold>${text}<bluebold>`,
+          },
           renderNode: {
             // Example
 

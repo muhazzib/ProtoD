@@ -195,7 +195,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    ca: allContentfulNational(filter: { node_locale: { eq: "en-US" } }) {
+    ca: allContentfulNational(sort: { fields: [publishDate], order: DESC }) {
       edges {
         node {
           title
