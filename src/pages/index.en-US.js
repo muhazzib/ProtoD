@@ -85,51 +85,61 @@ class RootENIndex extends React.Component {
                   <h2>{natl.headline}</h2>
 
                   <div>
-                    <div
-                      className="content"
-                      dangerouslySetInnerHTML={{
-                        __html: natl.mainContent.childMarkdownRemark.html,
-                      }}
-                    />
-                    <div className="chart_container">
-                      {/* Char A Start */}
-                      <div className="imageBox">
-                        {/*    <img
-                          onClick={this.showModal}
-                          src={natl.chartA.fixed.src}
-                          className="thumbnail"
-                        /> */}
-                        <ChartA className="thumbnail" />
+                    {natl.contentA !== null && (
+                      <div
+                        className="content"
+                        dangerouslySetInnerHTML={{
+                          __html: natl.contentA.childContentfulRichText.html,
+                        }}
+                      />
+                    )}
+
+                    {natl.chartA !== null && (
+                      <div className="chart_container">
+                        <div className="imageBox">
+                          {/*  <img
+                            onClick={this.showModal}
+                            src={natl.chartA.fixed.src}
+                            className="thumbnail"
+                          /> */}
+                          <ChartA className="thumbnail" />
+                        </div>
+
+                        <p>Chart A</p>
                       </div>
+                    )}
 
-                      <p>Chart A</p>
-                    </div>
-                    {/* Char A End */}
-                    <div
-                      className="content"
-                      dangerouslySetInnerHTML={{
-                        __html: natl.contentB.childContentfulRichText.html,
-                      }}
-                    />
-                    <div className="chart_container">
-                      <div className="imageBox">
-                        {/*   <img
-                          onClick={this.showModal2}
-                          src={natl.chartB.fixed.src}
-                          className="thumbnail"
-                        /> */}
-                        <ChartB className="thumbnail" />
+                    {natl.contentB !== null && (
+                      <div
+                        className="content"
+                        dangerouslySetInnerHTML={{
+                          __html: natl.contentB.childContentfulRichText.html,
+                        }}
+                      />
+                    )}
+                    {natl.chartB !== null && (
+                      <div className="chart_container">
+                        <div className="imageBox">
+                          {/*  <img
+                            onClick={this.showModal}
+                            src={natl.chartB.fixed.src}
+                            className="thumbnail"
+                          /> */}
+                          <ChartB className="thumbnail" />
+                        </div>
+
+                        <p>Chart B</p>
                       </div>
+                    )}
 
-                      <p>Chart B</p>
-                    </div>
-
-                    <div
-                      className="content"
-                      dangerouslySetInnerHTML={{
-                        __html: natl.contentC.childContentfulRichText.html,
-                      }}
-                    />
+                    {natl.contentC !== null && (
+                      <div
+                        className="content"
+                        dangerouslySetInnerHTML={{
+                          __html: natl.contentC.childContentfulRichText.html,
+                        }}
+                      />
+                    )}
                     <div className="sheet">
                       <div style={style}>
                         <Chart />
@@ -194,14 +204,7 @@ export const pageQuery = graphql`
           node_locale
           headline
           slug
-          nationalResidentialStats {
-            fixed(width: 163, height: 111) {
-              src
-              width
-              height
-              srcSet
-            }
-          }
+
           chartA {
             fixed(width: 1079, height: 740) {
               src
@@ -233,8 +236,8 @@ export const pageQuery = graphql`
             }
           }
           publishDate
-          mainContent {
-            childMarkdownRemark {
+          contentA {
+            childContentfulRichText {
               html
             }
           }
@@ -264,7 +267,7 @@ export const pageQuery = graphql`
       node {
         title
         slug
-        mainContent {
+        contentA {
           childContentfulRichText {
             html
           }

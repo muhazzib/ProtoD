@@ -112,7 +112,7 @@ class Template extends React.Component {
               {close => <Menu close={close} />}
             </Popup>
             <Breadcrumb />
-
+            {/* 
             {this.props.location.pathname == '/en-US/' ? (
               <Modal
                 isOpen={this.props.chartAProp}
@@ -122,7 +122,7 @@ class Template extends React.Component {
                   Chart A
                 </ModalHeader>
                 <ModalBody>
-                  <img src={natl.chartA.fluid.src} />
+                  {natl.chartA !== null && <img src={natl.chartA.fluid.src} />}
                 </ModalBody>
               </Modal>
             ) : null}
@@ -135,10 +135,10 @@ class Template extends React.Component {
                   Chart B
                 </ModalHeader>
                 <ModalBody>
-                  <img src={natl.chartB.fluid.src} />
+                  {natl.chartB !== null && <img src={natl.chartB.fluid.src} />}
                 </ModalBody>
               </Modal>
-            ) : null}
+            ) : null} */}
 
             {this.children}
 

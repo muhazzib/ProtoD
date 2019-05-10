@@ -62,7 +62,6 @@ class RootDEIndex extends React.Component {
 
   render() {
     const natl = get(this, 'props.data.fr.edges[0].node')
-    console.log('national-fr', natl)
 
     return (
       <LayoutFr data={this.props.data} location={this.props.location}>
@@ -84,51 +83,60 @@ class RootDEIndex extends React.Component {
                   <h2>{natl.headline}</h2>
 
                   <div>
-                    <div
-                      className="content"
-                      dangerouslySetInnerHTML={{
-                        __html: natl.mainContent.childMarkdownRemark.html,
-                      }}
-                    />
-                    <div className="chart_container">
-                      {/* Char A Start */}
-                      <div className="imageBox">
-                        <ChartA className="thumbnail" />
-                        {/*    <img
-                          onClick={this.showModal}
-                          src={natl.chartA.fixed.src}
-                          className="thumbnail"
-                        /> */}
+                    {natl.contentA !== null && (
+                      <div
+                        className="content"
+                        dangerouslySetInnerHTML={{
+                          __html: natl.contentA.childContentfulRichText.html,
+                        }}
+                      />
+                    )}
+
+                    {natl.chartA !== null && (
+                      <div className="chart_container">
+                        <div className="imageBox">
+                          {/*    <img
+                            onClick={this.showModal}
+                            src={natl.chartA.fixed.src}
+                            className="thumbnail"
+                          /> */}
+                          <ChartA className="thumbnail" />
+                        </div>
+
+                        <p>Graphique A</p>
                       </div>
+                    )}
 
-                      <p>Chart A</p>
-                    </div>
-                    {/* Char A End */}
-                    <div
-                      className="content"
-                      dangerouslySetInnerHTML={{
-                        __html: natl.contentB.childContentfulRichText.html,
-                      }}
-                    />
-                    <div className="chart_container">
-                      <div className="imageBox">
-                        <ChartB className="thumbnail" />
-                        {/*  <img
-                          onClick={this.showModal2}
-                          src={natl.chartB.fixed.src}
-                          className="thumbnail"
-                        /> */}
+                    {natl.contentB !== null && (
+                      <div
+                        className="content"
+                        dangerouslySetInnerHTML={{
+                          __html: natl.contentB.childContentfulRichText.html,
+                        }}
+                      />
+                    )}
+                    {natl.chartB !== null && (
+                      <div className="chart_container">
+                        <div className="imageBox">
+                          {/*   <img
+                            onClick={this.showModal}
+                            src={natl.chartB.fixed.src}
+                            className="thumbnail"
+                          /> */}
+                          <ChartB className="thumbnail" />
+                        </div>
+                        <p>Graphique B</p>
                       </div>
+                    )}
 
-                      <p>Chart B</p>
-                    </div>
-
-                    <div
-                      className="content"
-                      dangerouslySetInnerHTML={{
-                        __html: natl.contentC.childContentfulRichText.html,
-                      }}
-                    />
+                    {natl.contentC !== null && (
+                      <div
+                        className="content"
+                        dangerouslySetInnerHTML={{
+                          __html: natl.contentC.childContentfulRichText.html,
+                        }}
+                      />
+                    )}
                     <div className="sheet">
                       <div style={style}>
                         <Chart />
@@ -175,7 +183,7 @@ RootDEIndex.propTypes = propTypes
 export default RootDEIndex
 
 export const pageQuery = graphql`
-  query HomeDEQuery {
+  query HomeFRQuery {
     site {
       siteMetadata {
         languages {
@@ -224,8 +232,8 @@ export const pageQuery = graphql`
             }
           }
           publishDate
-          mainContent {
-            childMarkdownRemark {
+          contentA {
+            childContentfulRichText {
               html
             }
           }
@@ -254,7 +262,7 @@ export const pageQuery = graphql`
       node {
         title
         slug
-        mainContent {
+        contentA {
           childContentfulRichText {
             html
           }

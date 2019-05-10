@@ -44,7 +44,6 @@ class ChartImageA extends React.Component {
   render() {
     /* const data = this.props.acc.allFile.edges */
     const post = this.props.chart.ChartA.edges[0].node
-    console.log('charta', post.chartA.fixed.src)
 
     return (
       <div>

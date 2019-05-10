@@ -375,6 +375,9 @@ blockquote cite {
   font-style: normal;
 }
 
+.content ul li p{
+  margin-bottom: 0px !important;
+}
 .content strong{
   color: #345fa8;
 }

@@ -41,34 +41,6 @@ class NatlAboutTemplate extends React.Component {
           <div className="row split">
             <div className="col-md">
               <div className="entry-header">
-                {/*  {location.pathname}
-                <Location>
-                  {({ location }) => {
-                    {
-                      Location.pathname &&
-                        '/fr-CA/stats/2WzwJAqfKd3QekqmJcKmli/'(
-                          <div>
-                            <SidebarFr />
-                          </div>
-                        )
-                    }
-                    console.log(location)
-                    return <p>The location is {location.pathname}</p>
-                  }}
-                </Location>
-                {Location.pathname &&
-                  '/fr-CA/stats/2WzwJAqfKd3QekqmJcKmli/'(
-                    <div>
-                      <SidebarFr />
-                    </div>
-                  )} */}
-
-                {/*   <SidebarFr
-                  isIndex={
-                    this.props.location.pathname !==
-                    '/fr-CA/stats/2WzwJAqfKd3QekqmJcKmli/'
-                  }
-                /> */}
                 <h1
                   className="entry-title"
                   dangerouslySetInnerHTML={{
@@ -84,7 +56,7 @@ class NatlAboutTemplate extends React.Component {
                   <div
                     className="content"
                     dangerouslySetInnerHTML={{
-                      __html: natl.mainContent.childContentfulRichText.html,
+                      __html: natl.contentA.childContentfulRichText.html,
                     }}
                   />
                   {/* <!--  ==========================================================  -->
@@ -151,7 +123,7 @@ export const pageQuery = graphql`
       node_locale
       title
       headline
-      mainContent {
+      contentA {
         childContentfulRichText {
           html
         }

@@ -23,11 +23,6 @@ exports.createPages = ({ graphql, actions }) => {
                 node {
                   title
                   slug
-                  mainContent {
-                    childMarkdownRemark {
-                      html
-                    }
-                  }
                 }
               }
             }
@@ -37,11 +32,6 @@ exports.createPages = ({ graphql, actions }) => {
                   title
                   id
                   slug
-                  mainContent {
-                    childContentfulRichText {
-                      html
-                    }
-                  }
                 }
               }
             }
