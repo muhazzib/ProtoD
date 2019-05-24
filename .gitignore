@@ -75,3 +75,5 @@ yarn-error.log
 # Build directory
 /public
 .DS_Store
+src/data/tesy/break_fb.jpg
+src/data/tesy/youngcouplr_te.jpg
