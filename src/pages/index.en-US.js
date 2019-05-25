@@ -71,7 +71,7 @@ class RootENIndex extends React.Component {
           <div className="row split">
             <div className="col-md">
               <div className="entry-header">
-                <h1>National Statistics </h1>
+                <h1>National Statistics test</h1>
                 {/* <h1
                   className="entry-title"
                   dangerouslySetInnerHTML={{
