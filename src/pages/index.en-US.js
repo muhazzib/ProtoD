@@ -71,7 +71,7 @@ class RootENIndex extends React.Component {
           <div className="row split">
             <div className="col-md">
               <div className="entry-header">
-                <h1>National Statistics</h1>
+                <h1>National Statistics </h1>
                 {/* <h1
                   className="entry-title"
                   dangerouslySetInnerHTML={{
@@ -163,8 +163,8 @@ class RootENIndex extends React.Component {
   <!--  ==========================================================  --> */}
         <div className={footerStyle.boardCredit}>
           <p>
-            The information contained in this report has been prepared by The
-            Canadian Real Estate Association drawn from sources deemed to be
+            sss The information contained in this report has been prepared by
+            The Canadian Real Estate Association drawn from sources deemed to be
             reliable, but the accuracy and completeness of the information is
             not guaranteed. In providing this information, The Canadian Real
             Estate Association does not assume any responsibility or liability.

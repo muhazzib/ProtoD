@@ -18,7 +18,8 @@ class BlogyIndex extends React.Component {
 
     return (
       <Layout data={this.props.data} location={this.props.location}>
-        <div style={{ background: '#fff' }}>
+        <h1>hiii bbb</h1>
+        {/*         <div style={{ background: '#fff' }}>
           <Helmet title={siteTitle} />
           <div className={styles.hero}>Blog page</div>
           <div className="wrapper">
@@ -33,7 +34,7 @@ class BlogyIndex extends React.Component {
               })}
             </ul>
           </div>
-        </div>
+        </div> */}
       </Layout>
     )
   }

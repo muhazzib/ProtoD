@@ -37,6 +37,7 @@ module.exports = {
     'gatsby-transformer-sharp',
     `gatsby-plugin-playground`,
     'gatsby-plugin-react-helmet',
+    `@hot-loader/react-dom`,
     `gatsby-plugin-styled-components`,
     'gatsby-plugin-sharp',
     {
