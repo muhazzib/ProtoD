@@ -197,21 +197,17 @@ class Template extends React.Component {
                           {/* <!--  ==========================================================  -->
         <!--  START ---- PAGE TITLE, PAGE HEADLINE, PAGE CONTENT ==========================  -->
         <!--  ==========================================================  --> */}
-                          {post.charts !== null && (
+                          {/*       {post.charts !== null && (
                             <div className="charts">
                               <Row>
                                 {post.charts.map((item, id) => (
                                   <Col sm="3" key={id}>
-                                    {/*  <ReactFancyBox
-                                      thumbnail={item.fixed.src}
-                                      image={item.fluid.src}
-                                    /> */}
-                                    {/* <Gallery images={IMAGES} /> */}
+                                   
                                   </Col>
                                 ))}
                               </Row>
                             </div>
-                          )}
+                          )} */}
                           {/* <!--  ==========================================================  -->
         <!--  START--- BOARDS HOMEPAGE SHEETS ==========================  -->
         <!--  ==========================================================  --> */}
