@@ -21,7 +21,7 @@ export default class ChartY extends React.Component {
 
   render() {
     /*  const data = this.props.acc.allFile.edges  */
-    const charts = this.props.chartsData
+    const charts = this.props.chartsGI
     console.log('chx', charts, ' chx')
 
     return (
@@ -30,11 +30,7 @@ export default class ChartY extends React.Component {
           <div className="row" style={customRow}>
             <div className=".col-lg-">
               {charts.map((item, i) => (
-                <img
-                  style={imgStyle}
-                  key={i}
-                  src={item.node.childImageSharp.fluid.src}
-                />
+                <img style={imgStyle} key={i} src={item.node.productUrl} />
               ))}
             </div>
           </div>

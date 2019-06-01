@@ -70,7 +70,7 @@ class Template extends React.Component {
     return (
       <Container>
         <GlobalStyle />
-        <Header langs={this.langsMenu} pathname={url} />
+        <Header pathname={url} />
         <SiteHeader pathname={url} />
 
         <Wrapper>
@@ -167,24 +167,29 @@ class Template extends React.Component {
                         {/* <!--  ==========================================================  -->
         <!--  START ---- PAGE TITLE, PAGE HEADLINE, PAGE CONTENT ==========================  -->
         <!--  ==========================================================  --> */}
-                        {post.charts !== null && (
+
+                        {/*         {post.charts !== null && (
                           <div className="charts">
                             <Row>
                               {post.charts.map((item, id) => (
                                 <Col sm="3" key={id}>
-                                  {/* <ReactFancyBox
+                                  <ReactFancyBox
                                       thumbnail={item.fixed.src}
                                       image={item.fluid.src}
-                                    /> */}
-                                  {/* <Gallery images={IMAGES} /> */}
+                                    />
+                                  <Gallery images={IMAGES} />
                                 </Col>
                               ))}
                             </Row>
                           </div>
-                        )}
+                        )} */}
                         {/* <!--  ==========================================================  -->
         <!--  START--- BOARDS HOMEPAGE SHEETS ==========================  -->
         <!--  ==========================================================  --> */}
+                        {this.props.chartsGI.length > 0 ? (
+                          <ChartY chartsGI={this.props.chartsGI} />
+                        ) : null}
+
                         <div className="boardSheets">
                           {this.props.tableData.length > 0 ||
                           this.props.mtlData.length > 0 ||
@@ -257,7 +262,6 @@ class Template extends React.Component {
                         {/* <!--  ==========================================================  -->
         <!--  END--- BOARDS HOMEPAGE SHEETS ==========================  -->
         <!--  ==========================================================  --> */}
-
                         {/* <!--  ==========================================================  -->
         <!--  START--- BOARD INFORMATION ==========================  -->
         <!--  ==========================================================  --> */}
@@ -297,7 +301,6 @@ class Template extends React.Component {
                         {/* <!--  ==========================================================  -->
         <!--  END--- BOARDS HOMEPAGE SHEETS ==========================  -->
         <!--  ==========================================================  --> */}
-
                         {/* <!--  ==========================================================  -->
         <!-- START---  BOARD AND CREA DECLARATION HERE ==========================  -->
         <!--  ==========================================================  --> */}
@@ -319,7 +322,6 @@ class Template extends React.Component {
                             without written permission..
                           </p>
                         </div>
-
                         {/* <!--  ==========================================================  -->
         <!-- END--- EDITING PAGE CONTENT HERE =============================  -->
         <!--  ==========================================================  --></div> */}

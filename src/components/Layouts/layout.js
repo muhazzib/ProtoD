@@ -110,6 +110,7 @@ class Template extends React.Component {
               {close => <Menu close={close} />}
             </Popup>
             <Breadcrumb />
+
             {/* 
             {this.props.location.pathname == '/en-US/' ? (
               <Modal
@@ -211,6 +212,7 @@ class Template extends React.Component {
                           {/* <!--  ==========================================================  -->
         <!--  START--- BOARDS HOMEPAGE SHEETS ==========================  -->
         <!--  ==========================================================  --> */}
+
                           <div className="boardSheets">
                             {this.props.tableData.length > 0 ||
                             this.props.mtlData.length > 0 ||

@@ -23,6 +23,7 @@
     "gatsby-source-contentful": "^2.0.39",
     "gatsby-source-drive": "0.0.2",
     "gatsby-source-filesystem": "^2.0.27",
+    "gatsby-source-google-photos": "^1.0.4",
     "gatsby-transformer-csv": "^2.0.8",
     "gatsby-transformer-remark": "^2.3.4",
     "gatsby-transformer-sharp": "^2.1.17",

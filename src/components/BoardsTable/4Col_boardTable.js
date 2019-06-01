@@ -29,6 +29,8 @@ export default class BoardTable4 extends React.Component {
     const muskField = this.props.muskField
     const muskField2 = this.props.muskField2
 
+    console.log('chattt', chatRa)
+
     return (
       <Table
         bordered

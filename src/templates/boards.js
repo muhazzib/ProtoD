@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'reactstrap'
 import * as PropTypes from 'prop-types'
 import get from 'lodash/get'
 import Img from 'gatsby-image'
-import Layout from '../components/Layouts/layout.js'
+import Layout from '../components/Layouts/layout.boards.js'
 import Link from 'gatsby-link'
 import SideBar from '../components/Side-bar/side-bar'
 import footerStyle from '../components/Footer/footer.module.css'
@@ -28,7 +28,7 @@ class BoardTemplate extends React.Component {
       data2: [],
       data3: [],
       data4: [],
-      charts: [],
+      chartsGI: [],
       areaData: [],
       areaData2: [],
       areaData3: [],
@@ -61,6 +61,8 @@ class BoardTemplate extends React.Component {
       this.setState({
         chatData: this.props.data.ChatHome1.edges,
         chatData2: this.props.data.ChatHome2.edges,
+
+        chartsGI: this.props.data.GI.edges,
         name1: 'Actual 1',
         name2: 'Year-To-Date 2',
       })
@@ -160,7 +162,7 @@ class BoardTemplate extends React.Component {
         data1: [],
         data2: [],
         data3: [],
-        charts: [],
+        chartsGI: [],
         areaData: [],
         areaData2: [],
         areaData3: [],
@@ -176,7 +178,7 @@ class BoardTemplate extends React.Component {
     }
   }
   render() {
-    console.log(this.props, '-----')
+    console.log(this.props, '-----xxxxxx')
     const post = get(this.props, 'data.contentfulBoards')
     console.log('posts', post)
     const {
@@ -196,7 +198,7 @@ class BoardTemplate extends React.Component {
       abfield2,
       abfield3,
       abfield4,
-      charts,
+      chartsGI,
       areaData,
       areaData2,
       areaData3,
@@ -233,7 +235,6 @@ class BoardTemplate extends React.Component {
         tableData2={data2}
         tableData3={data3}
         tableData4={data4}
-        chartsData={charts}
         areaData={areaData}
         areaData2={areaData2}
         areaData3={areaData3}
@@ -247,6 +248,7 @@ class BoardTemplate extends React.Component {
         muskData2={muskData2}
         muskData3={muskData3}
         muskData4={muskData4}
+        chartsGI={chartsGI}
       >
         <GlobalStyle />
       </Layout>
@@ -268,6 +270,7 @@ export const pageQuery = graphql`
         }
       }
     }
+ 
     contentfulBoards(id: { eq: $id }) {
       title
       slug
@@ -318,6 +321,15 @@ export const pageQuery = graphql`
         }
       }        
     }
+    GI:   allGooglePhoto {
+    edges {
+      node {
+        albumTitle
+        filename
+        productUrl
+      }
+    }
+  }
     MuskHome1: allLakelandshome1Csv {
     edges {
       node {

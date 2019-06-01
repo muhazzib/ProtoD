@@ -63,6 +63,14 @@ exports.createPages = ({ graphql, actions }) => {
                 }
               }
             }
+            allGooglePhoto {
+              edges {
+                node {
+                  albumTitle
+                  filename
+                }
+              }
+            }
           }
         `
       ).then(result => {
