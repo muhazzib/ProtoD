@@ -74,7 +74,7 @@ export default class ChartY extends React.Component {
         <div className="container">
           <div className="row" style={customRow}>
             <div className=".col-lg-">
-              <Gallery photos={activeImages} onClick={this.openLightbox} />
+              {/*   <Gallery photos={activeImages} onClick={this.openLightbox} />
               <Lightbox
                 images={activeImages}
                 onClose={this.closeLightbox}
@@ -82,7 +82,7 @@ export default class ChartY extends React.Component {
                 onClickNext={this.gotoNext}
                 currentImage={this.state.currentImage}
                 isOpen={this.state.lightboxIsOpen}
-              />
+              /> */}
             </div>
           </div>
         </div>
