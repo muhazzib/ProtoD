@@ -71,7 +71,7 @@ class Chart extends React.Component {
   }
 
   render() {
-    ;/ const data = this.props.acc.allFile.edges /
+    
     const nrs = this.props.acc.natlResStats.edges
     const van = this.props.acc.VanIsland.edges
     const victoria = this.props.acc.Victoria.edges

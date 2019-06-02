@@ -29,8 +29,8 @@ if (!spaceId || !accessToken) {
 module.exports = {
   pathPrefix: '/gatsby-contentful-starter',
   proxy: {
-    prefix: '/api',
-    url: 'http://dev-mysite.com',
+    prefix: '/share',
+    url: 'https://photos.google.com',
   },
   siteMetadata: {
     title: 'Gatsby + WordPress Starter',

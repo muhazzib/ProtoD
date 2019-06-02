@@ -327,6 +327,7 @@ export const pageQuery = graphql`
         albumTitle
         filename
         productUrl
+        baseUrl
       }
     }
   }
